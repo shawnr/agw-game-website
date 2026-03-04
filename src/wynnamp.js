@@ -28,6 +28,61 @@
     },
   ];
 
+  /* ---------- color skins ---------- */
+  const SKINS = [
+    {
+      name: 'Amber',
+      top: '#D4A017',
+      bottom: '#8B6914',
+      peak: '#FFD700',
+      glow: 'rgba(212, 160, 23, 0.6)',
+      dim: 'rgba(212, 160, 23, 0.2)',
+      accent: '#D4A017',
+      accentBright: '#FFD700',
+      line: '#D4A017',
+    },
+    {
+      name: 'Arcana',
+      top: '#B44EFF',
+      bottom: '#6B21A8',
+      peak: '#D88FFF',
+      glow: 'rgba(153, 51, 255, 0.6)',
+      dim: 'rgba(153, 51, 255, 0.2)',
+      accent: '#9933FF',
+      accentBright: '#CC77FF',
+      line: '#B44EFF',
+    },
+    {
+      name: 'Nature',
+      top: '#33CC55',
+      bottom: '#1A7A30',
+      peak: '#77FF99',
+      glow: 'rgba(51, 204, 85, 0.6)',
+      dim: 'rgba(51, 204, 85, 0.2)',
+      accent: '#33CC55',
+      accentBright: '#66FF88',
+      line: '#33CC55',
+    },
+    {
+      name: 'Hydro',
+      top: '#4499FF',
+      bottom: '#2255AA',
+      peak: '#88CCFF',
+      glow: 'rgba(68, 153, 255, 0.6)',
+      dim: 'rgba(68, 153, 255, 0.2)',
+      accent: '#4499FF',
+      accentBright: '#88CCFF',
+      line: '#4499FF',
+    },
+  ];
+
+  /* ---------- viz modes ---------- */
+  const VIZ_MODES = ['bars', 'oscilloscope', 'scatter'];
+  let vizModeIdx = 0;
+  let skinIdx = 0;
+
+  function skin() { return SKINS[skinIdx]; }
+
   /* ---------- DOM refs ---------- */
   const root = document.getElementById('wynnamp');
   if (!root) return;
@@ -48,6 +103,7 @@
   const volSlider      = root.querySelector('.wa-vol-slider');
   const volFill        = root.querySelector('.wa-vol-fill');
   const statusMode     = root.querySelector('.wa-status-mode');
+  const skinBadge      = root.querySelector('.wa-title-badge');
 
   /* ---------- audio ---------- */
   const audio = new Audio();
@@ -60,21 +116,21 @@
   let audioCtx   = null;
   let analyser   = null;
   let source     = null;
-  let dataArray   = null;
-  let vizRAF      = null;
+  let freqData   = null;
+  let timeData   = null;
+  let vizRAF     = null;
 
   /* ---------- visualization ---------- */
   const ctx = vizCanvas.getContext('2d');
   const BAR_COUNT  = 32;
   const BAR_GAP    = 1;
-  // colors
-  const BAR_COLOR_TOP    = '#D4A017';
-  const BAR_COLOR_BOTTOM = '#8B6914';
-  const BAR_PEAK_COLOR   = '#FFD700';
 
   // peak hold
   let peaks = new Array(BAR_COUNT).fill(0);
   let peakDecay = new Array(BAR_COUNT).fill(0);
+
+  // scatter particles
+  let particles = [];
 
   function initAudioContext() {
     if (audioCtx) return;
@@ -85,44 +141,47 @@
     source = audioCtx.createMediaElementSource(audio);
     source.connect(analyser);
     analyser.connect(audioCtx.destination);
-    dataArray = new Uint8Array(analyser.frequencyBinCount);
+    freqData = new Uint8Array(analyser.frequencyBinCount);
+    timeData = new Uint8Array(analyser.frequencyBinCount);
   }
 
-  function drawViz() {
-    const rect = vizCanvas.getBoundingClientRect();
-    const W = rect.width;
-    const H = rect.height;
-    ctx.clearRect(0, 0, W, H);
+  /* ---------- apply skin to CSS ---------- */
+  function applySkin() {
+    const s = skin();
+    root.style.setProperty('--wa-accent', s.accent);
+    root.style.setProperty('--wa-accent-bright', s.accentBright);
+    root.style.setProperty('--wa-glow', s.glow);
+    if (skinBadge) {
+      skinBadge.textContent = 'ChantCast';
+      skinBadge.title = s.name + ' skin — click to change';
+    }
+  }
 
-    // dark background with subtle noise
-    ctx.fillStyle = '#0A0806';
-    ctx.fillRect(0, 0, W, H);
+  /* ---------- viz: spectrum bars ---------- */
+  function drawBars(W, H) {
+    const s = skin();
 
     if (!analyser || !isPlaying) {
-      // idle state: dim bars
       const barW = (W - (BAR_COUNT - 1) * BAR_GAP) / BAR_COUNT;
       for (let i = 0; i < BAR_COUNT; i++) {
         const x = i * (barW + BAR_GAP);
-        const h = 2;
-        ctx.fillStyle = 'rgba(212, 160, 23, 0.2)';
-        ctx.fillRect(x, H - h, barW, h);
+        ctx.fillStyle = s.dim;
+        ctx.fillRect(x, H - 2, barW, 2);
       }
-      if (isPlaying) vizRAF = requestAnimationFrame(drawViz);
       return;
     }
 
-    analyser.getByteFrequencyData(dataArray);
+    analyser.getByteFrequencyData(freqData);
 
     const barW = (W - (BAR_COUNT - 1) * BAR_GAP) / BAR_COUNT;
-    const bins = dataArray.length;
+    const bins = freqData.length;
     const binStep = Math.floor(bins / BAR_COUNT);
 
     for (let i = 0; i < BAR_COUNT; i++) {
-      // average a range of bins for this bar
       let sum = 0;
       const start = i * binStep;
       for (let j = start; j < start + binStep && j < bins; j++) {
-        sum += dataArray[j];
+        sum += freqData[j];
       }
       const avg = sum / binStep;
       const barH = (avg / 255) * H * 0.9;
@@ -130,10 +189,9 @@
       const x = i * (barW + BAR_GAP);
       const y = H - barH;
 
-      // gradient bar
       const grad = ctx.createLinearGradient(x, H, x, y);
-      grad.addColorStop(0, BAR_COLOR_BOTTOM);
-      grad.addColorStop(1, BAR_COLOR_TOP);
+      grad.addColorStop(0, s.bottom);
+      grad.addColorStop(1, s.top);
       ctx.fillStyle = grad;
       ctx.fillRect(x, y, barW, barH);
 
@@ -147,10 +205,155 @@
       }
 
       if (peaks[i] > 2) {
-        ctx.fillStyle = BAR_PEAK_COLOR;
+        ctx.fillStyle = s.peak;
         ctx.fillRect(x, H - peaks[i] - 2, barW, 2);
       }
     }
+  }
+
+  /* ---------- viz: oscilloscope ---------- */
+  function drawOscilloscope(W, H) {
+    const s = skin();
+
+    if (!analyser || !isPlaying) {
+      // idle: flat line at center
+      ctx.strokeStyle = s.dim;
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.moveTo(0, H / 2);
+      ctx.lineTo(W, H / 2);
+      ctx.stroke();
+      return;
+    }
+
+    analyser.getByteTimeDomainData(timeData);
+
+    // glow layer
+    ctx.shadowColor = s.glow;
+    ctx.shadowBlur = 8;
+    ctx.strokeStyle = s.top;
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+
+    const sliceW = W / timeData.length;
+    for (let i = 0; i < timeData.length; i++) {
+      const v = timeData[i] / 128.0;
+      const y = (v * H) / 2;
+      if (i === 0) ctx.moveTo(0, y);
+      else ctx.lineTo(i * sliceW, y);
+    }
+    ctx.stroke();
+
+    // brighter core line
+    ctx.shadowBlur = 0;
+    ctx.strokeStyle = s.peak;
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    for (let i = 0; i < timeData.length; i++) {
+      const v = timeData[i] / 128.0;
+      const y = (v * H) / 2;
+      if (i === 0) ctx.moveTo(0, y);
+      else ctx.lineTo(i * sliceW, y);
+    }
+    ctx.stroke();
+  }
+
+  /* ---------- viz: scatter / particles ---------- */
+  function drawScatter(W, H) {
+    const s = skin();
+
+    if (!analyser || !isPlaying) {
+      // idle: a few dim dots
+      for (let i = 0; i < 5; i++) {
+        ctx.fillStyle = s.dim;
+        const x = (W / 6) * (i + 1);
+        ctx.beginPath();
+        ctx.arc(x, H / 2, 1.5, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      return;
+    }
+
+    analyser.getByteFrequencyData(freqData);
+
+    // compute overall energy
+    let energy = 0;
+    for (let i = 0; i < freqData.length; i++) energy += freqData[i];
+    energy /= freqData.length * 255;
+
+    // spawn new particles based on energy
+    const spawnCount = Math.floor(energy * 6);
+    for (let i = 0; i < spawnCount; i++) {
+      // pick a random frequency bin for color intensity
+      const bin = Math.floor(Math.random() * freqData.length);
+      const intensity = freqData[bin] / 255;
+      particles.push({
+        x: Math.random() * W,
+        y: H,
+        vx: (Math.random() - 0.5) * 2,
+        vy: -(1 + Math.random() * 3 + energy * 4),
+        life: 1.0,
+        decay: 0.01 + Math.random() * 0.02,
+        size: 1 + intensity * 3,
+        intensity: intensity,
+      });
+    }
+
+    // update and draw particles
+    for (let i = particles.length - 1; i >= 0; i--) {
+      const p = particles[i];
+      p.x += p.vx;
+      p.y += p.vy;
+      p.vy += 0.05; // gentle gravity
+      p.life -= p.decay;
+
+      if (p.life <= 0 || p.y < -10 || p.y > H + 10) {
+        particles.splice(i, 1);
+        continue;
+      }
+
+      const alpha = p.life * p.intensity;
+      ctx.shadowColor = s.glow;
+      ctx.shadowBlur = 4;
+
+      // interpolate between bottom and top color based on height
+      ctx.fillStyle = `rgba(${hexToRgb(s.top)}, ${alpha})`;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.size * p.life, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    ctx.shadowBlur = 0;
+
+    // cap particle count
+    if (particles.length > 300) {
+      particles = particles.slice(-200);
+    }
+  }
+
+  /* ---------- hex to rgb helper ---------- */
+  function hexToRgb(hex) {
+    const r = parseInt(hex.slice(1, 3), 16);
+    const g = parseInt(hex.slice(3, 5), 16);
+    const b = parseInt(hex.slice(5, 7), 16);
+    return `${r}, ${g}, ${b}`;
+  }
+
+  /* ---------- main draw loop ---------- */
+  function drawViz() {
+    const rect = vizCanvas.getBoundingClientRect();
+    const W = rect.width;
+    const H = rect.height;
+    ctx.clearRect(0, 0, W, H);
+
+    // dark background
+    ctx.fillStyle = '#0A0806';
+    ctx.fillRect(0, 0, W, H);
+
+    const mode = VIZ_MODES[vizModeIdx];
+    if (mode === 'bars') drawBars(W, H);
+    else if (mode === 'oscilloscope') drawOscilloscope(W, H);
+    else if (mode === 'scatter') drawScatter(W, H);
 
     // subtle scan line overlay
     ctx.fillStyle = 'rgba(0,0,0,0.08)';
@@ -158,7 +361,30 @@
       ctx.fillRect(0, y, W, 1);
     }
 
-    vizRAF = requestAnimationFrame(drawViz);
+    if (isPlaying) vizRAF = requestAnimationFrame(drawViz);
+  }
+
+  /* ---------- viz click to cycle ---------- */
+  vizCanvas.style.cursor = 'pointer';
+  vizCanvas.title = 'Click to change visualization';
+  vizCanvas.addEventListener('click', function () {
+    vizModeIdx = (vizModeIdx + 1) % VIZ_MODES.length;
+    // reset state for clean transition
+    peaks.fill(0);
+    peakDecay.fill(0);
+    particles = [];
+    if (!isPlaying) drawViz();
+  });
+
+  /* ---------- skin click to cycle ---------- */
+  if (skinBadge) {
+    skinBadge.style.cursor = 'pointer';
+    skinBadge.addEventListener('click', function () {
+      skinIdx = (skinIdx + 1) % SKINS.length;
+      applySkin();
+      renderPlaylist();
+      if (!isPlaying) drawViz();
+    });
   }
 
   /* ---------- playlist rendering ---------- */
@@ -177,16 +403,14 @@
 
   /* ---------- marquee ---------- */
   function setMarquee(text) {
-    // duplicate text for seamless scroll
     marquee.textContent = text;
-    // reset animation
     marquee.style.animation = 'none';
     marquee.offsetHeight; // reflow
     marquee.style.animation = '';
   }
 
   function setIdleMarquee() {
-    setMarquee('WynnAmp v2.7.3 — VoidCast Edition — Select a track to begin...');
+    setMarquee('WynnAmp v2.7.3 — ChantCast Edition — Select a track to begin...');
   }
 
   /* ---------- time formatting ---------- */
@@ -211,7 +435,6 @@
     renderPlaylist();
     statusMode.textContent = 'PLAYING';
 
-    // ensure audio context
     try { initAudioContext(); } catch(e) { /* ok */ }
     if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
 
@@ -220,7 +443,6 @@
       updateButtons();
       drawViz();
     }).catch(() => {
-      // autoplay blocked - show play state anyway
       isPlaying = false;
       updateButtons();
     });
@@ -350,18 +572,17 @@
     vizCanvas.width  = rect.width * dpr;
     vizCanvas.height = rect.height * dpr;
     ctx.scale(dpr, dpr);
-    // reassign logical dimensions for drawing
     vizCanvas.logicalW = rect.width;
     vizCanvas.logicalH = rect.height;
   }
 
-  // override draw to use logical dims
   const origDrawViz = drawViz;
 
   window.addEventListener('resize', sizeCanvas);
   sizeCanvas();
 
   /* ---------- init ---------- */
+  applySkin();
   renderPlaylist();
   setIdleMarquee();
   updateButtons();
