@@ -6,7 +6,7 @@
   <title>Arcana, Gas & Waterworks Inc. — Keep the Magick Flowing</title>
   <meta name="description" content="Route mana through a fantasy realm as a mid-level utilities employee. A comedic puzzle-strategy game about ley lines, complaints, and keeping the mana flowing.">
   <meta property="og:title" content="Arcana, Gas & Waterworks Inc.">
-  <meta property="og:description" content="Route mana through a fantasy realm. A comedic puzzle-strategy game about ley lines, complaints, and keeping the mana flowing.">
+  <meta property="og:description" content="Route mana through a fantasy realm. A comedic puzzle-strategy game about ley lines, complaints, and keeping the good energy flowing.">
   <meta property="og:image" content="assets/images/capsule-header.png">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://agw-game.com">
@@ -33,7 +33,7 @@
         <img src="assets/images/logo.png" alt="AG&W — Arcana, Gas & Waterworks Inc. logo" class="hero-logo" width="600" height="350">
         <p class="hero-tagline">Keep the magick flowing.</p>
         <div class="hero-video">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/jJZHsrf0_Z0" title="Arcana, Gas &amp; Waterworks Inc. — Gameplay" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/jJZHsrf0_Z0?rel=0" title="Arcana, Gas &amp; Waterworks Inc. — Gameplay" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
         <p class="hero-sub">A comedic puzzle-strategy game about ley lines, bureaucracy,<br>and the thankless job of routing magical infrastructure.</p>
         <div class="platform-icons" aria-label="Available on Windows, macOS, Linux, and Steam">
@@ -62,8 +62,8 @@
         <div class="about-grid">
           <div class="about-text">
             <p>You've just been hired at <strong>AG&W Inc.</strong> — the municipal utility company responsible for delivering mana of all types: arcana, gas, fire, earth, and water to every town, tower, dungeon, and dragon's lair in the region.</p>
-            <p>Your job is to lay the ley lines, build pipe networks, and route the resources to the right customers. Nobody thanks you when things work. <em>Everyone blames you when they don't.</em></p>
-            <p>It's Mini Metro meets a magical cable company. Meditative when things flow. Chaotic when they don't. (It's mostly chaotic.)</p>
+            <p>Your job is to lay the ley lines, con the conduits, and pipe the correct mana to the right customers. Nobody thanks you when things work. <em>Everyone blames you when they don't.</em></p>
+            <p>It's Mini Metro but with a magical plumbing company. Meditative when things flow. Chaotic when they don't. (It's mostly chaotic.)</p>
           </div>
           <div class="about-image">
             <div class="carousel" id="screenshot-carousel">
@@ -123,7 +123,7 @@
             </div>
             <div class="feature-text">
               <h3>Solve Puzzles With Consequences</h3>
-              <p>Balance budgets while keeping customers satisfied. Handle complaints from wizards, dragons, and dungeon lords. Some mana combos help — some explode.</p>
+              <p>Balance budgets while keeping customers satisfied. Handle complaints from wizards, dragons, and dungeon bosses. Some mana combos help — some explode.</p>
             </div>
           </div>
           <div class="feature-card">
@@ -141,7 +141,7 @@
             </div>
             <div class="feature-text">
               <h3>Climb the Corporate Ladder</h3>
-              <p>Start as a New Employee, rise to Chief of Reclamation. 19 hand-crafted campaign scenarios across 6 career tiers. Discover dark secrets in the company's past.</p>
+              <p>Start as a New Employee, rise to Chief of Reclamation. 19 hand-crafted campaign scenarios across 6 career tiers. Discover dark (and hilarious) secrets in the company.</p>
             </div>
           </div>
           <div class="feature-card">
@@ -175,7 +175,7 @@
         <h2 class="section-title"><span class="glyph">&#x2726;</span> The Details <span class="glyph">&#x2726;</span></h2>
         <div class="specs-grid">
           <div class="spec-item">
-            <span class="spec-label">Scenarios</span>
+            <span class="spec-label">Operations</span>
             <span class="spec-value">19</span>
             <span class="spec-desc">hand-crafted campaign levels</span>
           </div>
@@ -197,12 +197,114 @@
           <div class="spec-item">
             <span class="spec-label">Replayability</span>
             <span class="spec-value">&infin;</span>
-            <span class="spec-desc">procedural freelance operations</span>
+            <span class="spec-desc">procedurally generated freelance operations</span>
           </div>
           <div class="spec-item">
             <span class="spec-label">Platforms</span>
-            <span class="spec-value">3</span>
-            <span class="spec-desc">Windows, macOS, Linux</span>
+            <span class="spec-value">4</span>
+            <span class="spec-desc">Windows, macOS, Linux, and SteamOS</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MUSIC / WYNNAMP -->
+    <section class="section music-section" id="music">
+      <div class="container">
+        <h2 class="section-title"><span class="glyph">&#x2726;</span> The Soundtrack <span class="glyph">&#x2726;</span></h2>
+        <p class="music-intro">AG&amp;W features an original soundtrack by indie artists, streaming in-game through <strong>WynnAmp v2.7.3</strong> by VoidSoft. Tune in to <em>VoidCast</em> — the mana-powered internet radio of the Arcana realm. Here's a preview.</p>
+
+        <div class="music-layout">
+          <!-- WYNNAMP PLAYER -->
+          <div id="wynnamp" class="wynnamp">
+            <div class="wa-titlebar">
+              <span class="wa-title-text">WynnAmp v2.7.3 — VoidSoft</span>
+              <span class="wa-title-badge">VoidCast</span>
+            </div>
+
+            <div class="wa-marquee">
+              <div class="wa-marquee-inner">
+                <span class="wa-marquee-text"></span>
+              </div>
+            </div>
+
+            <div class="wa-viz-container">
+              <canvas class="wa-viz"></canvas>
+              <span class="wa-viz-label">Spectrum Bars</span>
+            </div>
+
+            <div class="wa-transport">
+              <button class="wa-btn wa-prev" aria-label="Previous" title="Previous">&#x23EE;</button>
+              <button class="wa-btn wa-play" aria-label="Play" title="Play">&#x25B6;</button>
+              <button class="wa-btn wa-pause wa-hidden" aria-label="Pause" title="Pause">&#x23F8;</button>
+              <button class="wa-btn wa-stop" aria-label="Stop" title="Stop">&#x23F9;</button>
+              <button class="wa-btn wa-next" aria-label="Next" title="Next">&#x23ED;</button>
+            </div>
+
+            <div class="wa-seek-row">
+              <span class="wa-time">--:--</span>
+              <div class="wa-seek">
+                <div class="wa-seek-fill"></div>
+                <div class="wa-seek-thumb"></div>
+              </div>
+              <span class="wa-duration">--:--</span>
+            </div>
+
+            <div class="wa-vol-row">
+              <span class="wa-vol-label">VOL</span>
+              <div class="wa-vol-slider">
+                <div class="wa-vol-fill"></div>
+              </div>
+              <span class="wa-status-mode">IDLE</span>
+            </div>
+
+            <div class="wa-playlist">
+              <!-- filled by JS -->
+            </div>
+          </div>
+
+          <!-- TRACK CREDITS -->
+          <div class="music-credits">
+            <h3 class="music-credits-heading">Full Tracklist</h3>
+            <p class="music-credits-sub">Original music licensed for AG&amp;W from indie artists. More tracks coming before launch.</p>
+            <ul class="music-tracklist">
+              <li>
+                <span class="mt-title">&ldquo;If It Don&rsquo;t Bite&rdquo;</span>
+                <span class="mt-artist">Nobody</span>
+                <span class="mt-band">as No Body and the NeckRomancers</span>
+              </li>
+              <li>
+                <span class="mt-title">&ldquo;Dead Man&rsquo;s Hand&rdquo;</span>
+                <span class="mt-artist">BackspinZX</span>
+                <span class="mt-band">as The Jacknives</span>
+              </li>
+              <li>
+                <span class="mt-title">&ldquo;War Drums&rdquo;</span>
+                <span class="mt-artist">BackspinZX</span>
+                <span class="mt-band">as The Jacknives</span>
+              </li>
+              <li>
+                <span class="mt-title">&ldquo;Threat Assessment&rdquo;</span>
+                <span class="mt-artist">BackspinZX</span>
+                <span class="mt-band">as The Jacknives</span>
+              </li>
+              <li>
+                <span class="mt-title">&ldquo;Riding the Ice Dragon&rdquo;</span>
+                <span class="mt-artist">Harder Wins</span>
+                <span class="mt-band">as The Leaky Cauldrons</span>
+              </li>
+              <li>
+                <span class="mt-title">&ldquo;Moon Witch&rdquo;</span>
+                <span class="mt-artist">Harder Wins</span>
+                <span class="mt-band">as The Leaky Cauldrons</span>
+              </li>
+              <li>
+                <span class="mt-title">&ldquo;Breaking Through&rdquo;</span>
+                <span class="mt-artist">Harder Wins</span>
+                <span class="mt-band">as The Leaky Cauldrons</span>
+              </li>
+            </ul>
+            <p class="music-license">All tracks used under license. All rights reserved by the original artists.</p>
           </div>
         </div>
       </div>
@@ -247,5 +349,6 @@
 
   <script src="background.js"></script>
   <script src="carousel.js"></script>
+  <script src="wynnamp.js"></script>
 </body>
 </html>
