@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arcana, Gas & Waterworks Inc. — Keep the Magick Flowing</title>
+  <meta name="description" content="Route mana through a fantasy realm as a mid-level utilities employee. A comedic puzzle-strategy game about ley lines, complaints, and keeping the mana flowing.">
+  <meta property="og:title" content="Arcana, Gas & Waterworks Inc.">
+  <meta property="og:description" content="Route mana through a fantasy realm. A comedic puzzle-strategy game about ley lines, complaints, and keeping the mana flowing.">
+  <meta property="og:image" content="assets/images/capsule-header.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://agw-game.com">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="assets/images/icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=VT323&family=Almendra:wght@400;700&family=Philosopher:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Animated background canvas -->
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+  <!-- Scanline overlay -->
+  <div class="scanlines" aria-hidden="true"></div>
+
+  <!-- Main content -->
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="hero-content">
+        <img src="assets/images/logo.png" alt="AG&W — Arcana, Gas & Waterworks Inc. logo" class="hero-logo" width="600" height="350">
+        <p class="hero-tagline">Keep the magick flowing.</p>
+        <div class="hero-video">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/jJZHsrf0_Z0" title="Arcana, Gas &amp; Waterworks Inc. — Gameplay" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <p class="hero-sub">A comedic puzzle-strategy game about ley lines, bureaucracy,<br>and the thankless job of routing magical infrastructure.</p>
+        <div class="platform-icons" aria-label="Available on Windows, macOS, Linux, and Steam">
+          <svg viewBox="0 0 448 512" width="22" height="22" fill="currentColor" aria-hidden="true" title="Windows"><path d="M0 93.7l183.6-25.3v177.4H0V93.7zm0 324.6l183.6 25.3V268.4H0v149.9zm203.8 28L448 480V268.4H203.8v177.9zm0-380.6v180.1H448V32L203.8 65.7z"/></svg>
+          <svg viewBox="0 0 384 512" width="20" height="20" fill="currentColor" aria-hidden="true" title="macOS"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184 4 273.5c0 26.2 4.8 53.3 14.4 81.2 12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+          <svg viewBox="0 0 448 512" width="22" height="22" fill="currentColor" aria-hidden="true" title="Linux"><path d="M220.8 123.3c1 .5 1.8 1.7 3 1.7 1.1 0 2.8-.4 2.9-1.5.2-1.4-1.9-2.3-3.2-2.9-1.7-.7-3.9-1-5.5-.1-.4.2-.8.7-.6 1.1.3 1.3 2.3 1.1 3.4 1.7zm-21.9 1.7c1.2 0 2-1.2 3-1.7 1.1-.6 3.1-.4 3.5-1.6.2-.4-.2-.9-.6-1.1-1.6-.9-3.8-.6-5.5.1-1.3.6-3.4 1.5-3.2 2.9.1 1 1.8 1.5 2.8 1.4zM420 403.8c-3.6-4-5.3-11.6-7.2-19.7-1.8-8.1-3.9-16.8-10.5-22.4-1.3-1.1-2.6-2.1-4-2.9-1.3-.8-2.7-1.5-4.1-2 9.2-27.3 5.6-54.5-3.7-79.1-11.4-30.1-31.3-56.4-46.5-74.4-17.1-21.5-33.7-41.9-33.4-72C311.1 85.4 315.7.1 234.8 0 132.4-.2 158 103.4 156.9 135.2c-1.7 23.4-6.4 41.8-22.5 64.7-18.9 22.5-45.5 58.8-58.1 96.7-6 17.9-8.8 36.1-6.2 53.3-6.5 5.8-11.4 14.7-16.6 20.2-4.2 4.3-10.3 5.9-17 8.3s-14 6-18.5 14.5c-2.1 3.9-2.8 8.1-2.8 12.4 0 3.9.6 7.9 1.2 11.8 1.2 8.1 2.5 15.7.8 20.8-5.2 14.4-5.9 24.4-2.2 31.7 3.8 7.3 11.4 10.5 20.1 12.3 17.3 3.6 40.8 2.7 59.3 12.5 19.8 10.4 39.9 14.1 55.9 10.4 11.6-2.6 21.1-9.6 25.9-20.2 12.5-.1 26.3-5.4 48.3-6.6 14.9-1.2 33.6 5.3 55.1 4.1.6 2.3 1.4 4.6 2.5 6.7v.1c8.3 16.7 23.8 24.3 40.3 23 16.6-1.3 34.1-11 48.3-27.9 13.6-16.4 36-23.2 50.9-32.2 7.4-4.5 13.4-10.1 13.9-18.3.4-8.2-4.4-17.3-15.5-29.7zM223.7 87.3c9.8-22.2 34.2-21.8 44-.4 6.5 14.2 3.6 30.9-4.3 40.4-1.6-.8-5.9-2.6-12.6-4.9 1.1-1.2 3.1-2.7 3.9-4.6 4.8-11.8-.2-27-9.1-27.3-7.3-.5-13.9 10.8-11.8 23-4.1-2-9.4-3.5-13-4.4-1-6.9-.3-14.6 2.9-21.8zM183 75.8c10.1 0 20.8 14.2 19.1 33.5-3.5 1-7.1 2.5-10.2 4.6 1.2-8.9-3.3-20.1-9.6-19.6-8.4.7-9.8 21.2-1.8 28.1C175 124.4 162.6 128 151 130c-8.1-25.4 16.7-54.2 32-54.2zm-19.1 94.5c12.7 5.2 16.2-7.7 22-11.5 7.2-4.8 13.4-3 20.6-3 6.2 0 13.2-2 15.1 4.7 3.7 12.6-27.5 29.3-61.6 16.7-2.7-1-6.4-3.2-6.1-5.5 0-1.2.8-1.4 3.3-1.2 2.1.1 4.4-.3 6.7-.2zm-26 55.5c-.4 1.4-.7 2.6-.7 3.9 0 7.1 3.5 10.9 7.7 14.3 4.6 3.6 10.3 6 15.5 9.1 14.7 8.6 20.1 23.3 8.4 37.4-7.1 8.5-20.5 13.2-30.4 15.9-3.8 1-7.3 1.6-10.5 1.6-5.1 0-9.1-1.5-12.3-5.5-4.7-5.9-5.7-14.8-2.8-30.6.7-3.7 1.7-7.6 2.8-11.7 4.5-16.4 10.6-38 .9-55.3-.6-1.1-1.2-2.1-1.8-3 2.6-.9 7.1-1.4 11.5-1.4 5.9 0 12.3.8 15.4 3.7-2.1 4.5-3 11-3.7 21.6zm-18.4 18.8c3.3-12.3 4.5-18.7 4.2-20.5 0 0-1.6 2-3.4 8.7-1.4 5.3-1.5 14.4-1.5 17.1l.7-5.3zm98 65.1c3.3 0 6.3 1.1 9.3 2.2 5.9 2.2 11.8 4.5 21.3 2 11.5-3.1 21.1-15.6 22.1-27.9.3-3.5-.4-5.7-2.4-7.4-2.2-1.8-5.6-2.5-9.7-2.5-7.4 0-17.2 2.3-24.5 3.2-3.8.5-7.1.2-9.5-1.4-2.3-1.6-3.6-4.3-3.6-7.9 0-5.7 2.9-11.7 3.9-17.3 1.5-8.1 1.3-14.4-.6-19.5-1.9-5.2-5.7-8.8-10.7-11.6-7.6-4.2-17.8-5.5-19.7-14.4-.7-3.4.2-7 2.6-10.4 1.9-2.8 4.6-5.4 7.3-7.6 2.6-2.2 5.3-4 7.2-5.6 3.2-2.7 4.5-4.7 2.9-7.8-1.1-2.2-3.2-3.7-5.7-4.7-1.6-.6-3.3-1.1-5-1.3.7-.4 1.4-.8 2.2-1.1 7.2-3.4 18.1 1.6 24.1 6 2.9 2.1 5.3 4.6 7 7.3 3.6 5.9 3.7 14 2.8 20.5-.3 2.4-.8 4.3-1.3 5.1-1.7 2.7-2 4.3.3 4.8 7.3 1.8 14 4.3 14 14.7 0 6.8-2.3 14.5-5.8 22.5-3.5 7.9-8 16.1-11.4 23.3-5 10.6-3.8 18.7 4.6 20.3 6.1 1.2 12.8-2.4 17.5-6.5 5.7-5 9.2-11.4 10.3-16.2.6 7.9-9.2 25-22.4 36-5.4 4.4-11.6 7.2-17.6 7.2-4.3 0-8.4-1.5-11.6-5.3-6-7-5.9-18.1-2.7-31.4 1.6-6.7 3.8-13.2 5.4-19.5-5-1.7-10.8-1-14.9 2.7-3.8 3.3-5.4 8.2-7.3 16.2-1.8 7.6-3.8 18-9.9 23.2-3 2.5-6.9 3.5-12.3 1.8-3.7-1.2-8-3.9-13.4-8.4 7.2-1 11.1-3.3 12.1-7.2.6-2.2-.2-4.5-1.5-6.5-.7 0-1.3.1-2 .1-4.5 0-9.8-.3-11.6-5-.8-2.1-.3-5.6 1.3-10.4 1.8-5.4 5-12.1 8.8-19.5zm-31.1-68.4c-1-1.5-2.4-2.2-4-2.2-1.3 0-2.7.5-4.1 1.4-1.6 1-3 2.5-4 4.1-1.5 2.3-2.2 4.7-2 6.7.6 5 3.4 7.4 7.5 10.4 4.7 3.5 10.5 6 13 10.8 2.4 4.5 1.5 9.6-.8 14.1-2.3 4.6-6.2 8.4-9.1 10.3l-.3.2c-2.8 1.7-5.6 3.4-8.3 4.6-3.5 1.6-7 2.6-10.5 2.8-8.8.5-11.5-4.2-14.8-11.3-3.3-7.3-6.1-16.2-5.4-23.6.3-2.8 1.2-5.2 2.9-7 2.3-2.5 6.2-3.1 10.2-3.1 4.2 0 8.5.7 11 1.7-2-4.3.1-9.2 3.4-12.4 3-3.8 8.2-6.1 13.5-8.1.8-.3 1.6-.5 2.4-.8-.4.4-.6.9-.6 1.4z"/></svg>
+          <svg viewBox="0 0 496 512" width="22" height="22" fill="currentColor" aria-hidden="true" title="Steam"><path d="M496 256c0 137-111.2 248-248.4 248-113.8 0-209.6-76.3-239-180.4l95.2 39.3c6.4 32.1 34.9 56.4 68.9 56.4 39.2 0 71.1-32.2 70.5-71.4l84.9-60.5c50.1 0 90.8-40.8 90.8-90.9s-40.7-90.9-90.8-90.9-90.8 40.8-90.8 90.9v1.2l-60 85.2c-16.2 0-31.4 5.6-43.4 15L0 228.6C12.7 109.5 120.1 14.7 248.4 8 384.8.8 496 110.3 496 256zM181 381.6c-12.2-5.1-26.2.3-31.3 12.5s.3 26.2 12.5 31.3l30.1 12.5c-18.2-7.6-28.7-27.1-24.1-46.4 4.6-19.5 23.4-32.2 43.4-30l-30.6-12.9v13zm130-284.3c33.4 0 60.5 27.2 60.5 60.5s-27.1 60.5-60.5 60.5-60.5-27.2-60.5-60.5 27.1-60.5 60.5-60.5zm0 24.2c-20.1 0-36.3 16.3-36.3 36.3s16.3 36.3 36.3 36.3 36.3-16.3 36.3-36.3-16.2-36.3-36.3-36.3z"/></svg>
+        </div>
+        <div class="cta-group">
+          <a href="https://store.steampowered.com/app/4476220/Arcana_Gas__Waterworks_Inc/" class="btn btn-steam" target="_blank" rel="noopener">
+            <svg class="steam-icon" viewBox="0 0 496 512" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M496 256c0 137-111.2 248-248.4 248-113.8 0-209.6-76.3-239-180.4l95.2 39.3c6.4 32.1 34.9 56.4 68.9 56.4 39.2 0 71.1-32.2 70.5-71.4l84.9-60.5c50.1 0 90.8-40.8 90.8-90.9s-40.7-90.9-90.8-90.9-90.8 40.8-90.8 90.9v1.2l-60 85.2c-16.2 0-31.4 5.6-43.4 15L0 228.6C12.7 109.5 120.1 14.7 248.4 8 384.8.8 496 110.3 496 256zM181 381.6c-12.2-5.1-26.2.3-31.3 12.5s.3 26.2 12.5 31.3l30.1 12.5c-18.2-7.6-28.7-27.1-24.1-46.4 4.6-19.5 23.4-32.2 43.4-30l-30.6-12.9v13zm130-284.3c33.4 0 60.5 27.2 60.5 60.5s-27.1 60.5-60.5 60.5-60.5-27.2-60.5-60.5 27.1-60.5 60.5-60.5zm0 24.2c-20.1 0-36.3 16.3-36.3 36.3s16.3 36.3 36.3 36.3 36.3-16.3 36.3-36.3-16.2-36.3-36.3-36.3z"/></svg>
+            Wishlist on Steam
+          </a>
+        </div>
+        <p class="hero-ea">Coming Summer 2026</p>
+      </div>
+      <div class="scroll-hint" aria-hidden="true">
+        <span class="scroll-arrow">&#x25BE;</span>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section about" id="about">
+      <div class="container">
+        <h2 class="section-title"><span class="glyph">&#x2726;</span> Your New Career Awaits <span class="glyph">&#x2726;</span></h2>
+        <div class="about-grid">
+          <div class="about-text">
+            <p>You've just been hired at <strong>AG&W Inc.</strong> — the municipal utility company responsible for delivering mana of all types: arcana, gas, fire, earth, and water to every town, tower, dungeon, and dragon's lair in the region.</p>
+            <p>Your job is to lay the ley lines, build pipe networks, and route the resources to the right customers. Nobody thanks you when things work. <em>Everyone blames you when they don't.</em></p>
+            <p>It's Mini Metro meets a magical cable company. Meditative when things flow. Chaotic when they don't. (It's mostly chaotic.)</p>
+          </div>
+          <div class="about-image">
+            <div class="carousel" id="screenshot-carousel">
+              <div class="carousel-track">
+                <img src="assets/images/screenshots/agw-screen_0000_Screenshot-2026-02-28-at-11.20.33.png" alt="Gameplay screenshot 1" loading="lazy">
+                <img src="assets/images/screenshots/agw-screen_0001_Screenshot-2026-02-28-at-11.20.58.png" alt="Gameplay screenshot 2" loading="lazy">
+                <img src="assets/images/screenshots/agw-screen_0002_Screenshot-2026-02-28-at-11.21.26.png" alt="Gameplay screenshot 3" loading="lazy">
+                <img src="assets/images/screenshots/agw-screen_0003_Screenshot-2026-02-28-at-11.21.53.png" alt="Gameplay screenshot 4" loading="lazy">
+                <img src="assets/images/screenshots/agw-screen_0004_Screenshot-2026-02-28-at-11.22.22.png" alt="Gameplay screenshot 5" loading="lazy">
+                <img src="assets/images/screenshots/agw-screen_0005_Screenshot-2026-02-28-at-11.23.19.png" alt="Gameplay screenshot 6" loading="lazy">
+                <img src="assets/images/screenshots/agw-inc-screen_0002_Screenshot-2026-02-27-at-17.09.11.png" alt="Gameplay screenshot 7" loading="lazy">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="section features" id="features">
+      <div class="container">
+        <h2 class="section-title"><span class="glyph">&#x2726;</span> What You'll Do <span class="glyph">&#x2726;</span></h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg viewBox="0 0 64 64" width="56" height="56" fill="none" aria-hidden="true">
+                <circle cx="32" cy="32" r="28" stroke="#9933FF" stroke-width="2" opacity="0.3"/>
+                <path d="M16 48 L32 8 L48 48" stroke="#9933FF" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M22 36 L42 36" stroke="#D4A017" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="32" cy="8" r="4" fill="#9933FF" opacity="0.8"/>
+                <circle cx="16" cy="48" r="3" fill="#44DD44" opacity="0.8"/>
+                <circle cx="48" cy="48" r="3" fill="#4488FF" opacity="0.8"/>
+                <line x1="32" y1="12" x2="16" y2="48" stroke="url(#manaGrad1)" stroke-width="1.5" opacity="0.5"/>
+                <line x1="32" y1="12" x2="48" y2="48" stroke="url(#manaGrad2)" stroke-width="1.5" opacity="0.5"/>
+                <defs>
+                  <linearGradient id="manaGrad1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#9933FF"/><stop offset="100%" stop-color="#44DD44"/></linearGradient>
+                  <linearGradient id="manaGrad2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#9933FF"/><stop offset="100%" stop-color="#4488FF"/></linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <div class="feature-text">
+              <h3>Route Magical Infrastructure</h3>
+              <p>Connect sources to consumers across hex-grid maps. Manage 5 mana types. Build relays, splitters, transformers, batteries, and filters. Watch your network glow.</p>
+            </div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg viewBox="0 0 64 64" width="56" height="56" fill="none" aria-hidden="true">
+                <rect x="10" y="6" width="44" height="52" rx="4" stroke="#D4A017" stroke-width="2" opacity="0.6"/>
+                <rect x="10" y="6" width="44" height="52" rx="4" fill="#D4A017" opacity="0.05"/>
+                <path d="M20 18 H44 M20 26 H38 M20 34 H42" stroke="#D4A017" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+                <circle cx="42" cy="44" r="10" stroke="#FF4444" stroke-width="2" opacity="0.7"/>
+                <path d="M38 44 L42 48 L50 38" stroke="#FF4444" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="42" cy="44" r="14" stroke="#FF4444" stroke-width="1" opacity="0.15"/>
+                <path d="M18 44 L28 44" stroke="#AADD44" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
+              </svg>
+            </div>
+            <div class="feature-text">
+              <h3>Solve Puzzles With Consequences</h3>
+              <p>Balance budgets while keeping customers satisfied. Handle complaints from wizards, dragons, and dungeon lords. Some mana combos help — some explode.</p>
+            </div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg viewBox="0 0 64 64" width="56" height="56" fill="none" aria-hidden="true">
+                <path d="M8 52 L8 20 L24 32 L38 14 L56 28 L56 52" stroke="#44DD44" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M8 52 L8 20 L24 32 L38 14 L56 28 L56 52 Z" fill="#44DD44" opacity="0.06"/>
+                <circle cx="8" cy="20" r="3" fill="#44DD44" opacity="0.6"/>
+                <circle cx="24" cy="32" r="3" fill="#D4A017" opacity="0.7"/>
+                <circle cx="38" cy="14" r="3" fill="#9933FF" opacity="0.8"/>
+                <circle cx="56" cy="28" r="3.5" fill="#D4A017" opacity="0.9"/>
+                <path d="M50 22 L56 28 L62 22" stroke="#D4A017" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+                <line x1="8" y1="52" x2="56" y2="52" stroke="#44DD44" stroke-width="1" opacity="0.3"/>
+              </svg>
+            </div>
+            <div class="feature-text">
+              <h3>Climb the Corporate Ladder</h3>
+              <p>Start as a New Employee, rise to Chief of Reclamation. 19 hand-crafted campaign scenarios across 6 career tiers. Discover dark secrets in the company's past.</p>
+            </div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg viewBox="0 0 64 64" width="56" height="56" fill="none" aria-hidden="true">
+                <rect x="8" y="8" width="48" height="36" rx="4" stroke="#4488FF" stroke-width="2" opacity="0.6"/>
+                <rect x="12" y="12" width="40" height="28" rx="2" fill="#4488FF" opacity="0.08"/>
+                <line x1="12" y1="48" x2="52" y2="48" stroke="#4488FF" stroke-width="2" opacity="0.3" stroke-linecap="round"/>
+                <rect x="26" y="44" width="12" height="6" fill="#4488FF" opacity="0.15"/>
+                <text x="16" y="28" font-family="monospace" font-size="8" fill="#44DD44" opacity="0.9">&gt;_</text>
+                <text x="28" y="28" font-family="monospace" font-size="7" fill="#44DD44" opacity="0.5">AG&amp;W</text>
+                <line x1="16" y1="33" x2="44" y2="33" stroke="#9933FF" stroke-width="1" opacity="0.3"/>
+                <line x1="16" y1="36" x2="36" y2="36" stroke="#D4A017" stroke-width="1" opacity="0.25"/>
+                <circle cx="48" cy="14" r="2" fill="#FF4444" opacity="0.6"/>
+                <circle cx="42" cy="14" r="2" fill="#D4A017" opacity="0.6"/>
+                <circle cx="36" cy="14" r="2" fill="#44DD44" opacity="0.6"/>
+              </svg>
+            </div>
+            <div class="feature-text">
+              <h3>Retro-Futuristic Charm</h3>
+              <p>CRT terminal aesthetic with phosphor glow and scanlines. AmigaOS-inspired desktop. WynnAmp music player. Satirical corporate newsfeed. A vibe.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SPECS -->
+    <section class="section specs" id="specs">
+      <div class="container">
+        <h2 class="section-title"><span class="glyph">&#x2726;</span> The Details <span class="glyph">&#x2726;</span></h2>
+        <div class="specs-grid">
+          <div class="spec-item">
+            <span class="spec-label">Scenarios</span>
+            <span class="spec-value">19</span>
+            <span class="spec-desc">hand-crafted campaign levels</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Mana Types</span>
+            <span class="spec-value">5</span>
+            <span class="spec-desc">Arcana, Fire, Water, Earth, Gas</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Career Tiers</span>
+            <span class="spec-value">6</span>
+            <span class="spec-desc">from intern to Chief of Reclamation</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Achievements</span>
+            <span class="spec-value">15</span>
+            <span class="spec-desc">including hidden lore discoveries</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Replayability</span>
+            <span class="spec-value">&infin;</span>
+            <span class="spec-desc">procedural freelance operations</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Platforms</span>
+            <span class="spec-value">3</span>
+            <span class="spec-desc">Windows, macOS, Linux</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BOTTOM CTA -->
+    <section class="section cta-section" id="wishlist">
+      <div class="container cta-bottom">
+        <img src="assets/images/icon.png" alt="" class="cta-icon" width="120" height="120" aria-hidden="true">
+        <h2 class="cta-heading">The realm needs you.<br>The benefits are not great, but neither is the pay.<br>Congratulations!</h2>
+        <div class="platform-icons" aria-label="Available on Windows, macOS, Linux, and Steam">
+          <svg viewBox="0 0 448 512" width="22" height="22" fill="currentColor" aria-hidden="true" title="Windows"><path d="M0 93.7l183.6-25.3v177.4H0V93.7zm0 324.6l183.6 25.3V268.4H0v149.9zm203.8 28L448 480V268.4H203.8v177.9zm0-380.6v180.1H448V32L203.8 65.7z"/></svg>
+          <svg viewBox="0 0 384 512" width="20" height="20" fill="currentColor" aria-hidden="true" title="macOS"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184 4 273.5c0 26.2 4.8 53.3 14.4 81.2 12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+          <svg viewBox="0 0 448 512" width="22" height="22" fill="currentColor" aria-hidden="true" title="Linux"><path d="M220.8 123.3c1 .5 1.8 1.7 3 1.7 1.1 0 2.8-.4 2.9-1.5.2-1.4-1.9-2.3-3.2-2.9-1.7-.7-3.9-1-5.5-.1-.4.2-.8.7-.6 1.1.3 1.3 2.3 1.1 3.4 1.7zm-21.9 1.7c1.2 0 2-1.2 3-1.7 1.1-.6 3.1-.4 3.5-1.6.2-.4-.2-.9-.6-1.1-1.6-.9-3.8-.6-5.5.1-1.3.6-3.4 1.5-3.2 2.9.1 1 1.8 1.5 2.8 1.4zM420 403.8c-3.6-4-5.3-11.6-7.2-19.7-1.8-8.1-3.9-16.8-10.5-22.4-1.3-1.1-2.6-2.1-4-2.9-1.3-.8-2.7-1.5-4.1-2 9.2-27.3 5.6-54.5-3.7-79.1-11.4-30.1-31.3-56.4-46.5-74.4-17.1-21.5-33.7-41.9-33.4-72C311.1 85.4 315.7.1 234.8 0 132.4-.2 158 103.4 156.9 135.2c-1.7 23.4-6.4 41.8-22.5 64.7-18.9 22.5-45.5 58.8-58.1 96.7-6 17.9-8.8 36.1-6.2 53.3-6.5 5.8-11.4 14.7-16.6 20.2-4.2 4.3-10.3 5.9-17 8.3s-14 6-18.5 14.5c-2.1 3.9-2.8 8.1-2.8 12.4 0 3.9.6 7.9 1.2 11.8 1.2 8.1 2.5 15.7.8 20.8-5.2 14.4-5.9 24.4-2.2 31.7 3.8 7.3 11.4 10.5 20.1 12.3 17.3 3.6 40.8 2.7 59.3 12.5 19.8 10.4 39.9 14.1 55.9 10.4 11.6-2.6 21.1-9.6 25.9-20.2 12.5-.1 26.3-5.4 48.3-6.6 14.9-1.2 33.6 5.3 55.1 4.1.6 2.3 1.4 4.6 2.5 6.7v.1c8.3 16.7 23.8 24.3 40.3 23 16.6-1.3 34.1-11 48.3-27.9 13.6-16.4 36-23.2 50.9-32.2 7.4-4.5 13.4-10.1 13.9-18.3.4-8.2-4.4-17.3-15.5-29.7zM223.7 87.3c9.8-22.2 34.2-21.8 44-.4 6.5 14.2 3.6 30.9-4.3 40.4-1.6-.8-5.9-2.6-12.6-4.9 1.1-1.2 3.1-2.7 3.9-4.6 4.8-11.8-.2-27-9.1-27.3-7.3-.5-13.9 10.8-11.8 23-4.1-2-9.4-3.5-13-4.4-1-6.9-.3-14.6 2.9-21.8zM183 75.8c10.1 0 20.8 14.2 19.1 33.5-3.5 1-7.1 2.5-10.2 4.6 1.2-8.9-3.3-20.1-9.6-19.6-8.4.7-9.8 21.2-1.8 28.1C175 124.4 162.6 128 151 130c-8.1-25.4 16.7-54.2 32-54.2zm-19.1 94.5c12.7 5.2 16.2-7.7 22-11.5 7.2-4.8 13.4-3 20.6-3 6.2 0 13.2-2 15.1 4.7 3.7 12.6-27.5 29.3-61.6 16.7-2.7-1-6.4-3.2-6.1-5.5 0-1.2.8-1.4 3.3-1.2 2.1.1 4.4-.3 6.7-.2zm-26 55.5c-.4 1.4-.7 2.6-.7 3.9 0 7.1 3.5 10.9 7.7 14.3 4.6 3.6 10.3 6 15.5 9.1 14.7 8.6 20.1 23.3 8.4 37.4-7.1 8.5-20.5 13.2-30.4 15.9-3.8 1-7.3 1.6-10.5 1.6-5.1 0-9.1-1.5-12.3-5.5-4.7-5.9-5.7-14.8-2.8-30.6.7-3.7 1.7-7.6 2.8-11.7 4.5-16.4 10.6-38 .9-55.3-.6-1.1-1.2-2.1-1.8-3 2.6-.9 7.1-1.4 11.5-1.4 5.9 0 12.3.8 15.4 3.7-2.1 4.5-3 11-3.7 21.6zm-18.4 18.8c3.3-12.3 4.5-18.7 4.2-20.5 0 0-1.6 2-3.4 8.7-1.4 5.3-1.5 14.4-1.5 17.1l.7-5.3zm98 65.1c3.3 0 6.3 1.1 9.3 2.2 5.9 2.2 11.8 4.5 21.3 2 11.5-3.1 21.1-15.6 22.1-27.9.3-3.5-.4-5.7-2.4-7.4-2.2-1.8-5.6-2.5-9.7-2.5-7.4 0-17.2 2.3-24.5 3.2-3.8.5-7.1.2-9.5-1.4-2.3-1.6-3.6-4.3-3.6-7.9 0-5.7 2.9-11.7 3.9-17.3 1.5-8.1 1.3-14.4-.6-19.5-1.9-5.2-5.7-8.8-10.7-11.6-7.6-4.2-17.8-5.5-19.7-14.4-.7-3.4.2-7 2.6-10.4 1.9-2.8 4.6-5.4 7.3-7.6 2.6-2.2 5.3-4 7.2-5.6 3.2-2.7 4.5-4.7 2.9-7.8-1.1-2.2-3.2-3.7-5.7-4.7-1.6-.6-3.3-1.1-5-1.3.7-.4 1.4-.8 2.2-1.1 7.2-3.4 18.1 1.6 24.1 6 2.9 2.1 5.3 4.6 7 7.3 3.6 5.9 3.7 14 2.8 20.5-.3 2.4-.8 4.3-1.3 5.1-1.7 2.7-2 4.3.3 4.8 7.3 1.8 14 4.3 14 14.7 0 6.8-2.3 14.5-5.8 22.5-3.5 7.9-8 16.1-11.4 23.3-5 10.6-3.8 18.7 4.6 20.3 6.1 1.2 12.8-2.4 17.5-6.5 5.7-5 9.2-11.4 10.3-16.2.6 7.9-9.2 25-22.4 36-5.4 4.4-11.6 7.2-17.6 7.2-4.3 0-8.4-1.5-11.6-5.3-6-7-5.9-18.1-2.7-31.4 1.6-6.7 3.8-13.2 5.4-19.5-5-1.7-10.8-1-14.9 2.7-3.8 3.3-5.4 8.2-7.3 16.2-1.8 7.6-3.8 18-9.9 23.2-3 2.5-6.9 3.5-12.3 1.8-3.7-1.2-8-3.9-13.4-8.4 7.2-1 11.1-3.3 12.1-7.2.6-2.2-.2-4.5-1.5-6.5-.7 0-1.3.1-2 .1-4.5 0-9.8-.3-11.6-5-.8-2.1-.3-5.6 1.3-10.4 1.8-5.4 5-12.1 8.8-19.5zm-31.1-68.4c-1-1.5-2.4-2.2-4-2.2-1.3 0-2.7.5-4.1 1.4-1.6 1-3 2.5-4 4.1-1.5 2.3-2.2 4.7-2 6.7.6 5 3.4 7.4 7.5 10.4 4.7 3.5 10.5 6 13 10.8 2.4 4.5 1.5 9.6-.8 14.1-2.3 4.6-6.2 8.4-9.1 10.3l-.3.2c-2.8 1.7-5.6 3.4-8.3 4.6-3.5 1.6-7 2.6-10.5 2.8-8.8.5-11.5-4.2-14.8-11.3-3.3-7.3-6.1-16.2-5.4-23.6.3-2.8 1.2-5.2 2.9-7 2.3-2.5 6.2-3.1 10.2-3.1 4.2 0 8.5.7 11 1.7-2-4.3.1-9.2 3.4-12.4 3-3.8 8.2-6.1 13.5-8.1.8-.3 1.6-.5 2.4-.8-.4.4-.6.9-.6 1.4z"/></svg>
+          <svg viewBox="0 0 496 512" width="22" height="22" fill="currentColor" aria-hidden="true" title="Steam"><path d="M496 256c0 137-111.2 248-248.4 248-113.8 0-209.6-76.3-239-180.4l95.2 39.3c6.4 32.1 34.9 56.4 68.9 56.4 39.2 0 71.1-32.2 70.5-71.4l84.9-60.5c50.1 0 90.8-40.8 90.8-90.9s-40.7-90.9-90.8-90.9-90.8 40.8-90.8 90.9v1.2l-60 85.2c-16.2 0-31.4 5.6-43.4 15L0 228.6C12.7 109.5 120.1 14.7 248.4 8 384.8.8 496 110.3 496 256zM181 381.6c-12.2-5.1-26.2.3-31.3 12.5s.3 26.2 12.5 31.3l30.1 12.5c-18.2-7.6-28.7-27.1-24.1-46.4 4.6-19.5 23.4-32.2 43.4-30l-30.6-12.9v13zm130-284.3c33.4 0 60.5 27.2 60.5 60.5s-27.1 60.5-60.5 60.5-60.5-27.2-60.5-60.5 27.1-60.5 60.5-60.5zm0 24.2c-20.1 0-36.3 16.3-36.3 36.3s16.3 36.3 36.3 36.3 36.3-16.3 36.3-36.3-16.2-36.3-36.3-36.3z"/></svg>
+        </div>
+        <a href="https://store.steampowered.com/app/4476220/Arcana_Gas__Waterworks_Inc/" class="btn btn-steam btn-lg" target="_blank" rel="noopener">
+          <svg class="steam-icon" viewBox="0 0 496 512" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M496 256c0 137-111.2 248-248.4 248-113.8 0-209.6-76.3-239-180.4l95.2 39.3c6.4 32.1 34.9 56.4 68.9 56.4 39.2 0 71.1-32.2 70.5-71.4l84.9-60.5c50.1 0 90.8-40.8 90.8-90.9s-40.7-90.9-90.8-90.9-90.8 40.8-90.8 90.9v1.2l-60 85.2c-16.2 0-31.4 5.6-43.4 15L0 228.6C12.7 109.5 120.1 14.7 248.4 8 384.8.8 496 110.3 496 256zM181 381.6c-12.2-5.1-26.2.3-31.3 12.5s.3 26.2 12.5 31.3l30.1 12.5c-18.2-7.6-28.7-27.1-24.1-46.4 4.6-19.5 23.4-32.2 43.4-30l-30.6-12.9v13zm130-284.3c33.4 0 60.5 27.2 60.5 60.5s-27.1 60.5-60.5 60.5-60.5-27.2-60.5-60.5 27.1-60.5 60.5-60.5zm0 24.2c-20.1 0-36.3 16.3-36.3 36.3s16.3 36.3 36.3 36.3 36.3-16.3 36.3-36.3-16.2-36.3-36.3-36.3z"/></svg>
+          Wishlist on Steam
+        </a>
+        <p class="cta-sub">Coming Summer 2026 &middot; Windows &middot; macOS &middot; Linux</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <p>&copy; 2026 Shawn Rider <em>"Games for people who play."</em></p>
+  </footer>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" hidden>
+    <div class="lightbox-backdrop"></div>
+    <img class="lightbox-img" id="lightbox-img" src="" alt="">
+    <div class="lightbox-bar">
+      <button class="lightbox-btn" id="lb-prev" aria-label="Previous">&#x276E;</button>
+      <span class="lightbox-counter" id="lb-counter"></span>
+      <button class="lightbox-btn" id="lb-next" aria-label="Next">&#x276F;</button>
+      <button class="lightbox-btn lightbox-close" id="lb-close" aria-label="Close">&#x2715;</button>
+    </div>
+  </div>
+
+  <script src="background.js"></script>
+  <script src="carousel.js"></script>
+</body>
+</html>
