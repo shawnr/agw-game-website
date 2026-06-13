@@ -71,6 +71,56 @@ body {
   );
 }
 
+/* --- Steam Next Fest Banner --- */
+.nextfest-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 10;
+  padding: 0.6rem 1.2rem;
+  text-decoration: none;
+  text-align: center;
+  background: linear-gradient(90deg, rgba(107, 33, 168, 0.96) 0%, rgba(153, 51, 255, 0.96) 50%, rgba(212, 160, 23, 0.96) 100%);
+  border-bottom: 1px solid rgba(212, 160, 23, 0.5);
+  box-shadow: 0 2px 22px rgba(153, 51, 255, 0.4);
+  font-family: var(--font-display);
+  letter-spacing: 0.04em;
+  transition: filter 0.2s ease;
+}
+
+.nextfest-banner:hover { filter: brightness(1.12); }
+
+.nf-text {
+  color: #F5EEFF;
+  font-size: clamp(1rem, 2.4vw, 1.2rem);
+}
+
+.nf-text strong { color: #fff; }
+
+.nf-cta {
+  color: #1B0A2E;
+  background: var(--gold);
+  font-weight: 700;
+  padding: 0.15rem 0.75rem;
+  border-radius: 4px;
+  font-size: clamp(0.95rem, 2.2vw, 1.1rem);
+  white-space: nowrap;
+}
+
+.nf-pulse {
+  color: var(--green-term);
+  font-size: 1.25rem;
+  animation: nfpulse 1.4s ease-in-out infinite;
+}
+
+@keyframes nfpulse {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 1; }
+}
+
 /* --- Layout --- */
 main { position: relative; z-index: 2; }
 
@@ -223,6 +273,21 @@ main { position: relative; z-index: 2; }
   color: #fff;
   border-color: rgba(199, 213, 224, 0.4);
   box-shadow: 0 0 30px rgba(42, 71, 94, 0.6), 0 4px 20px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+.btn-demo {
+  background: linear-gradient(135deg, var(--purple) 0%, #B84DFF 100%);
+  color: #fff;
+  border: 1px solid rgba(212, 160, 23, 0.55);
+  box-shadow: 0 0 25px rgba(153, 51, 255, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+.btn-demo:hover {
+  background: linear-gradient(135deg, #B84DFF 0%, #D77BFF 100%);
+  color: #fff;
+  border-color: rgba(212, 160, 23, 0.8);
+  box-shadow: 0 0 38px rgba(153, 51, 255, 0.7), 0 4px 20px rgba(0, 0, 0, 0.35);
   transform: translateY(-2px);
 }
 
