@@ -71,8 +71,8 @@ body {
   );
 }
 
-/* --- Steam Next Fest Banner --- */
-.nextfest-banner {
+/* --- Demo Banner --- */
+.demo-banner {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -91,16 +91,16 @@ body {
   transition: filter 0.2s ease;
 }
 
-.nextfest-banner:hover { filter: brightness(1.12); }
+.demo-banner:hover { filter: brightness(1.12); }
 
-.nf-text {
+.db-text {
   color: #F5EEFF;
   font-size: clamp(1rem, 2.4vw, 1.2rem);
 }
 
-.nf-text strong { color: #fff; }
+.db-text strong { color: #fff; }
 
-.nf-cta {
+.db-cta {
   color: #1B0A2E;
   background: var(--gold);
   font-weight: 700;
@@ -110,13 +110,13 @@ body {
   white-space: nowrap;
 }
 
-.nf-pulse {
+.db-pulse {
   color: var(--green-term);
   font-size: 1.25rem;
-  animation: nfpulse 1.4s ease-in-out infinite;
+  animation: dbpulse 1.4s ease-in-out infinite;
 }
 
-@keyframes nfpulse {
+@keyframes dbpulse {
   0%, 100% { opacity: 0.35; }
   50% { opacity: 1; }
 }
