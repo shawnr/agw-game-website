@@ -205,9 +205,9 @@
     const radius = Math.min(w, h) * 0.5;
 
     const grad = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius);
-    grad.addColorStop(0, `rgba(153, 51, 255, ${0.03 + 0.015 * pulse})`);
+    grad.addColorStop(0, `rgba(212, 160, 23, ${0.03 + 0.015 * pulse})`);
     grad.addColorStop(0.3, `rgba(212, 160, 23, ${0.01 + 0.008 * pulse})`);
-    grad.addColorStop(0.7, 'rgba(153, 51, 255, 0.005)');
+    grad.addColorStop(0.7, 'rgba(212, 160, 23, 0.004)');
     grad.addColorStop(1, 'rgba(0, 0, 0, 0)');
     ctx.beginPath();
     ctx.arc(cx, cy, radius, 0, Math.PI * 2);
@@ -245,7 +245,7 @@
       });
     }
     // Star pattern
-    ctx.strokeStyle = `rgba(153, 51, 255, ${alpha})`;
+    ctx.strokeStyle = `rgba(212, 160, 23, ${alpha})`;
     for (let i = 0; i < 5; i++) {
       ctx.beginPath();
       ctx.moveTo(pts[i].x, pts[i].y);
