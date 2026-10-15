@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AG&amp;W Inc. Field Manual</title>
+  <meta name="description" content="The AG&amp;W Inc. Field Manual: how to play Arcana, Gas &amp; Waterworks Inc., with a quick start, glossary, and every game system explained.">
+  <meta property="og:title" content="AG&amp;W Inc. Field Manual">
+  <meta property="og:description" content="The AG&amp;W Inc. Field Manual: how to play Arcana, Gas &amp; Waterworks Inc., with a quick start, glossary, and every game system explained.">
+  <meta property="og:image" content="https://agw-game.com/assets/images/capsule-header.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://agw-game.com/field-manual/">
+  <link rel="icon" type="image/png" href="../assets/images/icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=VT323&family=Almendra:wght@400;700&family=Philosopher:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="field-manual.css">
+</head>
+<body class="fm">
+  <div class="scanlines" aria-hidden="true"></div>
+
+  <header class="fm-topbar">
+    <a class="fm-home" href="../"><img src="../assets/images/icon.png" alt="" width="28" height="28">AG&amp;W Inc.</a>
+    <a class="fm-topbar-title" href="./">Field Manual</a>
+    <a class="fm-steam" href="https://store.steampowered.com/app/4476220/Arcana_Gas__Waterworks_Inc/" target="_blank" rel="noopener">[Play on Steam]</a>
+    <button class="fm-menu-btn" type="button" aria-expanded="false" aria-controls="fm-sidebar">Contents</button>
+  </header>
+
+  <div class="fm-layout">
+    <aside class="fm-sidebar" id="fm-sidebar">
+      <div class="fm-search" role="search">
+        <label for="fm-search-input">Search the manual</label>
+        <input id="fm-search-input" type="search" placeholder="relay, upkeep, eruption…" autocomplete="off" spellcheck="false">
+        <ul class="fm-results" id="fm-search-results" hidden></ul>
+      </div>
+      <nav class="fm-nav" aria-label="Field Manual">
+        <p class="fm-nav-heading">Contents</p>
+        <ol>
+          <li><a href="index.html" aria-current="page">Overview</a></li>
+          <li><a href="how-to-play.html">How to Play</a></li>
+          <li><a href="mana.html">Mana Types</a></li>
+          <li><a href="buildings.html">Sources &amp; Customers</a></li>
+          <li><a href="components.html">Components &amp; Conduits</a></li>
+          <li><a href="interactions.html">Interactions</a></li>
+          <li><a href="controls.html">Controls</a></li>
+          <li><a href="tips.html">Tips &amp; Troubleshooting</a></li>
+        </ol>
+      </nav>
+    </aside>
+
+    <main class="fm-content">
+      <p class="fm-crumb">AG&amp;W Inc. &middot; Employee Reference</p>
+      <h1>Field Manual</h1>
+      <p class="fm-lede">Everything a new line technician needs to keep the magick flowing: how operations work, what every building wants, what each component does, and which mana combinations will make your afternoon interesting.</p>
+
+      <blockquote class="fm-memo">
+        <p>Be aware: some energy interactions in this region are beneficial, and some are hazardous. Inspect your routes carefully. The Field Manual has details if you'd like to be surprised less.</p>
+        <cite>Dispatch, AG&amp;W Inc.</cite>
+      </blockquote>
+
+      <h2 id="quick-start">Quick start</h2>
+      <ol class="fm-steps">
+        <li><strong>Read the briefing.</strong> Each operation opens with a memo. It names the goal, your starting budget, and your debt limit.</li>
+        <li><strong>Find the sources and customers.</strong> Sources glow with the mana they produce. Customers show a ring for their mood. Hover any building to see what it produces or needs.</li>
+        <li><strong>Draw conduits.</strong> Click a source, then click a customer that needs that mana. The conduit routes itself and costs <span class="num">10 GC</span> per hex.</li>
+        <li><strong>Mind capacity and distance.</strong> A conduit carries <span class="num">15</span> mana per day and loses <span class="num">1</span> for every <span class="num">5</span> hexes it travels. Sources make <span class="num">30</span>, so most need two conduits.</li>
+        <li><strong>Keep everyone Content.</strong> In most operations you win by keeping every customer fully supplied and Content for a set number of days in a row.</li>
+        <li><strong>Press <kbd>C</kbd> in-game</strong> for the in-game Field Manual, or come back here for the long version.</li>
+      </ol>
+
+      <h2 id="sections">What's in this manual</h2>
+      <div class="fm-cards">
+        <a class="fm-card" href="how-to-play.html"><span class="fm-card-title">How to Play</span><span class="fm-card-desc">Operations, conduits, capacity, distance, money, satisfaction, and how to win.</span></a>
+        <a class="fm-card" href="mana.html"><span class="fm-card-title">Mana Types</span><span class="fm-card-desc">Arcana, Fire, Water, Earth and Gas: where each comes from and who needs it.</span></a>
+        <a class="fm-card" href="buildings.html"><span class="fm-card-title">Sources &amp; Customers</span><span class="fm-card-desc">Every building on the map, what it makes, what it needs, and how patient it is.</span></a>
+        <a class="fm-card" href="components.html"><span class="fm-card-title">Components &amp; Conduits</span><span class="fm-card-desc">Relays, Splitters, Transformers, Batteries, Filters, and conduit upgrades.</span></a>
+        <a class="fm-card" href="interactions.html"><span class="fm-card-title">Interactions</span><span class="fm-card-desc">What happens when two mana types share a hex. Some help. Some explode.</span></a>
+        <a class="fm-card" href="controls.html"><span class="fm-card-title">Controls</span><span class="fm-card-desc">Mouse, keyboard, the radial menu, time controls and settings.</span></a>
+        <a class="fm-card" href="tips.html"><span class="fm-card-title">Tips &amp; Troubleshooting</span><span class="fm-card-desc">Why is that customer arriving short? Why does the win timer keep resetting?</span></a>
+      </div>
+
+      <h2 id="numbers">The numbers that matter most</h2>
+      <div class="fm-table-wrap">
+        <table class="fm-table">
+          <tbody>
+            <tr><th scope="row">Source output</th><td class="n">30</td><td>mana per day (mixed sources: 15 + 15)</td></tr>
+            <tr><th scope="row">Conduit capacity</th><td class="n">15 / 30</td><td>per day, basic / upgraded</td></tr>
+            <tr><th scope="row">Conduits per source</th><td class="n">2</td><td>use a Splitter to fan out further</td></tr>
+            <tr><th scope="row">Conduits per hex</th><td class="n">2</td><td>on open ground</td></tr>
+            <tr><th scope="row">Distance loss</th><td class="n">0.2</td><td>per hex (1 for every 5 hexes), none on a leg that ends at a Relay Station</td></tr>
+            <tr><th scope="row">Conduit cost</th><td class="n">10 / 25</td><td>GC per hex, basic / upgraded</td></tr>
+            <tr><th scope="row">Revenue</th><td class="n">2</td><td>GC per unit of demand per day, scaled by supply and mood</td></tr>
+            <tr><th scope="row">Furious penalty</th><td class="n">&minus;50</td><td>GC per day, per furious customer</td></tr>
+            <tr><th scope="row">Refunds</th><td class="n">100%</td><td>on anything you built yourself</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="glossary">Glossary</h2>
+      <dl class="fm-glossary">
+        <dt id="g-operation">Operation</dt>
+        <dd>One level of the campaign: a map, a budget, a goal, and a memo from Dispatch. See <a href="how-to-play.html#operations">Operations</a>.</dd>
+        <dt id="g-source">Source</dt>
+        <dd>A building that produces mana, such as a Ley Line Nexus or Fire Geyser. See <a href="buildings.html#sources">Sources</a>.</dd>
+        <dt id="g-customer">Customer</dt>
+        <dd>A building that needs mana and pays for it. The game also calls them consumers. See <a href="buildings.html#customers">Customers</a>.</dd>
+        <dt id="g-hybrid">Hybrid</dt>
+        <dd>A building that needs some mana and produces another kind, but only while all of its needs are met. See <a href="buildings.html#hybrids">Hybrids</a>.</dd>
+        <dt id="g-conduit">Conduit</dt>
+        <dd>A ley line you build between two buildings or components. Also called a line. See <a href="how-to-play.html#conduits">Building conduits</a>.</dd>
+        <dt id="g-capacity">Capacity</dt>
+        <dd>The most mana a conduit can carry per day: 15 basic, 30 upgraded.</dd>
+        <dt id="g-dissipation">Dissipation</dt>
+        <dd>Mana lost to distance: 0.2 per hex. See <a href="how-to-play.html#distance">Distance and dissipation</a>.</dd>
+        <dt id="g-gc">GC</dt>
+        <dd>Gold Crowns, AG&amp;W's currency. You spend it on construction and upkeep and earn it from customers.</dd>
+        <dt id="g-upkeep">Upkeep</dt>
+        <dd>The daily running cost of a component. Conduits have no upkeep.</dd>
+        <dt id="g-debt-limit">Debt limit</dt>
+        <dd>How far below zero your budget may go. Reaching it ends the operation. See <a href="how-to-play.html#money">Money</a>.</dd>
+        <dt id="g-satisfaction">Satisfaction</dt>
+        <dd>A customer's mood, from Content to Furious, shown by the ring around it. See <a href="how-to-play.html#satisfaction">Customer satisfaction</a>.</dd>
+        <dt id="g-streak">Content streak</dt>
+        <dd>The count of consecutive days on which every customer is fully supplied and Content. Most operations are won by filling it.</dd>
+        <dt id="g-interaction">Interaction</dt>
+        <dd>A reaction between two different mana types whose conduits share a hex or sit side by side. See <a href="interactions.html">Interactions</a>.</dd>
+        <dt id="g-eruption">Eruption</dt>
+        <dd>A hazard interaction going off. Every exposed conduit in the zone loses part of its flow for the day. See <a href="interactions.html#eruptions">Eruptions</a>.</dd>
+        <dt id="g-mixed-source">Mixed source</dt>
+        <dd>A source that produces two mana types at once. See <a href="buildings.html#mixed-sources">Mixed sources</a>.</dd>
+        <dt id="g-raw-mixed">Raw mixed line</dt>
+        <dd>A conduit carrying two mana types together, straight from a mixed source or out of a merging Splitter. See <a href="components.html#raw-mixed-conduits">Raw mixed and merged conduits</a>.</dd>
+        <dt id="g-insulated">Insulated conduit</dt>
+        <dd>A conduit leaving a Filter. It never takes part in interactions and is immune to eruptions. See <a href="components.html#insulated-conduits">Insulated conduits</a>.</dd>
+        <dt id="g-hardened">Hardened</dt>
+        <dd>An upgraded conduit takes only half the loss from an eruption.</dd>
+      </dl>
+      <nav class="fm-pager" aria-label="Previous and next page">
+        <a class="next" href="how-to-play.html"><span>Next &rarr;</span>How to Play</a>
+      </nav>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <p>Field Manual written for <em>Arcana, Gas &amp; Waterworks Inc.</em> version 1.1.0 &middot; <a href="../">agw-game.com</a></p>
+    <p>&copy; 2026 Shawn Rider <em>"Games for people who play."</em></p>
+  </footer>
+
+  <script src="field-manual.js"></script>
+</body>
+</html>

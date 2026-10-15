@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Play — AG&amp;W Field Manual</title>
+  <meta name="description" content="How to play Arcana, Gas &amp; Waterworks Inc.: operations, building conduits, capacity and distance, money, customer satisfaction, and winning.">
+  <meta property="og:title" content="How to Play — AG&amp;W Field Manual">
+  <meta property="og:description" content="How to play Arcana, Gas &amp; Waterworks Inc.: operations, building conduits, capacity and distance, money, customer satisfaction, and winning.">
+  <meta property="og:image" content="https://agw-game.com/assets/images/capsule-header.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://agw-game.com/field-manual/how-to-play.html">
+  <link rel="icon" type="image/png" href="../assets/images/icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=VT323&family=Almendra:wght@400;700&family=Philosopher:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="field-manual.css">
+</head>
+<body class="fm">
+  <div class="scanlines" aria-hidden="true"></div>
+
+  <header class="fm-topbar">
+    <a class="fm-home" href="../"><img src="../assets/images/icon.png" alt="" width="28" height="28">AG&amp;W Inc.</a>
+    <a class="fm-topbar-title" href="./">Field Manual</a>
+    <a class="fm-steam" href="https://store.steampowered.com/app/4476220/Arcana_Gas__Waterworks_Inc/" target="_blank" rel="noopener">[Play on Steam]</a>
+    <button class="fm-menu-btn" type="button" aria-expanded="false" aria-controls="fm-sidebar">Contents</button>
+  </header>
+
+  <div class="fm-layout">
+    <aside class="fm-sidebar" id="fm-sidebar">
+      <div class="fm-search" role="search">
+        <label for="fm-search-input">Search the manual</label>
+        <input id="fm-search-input" type="search" placeholder="relay, upkeep, eruption…" autocomplete="off" spellcheck="false">
+        <ul class="fm-results" id="fm-search-results" hidden></ul>
+      </div>
+      <nav class="fm-nav" aria-label="Field Manual">
+        <p class="fm-nav-heading">Contents</p>
+        <ol>
+          <li><a href="index.html">Overview</a></li>
+          <li><a href="how-to-play.html" aria-current="page">How to Play</a></li>
+          <li><a href="mana.html">Mana Types</a></li>
+          <li><a href="buildings.html">Sources &amp; Customers</a></li>
+          <li><a href="components.html">Components &amp; Conduits</a></li>
+          <li><a href="interactions.html">Interactions</a></li>
+          <li><a href="controls.html">Controls</a></li>
+          <li><a href="tips.html">Tips &amp; Troubleshooting</a></li>
+        </ol>
+      </nav>
+    </aside>
+
+    <main class="fm-content">
+      <p class="fm-crumb">Field Manual</p>
+      <h1>How to Play</h1>
+      <p class="fm-lede">You work for AG&amp;W Inc., the realm's mana utility. Each operation drops you onto a hex map with mana sources on one side and customers who need that mana on the other. Connect them, stay on budget, and keep everyone happy long enough for Dispatch to call it a success.</p>
+
+      <h2 id="operations">Operations</h2>
+      <p>The campaign is made of <strong>19 operations</strong> across six career tiers, from New Employee to Chief of Reclamation. Each one is a hand-built region with its own map, starting budget, debt limit and goal. You start each operation from your desk in the AG&amp;W terminal, and each one opens with a briefing memo from Dispatch that tells you what's expected.</p>
+      <p>Early operations teach one idea at a time. New components unlock as you go: Relay Stations and Splitters, then Transformers and Batteries, then Filters and conduit upgrades. The <a href="components.html#unlocks">unlock table</a> lists when each one arrives.</p>
+      <p>You can replay any completed operation from the Archives to improve your best day. Replays don't change your career progress.</p>
+
+      <h2 id="the-map">The map</h2>
+      <p>Operations take place on a hex grid. Terrain is decoration; you can build across any of it. You'll find three kinds of buildings:</p>
+      <ul>
+        <li><strong>Sources</strong> produce mana. A standard source makes <span class="num">30</span> of one type per day.</li>
+        <li><strong>Customers</strong> need one or more mana types and pay for what they receive.</li>
+        <li><strong>Hybrids</strong> need some mana and produce another kind, but only while all of their own needs are met.</li>
+      </ul>
+      <p>All sources are visible from the start, along with the first <span class="num">3</span> customers. Any remaining customers come online one at a time, every <span class="num">5</span> days, with an <code>[OPS.STATUS]</code> notice. You can't complete an operation while customers are still waiting to appear, so leave yourself some budget for the latecomers.</p>
+      <p>Hover any building to see what it produces or needs and how much it's currently receiving. Press <kbd>N</kbd> (or click the <strong>[Info]</strong> tab on the left edge) to open the node list, which shows every customer and resource; clicking a row pans the camera there. Full details for each building are on <a href="buildings.html">Sources &amp; Customers</a>.</p>
+
+      <h2 id="conduits">Building conduits</h2>
+      <p>Conduits are the ley lines that carry mana. To build one:</p>
+      <ol>
+        <li>Left-click a source (or a component that's already receiving mana).</li>
+        <li>Left-click the destination. The conduit finds its own route.</li>
+        <li>To steer it, click open ground while drawing to pin a waypoint. Right-click removes the last pin; with no pins left it cancels the line. <kbd>Esc</kbd> cancels outright.</li>
+      </ol>
+      <p>A basic conduit costs <strong><span class="num">10</span> GC per hex step</strong>. The rules of the road:</p>
+      <ul>
+        <li><strong>Two conduits per source.</strong> A source can feed at most two conduits. To serve more buildings, run a conduit to a <a href="components.html#splitter">Splitter</a>.</li>
+        <li><strong>Customers have no limit.</strong> Run several conduits into one customer to top it up, or to bring it several types.</li>
+        <li><strong>Two conduits per hex.</strong> At most two conduits can share an open-ground hex. The router goes around full hexes and around buildings and components that aren't part of the line.</li>
+        <li><strong>Right type only.</strong> A customer only accepts the mana types it needs. Try to send it something else and you'll get <code>[GRID.TYPE] … doesn't use … energy.</code></li>
+        <li><strong>No duplicates.</strong> You can't build a second identical conduit between the same two points.</li>
+      </ul>
+      <p>You can build while the game is paused, and <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Z</kbd> undoes your last action.</p>
+
+      <h3 id="refunds">Tearing down and refunds</h3>
+      <p>Right-click a conduit and choose <strong>Teardown</strong>, or a component and choose <strong>Remove</strong>. Anything you built yourself refunds <strong>in full</strong>, including the upgrade cost of an upgraded conduit. Infrastructure that was already on the map when you arrived refunds nothing.</p>
+      <blockquote class="fm-memo">
+        <p>If you make a mistake, tear it up. Full refund. We're not monsters.</p>
+        <cite>Orientation memo, your first day</cite>
+      </blockquote>
+
+      <h2 id="capacity">Capacity</h2>
+      <p>A basic conduit carries up to <strong><span class="num">15</span> mana per day</strong>. An <a href="components.html#upgraded-conduits">upgraded conduit</a> carries <span class="num">30</span>.</p>
+      <p>Every source, hybrid and component divides its output <strong>evenly</strong> across its outgoing conduits of that type, whatever the buildings downstream actually need. A 30-mana source with two conduits sends 15 down each. A 30-mana source with only <em>one</em> basic conduit sends 15, and the other 15 goes nowhere.</p>
+      <div class="fm-note tip">
+        <span class="fm-note-label">Tip</span>
+        <p>Because splits are even, a customer that needs 3 gets the same share as one that needs 10. Plan your branches so the big consumers get their own conduits.</p>
+      </div>
+      <p>When a conduit runs above 80% of its capacity, its pulses speed up and its glow brightens. That's a visual warning only; nothing is lost.</p>
+
+      <h2 id="distance">Distance and dissipation</h2>
+      <p>Mana leaks as it travels: every conduit loses <strong><span class="num">0.2</span> per hex</strong>, which is <span class="num">1</span> unit for every <span class="num">5</span> hexes. The loss is charged once per conduit, on its total flow.</p>
+      <blockquote class="fm-memo">
+        <p>Energy depletes by 1 for every 5 hexes it travels.</p>
+        <cite>Field prompt</cite>
+      </blockquote>
+      <p>So a full 15 sent down a 10-hex conduit arrives as 13. If the customer at the end needs 15, it's short, and a short customer gets frustrated. Two ways out:</p>
+      <ul>
+        <li><strong>Send surplus.</strong> Feed more than the exact demand so there's room for the loss.</li>
+        <li><strong>Use a Relay Station.</strong> A conduit that ends at a <a href="components.html#relay-station">Relay Station</a> loses nothing, however long it is. Only the leg after the last relay pays dissipation.</li>
+      </ul>
+
+      <h2 id="money">Money</h2>
+      <p>AG&amp;W pays in <strong>Gold Crowns (GC)</strong>. Each operation sets its own starting budget.</p>
+      <h3 id="revenue">Revenue</h3>
+      <p>Customers pay continuously. A customer's daily revenue is:</p>
+      <p class="fm-note"><span class="fm-note-label">Formula</span>total demand &times; <span class="num">2</span> GC &times; share of demand supplied &times; mood multiplier</p>
+      <p>A Farming Village that needs 5 water and 3 earth earns <span class="num">16</span> GC per day when fully supplied and Content. If it only gets half its mana, it pays half. Angry and Furious customers pay nothing at all. Some <a href="interactions.html">interactions</a> add revenue bonuses or passive income on top.</p>
+      <h3 id="costs">Costs</h3>
+      <ul>
+        <li><strong>Construction:</strong> conduits at 10 GC per hex (25 when upgraded), components at their listed price.</li>
+        <li><strong>Upkeep:</strong> every component charges a small amount per day. Conduits have no upkeep.</li>
+        <li><strong>Furious customers:</strong> each one costs you <span class="num">50</span> GC per day on top of paying nothing.</li>
+      </ul>
+      <h3 id="debt">Debt limit</h3>
+      <p>Your budget can go below zero. You can keep building on credit as long as each purchase leaves you above your debt limit, which the briefing shows as <code>Debt limit: -N GC</code>. If your balance ever reaches the limit, the operation fails immediately with an audit. The limit grows over the campaign, from <span class="num">100</span> GC in the first operations to <span class="num">800</span> GC at the end.</p>
+      <p>Budget warnings appear once you drop under 200 GC.</p>
+
+      <h2 id="satisfaction">Customer satisfaction</h2>
+      <p>Every customer tracks <strong>frustration</strong> for each mana type it needs. Its mood, shown by the colored ring around it, is set by its worst type.</p>
+      <ul>
+        <li>While a type is under-supplied, frustration rises each day by the shortfall times the customer's <strong>sensitivity</strong>. Touchy customers like the Wizard Academy (1.5) sour quickly; a Farming Village (0.5) is patient.</li>
+        <li>While a type is fully supplied, its frustration falls by <span class="num">3</span> per day.</li>
+      </ul>
+      <div class="fm-table-wrap">
+        <table class="fm-table">
+          <caption>Moods</caption>
+          <thead><tr><th>Mood</th><th>Frustration</th><th>Ring</th><th class="n">Revenue</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Content</th><td>0&ndash;20</td><td>green (blue in colorblind mode)</td><td class="n">100%</td></tr>
+            <tr><th scope="row">Annoyed</th><td>21&ndash;45</td><td>yellow</td><td class="n">90%</td></tr>
+            <tr><th scope="row">Frustrated</th><td>46&ndash;65</td><td>orange</td><td class="n">75%</td></tr>
+            <tr><th scope="row">Angry</th><td>66&ndash;85</td><td>red</td><td class="n">0%</td></tr>
+            <tr><th scope="row">Furious</th><td>86&ndash;100</td><td>pulsing bright red</td><td class="n">0% and &minus;50 GC/day</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Hover a customer to see each type's <code>got / need</code> and whether its mood is improving or declining. Recovery is slow: a Furious customer needs weeks of full supply to calm down, so it's far cheaper to fix shortages early.</p>
+      <h3 id="complaints">Complaints</h3>
+      <p>The first time a customer reaches Frustrated, Angry or Furious, it files a <strong>complaint ticket</strong>. Complaints are a warning (and usually a joke); the money effects come from the mood itself.</p>
+
+      <h2 id="time">Time</h2>
+      <p>The game runs in <strong>days</strong>. Operations start at the slowest speed, and you can change it with the speed button at the bottom of the screen or the keyboard:</p>
+      <div class="fm-table-wrap">
+        <table class="fm-table">
+          <thead><tr><th>Speed</th><th>Real time per game day</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">1x</th><td>about 10 seconds</td></tr>
+            <tr><th scope="row">2x</th><td>about 5 seconds</td></tr>
+            <tr><th scope="row">3x</th><td>about 3.3 seconds</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><kbd>Space</kbd> pauses and resumes; <kbd>+</kbd> and <kbd>-</kbd> step the speed. While paused the world freezes, but you can still pan, inspect and build. The game does not pause itself when you switch to another window, so you can leave an operation running in the background. Going back to the desktop with <kbd>F1</kbd> does pause it.</p>
+      <p>The game autosaves every 5 days by default (adjustable in Settings).</p>
+
+      <h2 id="winning">Winning and losing</h2>
+      <p>The goal is shown at the top of the screen and in the briefing.</p>
+      <ul>
+        <li><strong>Connect all consumers.</strong> The first operations end as soon as every customer is receiving everything it needs.</li>
+        <li><strong>Keep everyone Content.</strong> Most operations ask for every customer to be fully supplied <em>and</em> Content at the same time for a number of consecutive days. A progress bar counts the streak. If anyone slips, the streak resets to zero.</li>
+        <li><strong>Special objectives.</strong> Some later operations add their own twist, such as a deadline, a minimum budget at the end, or a different target entirely. The briefing spells it out.</li>
+      </ul>
+      <p>An operation fails if your budget hits the debt limit, or if it has a deadline and time runs out. You can retry straight away or return to the desktop.</p>
+      <p>When you win, you're promoted and the day you finished on is recorded as your <strong>best day</strong> for that operation (lower is better). Each operation has its own leaderboard on Steam.</p>
+
+      <h2 id="after-the-campaign">After the campaign</h2>
+      <p>Finish the campaign and two more ways to play open up on your desktop:</p>
+      <ul>
+        <li><strong>Freelance Operations</strong> generates a fresh contract every time: a random map with 2 to 5 sources, 4 to 10 customers, and every component and upgrade available. Keep everyone Content for the required number of days to finish the job. Freelance work also brings some customers you won't meet in the campaign; see <a href="buildings.html#freelance-customers">Freelance customers</a>.</li>
+        <li><strong>Custom Requisitions</strong> (Form 88-C) lets you design your own job: map size, number of sources and customers, budget, which mana types appear, and the goal.</li>
+      </ul>
+      <nav class="fm-pager" aria-label="Previous and next page">
+        <a class="prev" href="index.html"><span>&larr; Previous</span>Overview</a>
+        <a class="next" href="mana.html"><span>Next &rarr;</span>Mana Types</a>
+      </nav>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <p>Field Manual written for <em>Arcana, Gas &amp; Waterworks Inc.</em> version 1.1.0 &middot; <a href="../">agw-game.com</a></p>
+    <p>&copy; 2026 Shawn Rider <em>"Games for people who play."</em></p>
+  </footer>
+
+  <script src="field-manual.js"></script>
+</body>
+</html>

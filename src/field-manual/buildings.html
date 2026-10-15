@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sources & Customers — AG&amp;W Field Manual</title>
+  <meta name="description" content="Every source, mixed source, hybrid and customer in AG&amp;W Inc., with output, demand, revenue and how quickly each one loses patience.">
+  <meta property="og:title" content="Sources & Customers — AG&amp;W Field Manual">
+  <meta property="og:description" content="Every source, mixed source, hybrid and customer in AG&amp;W Inc., with output, demand, revenue and how quickly each one loses patience.">
+  <meta property="og:image" content="https://agw-game.com/assets/images/capsule-header.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://agw-game.com/field-manual/buildings.html">
+  <link rel="icon" type="image/png" href="../assets/images/icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=VT323&family=Almendra:wght@400;700&family=Philosopher:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="field-manual.css">
+</head>
+<body class="fm">
+  <div class="scanlines" aria-hidden="true"></div>
+
+  <header class="fm-topbar">
+    <a class="fm-home" href="../"><img src="../assets/images/icon.png" alt="" width="28" height="28">AG&amp;W Inc.</a>
+    <a class="fm-topbar-title" href="./">Field Manual</a>
+    <a class="fm-steam" href="https://store.steampowered.com/app/4476220/Arcana_Gas__Waterworks_Inc/" target="_blank" rel="noopener">[Play on Steam]</a>
+    <button class="fm-menu-btn" type="button" aria-expanded="false" aria-controls="fm-sidebar">Contents</button>
+  </header>
+
+  <div class="fm-layout">
+    <aside class="fm-sidebar" id="fm-sidebar">
+      <div class="fm-search" role="search">
+        <label for="fm-search-input">Search the manual</label>
+        <input id="fm-search-input" type="search" placeholder="relay, upkeep, eruption…" autocomplete="off" spellcheck="false">
+        <ul class="fm-results" id="fm-search-results" hidden></ul>
+      </div>
+      <nav class="fm-nav" aria-label="Field Manual">
+        <p class="fm-nav-heading">Contents</p>
+        <ol>
+          <li><a href="index.html">Overview</a></li>
+          <li><a href="how-to-play.html">How to Play</a></li>
+          <li><a href="mana.html">Mana Types</a></li>
+          <li><a href="buildings.html" aria-current="page">Sources &amp; Customers</a></li>
+          <li><a href="components.html">Components &amp; Conduits</a></li>
+          <li><a href="interactions.html">Interactions</a></li>
+          <li><a href="controls.html">Controls</a></li>
+          <li><a href="tips.html">Tips &amp; Troubleshooting</a></li>
+        </ol>
+      </nav>
+    </aside>
+
+    <main class="fm-content">
+      <p class="fm-crumb">Field Manual</p>
+      <h1>Sources &amp; Customers</h1>
+      <p class="fm-lede">Every building you'll route mana to or from. Numbers here are each building's standard values. Operations sometimes adjust a particular building's needs or output, so the in-game tooltip always has the final word.</p>
+
+      <h2 id="reading-the-numbers">Reading the numbers</h2>
+      <ul>
+        <li><strong>Output</strong> is mana produced per day. It's split evenly across the building's outgoing conduits, and a source can have at most two.</li>
+        <li><strong>Needs</strong> is mana required per day, for each type.</li>
+        <li><strong>Pays</strong> is daily revenue when fully supplied and Content: total needs &times; 2 GC. See <a href="how-to-play.html#revenue">Revenue</a>.</li>
+        <li><strong>Sensitivity</strong> is how fast the building gets frustrated when it's short. Each day it gains (shortfall &times; sensitivity) frustration. Higher means touchier. See <a href="how-to-play.html#satisfaction">Customer satisfaction</a>.</li>
+      </ul>
+
+      <h2 id="sources">Sources</h2>
+      <p>Sources produce one type of mana, 30 per day, forever, for free. They never get frustrated. Since a basic conduit carries 15, it takes two conduits (or one upgraded conduit) to use a source's full output.</p>
+      <div class="fm-entries two">
+        <article class="fm-entry" id="ley-line-nexus" data-mana="arcana">
+          <div class="fm-entry-head"><h3><a class="fm-anchor" href="#ley-line-nexus">Ley Line Nexus</a></h3></div>
+          <dl class="fm-stats"><div><dt>Output</dt><dd><span class="mana arcana">30 Arcana</span></dd></div></dl>
+          <p>Where the ley lines cross. The realm's supply of raw magic.</p>
+        </article>
+        <article class="fm-entry" id="fire-geyser" data-mana="fire">
+          <div class="fm-entry-head"><h3><a class="fm-anchor" href="#fire-geyser">Fire Geyser</a></h3></div>
+          <dl class="fm-stats"><div><dt>Output</dt><dd><span class="mana fire">30 Fire</span></dd></div></dl>
+          <p>A vent of elemental fire. Keep gas lines well away.</p>
+        </article>
+        <article class="fm-entry" id="underground-spring" data-mana="water">
+          <div class="fm-entry-head"><h3><a class="fm-anchor" href="#underground-spring">Underground Spring</a></h3></div>
+          <dl class="fm-stats"><div><dt>Output</dt><dd><span class="mana water">30 Water</span></dd></div></dl>
+          <p>The only natural water supply on most maps, and hard to replace if it's missing.</p>
+        </article>
+        <article class="fm-entry" id="earth-vein" data-mana="earth">
+          <div class="fm-entry-head"><h3><a class="fm-anchor" href="#earth-vein">Earth Vein</a></h3></div>
+          <dl class="fm-stats"><div><dt>Output</dt><dd><span class="mana earth">30 Earth</span></dd></div></dl>
+          <p>A seam of elemental earth. Often far from the customers who need it.</p>
+        </article>
+        <article class="fm-entry" id="gas-pocket" data-mana="gas">
+          <div class="fm-entry-head"><h3><a class="fm-anchor" href="#gas-pocket">Gas Pocket</a></h3></div>
+          <dl class="fm-stats"><div><dt>Output</dt><dd><span class="mana gas">30 Gas</span></dd></div></dl>
+          <p>Trapped underground gas. Many maps don't have one, so plan on a hybrid or Transformer.</p>
+        </article>
+      </div>
+
+      <h2 id="mixed-sources">Mixed sources</h2>
+      <p>Some regions have sources that produce <strong>two</strong> types at once: 15 of each per day. Operations give them local names (a Mud Spring might be called a bog, for instance), but hovering one always shows what it produces.</p>
+      <p>A conduit drawn straight from a mixed source is a <a href="components.html#raw-mixed-conduits">raw mixed line</a> carrying both types. It can only run directly to a customer that needs <strong>both</strong> types, it can't pass through any component, and its two types react with each other along its whole length. To send out just one type, place a <a href="components.html#filter">Filter</a> on a hex next to the source.</p>
+      <blockquote class="fm-memo">
+        <p>Mixed sources put out two energy types on one conduit. A raw line can only feed a consumer that needs both. Place a Filter on the hex next to the source to send out just one type.</p>
+        <cite>Field prompt</cite>
+      </blockquote>
+      <div class="fm-entries two">
+        <article class="fm-entry" id="caldera" data-keywords="mixed fire earth">
+          <div class="fm-entry-head"><h3><a class="fm-anchor" href="#caldera">Caldera</a></h3><span class="badge neutral">Mixed source</span></div>
+          <dl class="fm-stats"><div><dt>Output</dt><dd><span class="mana fire">15 Fire</span> + <span class="mana earth">15 Earth</span></dd></div></dl>
+          <p>A raw Caldera line triggers <a href="interactions.html#magma-vents">Magma Vents</a> along its entire length.</p>
+        </article>
+        <article class="fm-entry" id="flare-pit" data-keywords="mixed fire gas">
+          <div class="fm-entry-head"><h3><a class="fm-anchor" href="#flare-pit">Flare Pit</a></h3><span class="badge neutral">Mixed source</span></div>
+          <dl class="fm-stats"><div><dt>Output</dt><dd><span class="mana fire">15 Fire</span> + <span class="mana gas">15 Gas</span></dd></div></dl>
+          <p>A raw Flare Pit line is an <a href="interactions.html#explosion-risk">Explosion Risk</a> on every hex. Filter it.</p>
+        </article>
+        <article class="fm-entry" id="mud-spring" data-keywords="mixed earth water bog">
+          <div class="fm-entry-head"><h3><a class="fm-anchor" href="#mud-spring">Mud Spring</a></h3><span class="badge neutral">Mixed source</span></div>
+          <dl class="fm-stats"><div><dt>Output</dt><dd><span class="mana earth">15 Earth</span> + <span class="mana water">15 Water</span></dd></div></dl>
+          <p>A raw Mud Spring line triggers <a href="interactions.html#fertile-growth">Fertile Growth</a> along its length, which is good news for any Farming Village it feeds.</p>
+        </article>
+      </div>
+
+      <h2 id="customers">Customers</h2>
+      <p>Customers need mana and pay for it. They only accept the types they need. Keep them supplied or they'll get frustrated, stop paying, and eventually start costing you money.</p>
+      <div class="fm-table-wrap">
+        <table class="fm-table">
+          <thead><tr><th>Customer</th><th>Needs per day</th><th class="n">Pays</th><th class="n">Sensitivity</th></tr></thead>
+          <tbody>
+            <tr><th scope="row"><a href="#farming-village">Farming Village</a></th><td><span class="mana water">5</span> <span class="mana earth">3</span></td><td class="n">16</td><td class="n">0.5</td></tr>
+            <tr><th scope="row"><a href="#market-town">Market Town</a></th><td><span class="mana arcana">5</span> <span class="mana gas">3</span></td><td class="n">16</td><td class="n">1.0</td></tr>
+            <tr><th scope="row"><a href="#goblin-bazaar">Goblin Bazaar</a></th><td><span class="mana gas">4</span> <span class="mana fire">2</span></td><td class="n">12</td><td class="n">1.0</td></tr>
+            <tr><th scope="row"><a href="#wizard-academy">Wizard Academy</a></th><td><span class="mana arcana">10</span> <span class="mana fire">3</span> <span class="mana water">2</span></td><td class="n">30</td><td class="n">1.5</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="fm-entries two">
+        <article class="fm-entry" id="farming-village">
+          <div class="fm-entry-head"><h3><a class="fm-anchor" href="#farming-village">Farming Village</a></h3></div>
+          <dl class="fm-stats"><div><dt>Needs</dt><dd><span class="mana water">5</span> <span class="mana earth">3</span></dd></div><div><dt>Pays</dt><dd>16</dd></div><div><dt>Sensitivity</dt><dd>0.5</dd></div></dl>
+          <p>Patient, reliable folk. Earns 25% more inside a <a href="interactions.html#fertile-growth">Fertile Growth</a> zone.</p>
+        </article>
+        <article class="fm-entry" id="market-town">
+          <div class="fm-entry-head"><h3><a class="fm-anchor" href="#market-town">Market Town</a></h3></div>
+          <dl class="fm-stats"><div><dt>Needs</dt><dd><span class="mana arcana">5</span> <span class="mana gas">3</span></dd></div><div><dt>Pays</dt><dd>16</dd></div><div><dt>Sensitivity</dt><dd>1.0</dd></div></dl>
+          <p>Wants arcana and gas, which never react with each other, so its lines can run side by side safely.</p>
+        </article>
+        <article class="fm-entry" id="goblin-bazaar">
+          <div class="fm-entry-head"><h3><a class="fm-anchor" href="#goblin-bazaar">Goblin Bazaar</a></h3></div>
+          <dl class="fm-stats"><div><dt>Needs</dt><dd><span class="mana gas">4</span> <span class="mana fire">2</span></dd></div><div><dt>Pays</dt><dd>12</dd></div><div><dt>Sensitivity</dt><dd>1.0</dd></div></dl>
+          <p>Needs fire and gas, which is exactly the pair that explodes. Bring the two lines in from different sides, or <a href="components.html#filter">filter</a> them.</p>
+        </article>
+        <article class="fm-entry" id="wizard-academy">
+          <div class="fm-entry-head"><h3><a class="fm-anchor" href="#wizard-academy">Wizard Academy</a></h3></div>
+          <dl class="fm-stats"><div><dt>Needs</dt><dd><span class="mana arcana">10</span> <span class="mana fire">3</span> <span class="mana water">2</span></dd></div><div><dt>Pays</dt><dd>30</dd></div><div><dt>Sensitivity</dt><dd>1.5</dd></div></dl>
+          <p>The best-paying regular customer and the touchiest. Its big arcana demand often needs a conduit of its own.</p>
+        </article>
+      </div>
+
+      <h2 id="hybrids">Hybrids</h2>
+      <p>Hybrids are customers that also produce. They need mana like any customer (and pay for it, and get frustrated without it), but while <strong>all</strong> of their needs are met they also put out a different type. If any need falls short, production stops completely, and everything downstream goes dark with it.</p>
+      <div class="fm-entries">
+        <article class="fm-entry" id="dragon-lair" data-keywords="hybrid fire producer">
+          <div class="fm-entry-head"><h3><a class="fm-anchor" href="#dragon-lair">Dragon Lair</a></h3><span class="badge neutral">Hybrid</span></div>
+          <dl class="fm-stats"><div><dt>Needs</dt><dd><span class="mana water">2</span></dd></div><div><dt>Produces</dt><dd><span class="mana fire">30 Fire</span></dd></div><div><dt>Pays</dt><dd>4</dd></div><div><dt>Sensitivity</dt><dd>3.0</dd></div></dl>
+          <p>A tiny sip of water buys a full source's worth of fire. The catch: sensitivity 3.0 makes it the touchiest building in the realm. Never let its water run short.</p>
+        </article>
+        <article class="fm-entry" id="dwarven-forge" data-keywords="hybrid gas producer">
+          <div class="fm-entry-head"><h3><a class="fm-anchor" href="#dwarven-forge">Dwarven Forge</a></h3><span class="badge neutral">Hybrid</span></div>
+          <dl class="fm-stats"><div><dt>Needs</dt><dd><span class="mana fire">8</span> <span class="mana earth">5</span></dd></div><div><dt>Produces</dt><dd><span class="mana gas">12 Gas</span></dd></div><div><dt>Pays</dt><dd>26</dd></div><div><dt>Sensitivity</dt><dd>1.0</dd></div></dl>
+          <p>Turns fire and earth into gas. Its two inputs are the <a href="interactions.html#magma-vents">Magma Vents</a> pair, which earns the Forge 30% more but risks eruptions on everything at the Forge's hex, including its own gas output.</p>
+        </article>
+        <article class="fm-entry" id="mushroom-colony" data-keywords="hybrid gas producer">
+          <div class="fm-entry-head"><h3><a class="fm-anchor" href="#mushroom-colony">Mushroom Colony</a></h3><span class="badge neutral">Hybrid</span></div>
+          <dl class="fm-stats"><div><dt>Needs</dt><dd><span class="mana water">3</span> <span class="mana earth">2</span></dd></div><div><dt>Produces</dt><dd><span class="mana gas">12 Gas</span></dd></div><div><dt>Pays</dt><dd>10</dd></div><div><dt>Sensitivity</dt><dd>0.3</dd></div></dl>
+          <p>A calm, cheap gas supply. With sensitivity 0.3 it's the most patient building there is.</p>
+        </article>
+      </div>
+      <div class="fm-note tip">
+        <span class="fm-note-label">Tip</span>
+        <p>Hybrid output follows the same rules as any source: it's split evenly across the hybrid's outgoing conduits, and dissipation still applies on the way out.</p>
+      </div>
+
+      <h2 id="freelance-customers">Freelance customers</h2>
+      <p>Freelance Operations and Custom Requisitions can also generate these customers, which don't appear in the campaign. Each pays total needs &times; 2 GC per day when Content.</p>
+      <div class="fm-table-wrap">
+        <table class="fm-table">
+          <thead><tr><th>Customer</th><th>Needs per day</th><th class="n">Pays</th></tr></thead>
+          <tbody>
+            <tr><th scope="row" id="water-mill">Water Mill</th><td><span class="mana water">6</span></td><td class="n">12</td></tr>
+            <tr><th scope="row" id="smithy">Smithy</th><td><span class="mana fire">6</span></td><td class="n">12</td></tr>
+            <tr><th scope="row" id="quarry">Quarry</th><td><span class="mana earth">6</span></td><td class="n">12</td></tr>
+            <tr><th scope="row" id="carnival">Carnival</th><td><span class="mana gas">6</span></td><td class="n">12</td></tr>
+            <tr><th scope="row" id="shrine">Shrine</th><td><span class="mana arcana">7</span></td><td class="n">14</td></tr>
+            <tr><th scope="row" id="steamworks">Steamworks</th><td><span class="mana fire">5</span> <span class="mana water">3</span></td><td class="n">16</td></tr>
+            <tr><th scope="row" id="oracle-pool">Oracle Pool</th><td><span class="mana arcana">5</span> <span class="mana water">3</span></td><td class="n">16</td></tr>
+            <tr><th scope="row" id="crystal-mine">Crystal Mine</th><td><span class="mana arcana">5</span> <span class="mana earth">3</span></td><td class="n">16</td></tr>
+            <tr><th scope="row" id="kiln-works">Kiln Works</th><td><span class="mana fire">4</span> <span class="mana earth">4</span></td><td class="n">16</td></tr>
+            <tr><th scope="row" id="tunnel-market">Tunnel Market</th><td><span class="mana gas">4</span> <span class="mana earth">3</span></td><td class="n">14</td></tr>
+            <tr><th scope="row" id="brewhouse">Brewhouse</th><td><span class="mana gas">4</span> <span class="mana water">3</span></td><td class="n">14</td></tr>
+            <tr><th scope="row" id="rune-forge">Rune Forge</th><td><span class="mana arcana">5</span> <span class="mana fire">3</span></td><td class="n">16</td></tr>
+            <tr><th scope="row" id="war-forge">War Forge</th><td><span class="mana arcana">8</span> <span class="mana fire">5</span> <span class="mana earth">3</span></td><td class="n">32</td></tr>
+            <tr><th scope="row" id="alchemists-lab">Alchemist's Lab</th><td><span class="mana arcana">8</span> <span class="mana fire">4</span> <span class="mana gas">4</span></td><td class="n">32</td></tr>
+            <tr><th scope="row" id="sacred-grove">Sacred Grove</th><td><span class="mana arcana">7</span> <span class="mana water">5</span> <span class="mana earth">3</span></td><td class="n">30</td></tr>
+            <tr><th scope="row" id="skydock">Skydock</th><td><span class="mana arcana">7</span> <span class="mana water">4</span> <span class="mana gas">4</span></td><td class="n">30</td></tr>
+            <tr><th scope="row" id="ward-checkpoint">Ward Checkpoint</th><td><span class="mana arcana">7</span> <span class="mana earth">4</span> <span class="mana gas">4</span></td><td class="n">30</td></tr>
+            <tr><th scope="row" id="frontier-outpost">Frontier Outpost</th><td><span class="mana fire">5</span> <span class="mana water">5</span> <span class="mana earth">4</span></td><td class="n">28</td></tr>
+            <tr><th scope="row" id="distillery">Distillery</th><td><span class="mana fire">5</span> <span class="mana water">4</span> <span class="mana gas">5</span></td><td class="n">28</td></tr>
+            <tr><th scope="row" id="smelting-works">Smelting Works</th><td><span class="mana fire">6</span> <span class="mana earth">4</span> <span class="mana gas">4</span></td><td class="n">28</td></tr>
+            <tr><th scope="row" id="marsh-outpost">Marsh Outpost</th><td><span class="mana water">5</span> <span class="mana earth">4</span> <span class="mana gas">4</span></td><td class="n">26</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Freelance contracts can also include the campaign's regular customers. They never use mixed sources.</p>
+      <nav class="fm-pager" aria-label="Previous and next page">
+        <a class="prev" href="mana.html"><span>&larr; Previous</span>Mana Types</a>
+        <a class="next" href="components.html"><span>Next &rarr;</span>Components &amp; Conduits</a>
+      </nav>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <p>Field Manual written for <em>Arcana, Gas &amp; Waterworks Inc.</em> version 1.1.0 &middot; <a href="../">agw-game.com</a></p>
+    <p>&copy; 2026 Shawn Rider <em>"Games for people who play."</em></p>
+  </footer>
+
+  <script src="field-manual.js"></script>
+</body>
+</html>

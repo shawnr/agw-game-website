@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Controls — AG&amp;W Field Manual</title>
+  <meta name="description" content="Keyboard and mouse controls for AG&amp;W Inc.: building, the radial menu, time controls, shortcuts and settings.">
+  <meta property="og:title" content="Controls — AG&amp;W Field Manual">
+  <meta property="og:description" content="Keyboard and mouse controls for AG&amp;W Inc.: building, the radial menu, time controls, shortcuts and settings.">
+  <meta property="og:image" content="https://agw-game.com/assets/images/capsule-header.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://agw-game.com/field-manual/controls.html">
+  <link rel="icon" type="image/png" href="../assets/images/icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=VT323&family=Almendra:wght@400;700&family=Philosopher:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="field-manual.css">
+</head>
+<body class="fm">
+  <div class="scanlines" aria-hidden="true"></div>
+
+  <header class="fm-topbar">
+    <a class="fm-home" href="../"><img src="../assets/images/icon.png" alt="" width="28" height="28">AG&amp;W Inc.</a>
+    <a class="fm-topbar-title" href="./">Field Manual</a>
+    <a class="fm-steam" href="https://store.steampowered.com/app/4476220/Arcana_Gas__Waterworks_Inc/" target="_blank" rel="noopener">[Play on Steam]</a>
+    <button class="fm-menu-btn" type="button" aria-expanded="false" aria-controls="fm-sidebar">Contents</button>
+  </header>
+
+  <div class="fm-layout">
+    <aside class="fm-sidebar" id="fm-sidebar">
+      <div class="fm-search" role="search">
+        <label for="fm-search-input">Search the manual</label>
+        <input id="fm-search-input" type="search" placeholder="relay, upkeep, eruption…" autocomplete="off" spellcheck="false">
+        <ul class="fm-results" id="fm-search-results" hidden></ul>
+      </div>
+      <nav class="fm-nav" aria-label="Field Manual">
+        <p class="fm-nav-heading">Contents</p>
+        <ol>
+          <li><a href="index.html">Overview</a></li>
+          <li><a href="how-to-play.html">How to Play</a></li>
+          <li><a href="mana.html">Mana Types</a></li>
+          <li><a href="buildings.html">Sources &amp; Customers</a></li>
+          <li><a href="components.html">Components &amp; Conduits</a></li>
+          <li><a href="interactions.html">Interactions</a></li>
+          <li><a href="controls.html" aria-current="page">Controls</a></li>
+          <li><a href="tips.html">Tips &amp; Troubleshooting</a></li>
+        </ol>
+      </nav>
+    </aside>
+
+    <main class="fm-content">
+      <p class="fm-crumb">Field Manual</p>
+      <h1>Controls</h1>
+      <p class="fm-lede">Default mouse and keyboard controls during an operation. Keyboard bindings can be changed under <strong>Settings &rarr; Key Bindings</strong>. Press <kbd>/</kbd> in-game for a shortcuts panel.</p>
+
+      <h2 id="mouse">Mouse</h2>
+      <div class="fm-table-wrap">
+        <table class="fm-table">
+          <thead><tr><th>Action</th><th>Does</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Left-click a source or component</th><td>Start drawing a conduit from it</td></tr>
+            <tr><th scope="row">Left-click a destination</th><td>Finish and build the conduit</td></tr>
+            <tr><th scope="row">Left-click open ground while drawing</th><td>Pin a waypoint to steer the route</td></tr>
+            <tr><th scope="row">Right-click while drawing</th><td>Remove the last waypoint; with none left, cancel the line</td></tr>
+            <tr><th scope="row">Right-click (idle)</th><td>Open the radial menu</td></tr>
+            <tr><th scope="row">Double right-click</th><td>Drop whatever tool you're holding and return to idle</td></tr>
+            <tr><th scope="row"><kbd>Shift</kbd> + click a Transformer</th><td>Cycle its output type</td></tr>
+            <tr><th scope="row"><kbd>Shift</kbd> + click a Filter</th><td>Cycle which type it passes (mixed sources)</td></tr>
+            <tr><th scope="row">Click a reacting hex</th><td>Pin the interaction inspector</td></tr>
+            <tr><th scope="row">Click a notification</th><td>Pan to the building it mentions</td></tr>
+            <tr><th scope="row">Right-drag or middle-drag</th><td>Pan the map</td></tr>
+            <tr><th scope="row">Mouse wheel</th><td>Zoom in and out</td></tr>
+            <tr><th scope="row">Hover anything</th><td>Tooltip with supply, demand, flow, loss and status</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="radial-menu">Radial menu</h2>
+      <p>Right-click to open a ring of options around the cursor. What you see depends on what's under it:</p>
+      <ul>
+        <li><strong>Anywhere:</strong> Field Manual, Build (a sub-menu of unlocked components with prices), Demolish.</li>
+        <li><strong>On a component:</strong> Remove, plus Cycle on a Transformer or Filter.</li>
+        <li><strong>On a conduit:</strong> Teardown and Upgrade (once upgrades are unlocked).</li>
+        <li><strong>On a building:</strong> Inspect.</li>
+      </ul>
+      <p>With the keyboard: arrows or <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> to choose a slice, <kbd>Enter</kbd> or <kbd>E</kbd> to select, <kbd>Esc</kbd> to back out.</p>
+
+      <h2 id="keyboard">Keyboard</h2>
+      <div class="fm-table-wrap">
+        <table class="fm-table">
+          <thead><tr><th>Key</th><th>Does</th></tr></thead>
+          <tbody>
+            <tr><th scope="row"><kbd>Space</kbd></th><td>Pause / resume</td></tr>
+            <tr><th scope="row"><kbd>+</kbd> / <kbd>=</kbd></th><td>Speed up (1x &rarr; 2x &rarr; 3x)</td></tr>
+            <tr><th scope="row"><kbd>-</kbd></th><td>Slow down</td></tr>
+            <tr><th scope="row"><kbd>C</kbd></th><td>Open the Field Manual</td></tr>
+            <tr><th scope="row"><kbd>N</kbd></th><td>Open the node list (customers and resources)</td></tr>
+            <tr><th scope="row"><kbd>M</kbd></th><td>Toggle the minimap</td></tr>
+            <tr><th scope="row"><kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Z</kbd></th><td>Undo</td></tr>
+            <tr><th scope="row">Arrows / <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd></th><td>Move the hex cursor (the camera follows)</td></tr>
+            <tr><th scope="row"><kbd>Tab</kbd></th><td>Jump the cursor to the nearest building</td></tr>
+            <tr><th scope="row"><kbd>Enter</kbd> / <kbd>E</kbd></th><td>Confirm; opens the radial menu at the hex cursor</td></tr>
+            <tr><th scope="row"><kbd>Esc</kbd></th><td>Cancel what you're doing, close the inspector, or open the pause menu</td></tr>
+            <tr><th scope="row"><kbd>/</kbd></th><td>Show or hide the shortcuts panel</td></tr>
+            <tr><th scope="row"><kbd>F1</kbd></th><td>Save and return to the desktop</td></tr>
+            <tr><th scope="row"><kbd>F12</kbd></th><td>Screenshot (saved to your game folder)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="field-manual-window">In-game Field Manual</h2>
+      <p>The in-game Field Manual has three tabs: <strong>Interactions</strong>, <strong>Components</strong> and <strong>Energy Types</strong>. Open it with <kbd>C</kbd>, from the radial menu, or from the Field Manual icon on your desktop.</p>
+      <ul>
+        <li><kbd>Tab</kbd> or <kbd>&larr;</kbd> <kbd>&rarr;</kbd> switches tabs.</li>
+        <li><kbd>&uarr;</kbd> <kbd>&darr;</kbd> or the mouse wheel scrolls.</li>
+        <li><kbd>Esc</kbd> or <kbd>C</kbd> closes it.</li>
+      </ul>
+
+      <h2 id="pause-menu">Pause menu</h2>
+      <p>Press <kbd>Esc</kbd> with nothing else to cancel: Resume, Save Game, Restart Scenario, Settings, Leaderboards, Achievements, Minimize to Desktop, Quit Scenario.</p>
+
+      <h2 id="settings">Settings</h2>
+      <div class="fm-table-wrap">
+        <table class="fm-table">
+          <tbody>
+            <tr><th scope="row">Audio</th><td>Master, effects, ambient and music volume</td></tr>
+            <tr><th scope="row">Display</th><td>Window size (Small, Medium, Steam Deck, Large, X-Large), Fullscreen, CRT Shader on/off</td></tr>
+            <tr><th scope="row">Readability</th><td>Font size (Normal, Large, X-Large), Colorblind Mode, Reduce Motion</td></tr>
+            <tr><th scope="row">Game</th><td>Autosave (Off, every 3, 5 or 10 days), Language</td></tr>
+            <tr><th scope="row">Controls</th><td>Key Bindings</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><strong>Colorblind Mode</strong> swaps the mana palette to avoid red/green confusion. See <a href="mana.html#colorblind">Mana Types</a> for the new colors.</p>
+      <nav class="fm-pager" aria-label="Previous and next page">
+        <a class="prev" href="interactions.html"><span>&larr; Previous</span>Interactions</a>
+        <a class="next" href="tips.html"><span>Next &rarr;</span>Tips &amp; Troubleshooting</a>
+      </nav>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <p>Field Manual written for <em>Arcana, Gas &amp; Waterworks Inc.</em> version 1.1.0 &middot; <a href="../">agw-game.com</a></p>
+    <p>&copy; 2026 Shawn Rider <em>"Games for people who play."</em></p>
+  </footer>
+
+  <script src="field-manual.js"></script>
+</body>
+</html>

@@ -602,6 +602,83 @@ main { position: relative; z-index: 2; }
   line-height: 1.4;
 }
 
+/* --- Field Manual callout --- */
+.manual-callout {
+  padding: 3rem 0;
+}
+
+.manual-card {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  padding: 1.6rem 2rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-glow);
+  border-radius: 10px;
+  text-decoration: none;
+  transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.manual-card:hover {
+  border-color: rgba(212, 160, 23, 0.6);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(212, 160, 23, 0.15);
+}
+
+.manual-icon {
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 8px rgba(212, 160, 23, 0.35));
+}
+
+.manual-text { flex: 1; min-width: 0; }
+
+.manual-heading {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1.8rem;
+  color: var(--gold);
+  text-shadow: 0 0 12px rgba(212, 160, 23, 0.35);
+  letter-spacing: 0.03em;
+  margin-bottom: 0.3rem;
+}
+
+.manual-text p {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.manual-cta {
+  flex-shrink: 0;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  color: var(--logo-green);
+  text-shadow: 0 0 8px rgba(92, 214, 110, 0.6);
+  white-space: nowrap;
+}
+
+.manual-card:hover .manual-cta { color: #86F096; }
+
+.footer-links { margin-bottom: 0.4rem; }
+
+.footer-links a {
+  color: var(--text-secondary);
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+}
+
+.footer-links a:hover { color: var(--gold); }
+
+@media (max-width: 700px) {
+  .manual-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.5rem 1.2rem;
+  }
+}
+
 /* --- Bottom CTA --- */
 .cta-section {
   padding: 6rem 0;

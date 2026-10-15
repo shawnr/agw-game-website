@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mana Types — AG&amp;W Field Manual</title>
+  <meta name="description" content="The five mana types in AG&amp;W Inc.: Arcana, Fire, Water, Earth and Gas. Where each comes from, who needs it, what it reacts with, and how to convert it.">
+  <meta property="og:title" content="Mana Types — AG&amp;W Field Manual">
+  <meta property="og:description" content="The five mana types in AG&amp;W Inc.: Arcana, Fire, Water, Earth and Gas. Where each comes from, who needs it, what it reacts with, and how to convert it.">
+  <meta property="og:image" content="https://agw-game.com/assets/images/capsule-header.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://agw-game.com/field-manual/mana.html">
+  <link rel="icon" type="image/png" href="../assets/images/icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=VT323&family=Almendra:wght@400;700&family=Philosopher:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="field-manual.css">
+</head>
+<body class="fm">
+  <div class="scanlines" aria-hidden="true"></div>
+
+  <header class="fm-topbar">
+    <a class="fm-home" href="../"><img src="../assets/images/icon.png" alt="" width="28" height="28">AG&amp;W Inc.</a>
+    <a class="fm-topbar-title" href="./">Field Manual</a>
+    <a class="fm-steam" href="https://store.steampowered.com/app/4476220/Arcana_Gas__Waterworks_Inc/" target="_blank" rel="noopener">[Play on Steam]</a>
+    <button class="fm-menu-btn" type="button" aria-expanded="false" aria-controls="fm-sidebar">Contents</button>
+  </header>
+
+  <div class="fm-layout">
+    <aside class="fm-sidebar" id="fm-sidebar">
+      <div class="fm-search" role="search">
+        <label for="fm-search-input">Search the manual</label>
+        <input id="fm-search-input" type="search" placeholder="relay, upkeep, eruption…" autocomplete="off" spellcheck="false">
+        <ul class="fm-results" id="fm-search-results" hidden></ul>
+      </div>
+      <nav class="fm-nav" aria-label="Field Manual">
+        <p class="fm-nav-heading">Contents</p>
+        <ol>
+          <li><a href="index.html">Overview</a></li>
+          <li><a href="how-to-play.html">How to Play</a></li>
+          <li><a href="mana.html" aria-current="page">Mana Types</a></li>
+          <li><a href="buildings.html">Sources &amp; Customers</a></li>
+          <li><a href="components.html">Components &amp; Conduits</a></li>
+          <li><a href="interactions.html">Interactions</a></li>
+          <li><a href="controls.html">Controls</a></li>
+          <li><a href="tips.html">Tips &amp; Troubleshooting</a></li>
+        </ol>
+      </nav>
+    </aside>
+
+    <main class="fm-content">
+      <p class="fm-crumb">Field Manual</p>
+      <h1>Mana Types</h1>
+      <p class="fm-lede">The realm runs on five kinds of mana. The in-game Field Manual files them under <em>Energy Types</em>, and the game uses "mana" and "energy" for the same thing.</p>
+
+      <h2 id="how-types-differ">How the types differ</h2>
+      <p>All five types follow the same rules on the grid: the same conduit capacity (15, or 30 upgraded), the same dissipation (0.2 per hex), the same costs. What makes each one different is:</p>
+      <ul>
+        <li><strong>Who needs it</strong> and where it comes from on a given map.</li>
+        <li><strong>What it reacts with</strong> when conduits of two types share or neighbor a hex. See <a href="interactions.html">Interactions</a>.</li>
+        <li><strong>How it converts</strong> in a <a href="components.html#transformer">Transformer</a>. Some conversions are cheap, some are wasteful, and some aren't possible at all.</li>
+      </ul>
+      <p>Each type also has its own pulse animation along the conduit, which is how you tell them apart at a glance. The pulse numbers in the in-game manual describe that animation; they don't change how much mana is delivered.</p>
+
+      <h2 id="types">The five types</h2>
+      <div class="fm-entries">
+        <article class="fm-entry" id="arcana" data-mana="arcana" data-keywords="purple violet ley">
+          <div class="fm-entry-head"><h3><a class="fm-anchor" href="#arcana"><span class="mana arcana">Arcana</span></a></h3><span class="badge neutral">Violet</span></div>
+          <p>Raw magic, drawn from ley lines. Arcana is in the most demand of any type, and it's the only one that can be transformed into every other type.</p>
+          <ul>
+            <li><strong>Sources:</strong> <a href="buildings.html#ley-line-nexus">Ley Line Nexus</a> (30).</li>
+            <li><strong>Needed by:</strong> <a href="buildings.html#wizard-academy">Wizard Academy</a> (10), <a href="buildings.html#market-town">Market Town</a> (5).</li>
+            <li><strong>Reacts with:</strong> <span class="mana fire">Fire</span> as <a href="interactions.html#enchanted-flames">Enchanted Flames</a>; <span class="mana water">Water</span> as <a href="interactions.html#purification">Purification</a>. No reaction with Earth or Gas.</li>
+            <li><strong>Transforms into:</strong> Fire, Water, Earth or Gas, all at 3 : 1.</li>
+            <li><strong>Made from:</strong> Water (2 : 1) or Gas (3 : 1).</li>
+          </ul>
+        </article>
+
+        <article class="fm-entry" id="fire" data-mana="fire" data-keywords="red orange flame">
+          <div class="fm-entry-head"><h3><a class="fm-anchor" href="#fire"><span class="mana fire">Fire</span></a></h3><span class="badge neutral">Red-orange</span></div>
+          <p>Heat for forges, academies and markets. Fire reacts with every type except Arcana in some way, so it's the type most likely to cause trouble when routed carelessly.</p>
+          <ul>
+            <li><strong>Sources:</strong> <a href="buildings.html#fire-geyser">Fire Geyser</a> (30), <a href="buildings.html#dragon-lair">Dragon Lair</a> (30, when fed), <a href="buildings.html#caldera">Caldera</a> and <a href="buildings.html#flare-pit">Flare Pit</a> (15 each).</li>
+            <li><strong>Needed by:</strong> <a href="buildings.html#dwarven-forge">Dwarven Forge</a> (8), <a href="buildings.html#wizard-academy">Wizard Academy</a> (3), <a href="buildings.html#goblin-bazaar">Goblin Bazaar</a> (2).</li>
+            <li><strong>Reacts with:</strong> <span class="mana arcana">Arcana</span> as <a href="interactions.html#enchanted-flames">Enchanted Flames</a>; <span class="mana earth">Earth</span> as <a href="interactions.html#magma-vents">Magma Vents</a>; <span class="mana gas">Gas</span> as <a href="interactions.html#explosion-risk">Explosion Risk</a>; <span class="mana water">Water</span> as <a href="interactions.html#steam-clouds">Steam Clouds</a>.</li>
+            <li><strong>Transforms into:</strong> Gas (1.5 : 1) or Earth (3 : 1).</li>
+            <li><strong>Made from:</strong> Gas (1.5 : 1), Earth (3 : 1) or Arcana (3 : 1).</li>
+          </ul>
+        </article>
+
+        <article class="fm-entry" id="water" data-mana="water" data-keywords="blue spring">
+          <div class="fm-entry-head"><h3><a class="fm-anchor" href="#water"><span class="mana water">Water</span></a></h3><span class="badge neutral">Blue</span></div>
+          <p>For farms, mushrooms, academies and thirsty dragons. Water is the hardest type to make if a map doesn't have it: Arcana is the only thing a Transformer can turn into Water.</p>
+          <ul>
+            <li><strong>Sources:</strong> <a href="buildings.html#underground-spring">Underground Spring</a> (30), <a href="buildings.html#mud-spring">Mud Spring</a> (15).</li>
+            <li><strong>Needed by:</strong> <a href="buildings.html#farming-village">Farming Village</a> (5), <a href="buildings.html#mushroom-colony">Mushroom Colony</a> (3), <a href="buildings.html#wizard-academy">Wizard Academy</a> (2), <a href="buildings.html#dragon-lair">Dragon Lair</a> (2).</li>
+            <li><strong>Reacts with:</strong> <span class="mana earth">Earth</span> as <a href="interactions.html#fertile-growth">Fertile Growth</a>; <span class="mana arcana">Arcana</span> as <a href="interactions.html#purification">Purification</a>; <span class="mana gas">Gas</span> as <a href="interactions.html#mineral-springs">Mineral Springs</a>; <span class="mana fire">Fire</span> as <a href="interactions.html#steam-clouds">Steam Clouds</a>.</li>
+            <li><strong>Transforms into:</strong> Arcana (2 : 1) or Earth (1.5 : 1).</li>
+            <li><strong>Made from:</strong> Arcana only (3 : 1).</li>
+          </ul>
+        </article>
+
+        <article class="fm-entry" id="earth" data-mana="earth" data-keywords="green brown vein">
+          <div class="fm-entry-head"><h3><a class="fm-anchor" href="#earth"><span class="mana earth">Earth</span></a></h3><span class="badge neutral">Green</span></div>
+          <p>Solid, slow, dependable. Earth is a small part of many recipes and the key ingredient in two of the best money-making interactions.</p>
+          <ul>
+            <li><strong>Sources:</strong> <a href="buildings.html#earth-vein">Earth Vein</a> (30), <a href="buildings.html#caldera">Caldera</a> and <a href="buildings.html#mud-spring">Mud Spring</a> (15 each).</li>
+            <li><strong>Needed by:</strong> <a href="buildings.html#dwarven-forge">Dwarven Forge</a> (5), <a href="buildings.html#farming-village">Farming Village</a> (3), <a href="buildings.html#mushroom-colony">Mushroom Colony</a> (2).</li>
+            <li><strong>Reacts with:</strong> <span class="mana water">Water</span> as <a href="interactions.html#fertile-growth">Fertile Growth</a>; <span class="mana gas">Gas</span> as <a href="interactions.html#mineral-deposits">Mineral Deposits</a>; <span class="mana fire">Fire</span> as <a href="interactions.html#magma-vents">Magma Vents</a>. No reaction with Arcana.</li>
+            <li><strong>Transforms into:</strong> Gas (2 : 1) or Fire (3 : 1).</li>
+            <li><strong>Made from:</strong> Water (1.5 : 1), Fire (3 : 1) or Arcana (3 : 1).</li>
+          </ul>
+        </article>
+
+        <article class="fm-entry" id="gas" data-mana="gas" data-keywords="yellow pocket fumes">
+          <div class="fm-entry-head"><h3><a class="fm-anchor" href="#gas"><span class="mana gas">Gas</span></a></h3><span class="badge neutral">Yellow-green</span></div>
+          <p>Lamps, stalls and stoves. Plenty of maps have no Gas Pocket at all, so gas often has to come from a hybrid or a Transformer.</p>
+          <ul>
+            <li><strong>Sources:</strong> <a href="buildings.html#gas-pocket">Gas Pocket</a> (30), <a href="buildings.html#dwarven-forge">Dwarven Forge</a> and <a href="buildings.html#mushroom-colony">Mushroom Colony</a> (12 each, when fed), <a href="buildings.html#flare-pit">Flare Pit</a> (15).</li>
+            <li><strong>Needed by:</strong> <a href="buildings.html#goblin-bazaar">Goblin Bazaar</a> (4), <a href="buildings.html#market-town">Market Town</a> (3).</li>
+            <li><strong>Reacts with:</strong> <span class="mana earth">Earth</span> as <a href="interactions.html#mineral-deposits">Mineral Deposits</a>; <span class="mana water">Water</span> as <a href="interactions.html#mineral-springs">Mineral Springs</a>; <span class="mana fire">Fire</span> as <a href="interactions.html#explosion-risk">Explosion Risk</a>. No reaction with Arcana.</li>
+            <li><strong>Transforms into:</strong> Fire (1.5 : 1) or Arcana (3 : 1).</li>
+            <li><strong>Made from:</strong> Fire (1.5 : 1), Earth (2 : 1) or Arcana (3 : 1).</li>
+          </ul>
+        </article>
+      </div>
+      <p>Demand figures above are each building's standard needs. Individual operations sometimes change them, so always check the building's tooltip in-game.</p>
+
+      <h2 id="conversion-chart">Conversion chart</h2>
+      <p>How much input a <a href="components.html#transformer">Transformer</a> needs to make 1 unit of output. A dash means that conversion isn't possible, and any mana sent into it is lost.</p>
+      <div class="fm-table-wrap">
+        <table class="fm-table fm-matrix">
+          <thead>
+            <tr><th>From &darr; &nbsp; To &rarr;</th><th><span class="mana arcana">Arcana</span></th><th><span class="mana fire">Fire</span></th><th><span class="mana water">Water</span></th><th><span class="mana earth">Earth</span></th><th><span class="mana gas">Gas</span></th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row"><span class="mana arcana">Arcana</span></th><td class="self">&middot;</td><td>3</td><td>3</td><td>3</td><td>3</td></tr>
+            <tr><th scope="row"><span class="mana fire">Fire</span></th><td class="muted">&ndash;</td><td class="self">&middot;</td><td class="muted">&ndash;</td><td>3</td><td>1.5</td></tr>
+            <tr><th scope="row"><span class="mana water">Water</span></th><td>2</td><td class="muted">&ndash;</td><td class="self">&middot;</td><td>1.5</td><td class="muted">&ndash;</td></tr>
+            <tr><th scope="row"><span class="mana earth">Earth</span></th><td class="muted">&ndash;</td><td>3</td><td class="muted">&ndash;</td><td class="self">&middot;</td><td>2</td></tr>
+            <tr><th scope="row"><span class="mana gas">Gas</span></th><td>3</td><td>1.5</td><td class="muted">&ndash;</td><td class="muted">&ndash;</td><td class="self">&middot;</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Example: a full conduit of 15 Fire becomes 10 Gas, or 5 Earth.</p>
+
+      <h2 id="pulses">Pulses and flow</h2>
+      <p>Mana travels as glowing pulses, and each type has its own look. The in-game Field Manual lists these figures; they describe the animation only. Delivery is instant, and every type obeys the same capacity and loss rules.</p>
+      <div class="fm-table-wrap">
+        <table class="fm-table">
+          <thead><tr><th>Type</th><th class="n">Pulse rate</th><th class="n">Flow speed</th><th class="n">Pulse size</th><th>Pulse shape</th></tr></thead>
+          <tbody>
+            <tr><th scope="row"><span class="mana arcana">Arcana</span></th><td class="n">2.5/sec</td><td class="n">3.0 hex/sec</td><td class="n">5</td><td>shimmering orb</td></tr>
+            <tr><th scope="row"><span class="mana fire">Fire</span></th><td class="n">4.0/sec</td><td class="n">4.0 hex/sec</td><td class="n">4</td><td>flickering cluster</td></tr>
+            <tr><th scope="row"><span class="mana water">Water</span></th><td class="n">1.5/sec</td><td class="n">2.0 hex/sec</td><td class="n">6</td><td>stretched droplet</td></tr>
+            <tr><th scope="row"><span class="mana earth">Earth</span></th><td class="n">1.0/sec</td><td class="n">1.5 hex/sec</td><td class="n">7</td><td>square block</td></tr>
+            <tr><th scope="row"><span class="mana gas">Gas</span></th><td class="n">2.0/sec</td><td class="n">2.5 hex/sec</td><td class="n">5</td><td>scattered dots</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>A conduit running above 80% of its capacity pulses faster and glows brighter as a warning that it's nearly full.</p>
+
+      <h2 id="colorblind">Colorblind mode</h2>
+      <p>Turn on <strong>Colorblind Mode</strong> in Settings for a palette that avoids red/green confusion:</p>
+      <ul>
+        <li><span class="mana arcana">Arcana</span> stays purple and <span class="mana water">Water</span> stays blue.</li>
+        <li>Fire becomes orange, Earth becomes <strong>brown</strong>, and Gas becomes bright yellow.</li>
+        <li>The Content ring on customers turns blue instead of green.</li>
+      </ul>
+      <nav class="fm-pager" aria-label="Previous and next page">
+        <a class="prev" href="how-to-play.html"><span>&larr; Previous</span>How to Play</a>
+        <a class="next" href="buildings.html"><span>Next &rarr;</span>Sources &amp; Customers</a>
+      </nav>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <p>Field Manual written for <em>Arcana, Gas &amp; Waterworks Inc.</em> version 1.1.0 &middot; <a href="../">agw-game.com</a></p>
+    <p>&copy; 2026 Shawn Rider <em>"Games for people who play."</em></p>
+  </footer>
+
+  <script src="field-manual.js"></script>
+</body>
+</html>

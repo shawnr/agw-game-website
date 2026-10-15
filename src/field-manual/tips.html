@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tips & Troubleshooting — AG&amp;W Field Manual</title>
+  <meta name="description" content="Fixes for common AG&amp;W Inc. problems: customers arriving short, eruptions, money trouble, resetting win timers, and more.">
+  <meta property="og:title" content="Tips & Troubleshooting — AG&amp;W Field Manual">
+  <meta property="og:description" content="Fixes for common AG&amp;W Inc. problems: customers arriving short, eruptions, money trouble, resetting win timers, and more.">
+  <meta property="og:image" content="https://agw-game.com/assets/images/capsule-header.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://agw-game.com/field-manual/tips.html">
+  <link rel="icon" type="image/png" href="../assets/images/icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=VT323&family=Almendra:wght@400;700&family=Philosopher:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="field-manual.css">
+</head>
+<body class="fm">
+  <div class="scanlines" aria-hidden="true"></div>
+
+  <header class="fm-topbar">
+    <a class="fm-home" href="../"><img src="../assets/images/icon.png" alt="" width="28" height="28">AG&amp;W Inc.</a>
+    <a class="fm-topbar-title" href="./">Field Manual</a>
+    <a class="fm-steam" href="https://store.steampowered.com/app/4476220/Arcana_Gas__Waterworks_Inc/" target="_blank" rel="noopener">[Play on Steam]</a>
+    <button class="fm-menu-btn" type="button" aria-expanded="false" aria-controls="fm-sidebar">Contents</button>
+  </header>
+
+  <div class="fm-layout">
+    <aside class="fm-sidebar" id="fm-sidebar">
+      <div class="fm-search" role="search">
+        <label for="fm-search-input">Search the manual</label>
+        <input id="fm-search-input" type="search" placeholder="relay, upkeep, eruption…" autocomplete="off" spellcheck="false">
+        <ul class="fm-results" id="fm-search-results" hidden></ul>
+      </div>
+      <nav class="fm-nav" aria-label="Field Manual">
+        <p class="fm-nav-heading">Contents</p>
+        <ol>
+          <li><a href="index.html">Overview</a></li>
+          <li><a href="how-to-play.html">How to Play</a></li>
+          <li><a href="mana.html">Mana Types</a></li>
+          <li><a href="buildings.html">Sources &amp; Customers</a></li>
+          <li><a href="components.html">Components &amp; Conduits</a></li>
+          <li><a href="interactions.html">Interactions</a></li>
+          <li><a href="controls.html">Controls</a></li>
+          <li><a href="tips.html" aria-current="page">Tips &amp; Troubleshooting</a></li>
+        </ol>
+      </nav>
+    </aside>
+
+    <main class="fm-content">
+      <p class="fm-crumb">Field Manual</p>
+      <h1>Tips &amp; Troubleshooting</h1>
+      <p class="fm-lede">Something's not working and the customers are getting loud. Find your symptom below. The game also watches for these problems: if one lasts a few days you'll get an <code>[ADVISORY]</code> hint, and if it drags on, a fuller explanation.</p>
+
+      <h2 id="supply-problems">Supply problems</h2>
+
+      <h3 id="arriving-short" data-keywords="short missing not enough deficit dissipation surplus">A customer is connected but arriving just short</h3>
+      <p>That's distance. Every conduit loses 0.2 per hex, so 15 sent down a 10-hex line arrives as 13. Send surplus rather than exact amounts, shorten the route, or put a <a href="components.html#relay-station">Relay Station</a> on it: a leg ending at a relay loses nothing.</p>
+      <blockquote class="fm-memo"><p>Conduits lose 0.2 per hex. Branches need surplus, not exact amounts.</p><cite>[ADVISORY] hint</cite></blockquote>
+
+      <h3 id="source-only-15" data-keywords="30 15 half single conduit wasted">My source makes 30 but only 15 is going anywhere</h3>
+      <p>A basic conduit carries 15. A source with one conduit wastes the other half. Give it a second conduit, or <a href="components.html#upgraded-conduits">upgrade</a> the one it has to carry 30.</p>
+
+      <h3 id="third-conduit" data-keywords="source limit two conduits fan out">I can't draw a third conduit from a source</h3>
+      <p>Sources feed at most two conduits. Run one of them to a <a href="components.html#splitter">Splitter</a> and branch from there.</p>
+
+      <h3 id="uneven-split" data-keywords="split even 50/50 big customer">The big customer is short but the small one has extra</h3>
+      <p>Splits are always even, whatever each building needs. A Splitter sends half each way even if one side needs 10 and the other needs 3. Give big consumers their own conduit, or rearrange branches so the shares line up with demand.</p>
+
+      <h3 id="no-source" data-keywords="nothing produces missing type transformer hybrid">Nothing on the map produces the type I need</h3>
+      <p>Make it. A <a href="components.html#transformer">Transformer</a> converts one type into another (see the <a href="mana.html#conversion-chart">conversion chart</a>), and <a href="buildings.html#hybrids">hybrids</a> produce gas or fire when they're fed.</p>
+
+      <h3 id="hybrid-stopped" data-keywords="hybrid not producing forge mushroom dragon">A hybrid stopped producing</h3>
+      <p>Hybrids only produce while <em>all</em> of their own needs are met. Hover it to see which input is short. A <a href="components.html#battery">Battery</a> downstream can cover a hybrid's occasional hiccups.</p>
+
+      <h3 id="cant-connect" data-keywords="doesn't use energy type refused grid.type">The game won't let me connect a conduit to a customer</h3>
+      <p>Customers only accept the types they need: <code>[GRID.TYPE] … doesn't use … energy</code>. If the line is a raw mixed or merged line, the customer has to need <em>both</em> of its types.</p>
+
+      <h3 id="mixed-into-component" data-keywords="raw mixed component filter refused">"Raw mixed energy can't go into components"</h3>
+      <p>Lines straight out of a mixed source carry two types and can't feed a Relay, Splitter, Transformer or Battery. Put a <a href="components.html#filter">Filter</a> on the hex next to the source to send out a single type, then route that wherever you like.</p>
+
+      <h3 id="transformer-nothing" data-keywords="transformer no output lost conversion path">My Transformer isn't putting anything out</h3>
+      <p>Not every type converts to every other. If you see <code>[TRANSFORMER] No conversion path</code>, the output you picked can't be made from that input and everything sent in is lost. <kbd>Shift</kbd>+Click it to cycle to a type that works.</p>
+
+      <h3 id="battery-not-helping" data-keywords="battery not working empty charge">My Battery isn't helping</h3>
+      <p>Batteries don't add mana on a steady supply. They bank 30% of what passes through and pay it back when input <em>drops</em>. A new Battery starts empty, so give it time to charge before you need it.</p>
+
+      <h2 id="money-problems">Money problems</h2>
+
+      <h3 id="losing-money" data-keywords="budget broke debt money income negative">I'm losing money every day</h3>
+      <ul>
+        <li><strong>Angry and Furious customers pay nothing</strong>, and each Furious one costs 50 GC per day on top. Fix them first.</li>
+        <li><strong>Upkeep adds up.</strong> Every component charges daily. Remove ones you no longer need; you'll get the full price back.</li>
+        <li><strong>Partial supply means partial pay.</strong> A customer at half supply pays half.</li>
+      </ul>
+
+      <h3 id="debt" data-keywords="debt limit audit fail credit">How far into debt can I go?</h3>
+      <p>Down to the debt limit shown in the briefing. You can keep building on credit until then, but if your balance reaches the limit the operation ends on the spot. Don't spend right up to it: upkeep and penalties can push you over without you building anything.</p>
+
+      <h3 id="flames-no-boost" data-keywords="enchanted flames boost not working capped">Enchanted Flames isn't giving me any extra fire</h3>
+      <p>The boost is real, but basic conduits are capped at 15. A boosted Fire Geyser making 36 still sends 15 down each of its two basic conduits. Upgrade them to carry the extra.</p>
+
+      <h2 id="winning-problems">Winning problems</h2>
+
+      <h3 id="streak-resets" data-keywords="win timer progress streak reset content days">The win timer keeps resetting</h3>
+      <p>The streak needs <em>every</em> customer fully supplied <em>and</em> Content on the same days. One Annoyed customer, or one that's a fraction short, sets it back to zero. Common culprits:</p>
+      <ul>
+        <li>A new customer just came online and isn't connected yet. Customers keep arriving every 5 days until they've all appeared.</li>
+        <li>An <a href="interactions.html#eruptions">eruption</a> knocked a line down for a day.</li>
+        <li>A customer is Content but receiving slightly less than its need. Check for <code>!!</code> in the node list (<kbd>N</kbd>).</li>
+      </ul>
+
+      <h3 id="cant-finish" data-keywords="all connected not winning waiting customers reveal">Everyone's happy but the operation won't end</h3>
+      <p>More customers may still be on their way; you can't win until they've all appeared and been supplied. Check the goal at the top of the screen, too. Some operations need a streak of several days, and some later ones add extra conditions listed in the briefing.</p>
+
+      <h3 id="eruptions-help" data-keywords="eruption explosion hazard losing mana fire gas">My lines keep erupting</h3>
+      <ul>
+        <li>Keep fire and gas at least two hexes apart, and earth and fire too if the eruptions bother you more than the Forge bonus helps.</li>
+        <li>Never run a raw Flare Pit line or a merged fire + gas line any distance; every hex is a separate roll.</li>
+        <li><a href="components.html#filter">Filter</a> one side so it's insulated, or <a href="components.html#upgraded-conduits">upgrade</a> the exposed lines to halve the loss.</li>
+      </ul>
+
+      <h2 id="strategy">General strategy</h2>
+      <ul>
+        <li><strong>Pause to plan.</strong> You can build while paused. Lay out a whole network before the clock starts.</li>
+        <li><strong>Hover everything.</strong> Tooltips show exactly what each conduit is delivering, what it's losing to distance, and what each customer is short.</li>
+        <li><strong>Fix frustration early.</strong> Frustration falls only 3 per day once a customer is fully supplied. A Furious customer takes weeks to calm down.</li>
+        <li><strong>Save for latecomers.</strong> Customers keep appearing every 5 days. Keep budget in reserve and leave room in your routes.</li>
+        <li><strong>Mind the touchy ones.</strong> Wizard Academies and Dragon Lairs sour fast. Feed them first and with surplus.</li>
+        <li><strong>Put good interactions to work.</strong> Earth + water near a Farming Village, or a few separate earth + gas crossings, are free money.</li>
+        <li><strong>Tear up and redo.</strong> Everything you build refunds in full. Experiment freely.</li>
+      </ul>
+      <nav class="fm-pager" aria-label="Previous and next page">
+        <a class="prev" href="controls.html"><span>&larr; Previous</span>Controls</a>
+      </nav>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <p>Field Manual written for <em>Arcana, Gas &amp; Waterworks Inc.</em> version 1.1.0 &middot; <a href="../">agw-game.com</a></p>
+    <p>&copy; 2026 Shawn Rider <em>"Games for people who play."</em></p>
+  </footer>
+
+  <script src="field-manual.js"></script>
+</body>
+</html>
