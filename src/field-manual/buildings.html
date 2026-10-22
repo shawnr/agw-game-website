@@ -93,8 +93,12 @@
       </div>
 
       <h2 id="mixed-sources">Mixed sources</h2>
-      <p>Some regions have sources that produce <strong>two</strong> types at once: 15 of each per day. Operations give them local names (a Mud Spring might be called a bog, for instance), but hovering one always shows what it produces.</p>
-      <p>A conduit drawn straight from a mixed source is a <a href="components.html#raw-mixed-conduits">raw mixed line</a> carrying both types. It can only run directly to a customer that needs <strong>both</strong> types, it can't pass through any component, and its two types react with each other along its whole length. To send out just one type, place a <a href="components.html#filter">Filter</a> on a hex next to the source.</p>
+      <p>Three campaign operations (The Filtering Problem, The Intersection and Explosive Neighbors) have sources that produce <strong>two</strong> types at once: 15 of each per day. Operations give them local names (a Mud Spring might be called a bog, for instance), but hovering one always shows what it produces. Mixed sources never appear in Freelance or Form 27-B jobs.</p>
+      <p>You have two ways to use one:</p>
+      <ul>
+        <li><strong>Raw.</strong> A conduit drawn straight from a mixed source is a <a href="components.html#raw-mixed-conduits">raw mixed line</a> carrying both types. It must run directly to a customer that needs <strong>both</strong> types, it can't feed any component, and its two types react with each other along its whole length.</li>
+        <li><strong>Filtered.</strong> Place a <a href="components.html#filter">Filter</a> on a hex next to the source to send out just one type, on an insulated line you can route anywhere. <kbd>Shift</kbd>+Click the Filter to choose which type.</li>
+      </ul>
       <blockquote class="fm-memo">
         <p>Mixed sources put out two energy types on one conduit. A raw line can only feed a consumer that needs both. Place a Filter on the hex next to the source to send out just one type.</p>
         <cite>Field prompt</cite>
@@ -127,6 +131,7 @@
             <tr><th scope="row"><a href="#market-town">Market Town</a></th><td><span class="mana arcana">5</span> <span class="mana gas">3</span></td><td class="n">16</td><td class="n">1.0</td></tr>
             <tr><th scope="row"><a href="#goblin-bazaar">Goblin Bazaar</a></th><td><span class="mana gas">4</span> <span class="mana fire">2</span></td><td class="n">12</td><td class="n">1.0</td></tr>
             <tr><th scope="row"><a href="#wizard-academy">Wizard Academy</a></th><td><span class="mana arcana">10</span> <span class="mana fire">3</span> <span class="mana water">2</span></td><td class="n">30</td><td class="n">1.5</td></tr>
+            <tr><th scope="row"><a href="#dark-citadel">Dark Citadel</a></th><td><span class="mana arcana">10</span> <span class="mana fire">5</span> <span class="mana water">5</span> <span class="mana earth">3</span></td><td class="n">46</td><td class="n">2.0</td></tr>
           </tbody>
         </table>
       </div>
@@ -151,6 +156,11 @@
           <dl class="fm-stats"><div><dt>Needs</dt><dd><span class="mana arcana">10</span> <span class="mana fire">3</span> <span class="mana water">2</span></dd></div><div><dt>Pays</dt><dd>30</dd></div><div><dt>Sensitivity</dt><dd>1.5</dd></div></dl>
           <p>The best-paying regular customer and the touchiest. Its big arcana demand often needs a conduit of its own.</p>
         </article>
+        <article class="fm-entry" id="dark-citadel" data-keywords="citadel overload four types freelance form 27-b">
+          <div class="fm-entry-head"><h3><a class="fm-anchor" href="#dark-citadel">Dark Citadel</a></h3><span class="badge neutral">Late campaign</span></div>
+          <dl class="fm-stats"><div><dt>Needs</dt><dd><span class="mana arcana">10</span> <span class="mana fire">5</span> <span class="mana water">5</span> <span class="mana earth">3</span></dd></div><div><dt>Pays</dt><dd>46</dd></div><div><dt>Sensitivity</dt><dd>2.0</dd></div></dl>
+          <p>The hungriest customer there is: four types and a short temper. It appears in the late campaign and on any Freelance or Form 27-B map that has all four of its types. The <strong>Overload a Citadel</strong> goal in Form 27-B always places one as the target: deliver at least 150% of its total need (34.5 against its 23) for the required number of days.</p>
+        </article>
       </div>
 
       <h2 id="hybrids">Hybrids</h2>
@@ -164,7 +174,7 @@
         <article class="fm-entry" id="dwarven-forge" data-keywords="hybrid gas producer">
           <div class="fm-entry-head"><h3><a class="fm-anchor" href="#dwarven-forge">Dwarven Forge</a></h3><span class="badge neutral">Hybrid</span></div>
           <dl class="fm-stats"><div><dt>Needs</dt><dd><span class="mana fire">8</span> <span class="mana earth">5</span></dd></div><div><dt>Produces</dt><dd><span class="mana gas">12 Gas</span></dd></div><div><dt>Pays</dt><dd>26</dd></div><div><dt>Sensitivity</dt><dd>1.0</dd></div></dl>
-          <p>Turns fire and earth into gas. Its two inputs are the <a href="interactions.html#magma-vents">Magma Vents</a> pair, which earns the Forge 30% more but risks eruptions on everything at the Forge's hex, including its own gas output.</p>
+          <p>Turns fire and earth into gas. Its two inputs are the <a href="interactions.html#magma-vents">Magma Vents</a> pair, which earns the Forge 30% more but risks eruptions on everything at the Forge's hex, including its own gas output. That gas output also meets the fire input on the Forge's hex, adding an <a href="interactions.html#explosion-risk">Explosion Risk</a> (and some <a href="interactions.html#mineral-deposits">Mineral Deposits</a> income). Upgrade or <a href="components.html#filter">filter</a> the gas line to soften the hits.</p>
         </article>
         <article class="fm-entry" id="mushroom-colony" data-keywords="hybrid gas producer">
           <div class="fm-entry-head"><h3><a class="fm-anchor" href="#mushroom-colony">Mushroom Colony</a></h3><span class="badge neutral">Hybrid</span></div>
@@ -181,33 +191,33 @@
       <p>Freelance Operations and Custom Requisitions can also generate these customers, which don't appear in the campaign. Each pays total needs &times; 2 GC per day when Content.</p>
       <div class="fm-table-wrap">
         <table class="fm-table">
-          <thead><tr><th>Customer</th><th>Needs per day</th><th class="n">Pays</th></tr></thead>
+          <thead><tr><th>Customer</th><th>Needs per day</th><th class="n">Pays</th><th class="n">Sensitivity</th></tr></thead>
           <tbody>
-            <tr><th scope="row" id="water-mill">Water Mill</th><td><span class="mana water">6</span></td><td class="n">12</td></tr>
-            <tr><th scope="row" id="smithy">Smithy</th><td><span class="mana fire">6</span></td><td class="n">12</td></tr>
-            <tr><th scope="row" id="quarry">Quarry</th><td><span class="mana earth">6</span></td><td class="n">12</td></tr>
-            <tr><th scope="row" id="carnival">Carnival</th><td><span class="mana gas">6</span></td><td class="n">12</td></tr>
-            <tr><th scope="row" id="shrine">Shrine</th><td><span class="mana arcana">7</span></td><td class="n">14</td></tr>
-            <tr><th scope="row" id="steamworks">Steamworks</th><td><span class="mana fire">5</span> <span class="mana water">3</span></td><td class="n">16</td></tr>
-            <tr><th scope="row" id="oracle-pool">Oracle Pool</th><td><span class="mana arcana">5</span> <span class="mana water">3</span></td><td class="n">16</td></tr>
-            <tr><th scope="row" id="crystal-mine">Crystal Mine</th><td><span class="mana arcana">5</span> <span class="mana earth">3</span></td><td class="n">16</td></tr>
-            <tr><th scope="row" id="kiln-works">Kiln Works</th><td><span class="mana fire">4</span> <span class="mana earth">4</span></td><td class="n">16</td></tr>
-            <tr><th scope="row" id="tunnel-market">Tunnel Market</th><td><span class="mana gas">4</span> <span class="mana earth">3</span></td><td class="n">14</td></tr>
-            <tr><th scope="row" id="brewhouse">Brewhouse</th><td><span class="mana gas">4</span> <span class="mana water">3</span></td><td class="n">14</td></tr>
-            <tr><th scope="row" id="rune-forge">Rune Forge</th><td><span class="mana arcana">5</span> <span class="mana fire">3</span></td><td class="n">16</td></tr>
-            <tr><th scope="row" id="war-forge">War Forge</th><td><span class="mana arcana">8</span> <span class="mana fire">5</span> <span class="mana earth">3</span></td><td class="n">32</td></tr>
-            <tr><th scope="row" id="alchemists-lab">Alchemist's Lab</th><td><span class="mana arcana">8</span> <span class="mana fire">4</span> <span class="mana gas">4</span></td><td class="n">32</td></tr>
-            <tr><th scope="row" id="sacred-grove">Sacred Grove</th><td><span class="mana arcana">7</span> <span class="mana water">5</span> <span class="mana earth">3</span></td><td class="n">30</td></tr>
-            <tr><th scope="row" id="skydock">Skydock</th><td><span class="mana arcana">7</span> <span class="mana water">4</span> <span class="mana gas">4</span></td><td class="n">30</td></tr>
-            <tr><th scope="row" id="ward-checkpoint">Ward Checkpoint</th><td><span class="mana arcana">7</span> <span class="mana earth">4</span> <span class="mana gas">4</span></td><td class="n">30</td></tr>
-            <tr><th scope="row" id="frontier-outpost">Frontier Outpost</th><td><span class="mana fire">5</span> <span class="mana water">5</span> <span class="mana earth">4</span></td><td class="n">28</td></tr>
-            <tr><th scope="row" id="distillery">Distillery</th><td><span class="mana fire">5</span> <span class="mana water">4</span> <span class="mana gas">5</span></td><td class="n">28</td></tr>
-            <tr><th scope="row" id="smelting-works">Smelting Works</th><td><span class="mana fire">6</span> <span class="mana earth">4</span> <span class="mana gas">4</span></td><td class="n">28</td></tr>
-            <tr><th scope="row" id="marsh-outpost">Marsh Outpost</th><td><span class="mana water">5</span> <span class="mana earth">4</span> <span class="mana gas">4</span></td><td class="n">26</td></tr>
+            <tr><th scope="row" id="water-mill">Water Mill</th><td><span class="mana water">6</span></td><td class="n">12</td><td class="n">0.4</td></tr>
+            <tr><th scope="row" id="smithy">Smithy</th><td><span class="mana fire">6</span></td><td class="n">12</td><td class="n">0.6</td></tr>
+            <tr><th scope="row" id="quarry">Quarry</th><td><span class="mana earth">6</span></td><td class="n">12</td><td class="n">0.4</td></tr>
+            <tr><th scope="row" id="carnival">Carnival</th><td><span class="mana gas">6</span></td><td class="n">12</td><td class="n">1.2</td></tr>
+            <tr><th scope="row" id="shrine">Shrine</th><td><span class="mana arcana">7</span></td><td class="n">14</td><td class="n">1.0</td></tr>
+            <tr><th scope="row" id="steamworks">Steamworks</th><td><span class="mana fire">5</span> <span class="mana water">3</span></td><td class="n">16</td><td class="n">1.0</td></tr>
+            <tr><th scope="row" id="oracle-pool">Oracle Pool</th><td><span class="mana arcana">5</span> <span class="mana water">3</span></td><td class="n">16</td><td class="n">1.3</td></tr>
+            <tr><th scope="row" id="crystal-mine">Crystal Mine</th><td><span class="mana arcana">5</span> <span class="mana earth">3</span></td><td class="n">16</td><td class="n">0.8</td></tr>
+            <tr><th scope="row" id="kiln-works">Kiln Works</th><td><span class="mana fire">4</span> <span class="mana earth">4</span></td><td class="n">16</td><td class="n">0.6</td></tr>
+            <tr><th scope="row" id="tunnel-market">Tunnel Market</th><td><span class="mana gas">4</span> <span class="mana earth">3</span></td><td class="n">14</td><td class="n">0.3</td></tr>
+            <tr><th scope="row" id="brewhouse">Brewhouse</th><td><span class="mana gas">4</span> <span class="mana water">3</span></td><td class="n">14</td><td class="n">0.9</td></tr>
+            <tr><th scope="row" id="rune-forge">Rune Forge</th><td><span class="mana arcana">5</span> <span class="mana fire">3</span></td><td class="n">16</td><td class="n">1.1</td></tr>
+            <tr><th scope="row" id="war-forge">War Forge</th><td><span class="mana arcana">8</span> <span class="mana fire">5</span> <span class="mana earth">3</span></td><td class="n">32</td><td class="n">1.8</td></tr>
+            <tr><th scope="row" id="alchemists-lab">Alchemist's Lab</th><td><span class="mana arcana">8</span> <span class="mana fire">4</span> <span class="mana gas">4</span></td><td class="n">32</td><td class="n">1.6</td></tr>
+            <tr><th scope="row" id="sacred-grove">Sacred Grove</th><td><span class="mana arcana">7</span> <span class="mana water">5</span> <span class="mana earth">3</span></td><td class="n">30</td><td class="n">1.4</td></tr>
+            <tr><th scope="row" id="skydock">Skydock</th><td><span class="mana arcana">7</span> <span class="mana water">4</span> <span class="mana gas">4</span></td><td class="n">30</td><td class="n">1.7</td></tr>
+            <tr><th scope="row" id="ward-checkpoint">Ward Checkpoint</th><td><span class="mana arcana">7</span> <span class="mana earth">4</span> <span class="mana gas">4</span></td><td class="n">30</td><td class="n">0.3</td></tr>
+            <tr><th scope="row" id="frontier-outpost">Frontier Outpost</th><td><span class="mana fire">5</span> <span class="mana water">5</span> <span class="mana earth">4</span></td><td class="n">28</td><td class="n">0.7</td></tr>
+            <tr><th scope="row" id="distillery">Distillery</th><td><span class="mana fire">5</span> <span class="mana water">4</span> <span class="mana gas">5</span></td><td class="n">28</td><td class="n">1.0</td></tr>
+            <tr><th scope="row" id="smelting-works">Smelting Works</th><td><span class="mana fire">6</span> <span class="mana earth">4</span> <span class="mana gas">4</span></td><td class="n">28</td><td class="n">0.8</td></tr>
+            <tr><th scope="row" id="marsh-outpost">Marsh Outpost</th><td><span class="mana water">5</span> <span class="mana earth">4</span> <span class="mana gas">4</span></td><td class="n">26</td><td class="n">0.6</td></tr>
           </tbody>
         </table>
       </div>
-      <p>Freelance contracts can also include the campaign's regular customers. They never use mixed sources.</p>
+      <p>Freelance contracts can also include the campaign's regular customers. They never include hybrids or mixed sources.</p>
       <nav class="fm-pager" aria-label="Previous and next page">
         <a class="prev" href="mana.html"><span>&larr; Previous</span>Mana Types</a>
         <a class="next" href="components.html"><span>Next &rarr;</span>Components &amp; Conduits</a>

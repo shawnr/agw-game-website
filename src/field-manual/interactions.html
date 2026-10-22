@@ -63,12 +63,12 @@
       <p>Interactions are checked once per game day. A few details worth knowing:</p>
       <ul>
         <li>What matters is the conduit's type and route, not how much is flowing. An idle conduit still reacts.</li>
-        <li>A conduit includes the hexes it starts and ends on. Two conduits of different types arriving at the same building share that building's hex, so they react there at full strength. A Wizard Academy fed arcana, fire and water hosts three interactions on its own hex.</li>
-        <li><a href="components.html#raw-mixed-conduits">Raw mixed and merged lines</a> carry two types, so they react with themselves on every hex they cross.</li>
+        <li>A conduit includes the hexes it starts and ends on. Two conduits of different types arriving at the same building share that building's hex, so they react there at full strength. A Wizard Academy fed arcana, fire and water hosts three interactions on its own hex. A hybrid's output conduit starts on its hex too, so it reacts with the hybrid's inputs.</li>
+        <li><a href="components.html#raw-mixed-conduits">Raw mixed and merged lines</a> carry two types, so they react with themselves on every hex they cross, with no second conduit needed.</li>
         <li><a href="components.html#insulated-conduits">Insulated conduits</a> (anything leaving a Filter) never react, and are immune to eruptions.</li>
         <li>Nearby reactions of the same pair merge into one <strong>zone</strong>, which uses the strongest reaction inside it.</li>
       </ul>
-      <p>Click any reacting hex to open the inspector. It names the interaction, explains it, and shows whether it's at <code>100% (stacked conduits)</code> or <code>50% (adjacent conduits)</code>.</p>
+      <p>Click any reacting hex to open the inspector. It names the interaction, explains it, and shows whether it's at <code>100% (stacked conduits)</code> or <code>50% (adjacent conduits)</code>. Tooltips show the results, too: a boosted source, a customer earning a bonus, a discounted Filter, and a conduit that lost mana to an eruption, listed separately from its distance loss.</p>
       <blockquote class="fm-memo">
         <p>Two different energy types are reacting here. Conduits sharing a hex react at full strength; conduits in adjacent hexes react at half strength. Click a reacting hex any time to see what the interaction does.</p>
         <cite>Field prompt</cite>
@@ -95,34 +95,35 @@
         <article class="fm-entry" id="fertile-growth" data-keywords="earth water farm farming village revenue bonus turnips">
           <div class="fm-entry-head"><h3><a class="fm-anchor" href="#fertile-growth">Fertile Growth</a></h3><span class="badge beneficial">Beneficial</span></div>
           <div class="fm-pair"><span class="mana earth">Earth</span><span class="plus">+</span><span class="mana water">Water</span></div>
-          <p class="fm-entry-sub">Earth and water mixing enriches the land. Farming nodes within range earn 25% more revenue.</p>
+          <p class="fm-entry-sub">Earth and water mixing enriches the land. Farms within 3 hexes of where the lines meet earn more revenue: +25% when the conduits share a hex, +12.5% when they run side by side.</p>
           <dl class="fm-stats"><div><dt>Stacked</dt><dd>+25%</dd></div><div><dt>Adjacent</dt><dd>+12.5%</dd></div><div><dt>Range</dt><dd>3 hexes</dd></div></dl>
           <ul>
             <li>Applies to <a href="buildings.html#farming-village">Farming Villages</a> within 3 hexes of the zone's center. Several zones don't add up; a village gets the best one.</li>
             <li>A Farming Village needs earth and water anyway, so its own two supply lines trigger this on its hex.</li>
           </ul>
-          <p class="fm-lore">Farmers near the Greendale junction noticed their turnips growing to the size of wheelbarrows after a nearby earth conduit sprang a leak into the irrigation canal. AG&amp;W's legal department insists the giant turnips are 'coincidental.' The farmers don't care. They're rich.</p>
+          <p class="fm-lore">Farmers near the Greendale junction noticed their turnips growing to the size of wheelbarrows after a nearby earth conduit sprang a leak into the irrigation canal. The farmers don't care. They're rich.</p>
         </article>
 
         <article class="fm-entry" id="enchanted-flames" data-keywords="arcana fire boost source output purple fireballs">
           <div class="fm-entry-head"><h3><a class="fm-anchor" href="#enchanted-flames">Enchanted Flames</a></h3><span class="badge beneficial">Beneficial</span></div>
           <div class="fm-pair"><span class="mana arcana">Arcana</span><span class="plus">+</span><span class="mana fire">Fire</span></div>
-          <p class="fm-entry-sub">Concentrated arcana amplifies nearby fire sources, boosting output by 20%.</p>
+          <p class="fm-entry-sub">Enchanted Flames stoke every fire source on the grid: +20% output when an arcana and a fire conduit share a hex, +10% when the conduits run side by side.</p>
           <dl class="fm-stats"><div><dt>Stacked</dt><dd>+20% fire</dd></div><div><dt>Adjacent</dt><dd>+10% fire</dd></div></dl>
           <ul>
             <li>Boosts the output of fire producers: Fire Geysers, Dragon Lairs and fire-producing mixed sources. The boost reaches fire producers across the whole map, not only those near the zone. Several zones don't add up; the strongest counts.</li>
             <li><strong>Watch the cap.</strong> A boosted Fire Geyser makes 36, but two basic conduits still only carry 15 each, so the extra is wasted. The tooltip says <code>Boost capped by conduit capacity: upgrade the conduits to use it</code>.</li>
           </ul>
-          <p class="fm-lore">The first recorded instance occurred when a junior technician routed an arcana conduit past the Ironforge district. The resulting purple-tinged fireballs were spectacular. The singed eyebrows of three blacksmiths were less so. AG&amp;W now considers it a 'feature.'</p>
+          <p class="fm-lore">The first recorded instance occurred when a junior technician routed an arcana conduit past the Anvilgate district. The resulting purple-tinged fireballs were spectacular. The singed eyebrows of three blacksmiths were less so. AG&amp;W now considers it a 'feature.'</p>
         </article>
 
         <article class="fm-entry" id="mineral-deposits" data-keywords="earth gas passive income money crystals">
           <div class="fm-entry-head"><h3><a class="fm-anchor" href="#mineral-deposits">Mineral Deposits</a></h3><span class="badge beneficial">Beneficial</span></div>
           <div class="fm-pair"><span class="mana earth">Earth</span><span class="plus">+</span><span class="mana gas">Gas</span></div>
-          <p class="fm-entry-sub">Gas seeping through earth veins crystallises valuable minerals. Passive income of 5 GC/day per contiguous zone, however long it runs.</p>
+          <p class="fm-entry-sub">Gas seeping through earth veins crystallizes valuable minerals. Each contiguous zone pays income however long it runs: 5 GC/day when the conduits share a hex, 2.5 GC/day when they run side by side.</p>
           <dl class="fm-stats"><div><dt>Stacked</dt><dd>+5 GC/day</dd></div><div><dt>Adjacent</dt><dd>+2.5 GC/day</dd></div></dl>
           <ul>
             <li>See <a href="#passive-income">Passive income</a> for how zones are counted. In short: one payment per separate crossing, however long the crossing is.</li>
+            <li>A fed <a href="buildings.html#dwarven-forge">Dwarven Forge</a> earns it on its own hex, where its earth input meets its gas output.</li>
           </ul>
           <p class="fm-lore">The Deepdelve Mining Company discovered this effect by accident when a gas line ruptured underground. Instead of the expected explosion, they found the tunnel walls crusted with valuable crystals. They now send AG&amp;W a thank-you basket every quarter.</p>
         </article>
@@ -130,7 +131,7 @@
         <article class="fm-entry" id="purification" data-keywords="arcana water filter upkeep discount cheaper">
           <div class="fm-entry-head"><h3><a class="fm-anchor" href="#purification">Purification</a></h3><span class="badge beneficial">Beneficial</span></div>
           <div class="fm-pair"><span class="mana arcana">Arcana</span><span class="plus">+</span><span class="mana water">Water</span></div>
-          <p class="fm-entry-sub">Arcana-infused water cleanses impurities. Filter upkeep in the area is halved.</p>
+          <p class="fm-entry-sub">Arcana-infused water cleans out every Filter on the grid: upkeep is halved when the conduits share a hex, and cut by a quarter when they run side by side.</p>
           <dl class="fm-stats"><div><dt>Stacked</dt><dd>&minus;50% upkeep</dd></div><div><dt>Adjacent</dt><dd>&minus;25% upkeep</dd></div></dl>
           <ul>
             <li>Discounts the upkeep of every <a href="components.html#filter">Filter</a> you own, wherever it is. The strongest zone counts. Filter tooltips show the discount as <code>(Purification -N%)</code>.</li>
@@ -142,12 +143,13 @@
         <article class="fm-entry" id="explosion-risk" data-keywords="fire gas explode explosion eruption hazard loss danger">
           <div class="fm-entry-head"><h3><a class="fm-anchor" href="#explosion-risk">Explosion Risk</a></h3><span class="badge hazard">Hazard</span></div>
           <div class="fm-pair"><span class="mana fire">Fire</span><span class="plus">+</span><span class="mana gas">Gas</span></div>
-          <p class="fm-entry-sub">Fire near gas conduits is dangerously volatile. 3% chance per day of 30% energy loss on affected lines (15% on upgraded conduits).</p>
+          <p class="fm-entry-sub">Fire near gas conduits is dangerously volatile. Each reacting hex has a 3% chance per day to erupt and drain the lines through it: 30% energy loss when the conduits share a hex, 15% when they run side by side. Upgraded conduits take half. Long shared runs erupt often.</p>
           <dl class="fm-stats"><div><dt>Chance</dt><dd>3%/day</dd></div><div><dt>Stacked loss</dt><dd>30%</dd></div><div><dt>Adjacent loss</dt><dd>15%</dd></div><div><dt>Upgraded</dt><dd>half</dd></div></dl>
           <ul>
             <li>See <a href="#eruptions">Eruptions</a> below for exactly what gets hit.</li>
             <li>A raw <a href="buildings.html#flare-pit">Flare Pit</a> line, or a merged fire + gas line, is a separate 3% roll on <em>every hex</em>. A 15-hex line erupts on roughly 37% of days.</li>
             <li>Avoid it by keeping fire and gas at least two hexes apart, or by <a href="components.html#filter">filtering</a> one of them so it's insulated.</li>
+            <li>A fed <a href="buildings.html#dwarven-forge">Dwarven Forge</a> sits in one: its fire input and gas output meet on its hex. A Filter on the Forge's gas output takes that line out of the reaction.</li>
           </ul>
           <p class="fm-lore">AG&amp;W Safety Regulation 7.4.1 states: 'Under no circumstances shall fire and gas conduits be routed alongside (and NEVER atop) one another.' AG&amp;W Safety Incident Report 7.4.1a through 7.4.1z document every time someone ignored this regulation. The filing cabinet is fireproof.</p>
         </article>
@@ -157,7 +159,7 @@
           <div class="fm-pair"><span class="mana fire">Fire</span><span class="plus">+</span><span class="mana water">Water</span></div>
           <p class="fm-entry-sub">Fire and water proximity produces thick steam clouds. Cosmetic only, no gameplay penalty.</p>
           <ul>
-            <li>Completely harmless. The in-game manual files it with the hazards, but it never costs you anything. Route fire and water together freely.</li>
+            <li>Completely harmless. It never costs you anything, so route fire and water together freely. Its first appearance posts an <code>[ENV.NOTICE]</code> rather than a hazard warning.</li>
           </ul>
           <p class="fm-lore">The steam is harmless but dramatic. Residents near affected junctions have complained about perpetual fog, damp laundry, and an inability to see their own front doors. The tourism board, however, markets the area as 'Mystical Mist Valley' and charges admission.</p>
         </article>
@@ -165,12 +167,12 @@
         <article class="fm-entry" id="magma-vents" data-keywords="earth fire magma dwarven forge revenue eruption mixed">
           <div class="fm-entry-head"><h3><a class="fm-anchor" href="#magma-vents">Magma Vents</a></h3><span class="badge mixed">Mixed</span></div>
           <div class="fm-pair"><span class="mana earth">Earth</span><span class="plus">+</span><span class="mana fire">Fire</span></div>
-          <p class="fm-entry-sub">Fire superheating earth creates volatile magma vents. Dwarven Forges in range earn 30% more revenue, but there is a 2% daily chance of 15% energy loss on affected lines (7.5% on upgraded conduits).</p>
+          <p class="fm-entry-sub">Fire superheating earth creates volatile magma vents. Dwarven Forges within 3 hexes of where the lines meet earn more revenue, and each reacting hex has a 2% chance per day to erupt: +30% revenue and 15% eruption loss when the conduits share a hex, +15% and 7.5% when they run side by side. Upgraded conduits take half the loss.</p>
           <dl class="fm-stats"><div><dt>Forge bonus</dt><dd>+30% / +15%</dd></div><div><dt>Chance</dt><dd>2%/day</dd></div><div><dt>Stacked loss</dt><dd>15%</dd></div><div><dt>Adjacent loss</dt><dd>7.5%</dd></div></dl>
           <ul>
             <li>The revenue bonus applies to <a href="buildings.html#dwarven-forge">Dwarven Forges</a> within 3 hexes of the zone's center (+30% stacked, +15% adjacent).</li>
             <li>A Dwarven Forge needs fire and earth, so its own supply lines create this on its hex. When it erupts, every exposed conduit at the Forge loses mana, including the Forge's own gas output.</li>
-            <li>A raw <a href="buildings.html#caldera">Caldera</a> line is Magma Vents along its whole length.</li>
+            <li>A raw <a href="buildings.html#caldera">Caldera</a> line, or a merged fire + earth line, is Magma Vents along its whole length.</li>
           </ul>
           <p class="fm-lore">The first magma vent eruption was mistaken for a dragon attack. After the town guard spent three hours shooting arrows at a crack in the ground, AG&amp;W dispatched an engineer who explained the situation. The guard captain still insists it was 'a very flat dragon.'</p>
         </article>
@@ -178,7 +180,7 @@
         <article class="fm-entry" id="mineral-springs" data-keywords="gas water passive income money healing bathhouse">
           <div class="fm-entry-head"><h3><a class="fm-anchor" href="#mineral-springs">Mineral Springs</a></h3><span class="badge beneficial">Beneficial</span></div>
           <div class="fm-pair"><span class="mana gas">Gas</span><span class="plus">+</span><span class="mana water">Water</span></div>
-          <p class="fm-entry-sub">Gas dissolving through water-rich earth creates mineral-laden springs. Passive income of 3 GC/day per contiguous zone, however long it runs.</p>
+          <p class="fm-entry-sub">Gas bubbling up through water leaves mineral-laden springs. Each contiguous zone pays income however long it runs: 3 GC/day when the conduits share a hex, 1.5 GC/day when they run side by side.</p>
           <dl class="fm-stats"><div><dt>Stacked</dt><dd>+3 GC/day</dd></div><div><dt>Adjacent</dt><dd>+1.5 GC/day</dd></div></dl>
           <ul>
             <li>Paid once per separate crossing. See <a href="#passive-income">Passive income</a>.</li>
@@ -192,8 +194,9 @@
       <ul>
         <li>Each hazard zone rolls <strong>once per day</strong>. The chance (3% or 2%) is the same at full and half strength; only the size of the loss is halved for adjacent conduits.</li>
         <li>When a zone erupts, <strong>every conduit passing through it</strong> loses that share of its flow, whatever type it carries. A water line that happens to cross a fire + gas zone gets hit too.</li>
-        <li>The loss lasts until the next day's check. Affected lines flash red, the screen shakes, and a <code>[HAZARD] Eruption event!</code> notice tells you how many conduits are venting.</li>
-        <li><a href="components.html#upgraded-conduits">Upgraded conduits</a> are hardened and take half the loss. <a href="components.html#insulated-conduits">Insulated conduits</a> take none.</li>
+        <li>The loss lasts until the next day's check. Affected lines flash red, the screen shakes, and a <code>[HAZARD] Eruption event!</code> notice tells you how many conduits are venting. A hit conduit's tooltip shows <code>Eruption: -N% this cycle</code>, separate from its distance loss.</li>
+        <li><a href="components.html#upgraded-conduits">Upgraded conduits</a> are hardened and take half the loss: 15% instead of 30% in an Explosion Risk zone, 7.5% instead of 15% in Magma Vents. <a href="components.html#insulated-conduits">Insulated conduits</a> take none.</li>
+        <li>A <a href="components.html#battery">Battery</a> downstream of a conduit that erupted covers the dip from its charge.</li>
         <li>Every hex of a long line is its own zone with its own roll. The chance that <em>something</em> erupts on a given day climbs quickly with length: about 37% per day for a 15-hex raw fire + gas line.</li>
       </ul>
       <div class="fm-note warn"><span class="fm-note-label">Why it matters</span><p>A one-day 30% loss can drop a customer below its need, which costs revenue and breaks a Content streak. If an operation's goal is a long streak, a fire + gas crossing is a lottery ticket you don't want.</p></div>
@@ -201,7 +204,7 @@
       <h2 id="passive-income">Passive income</h2>
       <p><a href="#mineral-deposits">Mineral Deposits</a> and <a href="#mineral-springs">Mineral Springs</a> pay a flat daily amount per <strong>contiguous zone</strong>:</p>
       <ul>
-        <li>Zones that touch each other count as one, paid once at the strongest strength among them. Two lines sharing a 20-hex stretch get paid once, the same as a single crossing.</li>
+        <li>Zones that touch each other count as one, paid once at the strongest strength among them. Two lines sharing a 20-hex stretch get paid once, the same as a single crossing. So does a 20-hex merged earth + gas trunk.</li>
         <li>Separate crossings that don't touch are paid separately. To earn more, make more distinct crossings.</li>
         <li>A <code>[TREASURY]</code> notice reminds you of your passive income every 5 days.</li>
       </ul>
@@ -210,7 +213,7 @@
       <p>The in-game Field Manual (<kbd>C</kbd>) starts with every interaction <strong>[WARDED]</strong>. An entry unseals when:</p>
       <ul>
         <li>you start an operation where both of its mana types are present, or</li>
-        <li>the reaction happens on your grid for the first time, which also posts a <code>[FIELD.SCAN]</code> or <code>[HAZARD]</code> notice.</li>
+        <li>the reaction happens on your grid for the first time, which also posts a <code>[FIELD.SCAN]</code>, <code>[HAZARD]</code> or <code>[ENV.NOTICE]</code> notice.</li>
       </ul>
       <p>Since all five types appear together by the fifth operation, the full set is usually unsealed by then. Unsealed entries stay unsealed.</p>
       <nav class="fm-pager" aria-label="Previous and next page">

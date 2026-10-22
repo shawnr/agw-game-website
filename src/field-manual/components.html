@@ -60,7 +60,7 @@
           <thead><tr><th>Component</th><th class="n">Cost</th><th class="n">Upkeep</th><th>Conduits</th><th>Job</th></tr></thead>
           <tbody>
             <tr><th scope="row"><a href="#relay-station">Relay Station</a></th><td class="n">50</td><td class="n">2/day</td><td>1 in, 1 out</td><td>Removes distance loss on the leg into it</td></tr>
-            <tr><th scope="row"><a href="#splitter">Splitter</a></th><td class="n">30</td><td class="n">1/day</td><td>up to 3 total</td><td>Splits one line in two, or merges two into one</td></tr>
+            <tr><th scope="row"><a href="#splitter">Splitter</a></th><td class="n">30</td><td class="n">1/day</td><td>up to 3 total</td><td>Splits one line in two, or merges two into one (two types make a merged conduit)</td></tr>
             <tr><th scope="row"><a href="#transformer">Transformer</a></th><td class="n">100</td><td class="n">5/day</td><td>1 in, 1 out</td><td>Converts one mana type into another, at a loss</td></tr>
             <tr><th scope="row"><a href="#battery">Battery</a></th><td class="n">75</td><td class="n">3/day</td><td>1 in, 1 out</td><td>Banks mana and covers dips in supply</td></tr>
             <tr><th scope="row"><a href="#filter">Filter</a></th><td class="n">60</td><td class="n">3/day</td><td>1 in, 1 out</td><td>Sends one type from a source on an insulated line</td></tr>
@@ -107,10 +107,10 @@
           <div class="fm-note tip"><span class="fm-note-label">When it pays off</span><p>Distance costs 1 mana per 5 hexes. On a short hop that loss rarely matters; on a 15-hex run it's 3 of your 15, which can be the difference between Content and Annoyed.</p></div>
         </article>
 
-        <article class="fm-entry" id="splitter" data-keywords="split merge branch fan out combine">
+        <article class="fm-entry" id="splitter" data-keywords="split merge merged trunk branch fan out combine two types">
           <div class="fm-entry-head"><h3><a class="fm-anchor" href="#splitter">Splitter</a></h3><span class="badge neutral">Unlocks 4th op</span></div>
           <dl class="fm-stats"><div><dt>Cost</dt><dd>30 GC</dd></div><div><dt>Upkeep</dt><dd>1 GC/day</dd></div><div><dt>Conduits</dt><dd>2 in / 2 out, 3 max</dd></div></dl>
-          <p class="fm-entry-sub">"Splits one input to two outputs, or merges two inputs into one. An upgraded output conduit can carry two different types together; a merged line follows the same rules as a raw mixed mana line from a mixed source. Up to 3 conduits total."</p>
+          <p class="fm-entry-sub">"Splits one input to two outputs, or merges two inputs into one. An upgraded output conduit can carry two different types together: a merged conduit follows the same rules as raw mixed energy from a mixed source. Up to 3 conduits total."</p>
           <h4>Splitting</h4>
           <ul>
             <li>One in, two out. The input is divided <strong>50/50</strong>, regardless of what's downstream: 10 becomes 5 and 5.</li>
@@ -120,13 +120,17 @@
           <ul>
             <li>Two in, one out. The inputs are added together, but the output conduit's capacity still applies: two full basic lines merged into one basic output carry 15, not 30. Upgrade the output to carry 30.</li>
           </ul>
-          <h4>Merging two different types</h4>
+          <h4 id="merged-conduits">Merging two different types</h4>
+          <p>Feed two <em>different</em> types into a Splitter and the conduit you draw out of it is a <strong>merged conduit</strong> carrying both, 15 of each. One trunk where two lines wouldn't fit, if you can live with the side effects.</p>
           <ul>
-            <li>Once conduit upgrades are unlocked, you can feed two <em>different</em> types into a Splitter with a single output. That output becomes a <a href="#raw-mixed-conduits">merged conduit</a> carrying both.</li>
-            <li>The output is upgraded automatically: a new output line is built at 25 GC per hex, or an existing basic output is upgraded on the spot for 15 GC per hex. If you can't afford it within your debt limit, the merge is refused.</li>
-            <li>The merged line must run straight to a customer that needs <strong>both</strong> types.</li>
-            <li>Remove one input and the Splitter goes back to carrying a single type.</li>
+            <li><strong>Needs conduit upgrades.</strong> A merged conduit is always an upgraded conduit, so merging only works in operations where upgrades are unlocked.</li>
+            <li><strong>The upgrade is automatic.</strong> A new output is built at 25 GC per hex. If the Splitter already has a basic output, it's upgraded on the spot for 15 GC per hex. If that would take you past your credit limit, the merge is refused.</li>
+            <li><strong>One output only.</strong> A merging Splitter can't also split, and a merged conduit can't be split or merged again.</li>
+            <li><strong>Straight to a customer.</strong> The merged conduit must run directly to a customer that uses <strong>both</strong> types. It can't feed any component, and nothing can be built on it.</li>
+            <li><strong>It reacts with itself.</strong> Its two types interact along its whole length, exactly like a <a href="#raw-mixed-conduits">raw mixed line</a>.</li>
+            <li>Hover the Splitter to see <code>Merging … + … into one upgraded conduit</code>. Remove one input and it goes back to carrying a single type.</li>
           </ul>
+          <div class="fm-note tip"><span class="fm-note-label">Pick your pair</span><p>Arcana + Gas and Arcana + Earth don't react at all, so they make clean trunks. Earth + Water earns <a href="interactions.html#fertile-growth">Fertile Growth</a> all the way. Fire + Gas is an <a href="interactions.html#explosion-risk">Explosion Risk</a> on every hex; don't.</p></div>
         </article>
 
         <article class="fm-entry" id="transformer" data-keywords="convert conversion change type ratio">
@@ -138,6 +142,7 @@
             <li>Choose the output with <kbd>Shift</kbd>+Click, or right-click and choose <strong>Cycle</strong>. A new Transformer starts on Gas, and cycling goes Gas &rarr; Fire &rarr; Arcana &rarr; Earth &rarr; Water.</li>
             <li>When you connect a conduit into a Transformer and its current output can't be made from that input, it switches to one that can and tells you so.</li>
             <li>Cycling by hand can still land on an impossible pair. The game warns <code>[TRANSFORMER] No conversion path</code>, and everything sent in is lost until you cycle again.</li>
+            <li>Cycling skips any output type that would meet a different type at a Splitter downstream, since that would turn the Splitter into a merge. The game tells you which type it skipped and why.</li>
             <li>Transformer output is new mana. It's never <a href="#insulated-conduits">insulated</a>, even if the input was.</li>
           </ul>
           <div class="fm-table-wrap">
@@ -156,35 +161,43 @@
           <div class="fm-note tip"><span class="fm-note-label">Tip</span><p>The cheap conversions are Fire &harr; Gas (1.5) and Water &rarr; Earth (1.5). Arcana can become anything, but at 3 : 1. Water can only be made from Arcana.</p></div>
         </article>
 
-        <article class="fm-entry" id="battery" data-keywords="store storage charge capacitor dip backup">
+        <article class="fm-entry" id="battery" data-keywords="store storage charge capacitor dip backup usual input carry">
           <div class="fm-entry-head"><h3><a class="fm-anchor" href="#battery">Battery</a></h3><span class="badge neutral">Unlocks 8th op</span></div>
           <dl class="fm-stats"><div><dt>Cost</dt><dd>75 GC</dd></div><div><dt>Upkeep</dt><dd>3 GC/day</dd></div><div><dt>Conduits</dt><dd>1 in / 1 out</dd></div><div><dt>Holds</dt><dd>50</dd></div></dl>
-          <p class="fm-entry-sub">"Stores part of the energy passing through it. When input levels dip below normal, or stops, the battery makes up the difference from its charge until it runs dry."</p>
+          <p class="fm-entry-sub">"Stores part of the energy passing through it. When its input dips below its recent peak, or stops, the battery makes up the difference from its charge until it runs dry."</p>
           <h4>Charging</h4>
           <ul>
-            <li>Everything that flows in also flows out. On top of that, the Battery banks <strong>30%</strong> of what passes through each day, up to <span class="num">50</span>.</li>
+            <li>Everything that flows in also flows out. On top of that, the Battery banks <strong>30%</strong> of what passes through each day, for free, up to <span class="num">50</span>.</li>
             <li>Above 45 (90% full) it slowly leaks, 1 per day.</li>
+            <li>It doesn't charge on a day it's covering a dip. A Battery either banks or spends.</li>
           </ul>
           <h4>Covering dips</h4>
           <ul>
-            <li>The Battery remembers its <strong>usual input</strong>: the highest recent flow, which slowly settles toward the current flow (1 per day).</li>
-            <li>If input drops below that usual level, the Battery tops up the difference from its charge, up to what the output conduit can carry.</li>
+            <li>The Battery remembers its <strong>usual input</strong>: the highest flow it has seen recently. That level sinks toward the current flow by 1 per day.</li>
+            <li>If input drops below the usual level, the Battery makes up the difference from its charge. An eruption, a hybrid that stalls when underfed, or a line you just tore down all count.</li>
             <li>If input stops completely, the Battery keeps the line running at up to the output conduit's full capacity (15 basic, 30 upgraded) until it runs dry.</li>
-            <li>It doesn't charge while it's covering a dip.</li>
+            <li>A permanent drop is covered for a few days while the usual level sinks, then accepted as the new normal, so the Battery doesn't drain itself forever.</li>
           </ul>
-          <div class="fm-note"><span class="fm-note-label">Not a booster</span><p>On a steady input a Battery adds nothing. It's insurance for supply that wobbles: a hybrid that stops producing when it's underfed, a source shared with a growing network, or a line that just took an eruption. Hover it to see "Usual input", "Banking charge" or "Covering a dip".</p></div>
+          <h4>Output</h4>
+          <ul>
+            <li>A Battery sends out whatever type its output conduit carries, and respects that conduit's capacity, upgraded or not.</li>
+          </ul>
+          <div class="fm-note"><span class="fm-note-label">Not a booster</span><p>On a steady input a Battery adds nothing, so it's never a free relay. It's insurance for supply that wobbles. Hover it to see its charge, its <code>Usual input</code>, and whether it's <code>Banking charge from pass-through</code> or <code>Covering a dip</code>.</p></div>
+          <h4 id="pre-placed-batteries">Pre-placed Batteries</h4>
           <p>Some operations come with Batteries already on the map. They start empty unless the briefing says otherwise, so connect them early to bank some charge.</p>
+          <p>The charge matters beyond the operation, too. Whatever is left in the pre-placed Batteries when you win The Resistance Begins and Charging the Grid is carried into the pre-placed Batteries of The Overload, shared among them, up to 50 each. Replaying either earlier operation from the Archives can raise that total, never lower it. Careers that won those operations before version 1.1.0 start The Overload with its Batteries half full.</p>
         </article>
 
         <article class="fm-entry" id="filter" data-keywords="separate mixed source insulation insulated isolate one type">
           <div class="fm-entry-head"><h3><a class="fm-anchor" href="#filter">Filter</a></h3><span class="badge neutral">Unlocks 11th op</span></div>
           <dl class="fm-stats"><div><dt>Cost</dt><dd>60 GC</dd></div><div><dt>Upkeep</dt><dd>3 GC/day</dd></div><div><dt>Conduits</dt><dd>1 in / 1 out</dd></div><div><dt>Output</dt><dd>half capacity</dd></div></dl>
-          <p class="fm-entry-sub">"Place on a hex adjacent to any source hex. Sends out one energy type at half the conduit's capacity, and the filtered line protects from interactions. On a mixed source, Shift+Click or right-click to pick which type of mana is passed through."</p>
+          <p class="fm-entry-sub">"Place on a hex adjacent to any source hex. Sends out one energy type at half the conduit's capacity, and the filtered conduit doesn't take part in interactions. On a mixed source, Shift+Click or right-click to choose which type passes."</p>
           <ul>
-            <li><strong>Placement:</strong> on a hex next to a source (hybrids count). Its input must come straight from that source. If you place it on an existing conduit, it has to be that conduit's first hex out of the source.</li>
+            <li><strong>Placement:</strong> on a hex next to a source. Hybrids count, so a Filter works on a Dragon Lair, Dwarven Forge or Mushroom Colony too. Its input must come straight from that source. If you place it on an existing conduit, it has to be that conduit's first hex out of the source.</li>
             <li><strong>Output:</strong> one type only, at half the conduit's capacity: 7.5 on a basic conduit, 15 on an upgraded one.</li>
             <li><strong>Insulated:</strong> the output line takes no part in <a href="interactions.html">interactions</a> and is immune to <a href="interactions.html#eruptions">eruptions</a>. See <a href="#insulated-conduits">Insulated conduits</a>.</li>
-            <li><strong>Choosing the type:</strong> on a mixed source, <kbd>Shift</kbd>+Click the Filter (or right-click and choose <strong>Cycle</strong>) to switch between the source's two types. On a single-type source there's only one choice.</li>
+            <li><strong>Route it anywhere:</strong> a filtered line can feed components or any customer that uses its type, hybrids included.</li>
+            <li><strong>Choosing the type:</strong> on a mixed source, <kbd>Shift</kbd>+Click the Filter (or right-click and choose <strong>Cycle</strong>) to switch between the source's two types. On a single-type source there's only one choice. As with a Transformer, cycling skips a type that would meet a different type at a Splitter downstream.</li>
             <li>A <a href="interactions.html#purification">Purification</a> zone anywhere on the map cuts every Filter's upkeep.</li>
           </ul>
           <div class="fm-note tip"><span class="fm-note-label">Tip</span><p>Filters aren't only for mixed sources. A Filter on an ordinary Fire Geyser gives you an insulated fire line that can run right past gas without any risk of explosion, at the cost of half the capacity.</p></div>
@@ -207,20 +220,22 @@
             <li>Doubles capacity to 30, so one upgraded conduit can carry a source's whole output.</li>
             <li><strong>Hardened:</strong> takes only half the loss when an <a href="interactions.html#eruptions">eruption</a> hits it.</li>
             <li>Distance loss is unchanged. Upgrades are for throughput and protection; <a href="#relay-station">relays</a> are still the answer for distance.</li>
-            <li>Upgraded conduits carry merged lines (see below).</li>
+            <li>Hover an upgraded conduit and its tooltip reads <code>Hardened: eruption losses halved</code>.</li>
+            <li>Every <a href="#merged-conduits">merged conduit</a> is an upgraded conduit.</li>
           </ul>
         </article>
 
         <article class="fm-entry" id="raw-mixed-conduits" data-keywords="mixed merged merge two types raw">
           <div class="fm-entry-head"><h3><a class="fm-anchor" href="#raw-mixed-conduits">Raw mixed and merged conduits</a></h3></div>
-          <p>A conduit carrying two types at once. You get one by drawing a line straight out of a <a href="buildings.html#mixed-sources">mixed source</a> (a raw mixed line), or by merging two types at a <a href="#splitter">Splitter</a> (a merged line). Both follow the same rules:</p>
+          <p>A conduit carrying two types at once. You get one by drawing a line straight out of a <a href="buildings.html#mixed-sources">mixed source</a> (a raw mixed line), or by merging two types at a <a href="#merged-conduits">Splitter</a> (a merged line). Both follow the same rules:</p>
           <ul>
             <li>Each type gets half the capacity: 7.5 + 7.5 on a basic conduit, 15 + 15 on an upgraded one. Merged lines are always upgraded.</li>
             <li>Distance loss is shared between the two types, 0.1 per hex each.</li>
-            <li>It must run <strong>directly to a customer that needs both types</strong>. It can't feed or pass through any component, and it can't be split or merged again.</li>
-            <li>The two types <strong>react with each other on every hex</strong> of the line. A Fire + Earth line is <a href="interactions.html#magma-vents">Magma Vents</a> from end to end; a Fire + Gas line is an <a href="interactions.html#explosion-risk">Explosion Risk</a> along its whole length.</li>
+            <li>It must run <strong>directly to a customer that needs both types</strong>. It can't feed any component, nothing can be built on it, and it can't be split or merged again.</li>
+            <li>The two types <strong>react with each other on every hex</strong> of the line. A Fire + Earth line is <a href="interactions.html#magma-vents">Magma Vents</a> from end to end; a Fire + Gas line is an <a href="interactions.html#explosion-risk">Explosion Risk</a> along its whole length. The tooltip warns <code>Raw mixed energy reacts with itself</code>.</li>
+            <li>Hover it to see how much of each type is being delivered.</li>
           </ul>
-          <blockquote class="fm-memo"><p>Raw mixed energy can't go into components. Put a Filter on conduit at the source.</p><cite>[MIXED] notice</cite></blockquote>
+          <blockquote class="fm-memo"><p>Raw mixed energy can't go into components. Put a Filter on the conduit at the source.</p><cite>[MIXED] notice</cite></blockquote>
         </article>
 
         <article class="fm-entry" id="insulated-conduits" data-keywords="insulation filtered sheath safe protected">
@@ -230,6 +245,7 @@
             <li>Takes no part in any <a href="interactions.html">interaction</a>, good or bad, and is immune to eruptions.</li>
             <li>Carries half the usual capacity (7.5 basic, 15 upgraded).</li>
             <li>Insulation carries on through Relays, Splitters and Batteries, but only if <em>every</em> line going into that component is insulated. A Transformer always ends it.</li>
+            <li>Its tooltip reads <code>Insulation along the conduit prevents interactions with other lines</code>.</li>
           </ul>
         </article>
       </div>

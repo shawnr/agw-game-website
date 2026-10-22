@@ -75,8 +75,16 @@
       <h3 id="hybrid-stopped" data-keywords="hybrid not producing forge mushroom dragon">A hybrid stopped producing</h3>
       <p>Hybrids only produce while <em>all</em> of their own needs are met. Hover it to see which input is short. A <a href="components.html#battery">Battery</a> downstream can cover a hybrid's occasional hiccups.</p>
 
-      <h3 id="cant-connect" data-keywords="doesn't use energy type refused grid.type">The game won't let me connect a conduit to a customer</h3>
-      <p>Customers only accept the types they need: <code>[GRID.TYPE] … doesn't use … energy</code>. If the line is a raw mixed or merged line, the customer has to need <em>both</em> of its types.</p>
+      <h3 id="cant-connect" data-keywords="doesn't use energy type refused grid.type mixed merged both">The game won't let me connect a conduit to a customer</h3>
+      <p>Every conduit must end at a customer that uses what it carries. Dispatch tells you which rule you hit:</p>
+      <ul>
+        <li><code>[GRID.TYPE] … doesn't use … energy.</code> The customer doesn't need that type at all.</li>
+        <li><code>[MIXED] … doesn't use both …</code> A raw line from a mixed source needs a customer that uses both of its types. Filter it at the source instead.</li>
+        <li><code>[MERGED] … doesn't use both …</code> The same rule for a conduit leaving a merging Splitter.</li>
+      </ul>
+
+      <h3 id="destination-doesnt-use" data-keywords="destination doesn't use tooltip nothing delivered transformer cycled">A conduit's tooltip says "Destination doesn't use …"</h3>
+      <p>The conduit is delivering nothing. This happens when you change what flows into an existing line, usually by cycling a <a href="components.html#transformer">Transformer</a> or <a href="components.html#filter">Filter</a> upstream, and the customer at the end doesn't use the new type. Cycle back, or tear the line down and reroute.</p>
 
       <h3 id="mixed-into-component" data-keywords="raw mixed component filter refused">"Raw mixed energy can't go into components"</h3>
       <p>Lines straight out of a mixed source carry two types and can't feed a Relay, Splitter, Transformer or Battery. Put a <a href="components.html#filter">Filter</a> on the hex next to the source to send out a single type, then route that wherever you like.</p>
@@ -84,8 +92,24 @@
       <h3 id="transformer-nothing" data-keywords="transformer no output lost conversion path">My Transformer isn't putting anything out</h3>
       <p>Not every type converts to every other. If you see <code>[TRANSFORMER] No conversion path</code>, the output you picked can't be made from that input and everything sent in is lost. <kbd>Shift</kbd>+Click it to cycle to a type that works.</p>
 
-      <h3 id="battery-not-helping" data-keywords="battery not working empty charge">My Battery isn't helping</h3>
-      <p>Batteries don't add mana on a steady supply. They bank 30% of what passes through and pay it back when input <em>drops</em>. A new Battery starts empty, so give it time to charge before you need it.</p>
+      <h3 id="transformer-skipped" data-keywords="transformer filter skipped can't switch splitter downstream">My Transformer skipped a type, or "can't switch"</h3>
+      <p>Cycling a Transformer or Filter skips any type that would meet a <em>different</em> type at a Splitter further down the line, because that would quietly turn the Splitter into a merge. The notice names the type and what the Splitter is already carrying. See <a href="components.html#merged-conduits">merged conduits</a>.</p>
+
+      <h3 id="cant-merge" data-keywords="splitter merge two types refused upgraded credit">My Splitter won't take a second type</h3>
+      <ul>
+        <li><code>Conduit upgrades aren't available in this operation.</code> A merged conduit is always upgraded, so merging only works once upgrades are unlocked.</li>
+        <li><code>Two energy types only merge into an upgraded conduit.</code> Upgrading the Splitter's output would take you past your credit limit.</li>
+        <li><code>A Splitter that splits can't also merge two types.</code> Remove one of its two outputs first.</li>
+        <li><code>… doesn't use both …</code> The Splitter's output already runs to a customer that doesn't need both types.</li>
+      </ul>
+
+      <h3 id="battery-not-helping" data-keywords="battery not working empty charge usual input">My Battery isn't helping</h3>
+      <ul>
+        <li><strong>The supply is steady.</strong> A Battery only pays out when its input drops below its usual level, or stops. On a steady line it just banks charge.</li>
+        <li><strong>It's empty.</strong> A new Battery starts at zero and banks 30% of what passes through each day. Give it time to charge before you need it.</li>
+        <li><strong>The drop is permanent.</strong> A Battery covers a lasting drop for a few days, then treats the lower input as normal. Fix the supply itself.</li>
+      </ul>
+      <p>Hover the Battery to see its charge, its usual input, and whether it's banking or covering.</p>
 
       <h2 id="money-problems">Money problems</h2>
 
@@ -109,7 +133,7 @@
       <ul>
         <li>A new customer just came online and isn't connected yet. Customers keep arriving every 5 days until they've all appeared.</li>
         <li>An <a href="interactions.html#eruptions">eruption</a> knocked a line down for a day.</li>
-        <li>A customer is Content but receiving slightly less than its need. Check for <code>!!</code> in the node list (<kbd>N</kbd>).</li>
+        <li>A customer is Content but receiving slightly less than its need. Hover it and look for <code>!!</code> next to a type.</li>
       </ul>
 
       <h3 id="cant-finish" data-keywords="all connected not winning waiting customers reveal">Everyone's happy but the operation won't end</h3>
@@ -120,6 +144,8 @@
         <li>Keep fire and gas at least two hexes apart, and earth and fire too if the eruptions bother you more than the Forge bonus helps.</li>
         <li>Never run a raw Flare Pit line or a merged fire + gas line any distance; every hex is a separate roll.</li>
         <li><a href="components.html#filter">Filter</a> one side so it's insulated, or <a href="components.html#upgraded-conduits">upgrade</a> the exposed lines to halve the loss.</li>
+        <li>Check your Dwarven Forges. A fed Forge has Magma Vents and an Explosion Risk on its own hex.</li>
+        <li>Put a <a href="components.html#battery">Battery</a> on lines that must never dip. It covers an eruption from its charge.</li>
       </ul>
 
       <h2 id="strategy">General strategy</h2>
@@ -129,9 +155,32 @@
         <li><strong>Fix frustration early.</strong> Frustration falls only 3 per day once a customer is fully supplied. A Furious customer takes weeks to calm down.</li>
         <li><strong>Save for latecomers.</strong> Customers keep appearing every 5 days. Keep budget in reserve and leave room in your routes.</li>
         <li><strong>Mind the touchy ones.</strong> Wizard Academies and Dragon Lairs sour fast. Feed them first and with surplus.</li>
-        <li><strong>Put good interactions to work.</strong> Earth + water near a Farming Village, or a few separate earth + gas crossings, are free money.</li>
+        <li><strong>Put good interactions to work.</strong> Earth + water near a Farming Village, or a few separate earth + gas crossings, are free money. Passive income pays once per separate crossing, so several short crossings beat one long one.</li>
+        <li><strong>Merge where space is tight.</strong> A <a href="components.html#merged-conduits">merged conduit</a> carries two types to one customer on a single trunk. Pick a pair that doesn't react badly.</li>
         <li><strong>Tear up and redo.</strong> Everything you build refunds in full. Experiment freely.</li>
       </ul>
+
+      <h2 id="saves">Saves and bug reports</h2>
+
+      <h3 id="save-folder" data-keywords="save folder location career files where">Where are my saves?</h3>
+      <p>Careers are saved in the game's save folder. In-progress operations go in a <code>saves</code> folder inside it.</p>
+      <div class="fm-table-wrap">
+        <table class="fm-table">
+          <thead><tr><th>System</th><th>Save folder</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Windows</th><td><code>%APPDATA%\agw-inc\</code></td></tr>
+            <tr><th scope="row">macOS</th><td><code>~/Library/Application Support/agw-inc/</code></td></tr>
+            <tr><th scope="row">Linux / Steam Deck</th><td><code>~/.local/share/agw-inc/</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>The game autosaves every 5 days by default, when you press <kbd>F1</kbd>, and when you quit. A failed operation is saved as failed, so quitting won't undo it.</p>
+
+      <h3 id="steam-cloud" data-keywords="steam cloud sync two computers deck">Can I play on more than one computer?</h3>
+      <p>Yes. Steam Cloud syncs your careers. If you've played on two machines, Steam may ask once which copy to keep. Operations in progress stay on the machine you were playing on, so finish or save out of an operation before you switch.</p>
+
+      <h3 id="crash" data-keywords="crash bug report log agw.log crash file">The game crashed</h3>
+      <p>The game writes two files to the save folder that help track down the problem: a <code>crash_&lt;date&gt;.txt</code> report and a session log, <code>agw.log</code>. Please attach both when you report a bug.</p>
       <nav class="fm-pager" aria-label="Previous and next page">
         <a class="prev" href="controls.html"><span>&larr; Previous</span>Controls</a>
       </nav>

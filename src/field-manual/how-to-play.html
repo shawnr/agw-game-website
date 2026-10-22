@@ -56,7 +56,7 @@
 
       <h2 id="operations">Operations</h2>
       <p>The campaign is made of <strong>19 operations</strong> across six career tiers, from New Employee to Chief of Reclamation. Each one is a hand-built region with its own map, starting budget, debt limit and goal. You start each operation from your desk in the AG&amp;W terminal, and each one opens with a briefing memo from Dispatch that tells you what's expected.</p>
-      <p>Early operations teach one idea at a time. New components unlock as you go: Relay Stations and Splitters, then Transformers and Batteries, then Filters and conduit upgrades. The <a href="components.html#unlocks">unlock table</a> lists when each one arrives.</p>
+      <p>Early operations teach one idea at a time. New components unlock as you go: Relay Stations and Splitters, then Transformers and Batteries, then Filters and conduit upgrades. The <a href="components.html#unlocks">unlock table</a> lists when each one arrives. An operation that introduces a component is built so that you need it to win.</p>
       <p>You can replay any completed operation from the Archives to improve your best day. Replays don't change your career progress.</p>
 
       <h2 id="the-map">The map</h2>
@@ -67,7 +67,7 @@
         <li><strong>Hybrids</strong> need some mana and produce another kind, but only while all of their own needs are met.</li>
       </ul>
       <p>All sources are visible from the start, along with the first <span class="num">3</span> customers. Any remaining customers come online one at a time, every <span class="num">5</span> days, with an <code>[OPS.STATUS]</code> notice. You can't complete an operation while customers are still waiting to appear, so leave yourself some budget for the latecomers.</p>
-      <p>Hover any building to see what it produces or needs and how much it's currently receiving. Press <kbd>N</kbd> (or click the <strong>[Info]</strong> tab on the left edge) to open the node list, which shows every customer and resource; clicking a row pans the camera there. Full details for each building are on <a href="buildings.html">Sources &amp; Customers</a>.</p>
+      <p>Hover any building to see what it produces or needs and how much it's currently receiving. Press <kbd>N</kbd> (or click the <strong>[Info]</strong> tab on the left edge) to open the Info drawer. Its <strong>Customers</strong> and <strong>Resources</strong> tabs list every building on the map, and clicking a row pans the camera there. Full details for each building are on <a href="buildings.html">Sources &amp; Customers</a>.</p>
 
       <h2 id="conduits">Building conduits</h2>
       <p>Conduits are the ley lines that carry mana. To build one:</p>
@@ -81,7 +81,7 @@
         <li><strong>Two conduits per source.</strong> A source can feed at most two conduits. To serve more buildings, run a conduit to a <a href="components.html#splitter">Splitter</a>.</li>
         <li><strong>Customers have no limit.</strong> Run several conduits into one customer to top it up, or to bring it several types.</li>
         <li><strong>Two conduits per hex.</strong> At most two conduits can share an open-ground hex. The router goes around full hexes and around buildings and components that aren't part of the line.</li>
-        <li><strong>Right type only.</strong> A customer only accepts the mana types it needs. Try to send it something else and you'll get <code>[GRID.TYPE] … doesn't use … energy.</code></li>
+        <li><strong>Every conduit needs a use.</strong> A conduit must end at a component, or at a customer that uses what it carries. Try to send a customer a type it doesn't need and Dispatch refuses: <code>[GRID.TYPE] … doesn't use … energy.</code></li>
         <li><strong>No duplicates.</strong> You can't build a second identical conduit between the same two points.</li>
       </ul>
       <p>You can build while the game is paused, and <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Z</kbd> undoes your last action.</p>
@@ -127,7 +127,7 @@
         <li><strong>Furious customers:</strong> each one costs you <span class="num">50</span> GC per day on top of paying nothing.</li>
       </ul>
       <h3 id="debt">Debt limit</h3>
-      <p>Your budget can go below zero. You can keep building on credit as long as each purchase leaves you above your debt limit, which the briefing shows as <code>Debt limit: -N GC</code>. If your balance ever reaches the limit, the operation fails immediately with an audit. The limit grows over the campaign, from <span class="num">100</span> GC in the first operations to <span class="num">800</span> GC at the end.</p>
+      <p>Your budget can go below zero. You can keep building on credit as long as each purchase leaves you above your debt limit, which the briefing shows as <code>Debt limit: -N GC</code>. Some messages call it your credit limit. If your balance ever reaches the limit, the operation fails immediately with an audit. The limit grows over the campaign, from <span class="num">100</span> GC in the first operations to <span class="num">800</span> GC at the end.</p>
       <p>Budget warnings appear once you drop under 200 GC.</p>
 
       <h2 id="satisfaction">Customer satisfaction</h2>
@@ -181,8 +181,14 @@
       <h2 id="after-the-campaign">After the campaign</h2>
       <p>Finish the campaign and two more ways to play open up on your desktop:</p>
       <ul>
-        <li><strong>Freelance Operations</strong> generates a fresh contract every time: a random map with 2 to 5 sources, 4 to 10 customers, and every component and upgrade available. Keep everyone Content for the required number of days to finish the job. Freelance work also brings some customers you won't meet in the campaign; see <a href="buildings.html#freelance-customers">Freelance customers</a>.</li>
-        <li><strong>Custom Requisitions</strong> (Form 88-C) lets you design your own job: map size, number of sources and customers, budget, which mana types appear, and the goal.</li>
+        <li><strong>Freelance Operations</strong> generates a fresh contract every time: a random map with 2 to 5 sources, 4 to 10 customers and 2 to 5 mana types. Every component and upgrade is available, and you work within the credit limit your career has earned. Keep every customer Content for the required streak, which is longer on maps with more customers. A finished job closes with <strong>Contract Complete</strong>; Freelance work doesn't change your title. It also brings customers you won't meet in the campaign. See <a href="buildings.html#freelance-customers">Freelance customers</a>.</li>
+        <li><strong>Custom Requisitions</strong> (Form 27-B) lets you design your own job. You pick the map size, 1 to 8 sources, 2 to 12 customers, the starting budget, which mana types appear, the goal and how long it must hold, your credit limit, and an optional deadline. A finished job closes with <strong>Requisition Complete</strong>.</li>
+      </ul>
+      <p>Form 27-B offers three goals:</p>
+      <ul>
+        <li><strong>Satisfaction Threshold:</strong> keep every customer fully supplied and Content for the set number of days.</li>
+        <li><strong>Connect All Consumers:</strong> supply every customer with everything it needs.</li>
+        <li><strong>Overload a Citadel:</strong> the map always includes a <a href="buildings.html#dark-citadel">Dark Citadel</a>. Deliver at least 150% of its total need for the set number of days.</li>
       </ul>
       <nav class="fm-pager" aria-label="Previous and next page">
         <a class="prev" href="index.html"><span>&larr; Previous</span>Overview</a>
