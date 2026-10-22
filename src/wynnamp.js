@@ -11,7 +11,7 @@
     {
       id: 'dont_bite',
       title: 'If It Don\'t Bite',
-      artist: 'Nobody and the Neckromancers',
+      artist: 'Nobody and the NeckRomancers',
       src: 'assets/music/if-it-dont-bite_final.mp3',
     },
     {
