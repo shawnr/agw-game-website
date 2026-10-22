@@ -17,7 +17,7 @@
     {
       id: 'flow_state',
       title: 'Flow State',
-      artist: 'The Leaky Cauldrons',
+      artist: 'The Riddle of Synth',
       src: 'assets/music/song1.mp3',
     },
     {
@@ -104,6 +104,11 @@
   const volFill        = root.querySelector('.wa-vol-fill');
   const statusMode     = root.querySelector('.wa-status-mode');
   const skinBadge      = root.querySelector('.wa-title-badge');
+  const liveRegion     = root.querySelector('.wa-live');
+
+  function announce(text) {
+    if (liveRegion) liveRegion.textContent = text;
+  }
 
   /* ---------- audio ---------- */
   const audio = new Audio();
@@ -153,7 +158,8 @@
     root.style.setProperty('--wa-glow', s.glow);
     if (skinBadge) {
       skinBadge.textContent = 'ChantCast';
-      skinBadge.title = s.name + ' skin — click to change';
+      skinBadge.title = s.name + ' skin. Click to change.';
+      skinBadge.setAttribute('aria-label', 'Player skin: ' + s.name + '. Change skin');
     }
   }
 
@@ -367,13 +373,18 @@
   /* ---------- viz click to cycle ---------- */
   vizCanvas.style.cursor = 'pointer';
   vizCanvas.title = 'Click to change visualization';
-  vizCanvas.addEventListener('click', function () {
+  function cycleViz() {
     vizModeIdx = (vizModeIdx + 1) % VIZ_MODES.length;
     // reset state for clean transition
     peaks.fill(0);
     peakDecay.fill(0);
     particles = [];
     if (!isPlaying) drawViz();
+    announce('Visualization: ' + VIZ_MODES[vizModeIdx]);
+  }
+  vizCanvas.addEventListener('click', cycleViz);
+  vizCanvas.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); cycleViz(); }
   });
 
   /* ---------- skin click to cycle ---------- */
@@ -384,6 +395,7 @@
       applySkin();
       renderPlaylist();
       if (!isPlaying) drawViz();
+      announce('Player skin: ' + skin().name);
     });
   }
 
@@ -391,18 +403,24 @@
   function renderPlaylist() {
     playlist.innerHTML = '';
     TRACKS.forEach((t, i) => {
-      const li = document.createElement('div');
-      li.className = 'wa-track' + (i === currentIdx ? ' wa-active' : '');
-      li.innerHTML = `<span class="wa-track-num">${i + 1}.</span> ` +
+      const li = document.createElement('li');
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'wa-track' + (i === currentIdx ? ' wa-active' : '');
+      if (i === currentIdx) btn.setAttribute('aria-current', 'true');
+      btn.setAttribute('aria-label', `Play ${t.title} by ${t.artist}`);
+      btn.innerHTML = `<span class="wa-track-num">${i + 1}.</span> ` +
         `<span class="wa-track-artist">${t.artist}</span> — ` +
         `<span class="wa-track-title">${t.title}</span>`;
-      li.addEventListener('click', () => loadAndPlay(i));
+      btn.addEventListener('click', () => loadAndPlay(i));
+      li.appendChild(btn);
       playlist.appendChild(li);
     });
   }
 
   /* ---------- marquee ---------- */
-  function setMarquee(text) {
+  function setMarquee(text, idle) {
+    marquee.classList.toggle('wa-idle', !!idle);
     marquee.textContent = text;
     marquee.style.animation = 'none';
     marquee.offsetHeight; // reflow
@@ -410,7 +428,7 @@
   }
 
   function setIdleMarquee() {
-    setMarquee('WynnAmp v2.7.3 — ChantCast Edition — Select a track to begin...');
+    setMarquee('WynnAmp v2.7.3 — ChantCast Edition. Select a track to begin...', true);
   }
 
   /* ---------- time formatting ---------- */
@@ -434,6 +452,7 @@
     setMarquee(`${track.artist} — ${track.title}`);
     renderPlaylist();
     statusMode.textContent = 'PLAYING';
+    announce(`Now playing: ${track.title} by ${track.artist}`);
 
     try { initAudioContext(); } catch(e) { /* ok */ }
     if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
@@ -467,6 +486,7 @@
       isPlaying = false;
       statusMode.textContent = 'PAUSED';
       updateButtons();
+      announce('Paused');
     }
   }
 
@@ -476,6 +496,7 @@
     isPlaying = false;
     statusMode.textContent = 'STOPPED';
     updateButtons();
+    announce('Stopped');
     if (vizRAF) cancelAnimationFrame(vizRAF);
     drawViz(); // draw idle state
   }
@@ -491,8 +512,11 @@
   }
 
   function updateButtons() {
+    // Keep keyboard focus on the transport when Play and Pause swap places
+    const hadFocus = document.activeElement === btnPlay || document.activeElement === btnPause;
     btnPlay.classList.toggle('wa-hidden', isPlaying);
     btnPause.classList.toggle('wa-hidden', !isPlaying);
+    if (hadFocus) (isPlaying ? btnPause : btnPlay).focus();
   }
 
   /* ---------- seek bar ---------- */
@@ -503,7 +527,23 @@
     seekThumb.style.left = pct + '%';
     timeEl.textContent = fmt(audio.currentTime);
     durationEl.textContent = fmt(audio.duration);
+    seekBar.setAttribute('aria-valuenow', Math.round(pct));
+    seekBar.setAttribute('aria-valuetext', fmt(audio.currentTime) + ' of ' + fmt(audio.duration));
   }
+
+  // Keyboard: arrows step 5 seconds, Page Up/Down 30, Home/End jump
+  seekBar.addEventListener('keydown', (e) => {
+    if (!audio.duration) return;
+    const steps = { ArrowRight: 5, ArrowUp: 5, ArrowLeft: -5, ArrowDown: -5, PageUp: 30, PageDown: -30 };
+    let t = null;
+    if (e.key in steps) t = audio.currentTime + steps[e.key];
+    else if (e.key === 'Home') t = 0;
+    else if (e.key === 'End') t = audio.duration - 0.5;
+    if (t === null) return;
+    e.preventDefault();
+    audio.currentTime = Math.max(0, Math.min(audio.duration, t));
+    updateSeek();
+  });
 
   function handleSeek(e) {
     const rect = seekBar.getBoundingClientRect();
@@ -538,9 +578,27 @@
   function handleVol(e) {
     const rect = volSlider.getBoundingClientRect();
     const pct = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+    setVolume(pct);
+  }
+
+  function setVolume(pct) {
     audio.volume = pct;
     volFill.style.width = (pct * 100) + '%';
+    volSlider.setAttribute('aria-valuenow', Math.round(pct * 100));
+    volSlider.setAttribute('aria-valuetext', Math.round(pct * 100) + '%');
   }
+
+  // Keyboard: arrows step 5%, Page Up/Down 20%, Home/End mute/full
+  volSlider.addEventListener('keydown', (e) => {
+    const steps = { ArrowRight: 0.05, ArrowUp: 0.05, ArrowLeft: -0.05, ArrowDown: -0.05, PageUp: 0.2, PageDown: -0.2 };
+    let v = null;
+    if (e.key in steps) v = audio.volume + steps[e.key];
+    else if (e.key === 'Home') v = 0;
+    else if (e.key === 'End') v = 1;
+    if (v === null) return;
+    e.preventDefault();
+    setVolume(Math.max(0, Math.min(1, v)));
+  });
   volSlider.addEventListener('mousedown', (e) => { volDragging = true; handleVol(e); });
   document.addEventListener('mousemove', (e) => { if (volDragging) handleVol(e); });
   document.addEventListener('mouseup', () => { volDragging = false; });

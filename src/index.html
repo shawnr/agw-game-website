@@ -18,11 +18,15 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
   <!-- Release banner -->
-  <a class="demo-banner" href="https://store.steampowered.com/app/4476220/Arcana_Gas__Waterworks_Inc/" target="_blank" rel="noopener">
-    <span class="db-text">&gt; <strong>OUT NOW.</strong> <em>AG&amp;W Inc.</em> is available on <strong>Steam</strong>. Your first shift starts whenever you like.<span class="db-cursor" aria-hidden="true">_</span></span>
-    <span class="db-cta">[Play Today]</span>
-  </a>
+  <header class="site-header">
+    <a class="demo-banner" href="https://store.steampowered.com/app/4476220/Arcana_Gas__Waterworks_Inc/" target="_blank" rel="noopener">
+      <span class="db-text">&gt; <strong>OUT NOW.</strong> <em>AG&amp;W Inc.</em> is available on <strong>Steam</strong>. Your first shift starts whenever you like.<span class="db-cursor" aria-hidden="true">_</span></span>
+      <span class="db-cta">[Play Today]</span><span class="sr-only"> (opens in a new tab)</span>
+    </a>
+  </header>
 
   <!-- Animated background canvas -->
   <canvas id="bg-canvas" aria-hidden="true"></canvas>
@@ -31,27 +35,27 @@
   <div class="scanlines" aria-hidden="true"></div>
 
   <!-- Main content -->
-  <main>
+  <main id="main" tabindex="-1">
     <!-- HERO -->
     <section class="hero" id="top">
       <div class="hero-glow" aria-hidden="true"></div>
       <div class="hero-content">
-        <img src="assets/images/logo.png" alt="AG&W — Arcana, Gas & Waterworks Inc. logo" class="hero-logo" width="600" height="350">
+        <h1 class="hero-title"><img src="assets/images/logo.png" alt="Arcana, Gas &amp; Waterworks Inc." class="hero-logo" width="600" height="350"></h1>
         <p class="hero-tagline">Keep the magick flowing.</p>
         <div class="hero-video">
           <iframe width="560" height="315" src="https://www.youtube.com/embed/WkoAa7pjjgA?rel=0" title="Arcana, Gas &amp; Waterworks Inc. — Gameplay" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
         <p class="hero-sub">A comedic puzzle-strategy game about ley lines, bureaucracy,<br>and the thankless job of routing magical infrastructure.</p>
-        <div class="platform-icons" aria-label="Available on Windows, macOS, Linux, and Steam">
-          <svg viewBox="0 0 448 512" width="22" height="22" fill="currentColor" aria-hidden="true" title="Windows"><path d="M0 93.7l183.6-25.3v177.4H0V93.7zm0 324.6l183.6 25.3V268.4H0v149.9zm203.8 28L448 480V268.4H203.8v177.9zm0-380.6v180.1H448V32L203.8 65.7z"/></svg>
-          <svg viewBox="0 0 384 512" width="20" height="20" fill="currentColor" aria-hidden="true" title="macOS"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184 4 273.5c0 26.2 4.8 53.3 14.4 81.2 12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
-          <svg viewBox="0 0 712 860" width="20" height="24" fill="currentColor" aria-hidden="true" title="Linux"><path d="M683.91,677.74c-.01-.01-.021-.021-.021-.03c-6.069-6.85-8.96-19.55-12.069-33.08c-3.101-13.52-6.57-28.1-17.67-37.55c-.021-.021-.051-.04-.07-.061c-2.2-1.92-4.46-3.539-6.73-4.89c-2.279-1.35-4.59-2.45-6.899-3.32c15.43-45.76,9.38-91.329-6.2-132.5c-19.11-50.54-52.48-94.569-77.97-124.689c-28.53-35.99-56.431-70.15-55.88-120.61C501.25,144,508.87,1.19,373.35,1c-5.51-.01-11.26.22-17.25.7C204.66,13.89,244.83,173.89,242.58,227.46c-2.77,39.18-10.71,70.06-37.66,108.36c-31.65,37.64-76.23,98.57-97.34,162c-9.96,29.93-14.7,60.439-10.33,89.319c-1.37,1.23-2.67,2.521-3.92,3.841c-9.29,9.93-16.16,21.949-23.81,30.039c-7.15,7.141-17.33,9.851-28.53,13.86c-11.2,4.021-23.49,9.94-30.95,24.26c0,0,0,.011-.01.011c-.01.02-.02.05-.04.069c-3.51,6.55-4.65,13.62-4.65,20.79c0,6.63.98,13.351,1.97,19.82c2.06,13.46,4.15,26.189,1.38,34.81c-8.86,24.23-10,40.98-3.76,53.141c6.26,12.18,19.11,17.55,33.64,20.59c29.06,6.06,68.41,4.56,99.42,21l2.67-5.03l-2.64,5.04c33.2,17.36,66.86,23.521,93.71,17.39c19.48-4.439,35.28-16.039,43.4-33.88c21-.1,44.05-9,80.97-11.029c25.05-2.021,56.34,8.899,92.33,6.899c.94,3.9,2.301,7.66,4.16,11.23c.021.029.04.069.061.1c13.949,27.9,39.869,40.66,67.5,38.48c27.659-2.181,57.069-18.49,80.85-46.78l-4.36-3.66l4.391,3.62c22.66-27.48,60.27-38.87,85.22-53.91c12.47-7.52,22.58-16.939,23.37-30.62C710.4,713.55,702.37,698.23,683.91,677.74z"/></svg>
-          <svg viewBox="0 0 496 512" width="22" height="22" fill="currentColor" aria-hidden="true" title="Steam"><path d="M496 256c0 137-111.2 248-248.4 248-113.8 0-209.6-76.3-239-180.4l95.2 39.3c6.4 32.1 34.9 56.4 68.9 56.4 39.2 0 71.1-32.2 70.5-71.4l84.9-60.5c50.1 0 90.8-40.8 90.8-90.9s-40.7-90.9-90.8-90.9-90.8 40.8-90.8 90.9v1.2l-60 85.2c-16.2 0-31.4 5.6-43.4 15L0 228.6C12.7 109.5 120.1 14.7 248.4 8 384.8.8 496 110.3 496 256zM181 381.6c-12.2-5.1-26.2.3-31.3 12.5s.3 26.2 12.5 31.3l30.1 12.5c-18.2-7.6-28.7-27.1-24.1-46.4 4.6-19.5 23.4-32.2 43.4-30l-30.6-12.9v13zm130-284.3c33.4 0 60.5 27.2 60.5 60.5s-27.1 60.5-60.5 60.5-60.5-27.2-60.5-60.5 27.1-60.5 60.5-60.5zm0 24.2c-20.1 0-36.3 16.3-36.3 36.3s16.3 36.3 36.3 36.3 36.3-16.3 36.3-36.3-16.2-36.3-36.3-36.3z"/></svg>
+        <div class="platform-icons" role="img" aria-label="Available on Windows, macOS, Linux, and Steam">
+          <svg viewBox="0 0 448 512" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M0 93.7l183.6-25.3v177.4H0V93.7zm0 324.6l183.6 25.3V268.4H0v149.9zm203.8 28L448 480V268.4H203.8v177.9zm0-380.6v180.1H448V32L203.8 65.7z"/></svg>
+          <svg viewBox="0 0 384 512" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184 4 273.5c0 26.2 4.8 53.3 14.4 81.2 12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+          <svg viewBox="0 0 712 860" width="20" height="24" fill="currentColor" aria-hidden="true"><path d="M683.91,677.74c-.01-.01-.021-.021-.021-.03c-6.069-6.85-8.96-19.55-12.069-33.08c-3.101-13.52-6.57-28.1-17.67-37.55c-.021-.021-.051-.04-.07-.061c-2.2-1.92-4.46-3.539-6.73-4.89c-2.279-1.35-4.59-2.45-6.899-3.32c15.43-45.76,9.38-91.329-6.2-132.5c-19.11-50.54-52.48-94.569-77.97-124.689c-28.53-35.99-56.431-70.15-55.88-120.61C501.25,144,508.87,1.19,373.35,1c-5.51-.01-11.26.22-17.25.7C204.66,13.89,244.83,173.89,242.58,227.46c-2.77,39.18-10.71,70.06-37.66,108.36c-31.65,37.64-76.23,98.57-97.34,162c-9.96,29.93-14.7,60.439-10.33,89.319c-1.37,1.23-2.67,2.521-3.92,3.841c-9.29,9.93-16.16,21.949-23.81,30.039c-7.15,7.141-17.33,9.851-28.53,13.86c-11.2,4.021-23.49,9.94-30.95,24.26c0,0,0,.011-.01.011c-.01.02-.02.05-.04.069c-3.51,6.55-4.65,13.62-4.65,20.79c0,6.63.98,13.351,1.97,19.82c2.06,13.46,4.15,26.189,1.38,34.81c-8.86,24.23-10,40.98-3.76,53.141c6.26,12.18,19.11,17.55,33.64,20.59c29.06,6.06,68.41,4.56,99.42,21l2.67-5.03l-2.64,5.04c33.2,17.36,66.86,23.521,93.71,17.39c19.48-4.439,35.28-16.039,43.4-33.88c21-.1,44.05-9,80.97-11.029c25.05-2.021,56.34,8.899,92.33,6.899c.94,3.9,2.301,7.66,4.16,11.23c.021.029.04.069.061.1c13.949,27.9,39.869,40.66,67.5,38.48c27.659-2.181,57.069-18.49,80.85-46.78l-4.36-3.66l4.391,3.62c22.66-27.48,60.27-38.87,85.22-53.91c12.47-7.52,22.58-16.939,23.37-30.62C710.4,713.55,702.37,698.23,683.91,677.74z"/></svg>
+          <svg viewBox="0 0 496 512" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M496 256c0 137-111.2 248-248.4 248-113.8 0-209.6-76.3-239-180.4l95.2 39.3c6.4 32.1 34.9 56.4 68.9 56.4 39.2 0 71.1-32.2 70.5-71.4l84.9-60.5c50.1 0 90.8-40.8 90.8-90.9s-40.7-90.9-90.8-90.9-90.8 40.8-90.8 90.9v1.2l-60 85.2c-16.2 0-31.4 5.6-43.4 15L0 228.6C12.7 109.5 120.1 14.7 248.4 8 384.8.8 496 110.3 496 256zM181 381.6c-12.2-5.1-26.2.3-31.3 12.5s.3 26.2 12.5 31.3l30.1 12.5c-18.2-7.6-28.7-27.1-24.1-46.4 4.6-19.5 23.4-32.2 43.4-30l-30.6-12.9v13zm130-284.3c33.4 0 60.5 27.2 60.5 60.5s-27.1 60.5-60.5 60.5-60.5-27.2-60.5-60.5 27.1-60.5 60.5-60.5zm0 24.2c-20.1 0-36.3 16.3-36.3 36.3s16.3 36.3 36.3 36.3 36.3-16.3 36.3-36.3-16.2-36.3-36.3-36.3z"/></svg>
         </div>
         <div class="cta-group">
           <a href="https://store.steampowered.com/app/4476220/Arcana_Gas__Waterworks_Inc/" class="btn btn-demo" target="_blank" rel="noopener">
             <svg class="steam-icon" viewBox="0 0 496 512" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M496 256c0 137-111.2 248-248.4 248-113.8 0-209.6-76.3-239-180.4l95.2 39.3c6.4 32.1 34.9 56.4 68.9 56.4 39.2 0 71.1-32.2 70.5-71.4l84.9-60.5c50.1 0 90.8-40.8 90.8-90.9s-40.7-90.9-90.8-90.9-90.8 40.8-90.8 90.9v1.2l-60 85.2c-16.2 0-31.4 5.6-43.4 15L0 228.6C12.7 109.5 120.1 14.7 248.4 8 384.8.8 496 110.3 496 256zM181 381.6c-12.2-5.1-26.2.3-31.3 12.5s.3 26.2 12.5 31.3l30.1 12.5c-18.2-7.6-28.7-27.1-24.1-46.4 4.6-19.5 23.4-32.2 43.4-30l-30.6-12.9v13zm130-284.3c33.4 0 60.5 27.2 60.5 60.5s-27.1 60.5-60.5 60.5-60.5-27.2-60.5-60.5 27.1-60.5 60.5-60.5zm0 24.2c-20.1 0-36.3 16.3-36.3 36.3s16.3 36.3 36.3 36.3 36.3-16.3 36.3-36.3-16.2-36.3-36.3-36.3z"/></svg>
-            Play Today on Steam
+            Play Today on Steam<span class="sr-only"> (opens in a new tab)</span>
           </a>
         </div>
         <p class="cta-sub">Released October 1, 2026 &middot; Windows &middot; macOS &middot; Linux &middot; SteamOS</p>
@@ -65,7 +69,7 @@
     <!-- ABOUT -->
     <section class="section about">
       <div class="container">
-        <h2 id="about" class="section-title"><span class="glyph">&#x2726;</span> Your New Career Awaits <span class="glyph">&#x2726;</span></h2>
+        <h2 id="about" class="section-title"><span class="glyph" aria-hidden="true">&#x2726;</span> Your New Career Awaits <span class="glyph" aria-hidden="true">&#x2726;</span></h2>
         <div class="about-grid">
           <div class="about-text">
             <p>You've just been hired at <strong>AG&W Inc.</strong>, the municipal utility company responsible for delivering mana of all types: arcana, gas, fire, earth, and water to every town, tower, dungeon, and dragon's lair in the region.</p>
@@ -73,7 +77,7 @@
             <p>Feel all the feels of being a low-level employee at a magical plumbing utility. Meditative when things flow. Chaotic when they don't. (It's mostly chaotic.)</p>
           </div>
           <div class="about-image">
-            <div class="carousel" id="screenshot-carousel">
+            <div class="carousel" id="screenshot-carousel" role="region" aria-roledescription="carousel" aria-label="Game screenshots">
               <div class="carousel-track">
                 <img src="assets/images/screenshots/eruption-hazard.webp" alt="A full network of five mana types during an eruption hazard" loading="lazy">
                 <img src="assets/images/screenshots/mineral-deposits.webp" alt="Earth and gas conduits producing a Mineral Deposits interaction" loading="lazy">
@@ -105,7 +109,7 @@
     <!-- FEATURES -->
     <section class="section features">
       <div class="container">
-        <h2 id="features" class="section-title"><span class="glyph">&#x2726;</span> What You'll Do <span class="glyph">&#x2726;</span></h2>
+        <h2 id="features" class="section-title"><span class="glyph" aria-hidden="true">&#x2726;</span> What You'll Do <span class="glyph" aria-hidden="true">&#x2726;</span></h2>
         <div class="features-grid">
           <div class="feature-card">
             <div class="feature-icon">
@@ -192,7 +196,7 @@
     <!-- SPECS -->
     <section class="section specs" id="specs">
       <div class="container">
-        <h2 id="details" class="section-title"><span class="glyph">&#x2726;</span> The Features <span class="glyph">&#x2726;</span></h2>
+        <h2 id="details" class="section-title"><span class="glyph" aria-hidden="true">&#x2726;</span> The Features <span class="glyph" aria-hidden="true">&#x2726;</span></h2>
         <div class="specs-grid">
           <div class="spec-item">
             <span class="spec-label">Operations</span>
@@ -211,7 +215,7 @@
           </div>
           <div class="spec-item">
             <span class="spec-label">Achievements</span>
-            <span class="spec-value">15</span>
+            <span class="spec-value">23</span>
             <span class="spec-desc">including hidden lore discoveries</span>
           </div>
           <div class="spec-item">
@@ -254,55 +258,57 @@
     <!-- MUSIC / WYNNAMP -->
     <section class="section music-section" id="music">
       <div class="container">
-        <h2 id="soundtrack" class="section-title"><span class="glyph">&#x2726;</span> The Soundtrack <span class="glyph">&#x2726;</span></h2>
+        <h2 id="soundtrack" class="section-title"><span class="glyph" aria-hidden="true">&#x2726;</span> The Soundtrack <span class="glyph" aria-hidden="true">&#x2726;</span></h2>
         <p class="music-intro">AG&amp;W features an original soundtrack by indie artists, playable in-game using <strong>WynnAmp v2.7.3</strong>. The <em>ChantCast Stream</em> is live. Tune in right here in your browser, zero attunement required, and hear what the bards are brewing before you clock in.</p>
 
         <div class="music-layout">
           <!-- WYNNAMP PLAYER -->
-          <div id="wynnamp" class="wynnamp">
+          <div id="wynnamp" class="wynnamp" role="region" aria-label="WynnAmp music player">
             <div class="wa-titlebar">
               <span class="wa-title-text">WynnAmp v2.7.3 — VoidSoft</span>
-              <span class="wa-title-badge">ChantCast</span>
+              <button type="button" class="wa-title-badge">ChantCast</button>
             </div>
 
-            <div class="wa-marquee">
+            <div class="wa-marquee" aria-hidden="true">
               <div class="wa-marquee-inner">
                 <span class="wa-marquee-text"></span>
               </div>
             </div>
 
             <div class="wa-viz-container">
-              <canvas class="wa-viz"></canvas>
+              <canvas class="wa-viz" role="button" tabindex="0" aria-label="Change visualization style"></canvas>
             </div>
 
+            <p class="sr-only wa-live" aria-live="polite"></p>
+
             <div class="wa-transport">
-              <button class="wa-btn wa-prev" aria-label="Previous" title="Previous">&#x23EE;</button>
-              <button class="wa-btn wa-play" aria-label="Play" title="Play">&#x25B6;</button>
-              <button class="wa-btn wa-pause wa-hidden" aria-label="Pause" title="Pause">&#x23F8;</button>
-              <button class="wa-btn wa-stop" aria-label="Stop" title="Stop">&#x23F9;</button>
-              <button class="wa-btn wa-next" aria-label="Next" title="Next">&#x23ED;</button>
+              <button type="button" class="wa-btn wa-prev" aria-label="Previous track" title="Previous track">&#x23EE;</button>
+              <button type="button" class="wa-btn wa-play" aria-label="Play" title="Play">&#x25B6;</button>
+              <button type="button" class="wa-btn wa-pause wa-hidden" aria-label="Pause" title="Pause">&#x23F8;</button>
+              <button type="button" class="wa-btn wa-stop" aria-label="Stop" title="Stop">&#x23F9;</button>
+              <button type="button" class="wa-btn wa-next" aria-label="Next track" title="Next track">&#x23ED;</button>
             </div>
 
             <div class="wa-seek-row">
-              <span class="wa-time">--:--</span>
-              <div class="wa-seek">
+              <span class="wa-time" aria-hidden="true">--:--</span>
+              <div class="wa-seek" role="slider" tabindex="0" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="No track loaded">
                 <div class="wa-seek-fill"></div>
                 <div class="wa-seek-thumb"></div>
               </div>
-              <span class="wa-duration">--:--</span>
+              <span class="wa-duration" aria-hidden="true">--:--</span>
             </div>
 
             <div class="wa-vol-row">
-              <span class="wa-vol-label">VOL</span>
-              <div class="wa-vol-slider">
+              <span class="wa-vol-label" aria-hidden="true">VOL</span>
+              <div class="wa-vol-slider" role="slider" tabindex="0" aria-label="Volume" aria-valuemin="0" aria-valuemax="100" aria-valuenow="75" aria-valuetext="75%">
                 <div class="wa-vol-fill"></div>
               </div>
               <span class="wa-status-mode">IDLE</span>
             </div>
 
-            <div class="wa-playlist">
+            <ul class="wa-playlist" aria-label="Playlist">
               <!-- filled by JS -->
-            </div>
+            </ul>
           </div>
 
           <!-- TRACK CREDITS -->
@@ -311,7 +317,7 @@
             <p class="music-credits-sub">Original music licensed for AG&amp;W from indie artists.</p>
             <div class="music-tracklist">
               <div class="mt-group">
-                <h4 class="mt-artist"><a href="https://nobodyandtheneckromancers.bandcamp.com/" target="_blank" rel="noopener">Nobody and the NeckRomancers</a></h4>
+                <h4 class="mt-artist"><a href="https://nobodyandtheneckromancers.bandcamp.com/" target="_blank" rel="noopener">Nobody and the NeckRomancers<span class="sr-only"> (opens in a new tab)</span></a></h4>
                 <ol class="mt-tracks">
                   <li>&ldquo;If It Don&rsquo;t Bite&rdquo;</li>
                   <li>&ldquo;Shatter&rdquo;</li>
@@ -319,36 +325,36 @@
                   <li>&ldquo;Vertigo&rdquo;</li>
                   <li>&ldquo;Cyberfunk Groove&rdquo;</li>
                 </ol>
-                <a class="mt-bandcamp" href="https://nobodyandtheneckromancers.bandcamp.com/" target="_blank" rel="noopener">Listen on Bandcamp &rsaquo;</a>
+                <a class="mt-bandcamp" href="https://nobodyandtheneckromancers.bandcamp.com/" target="_blank" rel="noopener">Listen on Bandcamp &rsaquo;<span class="sr-only"> (opens in a new tab)</span></a>
               </div>
               <div class="mt-group">
-                <h4 class="mt-artist"><a href="https://fireantseason.bandcamp.com/" target="_blank" rel="noopener">Fire Ant Season</a></h4>
+                <h4 class="mt-artist"><a href="https://fireantseason.bandcamp.com/" target="_blank" rel="noopener">Fire Ant Season<span class="sr-only"> (opens in a new tab)</span></a></h4>
                 <p class="mt-band">in-game as Fire Ant Season</p>
                 <ol class="mt-tracks">
                   <li>&ldquo;Industriarcane&rdquo;</li>
                   <li>&ldquo;Mana Jungle&rdquo;</li>
                 </ol>
-                <a class="mt-bandcamp" href="https://fireantseason.bandcamp.com/" target="_blank" rel="noopener">Listen on Bandcamp &rsaquo;</a>
+                <a class="mt-bandcamp" href="https://fireantseason.bandcamp.com/" target="_blank" rel="noopener">Listen on Bandcamp &rsaquo;<span class="sr-only"> (opens in a new tab)</span></a>
               </div>
               <div class="mt-group">
-                <h4 class="mt-artist"><a href="https://backspinzx.bandcamp.com/" target="_blank" rel="noopener">BackspinZX</a></h4>
+                <h4 class="mt-artist"><a href="https://backspinzx.bandcamp.com/" target="_blank" rel="noopener">BackspinZX<span class="sr-only"> (opens in a new tab)</span></a></h4>
                 <p class="mt-band">in-game as The Jacknives</p>
                 <ol class="mt-tracks">
                   <li>&ldquo;War Drums&rdquo;</li>
                   <li>&ldquo;Threat Assessment&rdquo;</li>
                   <li>&ldquo;Dead Man&rsquo;s Hand&rdquo;</li>
                 </ol>
-                <a class="mt-bandcamp" href="https://backspinzx.bandcamp.com/" target="_blank" rel="noopener">Listen on Bandcamp &rsaquo;</a>
+                <a class="mt-bandcamp" href="https://backspinzx.bandcamp.com/" target="_blank" rel="noopener">Listen on Bandcamp &rsaquo;<span class="sr-only"> (opens in a new tab)</span></a>
               </div>
               <div class="mt-group">
-                <h4 class="mt-artist"><a href="https://harderwins.bandcamp.com/" target="_blank" rel="noopener">Harder Wins</a></h4>
-                <p class="mt-band">in-game as The Leaky Cauldrons</p>
+                <h4 class="mt-artist"><a href="https://harderwins.bandcamp.com/" target="_blank" rel="noopener">Harder Wins<span class="sr-only"> (opens in a new tab)</span></a></h4>
+                <p class="mt-band">in-game as The Riddle of Synth</p>
                 <ol class="mt-tracks">
                   <li>&ldquo;Moon Witch&rdquo;</li>
                   <li>&ldquo;Riding the Ice Dragon&rdquo;</li>
                   <li>&ldquo;Breaching the Firewall&rdquo;</li>
                 </ol>
-                <a class="mt-bandcamp" href="https://harderwins.bandcamp.com/" target="_blank" rel="noopener">Listen on Bandcamp &rsaquo;</a>
+                <a class="mt-bandcamp" href="https://harderwins.bandcamp.com/" target="_blank" rel="noopener">Listen on Bandcamp &rsaquo;<span class="sr-only"> (opens in a new tab)</span></a>
               </div>
             </div>
             <p class="music-license">All tracks used under license. All rights reserved by the original artists.</p>
@@ -362,16 +368,16 @@
       <div class="container cta-bottom">
         <img src="assets/images/icon.png" alt="" class="cta-icon" width="120" height="120" aria-hidden="true">
         <h2 id="play" class="cta-heading">The realm needs you.<br>The benefits are not great, but neither is the pay.<br>Congratulations!</h2>
-        <div class="platform-icons" aria-label="Available on Windows, macOS, Linux, and Steam">
-          <svg viewBox="0 0 448 512" width="22" height="22" fill="currentColor" aria-hidden="true" title="Windows"><path d="M0 93.7l183.6-25.3v177.4H0V93.7zm0 324.6l183.6 25.3V268.4H0v149.9zm203.8 28L448 480V268.4H203.8v177.9zm0-380.6v180.1H448V32L203.8 65.7z"/></svg>
-          <svg viewBox="0 0 384 512" width="20" height="20" fill="currentColor" aria-hidden="true" title="macOS"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184 4 273.5c0 26.2 4.8 53.3 14.4 81.2 12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
-          <svg viewBox="0 0 712 860" width="20" height="24" fill="currentColor" aria-hidden="true" title="Linux"><path d="M683.91,677.74c-.01-.01-.021-.021-.021-.03c-6.069-6.85-8.96-19.55-12.069-33.08c-3.101-13.52-6.57-28.1-17.67-37.55c-.021-.021-.051-.04-.07-.061c-2.2-1.92-4.46-3.539-6.73-4.89c-2.279-1.35-4.59-2.45-6.899-3.32c15.43-45.76,9.38-91.329-6.2-132.5c-19.11-50.54-52.48-94.569-77.97-124.689c-28.53-35.99-56.431-70.15-55.88-120.61C501.25,144,508.87,1.19,373.35,1c-5.51-.01-11.26.22-17.25.7C204.66,13.89,244.83,173.89,242.58,227.46c-2.77,39.18-10.71,70.06-37.66,108.36c-31.65,37.64-76.23,98.57-97.34,162c-9.96,29.93-14.7,60.439-10.33,89.319c-1.37,1.23-2.67,2.521-3.92,3.841c-9.29,9.93-16.16,21.949-23.81,30.039c-7.15,7.141-17.33,9.851-28.53,13.86c-11.2,4.021-23.49,9.94-30.95,24.26c0,0,0,.011-.01.011c-.01.02-.02.05-.04.069c-3.51,6.55-4.65,13.62-4.65,20.79c0,6.63.98,13.351,1.97,19.82c2.06,13.46,4.15,26.189,1.38,34.81c-8.86,24.23-10,40.98-3.76,53.141c6.26,12.18,19.11,17.55,33.64,20.59c29.06,6.06,68.41,4.56,99.42,21l2.67-5.03l-2.64,5.04c33.2,17.36,66.86,23.521,93.71,17.39c19.48-4.439,35.28-16.039,43.4-33.88c21-.1,44.05-9,80.97-11.029c25.05-2.021,56.34,8.899,92.33,6.899c.94,3.9,2.301,7.66,4.16,11.23c.021.029.04.069.061.1c13.949,27.9,39.869,40.66,67.5,38.48c27.659-2.181,57.069-18.49,80.85-46.78l-4.36-3.66l4.391,3.62c22.66-27.48,60.27-38.87,85.22-53.91c12.47-7.52,22.58-16.939,23.37-30.62C710.4,713.55,702.37,698.23,683.91,677.74z"/></svg>
-          <svg viewBox="0 0 496 512" width="22" height="22" fill="currentColor" aria-hidden="true" title="Steam"><path d="M496 256c0 137-111.2 248-248.4 248-113.8 0-209.6-76.3-239-180.4l95.2 39.3c6.4 32.1 34.9 56.4 68.9 56.4 39.2 0 71.1-32.2 70.5-71.4l84.9-60.5c50.1 0 90.8-40.8 90.8-90.9s-40.7-90.9-90.8-90.9-90.8 40.8-90.8 90.9v1.2l-60 85.2c-16.2 0-31.4 5.6-43.4 15L0 228.6C12.7 109.5 120.1 14.7 248.4 8 384.8.8 496 110.3 496 256zM181 381.6c-12.2-5.1-26.2.3-31.3 12.5s.3 26.2 12.5 31.3l30.1 12.5c-18.2-7.6-28.7-27.1-24.1-46.4 4.6-19.5 23.4-32.2 43.4-30l-30.6-12.9v13zm130-284.3c33.4 0 60.5 27.2 60.5 60.5s-27.1 60.5-60.5 60.5-60.5-27.2-60.5-60.5 27.1-60.5 60.5-60.5zm0 24.2c-20.1 0-36.3 16.3-36.3 36.3s16.3 36.3 36.3 36.3 36.3-16.3 36.3-36.3-16.2-36.3-36.3-36.3z"/></svg>
+        <div class="platform-icons" role="img" aria-label="Available on Windows, macOS, Linux, and Steam">
+          <svg viewBox="0 0 448 512" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M0 93.7l183.6-25.3v177.4H0V93.7zm0 324.6l183.6 25.3V268.4H0v149.9zm203.8 28L448 480V268.4H203.8v177.9zm0-380.6v180.1H448V32L203.8 65.7z"/></svg>
+          <svg viewBox="0 0 384 512" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184 4 273.5c0 26.2 4.8 53.3 14.4 81.2 12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+          <svg viewBox="0 0 712 860" width="20" height="24" fill="currentColor" aria-hidden="true"><path d="M683.91,677.74c-.01-.01-.021-.021-.021-.03c-6.069-6.85-8.96-19.55-12.069-33.08c-3.101-13.52-6.57-28.1-17.67-37.55c-.021-.021-.051-.04-.07-.061c-2.2-1.92-4.46-3.539-6.73-4.89c-2.279-1.35-4.59-2.45-6.899-3.32c15.43-45.76,9.38-91.329-6.2-132.5c-19.11-50.54-52.48-94.569-77.97-124.689c-28.53-35.99-56.431-70.15-55.88-120.61C501.25,144,508.87,1.19,373.35,1c-5.51-.01-11.26.22-17.25.7C204.66,13.89,244.83,173.89,242.58,227.46c-2.77,39.18-10.71,70.06-37.66,108.36c-31.65,37.64-76.23,98.57-97.34,162c-9.96,29.93-14.7,60.439-10.33,89.319c-1.37,1.23-2.67,2.521-3.92,3.841c-9.29,9.93-16.16,21.949-23.81,30.039c-7.15,7.141-17.33,9.851-28.53,13.86c-11.2,4.021-23.49,9.94-30.95,24.26c0,0,0,.011-.01.011c-.01.02-.02.05-.04.069c-3.51,6.55-4.65,13.62-4.65,20.79c0,6.63.98,13.351,1.97,19.82c2.06,13.46,4.15,26.189,1.38,34.81c-8.86,24.23-10,40.98-3.76,53.141c6.26,12.18,19.11,17.55,33.64,20.59c29.06,6.06,68.41,4.56,99.42,21l2.67-5.03l-2.64,5.04c33.2,17.36,66.86,23.521,93.71,17.39c19.48-4.439,35.28-16.039,43.4-33.88c21-.1,44.05-9,80.97-11.029c25.05-2.021,56.34,8.899,92.33,6.899c.94,3.9,2.301,7.66,4.16,11.23c.021.029.04.069.061.1c13.949,27.9,39.869,40.66,67.5,38.48c27.659-2.181,57.069-18.49,80.85-46.78l-4.36-3.66l4.391,3.62c22.66-27.48,60.27-38.87,85.22-53.91c12.47-7.52,22.58-16.939,23.37-30.62C710.4,713.55,702.37,698.23,683.91,677.74z"/></svg>
+          <svg viewBox="0 0 496 512" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M496 256c0 137-111.2 248-248.4 248-113.8 0-209.6-76.3-239-180.4l95.2 39.3c6.4 32.1 34.9 56.4 68.9 56.4 39.2 0 71.1-32.2 70.5-71.4l84.9-60.5c50.1 0 90.8-40.8 90.8-90.9s-40.7-90.9-90.8-90.9-90.8 40.8-90.8 90.9v1.2l-60 85.2c-16.2 0-31.4 5.6-43.4 15L0 228.6C12.7 109.5 120.1 14.7 248.4 8 384.8.8 496 110.3 496 256zM181 381.6c-12.2-5.1-26.2.3-31.3 12.5s.3 26.2 12.5 31.3l30.1 12.5c-18.2-7.6-28.7-27.1-24.1-46.4 4.6-19.5 23.4-32.2 43.4-30l-30.6-12.9v13zm130-284.3c33.4 0 60.5 27.2 60.5 60.5s-27.1 60.5-60.5 60.5-60.5-27.2-60.5-60.5 27.1-60.5 60.5-60.5zm0 24.2c-20.1 0-36.3 16.3-36.3 36.3s16.3 36.3 36.3 36.3 36.3-16.3 36.3-36.3-16.2-36.3-36.3-36.3z"/></svg>
         </div>
         <div class="cta-group">
           <a href="https://store.steampowered.com/app/4476220/Arcana_Gas__Waterworks_Inc/" class="btn btn-demo btn-lg" target="_blank" rel="noopener">
             <svg class="steam-icon" viewBox="0 0 496 512" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M496 256c0 137-111.2 248-248.4 248-113.8 0-209.6-76.3-239-180.4l95.2 39.3c6.4 32.1 34.9 56.4 68.9 56.4 39.2 0 71.1-32.2 70.5-71.4l84.9-60.5c50.1 0 90.8-40.8 90.8-90.9s-40.7-90.9-90.8-90.9-90.8 40.8-90.8 90.9v1.2l-60 85.2c-16.2 0-31.4 5.6-43.4 15L0 228.6C12.7 109.5 120.1 14.7 248.4 8 384.8.8 496 110.3 496 256zM181 381.6c-12.2-5.1-26.2.3-31.3 12.5s.3 26.2 12.5 31.3l30.1 12.5c-18.2-7.6-28.7-27.1-24.1-46.4 4.6-19.5 23.4-32.2 43.4-30l-30.6-12.9v13zm130-284.3c33.4 0 60.5 27.2 60.5 60.5s-27.1 60.5-60.5 60.5-60.5-27.2-60.5-60.5 27.1-60.5 60.5-60.5zm0 24.2c-20.1 0-36.3 16.3-36.3 36.3s16.3 36.3 36.3 36.3 36.3-16.3 36.3-36.3-16.2-36.3-36.3-36.3z"/></svg>
-            Play Today on Steam
+            Play Today on Steam<span class="sr-only"> (opens in a new tab)</span>
           </a>
         </div>
         <p class="cta-sub">Released October 1, 2026 &middot; Windows &middot; macOS &middot; Linux &middot; SteamOS</p>
@@ -382,18 +388,19 @@
   <!-- FOOTER -->
   <footer class="site-footer">
     <p class="footer-links"><a href="field-manual/">Field Manual</a></p>
+    <p class="footer-motion"><button class="motion-toggle" type="button" aria-pressed="false" hidden>Pause animations</button></p>
     <p>&copy; 2026 Shawn Rider <em>"Games for people who play."</em></p>
   </footer>
 
   <!-- Lightbox -->
-  <div class="lightbox" id="lightbox" hidden>
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Screenshot viewer" hidden>
     <div class="lightbox-backdrop"></div>
     <img class="lightbox-img" id="lightbox-img" src="" alt="">
     <div class="lightbox-bar">
-      <button class="lightbox-btn" id="lb-prev" aria-label="Previous">&#x276E;</button>
-      <span class="lightbox-counter" id="lb-counter"></span>
-      <button class="lightbox-btn" id="lb-next" aria-label="Next">&#x276F;</button>
-      <button class="lightbox-btn lightbox-close" id="lb-close" aria-label="Close">&#x2715;</button>
+      <button type="button" class="lightbox-btn" id="lb-prev" aria-label="Previous screenshot">&#x276E;</button>
+      <span class="lightbox-counter" id="lb-counter" aria-live="polite"></span>
+      <button type="button" class="lightbox-btn" id="lb-next" aria-label="Next screenshot">&#x276F;</button>
+      <button type="button" class="lightbox-btn lightbox-close" id="lb-close" aria-label="Close viewer">&#x2715;</button>
     </div>
   </div>
 

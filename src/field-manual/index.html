@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="field-manual.css">
 </head>
 <body class="fm">
+  <a class="skip-link" href="#main">Skip to content</a>
   <div class="scanlines" aria-hidden="true"></div>
 
   <header class="fm-topbar">
@@ -32,7 +33,8 @@
       <div class="fm-search" role="search">
         <label for="fm-search-input">Search the manual</label>
         <input id="fm-search-input" type="search" placeholder="relay, upkeep, eruption…" autocomplete="off" spellcheck="false">
-        <ul class="fm-results" id="fm-search-results" hidden></ul>
+        <ul class="fm-results" id="fm-search-results" aria-label="Search results" hidden></ul>
+        <p class="sr-only" id="fm-search-status" aria-live="polite"></p>
       </div>
       <nav class="fm-nav" aria-label="Field Manual">
         <p class="fm-nav-heading">Contents</p>
@@ -49,7 +51,7 @@
       </nav>
     </aside>
 
-    <main class="fm-content">
+    <main class="fm-content" id="main" tabindex="-1">
       <p class="fm-crumb">AG&amp;W Inc. &middot; Employee Reference</p>
       <h1>Field Manual</h1>
       <p class="fm-lede">Everything a new line technician needs to keep the magick flowing: how operations work, what every building wants, what each component does, and which mana combinations will make your afternoon interesting.</p>
@@ -66,7 +68,7 @@
         <li><strong>Draw conduits.</strong> Click a source, then click a customer that needs that mana. The conduit routes itself and costs <span class="num">10 GC</span> per hex.</li>
         <li><strong>Mind capacity and distance.</strong> A conduit carries <span class="num">15</span> mana per day and loses <span class="num">1</span> for every <span class="num">5</span> hexes it travels. Sources make <span class="num">30</span>, so most need two conduits.</li>
         <li><strong>Keep everyone Content.</strong> In most operations you win by keeping every customer fully supplied and Content for a set number of days in a row.</li>
-        <li><strong>Press <kbd>C</kbd> in-game</strong> for the in-game Field Manual, or come back here for the long version.</li>
+        <li><strong>Press <kbd>C</kbd></strong> during an operation to open the in-game Field Manual, or come back here for the long version.</li>
       </ol>
 
       <h2 id="sections">What's in this manual</h2>

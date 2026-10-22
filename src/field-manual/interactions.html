@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="field-manual.css">
 </head>
 <body class="fm">
+  <a class="skip-link" href="#main">Skip to content</a>
   <div class="scanlines" aria-hidden="true"></div>
 
   <header class="fm-topbar">
@@ -32,7 +33,8 @@
       <div class="fm-search" role="search">
         <label for="fm-search-input">Search the manual</label>
         <input id="fm-search-input" type="search" placeholder="relay, upkeep, eruption…" autocomplete="off" spellcheck="false">
-        <ul class="fm-results" id="fm-search-results" hidden></ul>
+        <ul class="fm-results" id="fm-search-results" aria-label="Search results" hidden></ul>
+        <p class="sr-only" id="fm-search-status" aria-live="polite"></p>
       </div>
       <nav class="fm-nav" aria-label="Field Manual">
         <p class="fm-nav-heading">Contents</p>
@@ -49,7 +51,7 @@
       </nav>
     </aside>
 
-    <main class="fm-content">
+    <main class="fm-content" id="main" tabindex="-1">
       <p class="fm-crumb">Field Manual</p>
       <h1>Interactions</h1>
       <p class="fm-lede">Run two different mana types too close together and they react. Some reactions earn you money. Some cost you mana. One just makes everyone's laundry damp. There are eight in all.</p>
@@ -66,7 +68,7 @@
         <li>A conduit includes the hexes it starts and ends on. Two conduits of different types arriving at the same building share that building's hex, so they react there at full strength. A Wizard Academy fed arcana, fire and water hosts three interactions on its own hex. A hybrid's output conduit starts on its hex too, so it reacts with the hybrid's inputs.</li>
         <li><a href="components.html#raw-mixed-conduits">Raw mixed and merged lines</a> carry two types, so they react with themselves on every hex they cross, with no second conduit needed.</li>
         <li><a href="components.html#insulated-conduits">Insulated conduits</a> (anything leaving a Filter) never react, and are immune to eruptions.</li>
-        <li>Nearby reactions of the same pair merge into one <strong>zone</strong>, which uses the strongest reaction inside it.</li>
+        <li>Reactions of the same pair on neighboring hexes can share a <strong>zone</strong>, which uses the strongest reaction inside it. A long shared run is still many zones, and each hazard zone rolls for eruptions on its own.</li>
       </ul>
       <p>Click any reacting hex to open the inspector. It names the interaction, explains it, and shows whether it's at <code>100% (stacked conduits)</code> or <code>50% (adjacent conduits)</code>. Tooltips show the results, too: a boosted source, a customer earning a bonus, a discounted Filter, and a conduit that lost mana to an eruption, listed separately from its distance loss.</p>
       <blockquote class="fm-memo">
@@ -77,7 +79,7 @@
       <h2 id="chart">Interaction chart</h2>
       <div class="fm-table-wrap">
         <table class="fm-table fm-matrix">
-          <thead><tr><th></th><th><span class="mana arcana">Arcana</span></th><th><span class="mana fire">Fire</span></th><th><span class="mana water">Water</span></th><th><span class="mana earth">Earth</span></th><th><span class="mana gas">Gas</span></th></tr></thead>
+          <thead><tr><th><span class="sr-only">Mana type</span></th><th><span class="mana arcana">Arcana</span></th><th><span class="mana fire">Fire</span></th><th><span class="mana water">Water</span></th><th><span class="mana earth">Earth</span></th><th><span class="mana gas">Gas</span></th></tr></thead>
           <tbody>
             <tr><th scope="row"><span class="mana arcana">Arcana</span></th><td class="self">&middot;</td><td class="beneficial"><a href="#enchanted-flames">Enchanted Flames</a></td><td class="beneficial"><a href="#purification">Purification</a></td><td class="muted">none</td><td class="muted">none</td></tr>
             <tr><th scope="row"><span class="mana fire">Fire</span></th><td class="beneficial"><a href="#enchanted-flames">Enchanted Flames</a></td><td class="self">&middot;</td><td class="muted"><a href="#steam-clouds">Steam Clouds</a></td><td class="mixed"><a href="#magma-vents">Magma Vents</a></td><td class="hazard"><a href="#explosion-risk">Explosion Risk</a></td></tr>

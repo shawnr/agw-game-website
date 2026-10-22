@@ -1,8 +1,10 @@
 /**
  * AG&W Screenshot Carousel + Lightbox
- * - Auto-crossfade, pauses on hover
- * - Hover shows control bar with prev/next/magnify
- * - Click magnify (or image) opens fullscreen lightbox
+ * - Auto-crossfade every few seconds; pauses on hover, on keyboard focus,
+ *   with its own pause button, and when animations are paused site-wide
+ *   (the motion toggle or prefers-reduced-motion; see background.js)
+ * - Control bar (prev / pause / next / magnify) shows on hover or focus
+ * - Magnify (or a click on the image) opens a modal lightbox
  */
 (function () {
   const carousel = document.getElementById('screenshot-carousel');
@@ -14,22 +16,44 @@
 
   let current = 0;
   let interval = null;
+  let userPaused = false;   // the carousel's own pause button
+  let hovering = false;
+  let focused = false;
   const DELAY = 4000;
+
+  function motionPaused() {
+    return document.documentElement.classList.contains('motion-paused');
+  }
 
   // --- Build carousel control bar ---
   const bar = document.createElement('div');
   bar.className = 'carousel-bar';
   bar.innerHTML =
-    '<button class="carousel-btn" data-action="prev" aria-label="Previous">&#x276E;</button>' +
-    '<span class="carousel-counter"></span>' +
-    '<button class="carousel-btn" data-action="next" aria-label="Next">&#x276F;</button>' +
-    '<button class="carousel-btn carousel-zoom" data-action="zoom" aria-label="View full size">&#x1F50D;</button>';
+    '<button type="button" class="carousel-btn" data-action="prev" aria-label="Previous screenshot">&#x276E;</button>' +
+    '<span class="carousel-counter" aria-hidden="true"></span>' +
+    '<button type="button" class="carousel-btn" data-action="next" aria-label="Next screenshot">&#x276F;</button>' +
+    '<button type="button" class="carousel-btn carousel-pause" data-action="pause" aria-label="Pause slideshow" aria-pressed="false">&#x275A;&#x275A;</button>' +
+    '<button type="button" class="carousel-btn carousel-zoom" data-action="zoom" aria-label="View screenshot full size">&#x1F50D;</button>';
   carousel.appendChild(bar);
 
+  // Announces manual slide changes (autoplay stays silent)
+  const live = document.createElement('p');
+  live.className = 'sr-only';
+  live.setAttribute('aria-live', 'polite');
+  carousel.appendChild(live);
+
   const counter = bar.querySelector('.carousel-counter');
+  const pauseBtn = bar.querySelector('.carousel-pause');
 
   function updateCounter() {
     counter.textContent = (current + 1) + ' / ' + images.length;
+  }
+
+  function updateHidden() {
+    images.forEach((img, i) => {
+      if (i === current) img.removeAttribute('aria-hidden');
+      else img.setAttribute('aria-hidden', 'true');
+    });
   }
 
   // --- Carousel ---
@@ -39,8 +63,9 @@
     img.style.opacity = i === 0 ? '1' : '0';
   });
   updateCounter();
+  updateHidden();
 
-  function showSlide(next) {
+  function showSlide(next, announce) {
     if (next === current) return;
     const prev = current;
     current = next;
@@ -59,29 +84,49 @@
     }, 700);
 
     updateCounter();
+    updateHidden();
+    if (announce) {
+      live.textContent = 'Screenshot ' + (current + 1) + ' of ' + images.length + ': ' + images[current].alt;
+    }
   }
 
-  function advance() {
-    showSlide((current + 1) % images.length);
+  function advance(announce) {
+    showSlide((current + 1) % images.length, announce);
   }
 
-  function prevSlide() {
-    showSlide((current - 1 + images.length) % images.length);
+  function prevSlide(announce) {
+    showSlide((current - 1 + images.length) % images.length, announce);
   }
 
-  function startAutoplay() {
-    if (interval) return;
-    interval = setInterval(advance, DELAY);
+  function shouldPlay() {
+    return !userPaused && !hovering && !focused && !motionPaused() && lightbox.hidden;
   }
 
-  function stopAutoplay() {
-    clearInterval(interval);
-    interval = null;
+  function syncAutoplay() {
+    if (shouldPlay()) {
+      if (!interval) interval = setInterval(() => advance(false), DELAY);
+    } else if (interval) {
+      clearInterval(interval);
+      interval = null;
+    }
   }
 
-  // Hover pauses autoplay
-  carousel.addEventListener('mouseenter', stopAutoplay);
-  carousel.addEventListener('mouseleave', startAutoplay);
+  function setUserPaused(paused) {
+    userPaused = paused;
+    pauseBtn.setAttribute('aria-pressed', paused ? 'true' : 'false');
+    pauseBtn.setAttribute('aria-label', paused ? 'Play slideshow' : 'Pause slideshow');
+    pauseBtn.innerHTML = paused ? '&#x25B6;' : '&#x275A;&#x275A;';
+    syncAutoplay();
+  }
+
+  // Hover and keyboard focus pause autoplay
+  carousel.addEventListener('mouseenter', () => { hovering = true; syncAutoplay(); });
+  carousel.addEventListener('mouseleave', () => { hovering = false; syncAutoplay(); });
+  carousel.addEventListener('focusin', () => { focused = true; syncAutoplay(); });
+  carousel.addEventListener('focusout', (e) => {
+    if (!carousel.contains(e.relatedTarget)) { focused = false; syncAutoplay(); }
+  });
+  document.addEventListener('agw:motion', syncAutoplay);
 
   // Bar button handlers
   bar.addEventListener('click', (e) => {
@@ -89,20 +134,20 @@
     if (!btn) return;
     e.stopPropagation();
     const action = btn.dataset.action;
-    if (action === 'prev') prevSlide();
-    if (action === 'next') advance();
-    if (action === 'zoom') openLightbox(current);
+    if (action === 'prev') prevSlide(true);
+    if (action === 'next') advance(true);
+    if (action === 'pause') setUserPaused(!userPaused);
+    if (action === 'zoom') openLightbox(current, btn);
   });
 
-  // Click image itself opens lightbox
+  // Click image itself opens lightbox (the magnify button is the keyboard route)
   track.addEventListener('click', () => {
-    openLightbox(current);
+    openLightbox(current, bar.querySelector('.carousel-zoom'));
   });
 
   track.style.cursor = 'pointer';
-  startAutoplay();
 
-  // --- Lightbox ---
+  // --- Lightbox (modal dialog) ---
 
   const lightbox = document.getElementById('lightbox');
   const lbImg = document.getElementById('lightbox-img');
@@ -113,23 +158,25 @@
   const lbBackdrop = lightbox.querySelector('.lightbox-backdrop');
 
   let lbIndex = 0;
+  let returnFocus = null;
 
-  function openLightbox(index) {
+  function openLightbox(index, opener) {
     lbIndex = index;
+    returnFocus = opener || document.activeElement;
     updateLightbox();
     lightbox.hidden = false;
     requestAnimationFrame(() => lightbox.classList.add('open'));
     document.body.style.overflow = 'hidden';
-    stopAutoplay();
+    syncAutoplay();
+    lbClose.focus();
   }
 
   function closeLightbox() {
     lightbox.classList.remove('open');
-    setTimeout(() => {
-      lightbox.hidden = true;
-      document.body.style.overflow = '';
-      startAutoplay();
-    }, 300);
+    lightbox.hidden = true;
+    document.body.style.overflow = '';
+    if (returnFocus && typeof returnFocus.focus === 'function') returnFocus.focus();
+    syncAutoplay();
   }
 
   function updateLightbox() {
@@ -157,8 +204,19 @@
 
   document.addEventListener('keydown', (e) => {
     if (lightbox.hidden) return;
-    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'Escape') { e.preventDefault(); closeLightbox(); return; }
     if (e.key === 'ArrowLeft') lbPrevSlide();
     if (e.key === 'ArrowRight') lbNextSlide();
+    if (e.key === 'Tab') {
+      // Keep focus inside the dialog
+      const focusables = [lbPrev, lbNext, lbClose];
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      else if (!lightbox.contains(document.activeElement)) { e.preventDefault(); first.focus(); }
+    }
   });
+
+  syncAutoplay();
 })();

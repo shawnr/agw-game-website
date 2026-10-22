@@ -2,6 +2,49 @@
  * AG&W Background — Mana Stream Portal
  * Ethereal energy streams flying past like a portal to a fantasy realm.
  */
+/* --- Site-wide motion control (WCAG 2.2.2) ---
+ * Animations stop when the visitor's system asks for reduced motion, or when
+ * they press the "Pause animations" toggle (remembered per browser). Sets
+ * html.motion-paused for CSS and fires an "agw:motion" event for scripts. */
+(function () {
+  const root = document.documentElement;
+  const toggle = document.querySelector('.motion-toggle');
+  const media = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
+  let stored = null;
+  try { stored = localStorage.getItem('agw-motion'); } catch (e) { /* storage blocked */ }
+
+  function apply(paused) {
+    root.classList.toggle('motion-paused', paused);
+    if (toggle) {
+      toggle.setAttribute('aria-pressed', paused ? 'true' : 'false');
+      toggle.textContent = paused ? 'Play animations' : 'Pause animations';
+    }
+    document.dispatchEvent(new CustomEvent('agw:motion', { detail: { paused: paused } }));
+  }
+
+  function initial() {
+    if (stored === 'paused') return true;
+    if (stored === 'playing') return false;
+    return !!(media && media.matches);
+  }
+
+  apply(initial());
+
+  if (toggle) {
+    toggle.hidden = false;
+    toggle.addEventListener('click', function () {
+      const paused = !root.classList.contains('motion-paused');
+      try { localStorage.setItem('agw-motion', paused ? 'paused' : 'playing'); } catch (e) { /* ignore */ }
+      stored = paused ? 'paused' : 'playing';
+      apply(paused);
+    });
+  }
+
+  if (media && media.addEventListener) {
+    media.addEventListener('change', function () { if (stored === null) apply(media.matches); });
+  }
+})();
+
 (function () {
   const canvas = document.getElementById('bg-canvas');
   if (!canvas) return;
@@ -12,7 +55,7 @@
     w = canvas.width = window.innerWidth;
     h = canvas.height = window.innerHeight;
   }
-  window.addEventListener('resize', resize);
+  window.addEventListener('resize', function () { resize(); if (!running) drawFrame(); });
   resize();
 
   // Mana energy colors — each type has a palette
@@ -255,8 +298,21 @@
     ctx.restore();
   }
 
+  let running = false;
+
+  function paused() {
+    return document.documentElement.classList.contains('motion-paused');
+  }
+
   function animate() {
+    if (paused()) { running = false; return; }
+    running = true;
     time += 0.016;
+    drawFrame();
+    requestAnimationFrame(animate);
+  }
+
+  function drawFrame() {
     ctx.clearRect(0, 0, w, h);
 
     // Background layers
@@ -274,11 +330,14 @@
       s.update();
       s.draw();
     }
-
-    requestAnimationFrame(animate);
   }
 
-  animate();
+  // Paused: hold a still frame. Resumed: pick the loop back up.
+  document.addEventListener('agw:motion', function () {
+    if (!paused() && !running) animate();
+  });
+
+  if (paused()) drawFrame(); else animate();
 
   // Intersection Observer for fade-in animations
   const observer = new IntersectionObserver(
@@ -293,6 +352,7 @@
   );
 
   document.querySelectorAll('.section').forEach((el) => {
+    if (paused()) return; // no slide-in when motion is paused
     el.classList.add('fade-in');
     observer.observe(el);
   });

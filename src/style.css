@@ -26,7 +26,7 @@
   --bg-card: rgba(24, 19, 10, 0.7);
   --text-primary: #ECE4D2;
   --text-secondary: #B2A688;
-  --text-dim: #7A6E52;
+  --text-dim: #948768;  /* 4.5:1+ on every page and panel background (WCAG 1.4.3) */
   --border-glow: rgba(212, 160, 23, 0.3);
 
   /* Typography */
@@ -807,7 +807,8 @@ main { position: relative; z-index: 2; }
   pointer-events: none;
 }
 
-.carousel:hover .carousel-bar {
+.carousel:hover .carousel-bar,
+.carousel:focus-within .carousel-bar {
   opacity: 1;
   transform: translateX(-50%) translateY(0);
   pointer-events: auto;
@@ -860,6 +861,10 @@ main { position: relative; z-index: 2; }
   opacity: 1;
   pointer-events: auto;
 }
+
+/* The closed viewer must leave the page entirely (display:flex above would
+   otherwise override the hidden attribute and leave its buttons focusable) */
+.lightbox[hidden] { display: none; }
 
 .lightbox-backdrop {
   position: absolute;
@@ -1005,16 +1010,18 @@ main { position: relative; z-index: 2; }
 }
 
 .wa-title-text {
-  color: #A08020;
-  opacity: 0.8;
+  color: #C9A23A;
 }
 
 .wa-title-badge {
+  font-family: inherit;
+  border: 0;
+  cursor: pointer;
   font-size: 11px;
   color: #0D0B08;
   background: var(--wa-accent, #D4A017);
   transition: background 0.3s;
-  padding: 1px 6px;
+  padding: 3px 8px;
   border-radius: 2px;
   letter-spacing: 0.08em;
 }
@@ -1041,6 +1048,16 @@ main { position: relative; z-index: 2; }
   color: var(--wa-accent, #D4A017);
   animation: wa-scroll 12s linear infinite;
   padding-left: 100%;
+}
+
+/* Idle text, or animations paused: hold still and truncate */
+.wa-marquee-text.wa-idle,
+html.motion-paused .wa-marquee-text {
+  animation: none;
+  padding-left: 0;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 @keyframes wa-scroll {
@@ -1114,7 +1131,7 @@ main { position: relative; z-index: 2; }
 }
 
 .wa-time, .wa-duration {
-  color: #A08020;
+  color: #C9A23A;
   min-width: 38px;
   text-align: center;
 }
@@ -1162,7 +1179,7 @@ main { position: relative; z-index: 2; }
 }
 
 .wa-vol-label {
-  color: #A08020;
+  color: #C9A23A;
   font-size: 11px;
   letter-spacing: 0.1em;
 }
@@ -1187,7 +1204,7 @@ main { position: relative; z-index: 2; }
 }
 
 .wa-status-mode {
-  color: #A08020;
+  color: #C9A23A;
   font-size: 11px;
   letter-spacing: 0.1em;
   margin-left: auto;
@@ -1195,6 +1212,9 @@ main { position: relative; z-index: 2; }
 
 /* playlist */
 .wa-playlist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
   border-top: 1px solid #1A1408;
   background: #080604;
   max-height: 140px;
@@ -1215,10 +1235,16 @@ main { position: relative; z-index: 2; }
 }
 
 .wa-track {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: 0;
+  font: inherit;
   padding: 4px 10px;
   font-size: 13px;
   cursor: pointer;
-  color: #8A7020;
+  color: #B8973A;
   transition: all 0.15s;
   white-space: nowrap;
   overflow: hidden;
@@ -1240,7 +1266,7 @@ main { position: relative; z-index: 2; }
 }
 
 .wa-track-num {
-  color: #5A4A10;
+  color: #A08540;
   margin-right: 2px;
 }
 
@@ -1250,7 +1276,6 @@ main { position: relative; z-index: 2; }
 
 .wa-track-artist {
   color: inherit;
-  opacity: 0.7;
 }
 
 /* --- Music Credits --- */
@@ -1339,4 +1364,109 @@ main { position: relative; z-index: 2; }
 ::selection {
   background: rgba(212, 160, 23, 0.4);
   color: #fff;
+}
+
+
+/* ============================================================
+   Accessibility (WCAG 2.2 AA)
+   ============================================================ */
+
+/* Text for screen readers only */
+.sr-only {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Skip link: first stop on the keyboard, visible only when focused */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  z-index: 10000;
+  padding: 0.5rem 1rem;
+  background: var(--gold);
+  color: var(--bg-deep);
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  text-decoration: none;
+  border-radius: 0 0 4px 4px;
+}
+.skip-link:focus { top: 0; }
+
+main:focus { outline: none; }
+
+/* One clear focus ring for every control */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid #FFD24A;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(7, 6, 4, 0.9);
+}
+
+/* Hero logo is the page's h1 */
+.hero-title {
+  margin: 0;
+  font-size: inherit;
+  line-height: 0;
+}
+
+/* Pause / play animations (WCAG 2.2.2) */
+.motion-toggle {
+  min-height: 32px;
+  padding: 0.3rem 0.7rem;
+  background: rgba(10, 8, 6, 0.92);
+  color: var(--gold);
+  border: 1px solid rgba(212, 160, 23, 0.55);
+  border-radius: 4px;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+}
+.motion-toggle:hover { background: #1A1408; color: #FFD24A; }
+.footer-motion { margin-top: 0.5rem; }
+
+/* Wide screens have empty margins: pin the toggle where it's always reachable */
+@media (min-width: 1440px) {
+  .motion-toggle {
+    position: fixed;
+    left: 0.75rem;
+    bottom: 0.75rem;
+    z-index: 50;
+  }
+}
+
+/* Touch screens have no hover: keep the carousel controls visible */
+@media (hover: none) {
+  .carousel-bar {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+  }
+}
+
+.carousel-btn { min-width: 28px; min-height: 28px; }
+
+/* Animations off: via the toggle, or the system setting (also covers no-JS) */
+html.motion-paused { scroll-behavior: auto; }
+html.motion-paused *,
+html.motion-paused *::before,
+html.motion-paused *::after {
+  animation: none !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; }
+  .fade-in { opacity: 1; transform: none; transition: none; }
 }

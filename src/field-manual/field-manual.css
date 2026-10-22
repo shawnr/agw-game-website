@@ -155,7 +155,7 @@ body.fm {
 .fm-search input {
   width: 100%;
   background: #0A0806;
-  border: 1px solid var(--fm-line-strong);
+  border: 1px solid rgba(212, 160, 23, 0.7); /* 3:1+ boundary (WCAG 1.4.11) */
   border-radius: 4px;
   color: var(--gold);
   font-family: var(--font-display);
@@ -165,7 +165,7 @@ body.fm {
   box-shadow: inset 0 0 18px rgba(212, 160, 23, 0.06);
 }
 
-.fm-search input::placeholder { color: #6A5A30; }
+.fm-search input::placeholder { color: var(--text-dim); }
 
 .fm-search input:focus {
   border-color: var(--gold);
@@ -659,7 +659,7 @@ kbd {
 .fm-matrix td.beneficial a { color: var(--kind-beneficial); }
 .fm-matrix td.mixed a      { color: var(--kind-mixed); }
 .fm-matrix td.hazard a     { color: var(--kind-hazard); }
-.fm-matrix td.self         { color: #3A3020; }
+.fm-matrix td.self         { color: var(--text-dim); }
 
 /* --- Overview cards (Field Manual home) --- */
 .fm-cards {
@@ -858,3 +858,7 @@ kbd {
 @media (prefers-reduced-motion: reduce) {
   .fm-card, .fm-entry { transition: none; }
 }
+
+/* Accessibility: visible focus on the search box (its default outline is replaced above) */
+.fm-search input:focus-visible { outline: 2px solid #FFD24A; outline-offset: 2px; }
+.fm-results a:focus-visible { outline-offset: -2px; }

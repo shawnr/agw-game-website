@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="field-manual.css">
 </head>
 <body class="fm">
+  <a class="skip-link" href="#main">Skip to content</a>
   <div class="scanlines" aria-hidden="true"></div>
 
   <header class="fm-topbar">
@@ -32,7 +33,8 @@
       <div class="fm-search" role="search">
         <label for="fm-search-input">Search the manual</label>
         <input id="fm-search-input" type="search" placeholder="relay, upkeep, eruption…" autocomplete="off" spellcheck="false">
-        <ul class="fm-results" id="fm-search-results" hidden></ul>
+        <ul class="fm-results" id="fm-search-results" aria-label="Search results" hidden></ul>
+        <p class="sr-only" id="fm-search-status" aria-live="polite"></p>
       </div>
       <nav class="fm-nav" aria-label="Field Manual">
         <p class="fm-nav-heading">Contents</p>
@@ -49,7 +51,7 @@
       </nav>
     </aside>
 
-    <main class="fm-content">
+    <main class="fm-content" id="main" tabindex="-1">
       <p class="fm-crumb">Field Manual</p>
       <h1>Tips &amp; Troubleshooting</h1>
       <p class="fm-lede">Something's not working and the customers are getting loud. Find your symptom below. The game also watches for these problems: if one lasts a few days you'll get an <code>[ADVISORY]</code> hint, and if it drags on, a fuller explanation.</p>

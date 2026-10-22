@@ -12,6 +12,9 @@
   var menuBtn = document.querySelector('.fm-menu-btn');
   var input = document.getElementById('fm-search-input');
   var results = document.getElementById('fm-search-results');
+  var status = document.getElementById('fm-search-status');
+
+  function say(text) { if (status) status.textContent = text; }
 
   /* --- Mobile contents toggle --- */
   function setMenu(open) {
@@ -176,7 +179,7 @@
     var terms = query.toLowerCase().split(/\s+/).filter(Boolean);
     results.innerHTML = '';
     active = -1;
-    if (!terms.length) { results.hidden = true; return; }
+    if (!terms.length) { results.hidden = true; say(''); return; }
 
     var matches = index
       .map(function (item) { return { item: item, s: score(item, terms) }; })
@@ -189,6 +192,9 @@
       none.className = 'fm-noresult';
       none.textContent = 'No entries found. Try another word.';
       results.appendChild(none);
+      say('No entries found.');
+    } else {
+      say(matches.length + (matches.length === 1 ? ' result' : ' results') + '. Press the down arrow to browse them.');
     }
 
     matches.forEach(function (m) {
@@ -206,13 +212,22 @@
     results.hidden = false;
   }
 
+  // Arrow keys move real focus through the results, so screen readers follow
   function setActive(n) {
     var links = results.querySelectorAll('a');
     if (!links.length) return;
     active = (n + links.length) % links.length;
     links.forEach(function (a, i) { a.classList.toggle('active', i === active); });
-    links[active].scrollIntoView({ block: 'nearest' });
+    links[active].focus();
   }
+
+  results.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowDown') { e.preventDefault(); setActive(active + 1); }
+    else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      if (active <= 0) { active = -1; input.focus(); } else setActive(active - 1);
+    } else if (e.key === 'Escape') { results.hidden = true; input.focus(); }
+  });
 
   input.addEventListener('focus', buildIndex);
 
