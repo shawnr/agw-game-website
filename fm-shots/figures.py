@@ -116,7 +116,7 @@ SPEC = [
             {"name": "fm-radial-build-root", "label": "Radial menu: Field Manual, Build, Demolish",
              "alt": "Radial menu with three slices: Field Manual, Build and Demolish, with Build highlighted."},
             {"name": "fm-radial-build-submenu", "label": "Build submenu, with prices",
-             "alt": "The Build submenu: Relay Station 50 GC, Splitter 30 GC, Transformer 100 GC, Battery 75 GC and Filter 60 GC, with Splitter highlighted."},
+             "alt": "The Build submenu: Relay Station 50gc, Splitter 30gc, Transformer 100gc, Battery 75gc and Filter 60gc, with Splitter highlighted."},
         ],
         "row": "pair",
         "callouts": [],

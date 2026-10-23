@@ -65,8 +65,8 @@
       <ol class="fm-steps">
         <li><strong>Read the briefing.</strong> Each operation opens with a memo. It names the goal, your starting budget, and your debt limit.</li>
         <li><strong>Find the sources and customers.</strong> Sources glow with the mana they produce. Customers show a ring for their mood. Hover any building to see what it produces or needs.</li>
-        <li><strong>Draw conduits.</strong> Click a source, then click a customer that needs that mana. The conduit routes itself and costs <span class="num">10 GC</span> per hex.</li>
-        <li><strong>Mind capacity and distance.</strong> A conduit carries <span class="num">15</span> mana per day and loses <span class="num">1</span> for every <span class="num">5</span> hexes it travels. Sources make <span class="num">30</span>, so most need two conduits.</li>
+        <li><strong>Draw conduits.</strong> Click a source, then click a customer that needs that mana. The conduit routes itself and costs <span class="num">10gc</span> per hex.</li>
+        <li><strong>Mind capacity and distance.</strong> A conduit carries <span class="num">15</span> mana per day and loses <span class="num">1</span> mana for every <span class="num">5</span> hexes it travels. Sources make <span class="num">30</span> mana a day, so most need two conduits.</li>
         <li><strong>Keep everyone Content.</strong> In most operations you win by keeping every customer fully supplied and Content for a set number of days in a row.</li>
         <li><strong>Press <kbd>C</kbd></strong> during an operation to open the in-game Field Manual, or come back here for the long version.</li>
       </ol>
@@ -83,17 +83,18 @@
       </div>
 
       <h2 id="numbers">The numbers that matter most</h2>
+      <p id="units">Three units appear throughout this manual. <strong>Mana</strong> measures magical energy of every type. <strong>gc</strong> (Gold Crowns) measures money. <strong>Feels</strong> measure how quickly a customer loses patience when it's short.</p>
       <div class="fm-table-wrap">
         <table class="fm-table">
           <tbody>
-            <tr><th scope="row">Source output</th><td class="n">30</td><td>mana per day (mixed sources: 15 + 15)</td></tr>
-            <tr><th scope="row">Conduit capacity</th><td class="n">15 / 30</td><td>per day, basic / upgraded</td></tr>
+            <tr><th scope="row">Source output</th><td class="n">30</td><td>mana per day (mixed sources: 15 + 15 mana)</td></tr>
+            <tr><th scope="row">Conduit capacity</th><td class="n">15 / 30</td><td>mana per day, basic / upgraded</td></tr>
             <tr><th scope="row">Conduits per source</th><td class="n">2</td><td>use a Splitter to fan out further</td></tr>
             <tr><th scope="row">Conduits per hex</th><td class="n">2</td><td>on open ground</td></tr>
-            <tr><th scope="row">Distance loss</th><td class="n">0.2</td><td>per hex (1 for every 5 hexes), none on a leg that ends at a Relay Station</td></tr>
-            <tr><th scope="row">Conduit cost</th><td class="n">10 / 25</td><td>GC per hex, basic / upgraded</td></tr>
-            <tr><th scope="row">Revenue</th><td class="n">2</td><td>GC per unit of demand per day, scaled by supply and mood</td></tr>
-            <tr><th scope="row">Furious penalty</th><td class="n">&minus;50</td><td>GC per day, per furious customer</td></tr>
+            <tr><th scope="row">Distance loss</th><td class="n">0.2</td><td>mana per hex (1 mana for every 5 hexes), none on a leg that ends at a Relay Station</td></tr>
+            <tr><th scope="row">Conduit cost</th><td class="n">10 / 25</td><td>gc per hex, basic / upgraded</td></tr>
+            <tr><th scope="row">Revenue</th><td class="n">2</td><td>gc per mana of demand per day, scaled by supply and mood</td></tr>
+            <tr><th scope="row">Furious penalty</th><td class="n">&minus;50</td><td>gc per day, per furious customer</td></tr>
             <tr><th scope="row">Refunds</th><td class="n">100%</td><td>on anything you built yourself</td></tr>
           </tbody>
         </table>
@@ -103,6 +104,8 @@
       <dl class="fm-glossary">
         <dt id="g-operation">Operation</dt>
         <dd>One level of the campaign: a map, a budget, a goal, and a memo from Dispatch. See <a href="how-to-play.html#operations">Operations</a>.</dd>
+        <dt id="g-mana">Mana</dt>
+        <dd>The unit of magical energy. Arcana, fire, water, earth and gas are all measured in mana, so production, needs and conduit capacity are given in mana per day. See <a href="mana.html">Mana Types</a>.</dd>
         <dt id="g-source">Source</dt>
         <dd>A building that produces mana, such as a Ley Line Nexus or Fire Geyser. See <a href="buildings.html#sources">Sources</a>.</dd>
         <dt id="g-customer">Customer</dt>
@@ -112,15 +115,17 @@
         <dt id="g-conduit">Conduit</dt>
         <dd>A ley line you build between two buildings or components. Also called a line. See <a href="how-to-play.html#conduits">Building conduits</a>.</dd>
         <dt id="g-capacity">Capacity</dt>
-        <dd>The most mana a conduit can carry per day: 15 basic, 30 upgraded.</dd>
+        <dd>The most mana a conduit can carry per day: 15 mana basic, 30 mana upgraded.</dd>
         <dt id="g-dissipation">Dissipation</dt>
-        <dd>Mana lost to distance: 0.2 per hex. See <a href="how-to-play.html#distance">Distance and dissipation</a>.</dd>
-        <dt id="g-gc">GC</dt>
-        <dd>Gold Crowns, AG&amp;W's currency. You spend it on construction and upkeep and earn it from customers.</dd>
+        <dd>Mana lost to distance: 0.2 mana per hex. See <a href="how-to-play.html#distance">Distance and dissipation</a>.</dd>
+        <dt id="g-gc">gc (Gold Crowns)</dt>
+        <dd>AG&amp;W's currency, written gc in this manual and GC on the game's screens. You spend it on construction and upkeep and earn it from customers. See <a href="how-to-play.html#money">Money</a>.</dd>
         <dt id="g-upkeep">Upkeep</dt>
         <dd>The daily running cost of a component. Conduits have no upkeep.</dd>
         <dt id="g-debt-limit">Debt limit</dt>
         <dd>How far below zero your budget may go. The game also calls it your credit limit. Reaching it ends the operation. See <a href="how-to-play.html#money">Money</a>.</dd>
+        <dt id="g-feels">Feels</dt>
+        <dd>The unit of a customer's sensitivity. Each day a customer is short, it gains frustration equal to its shortfall in mana times its feels. See <a href="how-to-play.html#satisfaction">Customer satisfaction</a>.</dd>
         <dt id="g-satisfaction">Satisfaction</dt>
         <dd>A customer's mood, from Content to Furious, shown by the ring around it. See <a href="how-to-play.html#satisfaction">Customer satisfaction</a>.</dd>
         <dt id="g-streak">Content streak</dt>

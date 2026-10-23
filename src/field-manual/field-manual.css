@@ -1052,3 +1052,17 @@ kbd {
 .fm-entry,
 .fm-entries > * { min-width: 0; }
 .fm-table-wrap { max-width: 100%; }
+
+/* Units stay lowercase (gc, mana/day, feels) inside uppercase labels */
+.fm-unit {
+  text-transform: none;
+  letter-spacing: 0.02em;
+}
+
+/* Table header units sit on their own line under the label */
+.fm-th-unit {
+  display: block;
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+  color: var(--text-dim);
+}

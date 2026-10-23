@@ -59,13 +59,13 @@
       <h2 id="at-a-glance">At a glance</h2>
       <div class="fm-table-wrap">
         <table class="fm-table">
-          <thead><tr><th>Component</th><th class="n">Cost</th><th class="n">Upkeep</th><th>Conduits</th><th>Job</th></tr></thead>
+          <thead><tr><th>Component</th><th class="n">Cost <span class="fm-th-unit">(gc)</span></th><th class="n">Upkeep</th><th>Conduits</th><th>Job</th></tr></thead>
           <tbody>
-            <tr><th scope="row"><a href="#relay-station">Relay Station</a></th><td class="n">50</td><td class="n">2/day</td><td>1 in, 1 out</td><td>Removes distance loss on the leg into it</td></tr>
-            <tr><th scope="row"><a href="#splitter">Splitter</a></th><td class="n">30</td><td class="n">1/day</td><td>up to 3 total</td><td>Splits one line in two, or merges two into one (two types make a merged conduit)</td></tr>
-            <tr><th scope="row"><a href="#transformer">Transformer</a></th><td class="n">100</td><td class="n">5/day</td><td>1 in, 1 out</td><td>Converts one mana type into another, at a loss</td></tr>
-            <tr><th scope="row"><a href="#battery">Battery</a></th><td class="n">75</td><td class="n">3/day</td><td>1 in, 1 out</td><td>Banks mana and covers dips in supply</td></tr>
-            <tr><th scope="row"><a href="#filter">Filter</a></th><td class="n">60</td><td class="n">3/day</td><td>1 in, 1 out</td><td>Sends one type from a source on an insulated line</td></tr>
+            <tr><th scope="row"><a href="#relay-station">Relay Station</a></th><td class="n">50</td><td class="n">2gc/day</td><td>1 in, 1 out</td><td>Removes distance loss on the leg into it</td></tr>
+            <tr><th scope="row"><a href="#splitter">Splitter</a></th><td class="n">30</td><td class="n">1gc/day</td><td>up to 3 total</td><td>Splits one line in two, or merges two into one (two types make a merged conduit)</td></tr>
+            <tr><th scope="row"><a href="#transformer">Transformer</a></th><td class="n">100</td><td class="n">5gc/day</td><td>1 in, 1 out</td><td>Converts one mana type into another, at a loss</td></tr>
+            <tr><th scope="row"><a href="#battery">Battery</a></th><td class="n">75</td><td class="n">3gc/day</td><td>1 in, 1 out</td><td>Banks mana and covers dips in supply</td></tr>
+            <tr><th scope="row"><a href="#filter">Filter</a></th><td class="n">60</td><td class="n">3gc/day</td><td>1 in, 1 out</td><td>Sends one type from a source on an insulated line</td></tr>
           </tbody>
         </table>
       </div>
@@ -80,7 +80,7 @@
       </ul>
 
       <!-- fig:radial -->
-      <figure class="fm-figure" id="fig-radial"><div class="fm-shot-row pair"><div class="fm-shot-item"><div class="fm-shot" style="max-width:420px"><img src="../assets/images/field-manual/fm-radial-build-root.webp" width="420" height="420" alt="Radial menu with three slices: Field Manual, Build and Demolish, with Build highlighted." loading="lazy" decoding="async"></div><p class="fm-shot-label">Radial menu: Field Manual, Build, Demolish</p></div><div class="fm-shot-item"><div class="fm-shot" style="max-width:420px"><img src="../assets/images/field-manual/fm-radial-build-submenu.webp" width="420" height="420" alt="The Build submenu: Relay Station 50 GC, Splitter 30 GC, Transformer 100 GC, Battery 75 GC and Filter 60 GC, with Splitter highlighted." loading="lazy" decoding="async"></div><p class="fm-shot-label">Build submenu, with prices</p></div></div><figcaption><p>Right-click to open the radial menu. Build lists every component you&#x27;ve unlocked, with its price.</p></figcaption></figure>
+      <figure class="fm-figure" id="fig-radial"><div class="fm-shot-row pair"><div class="fm-shot-item"><div class="fm-shot" style="max-width:420px"><img src="../assets/images/field-manual/fm-radial-build-root.webp" width="420" height="420" alt="Radial menu with three slices: Field Manual, Build and Demolish, with Build highlighted." loading="lazy" decoding="async"></div><p class="fm-shot-label">Radial menu: Field Manual, Build, Demolish</p></div><div class="fm-shot-item"><div class="fm-shot" style="max-width:420px"><img src="../assets/images/field-manual/fm-radial-build-submenu.webp" width="420" height="420" alt="The Build submenu: Relay Station 50gc, Splitter 30gc, Transformer 100gc, Battery 75gc and Filter 60gc, with Splitter highlighted." loading="lazy" decoding="async"></div><p class="fm-shot-label">Build submenu, with prices</p></div></div><figcaption><p>Right-click to open the radial menu. Build lists every component you&#x27;ve unlocked, with its price.</p></figcaption></figure>
       <!-- /fig:radial -->
       <h2 id="unlocks">When components unlock</h2>
       <div class="fm-table-wrap">
@@ -101,7 +101,7 @@
 
         <article class="fm-entry" id="relay-station" data-keywords="relay distance dissipation range amplify">
           <div class="fm-entry-head"><h3><a class="fm-anchor" href="#relay-station">Relay Station</a></h3><span class="badge neutral">Unlocks 4th op</span></div>
-          <dl class="fm-stats"><div><dt>Cost</dt><dd>50 GC</dd></div><div><dt>Upkeep</dt><dd>2 GC/day</dd></div><div><dt>Conduits</dt><dd>1 in / 1 out</dd></div></dl>
+          <dl class="fm-stats"><div><dt>Cost</dt><dd>50gc</dd></div><div><dt>Upkeep</dt><dd>2gc/day</dd></div><div><dt>Conduits</dt><dd>1 in / 1 out</dd></div></dl>
           <p class="fm-entry-sub">"Resets dissipation on the incoming conduit, allowing energy to travel further without loss. Stacking relays extends reach without multiplying output."</p>
           <ul>
             <li>A conduit that <strong>ends at a Relay Station loses nothing</strong> to distance, however long it is. Only the leg after the last relay pays dissipation.</li>
@@ -109,12 +109,12 @@
             <li>Chain relays to cross a big map: every leg that ends at a relay arrives intact.</li>
             <li>Relays don't protect against <a href="interactions.html#eruptions">eruptions</a>.</li>
           </ul>
-          <div class="fm-note tip"><span class="fm-note-label">When it pays off</span><p>Distance costs 1 mana per 5 hexes. On a short hop that loss rarely matters; on a 15-hex run it's 3 of your 15, which can be the difference between Content and Annoyed.</p></div>
+          <div class="fm-note tip"><span class="fm-note-label">When it pays off</span><p>Distance costs 1 mana per 5 hexes. On a short hop that loss rarely matters; on a 15-hex run it's 3 of your 15 mana, which can be the difference between Content and Annoyed.</p></div>
         </article>
 
         <article class="fm-entry" id="splitter" data-keywords="split merge merged trunk branch fan out combine two types">
           <div class="fm-entry-head"><h3><a class="fm-anchor" href="#splitter">Splitter</a></h3><span class="badge neutral">Unlocks 4th op</span></div>
-          <dl class="fm-stats"><div><dt>Cost</dt><dd>30 GC</dd></div><div><dt>Upkeep</dt><dd>1 GC/day</dd></div><div><dt>Conduits</dt><dd>2 in / 2 out, 3 max</dd></div></dl>
+          <dl class="fm-stats"><div><dt>Cost</dt><dd>30gc</dd></div><div><dt>Upkeep</dt><dd>1gc/day</dd></div><div><dt>Conduits</dt><dd>2 in / 2 out, 3 max</dd></div></dl>
           <p class="fm-entry-sub">"Splits one input to two outputs, or merges two inputs into one. An upgraded output conduit can carry two different types together: a merged conduit follows the same rules as raw mixed energy from a mixed source. Up to 3 conduits total."</p>
           <h4>Splitting</h4>
           <ul>
@@ -123,13 +123,13 @@
           </ul>
           <h4>Merging the same type</h4>
           <ul>
-            <li>Two in, one out. The inputs are added together, but the output conduit's capacity still applies: two full basic lines merged into one basic output carry 15, not 30. Upgrade the output to carry 30.</li>
+            <li>Two in, one out. The inputs are added together, but the output conduit's capacity still applies: two full basic lines merged into one basic output carry 15 mana, not 30. Upgrade the output to carry 30.</li>
           </ul>
           <h4 id="merged-conduits">Merging two different types</h4>
-          <p>Feed two <em>different</em> types into a Splitter and the conduit you draw out of it is a <strong>merged conduit</strong> carrying both, 15 of each. One trunk where two lines wouldn't fit, if you can live with the side effects.</p>
+          <p>Feed two <em>different</em> types into a Splitter and the conduit you draw out of it is a <strong>merged conduit</strong> carrying both, 15 mana of each. One trunk where two lines wouldn't fit, if you can live with the side effects.</p>
           <ul>
             <li><strong>Needs conduit upgrades.</strong> A merged conduit is always an upgraded conduit, so merging only works in operations where upgrades are unlocked.</li>
-            <li><strong>The upgrade is automatic.</strong> A new output is built at 25 GC per hex. If the Splitter already has a basic output, it's upgraded on the spot for 15 GC per hex. If that would take you past your credit limit, the merge is refused.</li>
+            <li><strong>The upgrade is automatic.</strong> A new output is built at 25gc per hex. If the Splitter already has a basic output, it's upgraded on the spot for 15gc per hex. If that would take you past your credit limit, the merge is refused.</li>
             <li><strong>One output only.</strong> A merging Splitter can't also split, and a merged conduit can't be split or merged again.</li>
             <li><strong>Straight to a customer.</strong> The merged conduit must run directly to a customer that uses <strong>both</strong> types. It can't feed any component, and nothing can be built on it.</li>
             <li><strong>It reacts with itself.</strong> Its two types interact along its whole length, exactly like a <a href="#raw-mixed-conduits">raw mixed line</a>.</li>
@@ -140,10 +140,10 @@
 
         <article class="fm-entry" id="transformer" data-keywords="convert conversion change type ratio">
           <div class="fm-entry-head"><h3><a class="fm-anchor" href="#transformer">Transformer</a></h3><span class="badge neutral">Unlocks 8th op</span></div>
-          <dl class="fm-stats"><div><dt>Cost</dt><dd>100 GC</dd></div><div><dt>Upkeep</dt><dd>5 GC/day</dd></div><div><dt>Conduits</dt><dd>1 in / 1 out</dd></div></dl>
+          <dl class="fm-stats"><div><dt>Cost</dt><dd>100gc</dd></div><div><dt>Upkeep</dt><dd>5gc/day</dd></div><div><dt>Conduits</dt><dd>1 in / 1 out</dd></div></dl>
           <p class="fm-entry-sub">"Converts input energy to a different type. Shift+Click or right-click to cycle output type. Not every type converts to every other type, and ratios vary by pair; when its input changes it switches to a compatible output on its own."</p>
           <ul>
-            <li>Output = input &divide; ratio. A ratio of 1.5 means 1.5 in for every 1 out, so 15 Fire becomes 10 Gas.</li>
+            <li>Output = input &divide; ratio. A ratio of 1.5 means 1.5 in for every 1 out, so 15 mana of fire becomes 10 mana of gas.</li>
             <li>Choose the output with <kbd>Shift</kbd>+Click, or right-click and choose <strong>Cycle</strong>. A new Transformer starts on Gas, and cycling goes Gas &rarr; Fire &rarr; Arcana &rarr; Earth &rarr; Water.</li>
             <li>When you connect a conduit into a Transformer and its current output can't be made from that input, it switches to one that can and tells you so.</li>
             <li>Cycling by hand can still land on an impossible pair. The game warns <code>[TRANSFORMER] No conversion path</code>, and everything sent in is lost until you cycle again.</li>
@@ -168,19 +168,19 @@
 
         <article class="fm-entry" id="battery" data-keywords="store storage charge capacitor dip backup usual input">
           <div class="fm-entry-head"><h3><a class="fm-anchor" href="#battery">Battery</a></h3><span class="badge neutral">Unlocks 8th op</span></div>
-          <dl class="fm-stats"><div><dt>Cost</dt><dd>75 GC</dd></div><div><dt>Upkeep</dt><dd>3 GC/day</dd></div><div><dt>Conduits</dt><dd>1 in / 1 out</dd></div><div><dt>Holds</dt><dd>50</dd></div></dl>
+          <dl class="fm-stats"><div><dt>Cost</dt><dd>75gc</dd></div><div><dt>Upkeep</dt><dd>3gc/day</dd></div><div><dt>Conduits</dt><dd>1 in / 1 out</dd></div><div><dt>Holds</dt><dd>50 mana</dd></div></dl>
           <p class="fm-entry-sub">"Stores part of the energy passing through it. When its input dips below its recent peak, or stops, the battery makes up the difference from its charge until it runs dry."</p>
           <h4>Charging</h4>
           <ul>
-            <li>Everything that flows in also flows out. On top of that, the Battery banks <strong>30%</strong> of what passes through each day, for free, up to <span class="num">50</span>.</li>
-            <li>Above 45 (90% full) it slowly leaks, 1 per day.</li>
+            <li>Everything that flows in also flows out. On top of that, the Battery banks <strong>30%</strong> of what passes through each day, for free, up to <span class="num">50</span> mana.</li>
+            <li>Above 45 mana (90% full) it slowly leaks, 1 mana per day.</li>
             <li>It doesn't charge on a day it's covering a dip. A Battery either banks or spends.</li>
           </ul>
           <h4>Covering dips</h4>
           <ul>
-            <li>The Battery remembers its <strong>usual input</strong>: the highest flow it has seen recently. That level sinks toward the current flow by 1 per day.</li>
+            <li>The Battery remembers its <strong>usual input</strong>: the highest flow it has seen recently. That level sinks toward the current flow by 1 mana per day.</li>
             <li>If input drops below the usual level, the Battery makes up the difference from its charge. An eruption, a hybrid that stalls when underfed, or a line you just tore down all count.</li>
-            <li>If input stops completely, the Battery keeps the line running at up to the output conduit's full capacity (15 basic, 30 upgraded) until it runs dry.</li>
+            <li>If input stops completely, the Battery keeps the line running at up to the output conduit's full capacity (15 mana basic, 30 upgraded) until it runs dry.</li>
             <li>A permanent drop is covered for a few days while the usual level sinks, then accepted as the new normal, so the Battery doesn't drain itself forever.</li>
           </ul>
           <h4>Output</h4>
@@ -194,11 +194,11 @@
 
         <article class="fm-entry" id="filter" data-keywords="separate mixed source insulation insulated isolate one type">
           <div class="fm-entry-head"><h3><a class="fm-anchor" href="#filter">Filter</a></h3><span class="badge neutral">Unlocks 11th op</span></div>
-          <dl class="fm-stats"><div><dt>Cost</dt><dd>60 GC</dd></div><div><dt>Upkeep</dt><dd>3 GC/day</dd></div><div><dt>Conduits</dt><dd>1 in / 1 out</dd></div><div><dt>Output</dt><dd>half capacity</dd></div></dl>
+          <dl class="fm-stats"><div><dt>Cost</dt><dd>60gc</dd></div><div><dt>Upkeep</dt><dd>3gc/day</dd></div><div><dt>Conduits</dt><dd>1 in / 1 out</dd></div><div><dt>Output</dt><dd>half capacity</dd></div></dl>
           <p class="fm-entry-sub">"Place on a hex adjacent to any source hex. Sends out one energy type at half the conduit's capacity, and the filtered conduit doesn't take part in interactions. On a mixed source, Shift+Click or right-click to choose which type passes."</p>
           <ul>
             <li><strong>Placement:</strong> on a hex next to a source. Hybrids count, so a Filter works on a Dragon Lair, Dwarven Forge or Mushroom Colony too. Its input must come straight from that source. If you place it on an existing conduit, it has to be that conduit's first hex out of the source.</li>
-            <li><strong>Output:</strong> one type only, at half the conduit's capacity: 7.5 on a basic conduit, 15 on an upgraded one.</li>
+            <li><strong>Output:</strong> one type only, at half the conduit's capacity: 7.5 mana on a basic conduit, 15 on an upgraded one.</li>
             <li><strong>Insulated:</strong> the output line takes no part in <a href="interactions.html">interactions</a> and is immune to <a href="interactions.html#eruptions">eruptions</a>. See <a href="#insulated-conduits">Insulated conduits</a>.</li>
             <li><strong>Route it anywhere:</strong> a filtered line can feed components or any customer that uses its type, hybrids included.</li>
             <li><strong>Choosing the type:</strong> on a mixed source, <kbd>Shift</kbd>+Click the Filter (or right-click and choose <strong>Cycle</strong>) to switch between the source's two types. On a single-type source there's only one choice. As with a Transformer, cycling skips a type that would meet a different type at a Splitter downstream.</li>
@@ -215,16 +215,16 @@
       <div class="fm-entries">
         <article class="fm-entry" id="basic-conduits" data-keywords="line ley conduit cost capacity">
           <div class="fm-entry-head"><h3><a class="fm-anchor" href="#basic-conduits">Basic conduit</a></h3></div>
-          <dl class="fm-stats"><div><dt>Cost</dt><dd>10 GC/hex</dd></div><div><dt>Capacity</dt><dd>15/day</dd></div><div><dt>Loss</dt><dd>0.2/hex</dd></div><div><dt>Upkeep</dt><dd>none</dd></div></dl>
+          <dl class="fm-stats"><div><dt>Cost</dt><dd>10gc/hex</dd></div><div><dt>Capacity</dt><dd>15 mana/day</dd></div><div><dt>Loss</dt><dd>0.2 mana/hex</dd></div><div><dt>Upkeep</dt><dd>none</dd></div></dl>
           <p>Carries one mana type. See <a href="how-to-play.html#conduits">Building conduits</a> for routing rules.</p>
         </article>
 
         <article class="fm-entry" id="upgraded-conduits" data-keywords="upgrade hardened tier 2 capacity 30">
           <div class="fm-entry-head"><h3><a class="fm-anchor" href="#upgraded-conduits">Upgraded conduit</a></h3><span class="badge neutral">Unlocks 11th op</span></div>
-          <dl class="fm-stats"><div><dt>Cost</dt><dd>25 GC/hex</dd></div><div><dt>Capacity</dt><dd>30/day</dd></div><div><dt>Loss</dt><dd>0.2/hex</dd></div><div><dt>Eruptions</dt><dd>half loss</dd></div></dl>
+          <dl class="fm-stats"><div><dt>Cost</dt><dd>25gc/hex</dd></div><div><dt>Capacity</dt><dd>30 mana/day</dd></div><div><dt>Loss</dt><dd>0.2 mana/hex</dd></div><div><dt>Eruptions</dt><dd>half loss</dd></div></dl>
           <ul>
-            <li>Right-click a conduit and choose <strong>Upgrade</strong>. Upgrading costs the difference, 15 GC per hex. The option is greyed out if it would put you over your debt limit.</li>
-            <li>Doubles capacity to 30, so one upgraded conduit can carry a source's whole output.</li>
+            <li>Right-click a conduit and choose <strong>Upgrade</strong>. Upgrading costs the difference, 15gc per hex. The option is greyed out if it would put you over your debt limit.</li>
+            <li>Doubles capacity to 30 mana per day, so one upgraded conduit can carry a source's whole output.</li>
             <li><strong>Hardened:</strong> takes only half the loss when an <a href="interactions.html#eruptions">eruption</a> hits it.</li>
             <li>Distance loss is unchanged. Upgrades are for throughput and protection; <a href="#relay-station">relays</a> are still the answer for distance.</li>
             <li>Hover an upgraded conduit and its tooltip reads <code>Hardened: eruption losses halved</code>.</li>
@@ -236,8 +236,8 @@
           <div class="fm-entry-head"><h3><a class="fm-anchor" href="#raw-mixed-conduits">Raw mixed and merged conduits</a></h3></div>
           <p>A conduit carrying two types at once. You get one by drawing a line straight out of a <a href="buildings.html#mixed-sources">mixed source</a> (a raw mixed line), or by merging two types at a <a href="#merged-conduits">Splitter</a> (a merged line). Both follow the same rules:</p>
           <ul>
-            <li>Each type gets half the capacity: 7.5 + 7.5 on a basic conduit, 15 + 15 on an upgraded one. Merged lines are always upgraded.</li>
-            <li>Distance loss is shared between the two types, 0.1 per hex each.</li>
+            <li>Each type gets half the capacity: 7.5 + 7.5 mana on a basic conduit, 15 + 15 on an upgraded one. Merged lines are always upgraded.</li>
+            <li>Distance loss is shared between the two types, 0.1 mana per hex each.</li>
             <li>It must run <strong>directly to a customer that needs both types</strong>. It can't feed any component, nothing can be built on it, and it can't be split or merged again.</li>
             <li>The two types <strong>react with each other on every hex</strong> of the line. A Fire + Earth line is <a href="interactions.html#magma-vents">Magma Vents</a> from end to end; a Fire + Gas line is an <a href="interactions.html#explosion-risk">Explosion Risk</a> along its whole length. The tooltip warns <code>Raw mixed energy reacts with itself</code>.</li>
             <li>Hover it to see how much of each type is being delivered.</li>
@@ -253,7 +253,7 @@
           <p>A conduit leaving a <a href="#filter">Filter</a>, drawn with a slate-grey sheath underneath.</p>
           <ul>
             <li>Takes no part in any <a href="interactions.html">interaction</a>, good or bad, and is immune to eruptions.</li>
-            <li>Carries half the usual capacity (7.5 basic, 15 upgraded).</li>
+            <li>Carries half the usual capacity (7.5 mana basic, 15 upgraded).</li>
             <li>Insulation carries on through Relays, Splitters and Batteries, but only if <em>every</em> line going into that component is insulated. A Transformer always ends it.</li>
             <li>Its tooltip reads <code>Insulation along the conduit prevents interactions with other lines</code>.</li>
           </ul>
