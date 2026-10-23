@@ -20,4 +20,10 @@ Shot list and placement, from the "AG&W Field Manual Screenshot Requests" doc:
 | M8 | `fm-inspector` | Interactions › How interactions work |
 | M9 | `fm-eruption-before`, `fm-eruption`, `fm-eruption-tip` | Interactions › Eruptions, Explosion Risk (before and after side by side) |
 
-To regenerate, from the `agw-game` repo: `love . --test fm_shots` (or `--op M7` for one shot). See its `test/README.md`.
+## Placing on the site
+
+The WebP copies live in `src/assets/images/field-manual/` (`cwebp -lossless -z 9 X.png -o src/assets/images/field-manual/X.webp`). `figures.py` builds each figure (image, numbered callout overlay from the sidecar, caption, legend) and writes it into its page between `<!-- fig:NAME -->` and `<!-- /fig:NAME -->` markers. Placement, legend wording and marker positions are in its `SPEC`. Re-run it from the website repo root after any recapture:
+
+    python3 fm-shots/figures.py
+
+To regenerate the captures, from the `agw-game` repo: `love . --test fm_shots` (or `--op M7` for one shot). See its `test/README.md`.
