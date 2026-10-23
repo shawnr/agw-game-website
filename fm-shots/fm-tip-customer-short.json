@@ -1,0 +1,93 @@
+{
+  "callouts": [
+    {
+      "h": 22,
+      "label": "got / need",
+      "w": 198,
+      "x": 112,
+      "y": 171
+    },
+    {
+      "h": 22,
+      "label": "!! means short",
+      "w": 18,
+      "x": 292,
+      "y": 171
+    },
+    {
+      "h": 22,
+      "label": "declining trend",
+      "w": 117,
+      "x": 112,
+      "y": 146
+    },
+    {
+      "h": 22,
+      "label": "mood multiplier",
+      "w": 63,
+      "x": 319,
+      "y": 246
+    }
+  ],
+  "crop": {
+    "h": 366,
+    "w": 400,
+    "x": 601,
+    "y": 180
+  },
+  "drawn": [
+    "The Back Dor",
+    "Confluence",
+    "The Maha's Flame",
+    "The Ikhlas Spring",
+    "The Underdark",
+    "Seam",
+    "The Bog of",
+    "Eternal Stench",
+    "Thulsa Doom",
+    "Academy",
+    "Lilliput Stables",
+    "Witcher Farms",
+    "Crossroads Post",
+    "Orkoz Market",
+    "GOAL: supply every customer in full, keep them content for 5 days",
+    "Thulsa Doom Academy",
+    "Status: annoyed",
+    "  v declining",
+    "  Arcana: 13.8 / 14 !!",
+    "  Fire: 13.6 / 3 OK",
+    "  Water: 14.0 / 2 OK",
+    "  Revenue: 33.8 GC/day (x0.90)",
+    "[Enchanted Flames]",
+    "[Purification]",
+    "[Steam Clouds]",
+    "> 1x",
+    "Info",
+    "AG&W SCRYING TERMINAL v4.2.0",
+    "Day 1 [1x]",
+    "+33.8/day",
+    "240 GC",
+    " / -200",
+    "Nobody and the NeckRomancers - If It Don't Bite",
+    "Nobody and the NeckRomancers - If It Don't Bite",
+    "Desktop",
+    "Field Ops",
+    "Grimoire"
+  ],
+  "file": "fm-tip-customer-short.png",
+  "meta": {
+    "alt": "Tooltip for a wizard academy: status annoyed, declining, arcana 13.8 of 14 marked short, fire and water OK, and three interaction tags.",
+    "caption": "Hovering a customer shows what each mana type receives against what it needs. The !! marks a type that's short.",
+    "op": "scenario_2",
+    "seed": 2,
+    "zoom": 1.5
+  },
+  "missing": [],
+  "name": "fm-tip-customer-short",
+  "seq": 1,
+  "shot": "M2",
+  "window": {
+    "h": 720,
+    "w": 1280
+  }
+}

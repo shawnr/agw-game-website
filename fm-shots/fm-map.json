@@ -1,0 +1,144 @@
+{
+  "callouts": [
+    {
+      "h": 41,
+      "label": "source",
+      "w": 41,
+      "x": 148,
+      "y": 136
+    },
+    {
+      "h": 41,
+      "label": "customer",
+      "w": 41,
+      "x": 355,
+      "y": 187
+    },
+    {
+      "h": 37,
+      "label": "mood ring",
+      "w": 37,
+      "x": 562,
+      "y": 239
+    },
+    {
+      "h": 9,
+      "label": "need dots (bright = supplied)",
+      "w": 16,
+      "x": 573,
+      "y": 273
+    },
+    {
+      "h": 41,
+      "label": "hybrid",
+      "w": 41,
+      "x": 767,
+      "y": 391
+    },
+    {
+      "h": 92,
+      "label": "conduit with pulses",
+      "w": 247,
+      "x": 148,
+      "y": 136
+    },
+    {
+      "h": 34,
+      "label": "splitter",
+      "w": 34,
+      "x": 800,
+      "y": 241
+    },
+    {
+      "h": 34,
+      "label": "transformer",
+      "w": 34,
+      "x": 652,
+      "y": 292
+    },
+    {
+      "h": 34,
+      "label": "goal and streak bar",
+      "w": 684,
+      "x": 10,
+      "y": 34
+    },
+    {
+      "h": 18,
+      "label": "budget and credit limit",
+      "w": 42,
+      "x": 999,
+      "y": 3
+    },
+    {
+      "h": 18,
+      "label": "daily income",
+      "w": 70,
+      "x": 1104,
+      "y": 3
+    },
+    {
+      "h": 18,
+      "label": "day",
+      "w": 70,
+      "x": 1188,
+      "y": 3
+    },
+    {
+      "h": 48,
+      "label": "speed control",
+      "w": 113,
+      "x": 583,
+      "y": 644
+    },
+    {
+      "h": 80,
+      "label": "[Info] tab",
+      "w": 42,
+      "x": 0,
+      "y": 318
+    },
+    {
+      "h": 140,
+      "label": "minimap",
+      "w": 180,
+      "x": 8,
+      "y": 544
+    },
+    {
+      "h": 28,
+      "label": "taskbar",
+      "w": 1280,
+      "x": 0,
+      "y": 692
+    }
+  ],
+  "crop": {
+    "h": 720,
+    "w": 1280,
+    "x": 0,
+    "y": 0
+  },
+  "drawn": [],
+  "file": "fm-map.png",
+  "meta": {
+    "academy_mood": "content",
+    "alt": "Hex map of an operation with labelled sources, customers, hybrids, conduits, a splitter and transformer, and the goal bar, budget readout, speed button, Info tab and minimap.",
+    "caption": "A typical operation. Sources on one side, customers on the other, and the conduits you build between them.",
+    "center": [
+      10,
+      6
+    ],
+    "op": "scenario_3",
+    "seed": 3,
+    "zoom": 0.85
+  },
+  "missing": [],
+  "name": "fm-map",
+  "seq": 1,
+  "shot": "M1",
+  "window": {
+    "h": 720,
+    "w": 1280
+  }
+}

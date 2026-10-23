@@ -1,0 +1,87 @@
+{
+  "callouts": [
+    {
+      "h": 47,
+      "label": "per-type share",
+      "w": 180,
+      "x": 100,
+      "y": 134
+    },
+    {
+      "h": 22,
+      "label": "reacts with itself",
+      "w": 333,
+      "x": 100,
+      "y": 209
+    }
+  ],
+  "crop": {
+    "h": 352,
+    "w": 449,
+    "x": 271,
+    "y": 210
+  },
+  "drawn": [
+    "F",
+    "S",
+    "The Nightlight",
+    "Nexus",
+    "The Ashen Rift",
+    "The Hollow Places",
+    "Seep",
+    "Puddleglum Bogs",
+    "Magick Academie",
+    "Bargain Bin Bats",
+    "Hardhome Depot",
+    "Fungal Fields",
+    "Rogue Shoe Farms",
+    "Mimic Estates",
+    "Spike Nose Sales",
+    "Burninator's Den",
+    "Ye Dollar",
+    "Generale",
+    "Homeopathic",
+    "Magick College",
+    "GOAL: supply every customer in full, keep them content for 10 days",
+    "Conduit (Earth + Water)",
+    "  Delivering: 13.4 / 15",
+    "    Earth: 6.7 / 7.5",
+    "    Water: 6.7 / 7.5",
+    "  Dissipation: -1.6",
+    "  Raw mixed energy reacts with itself",
+    "  Right-click for options",
+    "[Magma Vents]",
+    "[Fertile Growth]",
+    "[Steam Clouds]",
+    "> 1x",
+    "Info",
+    "AG&W SCRYING TERMINAL v4.2.0",
+    "Day 2 [1x]",
+    "+55.4/day",
+    "1106 GC",
+    " / -500",
+    "Nobody and the NeckRomancers - If It Don't Bite",
+    "Nobody and the NeckRomancers - If It Don't Bite",
+    "Desktop",
+    "Field Ops",
+    "Grimoire"
+  ],
+  "file": "fm-mixed-tip-raw.png",
+  "meta": {
+    "alt": "Tooltip on a raw earth and water conduit: 7.5 of each type, raw mixed energy reacts with itself.",
+    "caption": "A raw mixed conduit carries both types, half its capacity each, and reacts with itself.",
+    "hex": [
+      7,
+      4
+    ],
+    "op": "scenario_4"
+  },
+  "missing": [],
+  "name": "fm-mixed-tip-raw",
+  "seq": 2,
+  "shot": "M7",
+  "window": {
+    "h": 720,
+    "w": 1280
+  }
+}

@@ -1,0 +1,650 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Field Manual Shots</title>
+<style>
+:root { --bg:#14151a; --card:#1d1f26; --fg:#e8e4d8; --dim:#9a968a; --amber:#e6b33a; --bad:#ff6b5a; --ok:#6fd38a; --box:#39c6ff; }
+* { box-sizing: border-box; }
+body { margin:0; padding:16px; background:var(--bg); color:var(--fg); font:14px/1.45 -apple-system, system-ui, sans-serif; }
+h1 { font-size:20px; margin:0 0 4px; } .sub { color:var(--dim); margin:0 0 16px; }
+.bar { display:flex; gap:16px; align-items:center; margin-bottom:16px; flex-wrap:wrap; }
+.grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(min(100%, 520px), 1fr)); gap:16px; }
+.card { background:var(--card); border-radius:8px; padding:12px; min-width:0; }
+.card h2 { font-size:15px; margin:0 0 6px; display:flex; gap:8px; align-items:baseline; flex-wrap:wrap; }
+.id { color:var(--amber); font-family:ui-monospace, monospace; }
+.size { color:var(--dim); font-weight:normal; font-size:12px; }
+.shot { position:relative; display:inline-block; max-width:100%; line-height:0; background:#000; }
+.shot img { max-width:100%; height:auto; display:block; image-rendering:pixelated; }
+.co { position:absolute; border:2px solid var(--box); border-radius:3px; pointer-events:none; }
+.co span { position:absolute; left:-2px; top:-18px; background:var(--box); color:#000; font:600 11px/16px system-ui; padding:0 4px; white-space:nowrap; border-radius:2px; }
+body.nocall .co { display:none; }
+.ok { color:var(--ok); } .bad { color:var(--bad); }
+.meta { color:var(--dim); font-size:12px; margin-top:6px; overflow-wrap:anywhere; }
+details { margin-top:6px; font-size:12px; color:var(--dim); } pre { white-space:pre-wrap; overflow-wrap:anywhere; }
+</style></head><body class="nocall">
+<h1>Field Manual shots</h1>
+<p class="sub">Captured by <code>love . --test fm_shots</code>. Callout boxes come from each JSON sidecar; they are not in the PNGs.</p>
+<div class="bar"><label><input type="checkbox" onchange="document.body.classList.toggle('nocall', !this.checked)"> Show callout boxes (preview only, not in the PNGs)</label></div>
+<div class="grid">
+
+<div class="card">
+<h2><span class="id">M1</span> fm-map <span class="size">1280x720</span></h2>
+<div class="shot"><img src="fm-map.png" width="1280" height="720" alt="Hex map of an operation with labelled sources, customers, hybrids, conduits, a splitter and transformer, and the goal bar, budget readout, speed button, Info tab and minimap." loading="lazy">
+<div class="co" style="left:11.563%;top:18.889%;width:3.203%;height:5.694%"><span>source</span></div>
+<div class="co" style="left:27.734%;top:25.972%;width:3.203%;height:5.694%"><span>customer</span></div>
+<div class="co" style="left:43.906%;top:33.194%;width:2.891%;height:5.139%"><span>mood ring</span></div>
+<div class="co" style="left:44.766%;top:37.917%;width:1.250%;height:1.250%"><span>need dots (bright = supplied)</span></div>
+<div class="co" style="left:59.922%;top:54.306%;width:3.203%;height:5.694%"><span>hybrid</span></div>
+<div class="co" style="left:11.563%;top:18.889%;width:19.297%;height:12.778%"><span>conduit with pulses</span></div>
+<div class="co" style="left:62.500%;top:33.472%;width:2.656%;height:4.722%"><span>splitter</span></div>
+<div class="co" style="left:50.938%;top:40.556%;width:2.656%;height:4.722%"><span>transformer</span></div>
+<div class="co" style="left:0.781%;top:4.722%;width:53.438%;height:4.722%"><span>goal and streak bar</span></div>
+<div class="co" style="left:78.047%;top:0.417%;width:3.281%;height:2.500%"><span>budget and credit limit</span></div>
+<div class="co" style="left:86.250%;top:0.417%;width:5.469%;height:2.500%"><span>daily income</span></div>
+<div class="co" style="left:92.813%;top:0.417%;width:5.469%;height:2.500%"><span>day</span></div>
+<div class="co" style="left:45.547%;top:89.444%;width:8.828%;height:6.667%"><span>speed control</span></div>
+<div class="co" style="left:0.000%;top:44.167%;width:3.281%;height:11.111%"><span>[Info] tab</span></div>
+<div class="co" style="left:0.625%;top:75.556%;width:14.063%;height:19.444%"><span>minimap</span></div>
+<div class="co" style="left:0.000%;top:96.111%;width:100.000%;height:3.889%"><span>taskbar</span></div>
+</div>
+<div class="meta ok">Expected text: all present</div>
+<div class="meta"><b>Caption:</b> A typical operation. Sources on one side, customers on the other, and the conduits you build between them.</div>
+<div class="meta"><b>Alt:</b> Hex map of an operation with labelled sources, customers, hybrids, conduits, a splitter and transformer, and the goal bar, budget readout, speed button, Info tab and minimap.</div>
+<div class="meta">op scenario_3 &middot; seed 3 &middot; zoom 0.85</div>
+</div>
+<div class="card">
+<h2><span class="id">M2</span> fm-tip-customer-short <span class="size">400x366</span></h2>
+<div class="shot"><img src="fm-tip-customer-short.png" width="400" height="366" alt="Tooltip for a wizard academy: status annoyed, declining, arcana 13.8 of 14 marked short, fire and water OK, and three interaction tags." loading="lazy">
+<div class="co" style="left:28.000%;top:46.721%;width:49.500%;height:6.011%"><span>got / need</span></div>
+<div class="co" style="left:73.000%;top:46.721%;width:4.500%;height:6.011%"><span>!! means short</span></div>
+<div class="co" style="left:28.000%;top:39.891%;width:29.250%;height:6.011%"><span>declining trend</span></div>
+<div class="co" style="left:79.750%;top:67.213%;width:15.750%;height:6.011%"><span>mood multiplier</span></div>
+</div>
+<div class="meta ok">Expected text: all present</div>
+<div class="meta"><b>Caption:</b> Hovering a customer shows what each mana type receives against what it needs. The !! marks a type that's short.</div>
+<div class="meta"><b>Alt:</b> Tooltip for a wizard academy: status annoyed, declining, arcana 13.8 of 14 marked short, fire and water OK, and three interaction tags.</div>
+<div class="meta">op scenario_2 &middot; seed 2 &middot; zoom 1.5</div>
+<details><summary>Text drawn in the frame</summary><pre>The Back Dor
+Confluence
+The Maha's Flame
+The Ikhlas Spring
+The Underdark
+Seam
+The Bog of
+Eternal Stench
+Thulsa Doom
+Academy
+Lilliput Stables
+Witcher Farms
+Crossroads Post
+Orkoz Market
+GOAL: supply every customer in full, keep them content for 5 days
+Thulsa Doom Academy
+Status: annoyed
+  v declining
+  Arcana: 13.8 / 14 !!
+  Fire: 13.6 / 3 OK
+  Water: 14.0 / 2 OK
+  Revenue: 33.8 GC/day (x0.90)
+[Enchanted Flames]
+[Purification]
+[Steam Clouds]
+&gt; 1x
+Info
+AG&amp;W SCRYING TERMINAL v4.2.0
+Day 1 [1x]
++33.8/day
+240 GC
+ / -200
+Nobody and the NeckRomancers - If It Don't Bite
+Nobody and the NeckRomancers - If It Don't Bite
+Desktop
+Field Ops
+Grimoire</pre></details>
+</div>
+<div class="card">
+<h2><span class="id">M3</span> fm-mood-content <span class="size">220x180</span></h2>
+<div class="shot"><img src="fm-mood-content.png" width="220" height="180" alt="Customer icon with its Content ring." loading="lazy">
+</div>
+<div class="meta ok">Expected text: all present</div>
+<div class="meta"><b>Caption:</b> Customer moods, from Content to Furious. Angry and Furious customers pay nothing.</div>
+<div class="meta"><b>Alt:</b> Customer icon with its Content ring.</div>
+<div class="meta">op scenario_2 &middot; seed 2 &middot; zoom 1.5</div>
+</div>
+<div class="card">
+<h2><span class="id">M3</span> fm-mood-annoyed <span class="size">220x180</span></h2>
+<div class="shot"><img src="fm-mood-annoyed.png" width="220" height="180" alt="Customer icon with its Annoyed ring." loading="lazy">
+</div>
+<div class="meta ok">Expected text: all present</div>
+<div class="meta"><b>Caption:</b> Customer moods, from Content to Furious. Angry and Furious customers pay nothing.</div>
+<div class="meta"><b>Alt:</b> Customer icon with its Annoyed ring.</div>
+<div class="meta">op scenario_2 &middot; seed 2 &middot; zoom 1.5</div>
+</div>
+<div class="card">
+<h2><span class="id">M3</span> fm-mood-frustrated <span class="size">220x180</span></h2>
+<div class="shot"><img src="fm-mood-frustrated.png" width="220" height="180" alt="Customer icon with its Frustrated ring." loading="lazy">
+</div>
+<div class="meta ok">Expected text: all present</div>
+<div class="meta"><b>Caption:</b> Customer moods, from Content to Furious. Angry and Furious customers pay nothing.</div>
+<div class="meta"><b>Alt:</b> Customer icon with its Frustrated ring.</div>
+<div class="meta">op scenario_2 &middot; seed 2 &middot; zoom 1.5</div>
+</div>
+<div class="card">
+<h2><span class="id">M3</span> fm-mood-angry <span class="size">220x180</span></h2>
+<div class="shot"><img src="fm-mood-angry.png" width="220" height="180" alt="Customer icon with its Angry ring." loading="lazy">
+</div>
+<div class="meta ok">Expected text: all present</div>
+<div class="meta"><b>Caption:</b> Customer moods, from Content to Furious. Angry and Furious customers pay nothing.</div>
+<div class="meta"><b>Alt:</b> Customer icon with its Angry ring.</div>
+<div class="meta">op scenario_2 &middot; seed 2 &middot; zoom 1.5</div>
+</div>
+<div class="card">
+<h2><span class="id">M3</span> fm-mood-furious <span class="size">220x180</span></h2>
+<div class="shot"><img src="fm-mood-furious.png" width="220" height="180" alt="Customer icon with its Furious ring." loading="lazy">
+</div>
+<div class="meta ok">Expected text: all present</div>
+<div class="meta"><b>Caption:</b> Customer moods, from Content to Furious. Angry and Furious customers pay nothing.</div>
+<div class="meta"><b>Alt:</b> Customer icon with its Furious ring.</div>
+<div class="meta">op scenario_2 &middot; seed 2 &middot; zoom 1.5</div>
+</div>
+<div class="card">
+<h2><span class="id">M4</span> fm-conduit-drawing <span class="size">972x341</span></h2>
+<div class="shot"><img src="fm-conduit-drawing.png" width="972" height="341" alt="A conduit being drawn from a ley line nexus through a pinned waypoint to an academy, with a prediction panel showing arcana arriving just under the need of 14, marked short." loading="lazy">
+<div class="co" style="left:20.576%;top:47.507%;width:4.938%;height:14.076%"><span>source</span></div>
+<div class="co" style="left:38.889%;top:31.085%;width:4.115%;height:11.730%"><span>pinned waypoint</span></div>
+<div class="co" style="left:20.576%;top:29.912%;width:47.737%;height:31.672%"><span>route preview</span></div>
+<div class="co" style="left:1.029%;top:2.346%;width:50.000%;height:13.490%"><span>cost line</span></div>
+<div class="co" style="left:67.490%;top:54.545%;width:30.864%;height:40.762%"><span>prediction panel</span></div>
+</div>
+<div class="meta ok">Expected text: all present</div>
+<div class="meta"><b>Caption:</b> Drawing a conduit. Click open ground to pin the route; the prediction shows what will arrive before you commit.</div>
+<div class="meta"><b>Alt:</b> A conduit being drawn from a ley line nexus through a pinned waypoint to an academy, with a prediction panel showing arcana arriving just under the need of 14, marked short.</div>
+<div class="meta">op scenario_2 &middot; seed 2 &middot; zoom 1</div>
+<details><summary>Text drawn in the frame</summary><pre>13.6/14
+The Back Dor
+Confluence
+The Maha's Flame
+The Ikhlas Spring
+The Underdark
+Seam
+The Bog of
+Eternal Stench
+Thulsa Doom
+Academy
+Lilliput Stables
+Witcher Farms
+Crossroads Post
+Orkoz Market
+GOAL: supply every customer in full, keep them content for 5 days
+Cost: 70 GC
+Click open ground: pin route  •  Right-click: undo pin
+PREDICTED
+  Arcana arriving: 13.6
+  Needs: 14  SHORT
+  Relay resets dissipation
+  Dissipation: -1.4 over 7 hexes
+&gt; 1x
+Info
+AG&amp;W SCRYING TERMINAL v4.2.0
+Day 0 [1x]
++0.0/day
+500 GC
+ / -200
+Nobody and the NeckRomancers - If It Don't Bite
+Nobody and the NeckRomancers - If It Don't Bite
+Desktop
+Field Ops
+Grimoire</pre></details>
+</div>
+<div class="card">
+<h2><span class="id">M5</span> fm-tip-conduit-dissipation <span class="size">437x284</span></h2>
+<div class="shot"><img src="fm-tip-conduit-dissipation.png" width="437" height="284" alt="Tooltip on an arcana conduit: delivering 13.8 of 15, dissipation minus 1.2." loading="lazy">
+<div class="co" style="left:44.851%;top:60.915%;width:47.368%;height:7.746%"><span>delivered / capacity</span></div>
+<div class="co" style="left:44.851%;top:69.718%;width:39.130%;height:7.746%"><span>distance loss</span></div>
+</div>
+<div class="meta ok">Expected text: all present</div>
+<div class="meta"><b>Caption:</b> A conduit's tooltip shows how much it delivers and how much it loses to distance.</div>
+<div class="meta"><b>Alt:</b> Tooltip on an arcana conduit: delivering 13.8 of 15, dissipation minus 1.2.</div>
+<div class="meta">op scenario_2 &middot; seed 2 &middot; zoom 1.5</div>
+<details><summary>Text drawn in the frame</summary><pre>The Back Dor
+Confluence
+The Maha's Flame
+The Ikhlas Spring
+The Underdark
+Seam
+The Bog of
+Eternal Stench
+Thulsa Doom
+Academy
+Lilliput Stables
+Witcher Farms
+Crossroads Post
+Orkoz Market
+GOAL: supply every customer in full, keep them content for 5 days
+Conduit (Arcana)
+  Delivering: 13.8 / 15
+  Dissipation: -1.2
+  Right-click for options
+&gt; 1x
+Info
+AG&amp;W SCRYING TERMINAL v4.2.0
+Day 1 [1x]
++37.6/day
+240 GC
+ / -200
+Nobody and the NeckRomancers - If It Don't Bite
+Nobody and the NeckRomancers - If It Don't Bite
+Desktop
+Field Ops
+Grimoire</pre></details>
+</div>
+<div class="card">
+<h2><span class="id">M6</span> fm-radial-build-root <span class="size">420x420</span></h2>
+<div class="shot"><img src="fm-radial-build-root.png" width="420" height="420" alt="Radial menu with Field Manual, Build and Demolish." loading="lazy">
+</div>
+<div class="meta ok">Expected text: all present</div>
+<div class="meta"><b>Caption:</b> Right-click to open the radial menu. Build lists every component you've unlocked, with its price.</div>
+<div class="meta"><b>Alt:</b> Radial menu with Field Manual, Build and Demolish.</div>
+<div class="meta">op scenario_4 &middot; seed 4</div>
+<details><summary>Text drawn in the frame</summary><pre>The Nightlight
+Nexus
+The Ashen Rift
+The Hollow Places
+Seep
+Puddleglum Bogs
+Magick Academie
+Bargain Bin Bats
+Hardhome Depot
+Fungal Fields
+Rogue Shoe Farms
+Mimic Estates
+Spike Nose Sales
+Burninator's Den
+Ye Dollar
+Generale
+Homeopathic
+Magick College
+GOAL: supply every customer in full, keep them content for 10 days
+|| PAUSED
+Build
+Info
+AG&amp;W SCRYING TERMINAL v4.2.0
+Day 0 [1x] [P]
++0.0/day
+1000 GC
+ / -500
+Nobody and the NeckRomancers - If It Don't Bite
+Nobody and the NeckRomancers - If It Don't Bite
+Desktop
+Field Ops
+Grimoire</pre></details>
+</div>
+<div class="card">
+<h2><span class="id">M6</span> fm-radial-build-submenu <span class="size">420x420</span></h2>
+<div class="shot"><img src="fm-radial-build-submenu.png" width="420" height="420" alt="The Build submenu showing Relay Station, Splitter, Transformer, Battery and Filter with prices, Splitter hovered." loading="lazy">
+</div>
+<div class="meta ok">Expected text: all present</div>
+<div class="meta"><b>Caption:</b> Right-click to open the radial menu. Build lists every component you've unlocked, with its price.</div>
+<div class="meta"><b>Alt:</b> The Build submenu showing Relay Station, Splitter, Transformer, Battery and Filter with prices, Splitter hovered.</div>
+<div class="meta">op scenario_4 &middot; seed 4</div>
+<details><summary>Text drawn in the frame</summary><pre>The Nightlight
+Nexus
+The Ashen Rift
+The Hollow Places
+Seep
+Puddleglum Bogs
+Magick Academie
+Bargain Bin Bats
+Hardhome Depot
+Fungal Fields
+Rogue Shoe Farms
+Mimic Estates
+Spike Nose Sales
+Burninator's Den
+Ye Dollar
+Generale
+Homeopathic
+Magick College
+GOAL: supply every customer in full, keep them content for 10 days
+|| PAUSED
+[ PAUSED — press SPACE or click &gt;&gt; ]
+50GC
+30GC
+100GC
+75GC
+60GC
+Splitter
+Info
+AG&amp;W SCRYING TERMINAL v4.2.0
+Day 0 [1x] [P]
++0.0/day
+1000 GC
+ / -500
+Nobody and the NeckRomancers - If It Don't Bite
+Nobody and the NeckRomancers - If It Don't Bite
+Desktop
+Field Ops
+Grimoire</pre></details>
+</div>
+<div class="card">
+<h2><span class="id">M7</span> fm-mixed-raw-vs-filtered <span class="size">1219x600</span></h2>
+<div class="shot"><img src="fm-mixed-raw-vs-filtered.png" width="1219" height="600" alt="A two-type spring feeding a farm with a two-colored raw line inside a Fertile Growth zone, and a filter next to it sending an insulated water line with a grey sheath." loading="lazy">
+<div class="co" style="left:45.939%;top:15.167%;width:4.758%;height:9.667%"><span>mixed source</span></div>
+<div class="co" style="left:8.450%;top:15.167%;width:42.248%;height:69.667%"><span>raw two-tone line</span></div>
+<div class="co" style="left:34.537%;top:24.833%;width:13.946%;height:14.333%"><span>Fertile Growth zone</span></div>
+<div class="co" style="left:53.158%;top:16.000%;width:3.938%;height:8.000%"><span>filter</span></div>
+<div class="co" style="left:52.748%;top:15.167%;width:42.248%;height:21.667%"><span>insulated line</span></div>
+</div>
+<div class="meta ok">Expected text: all present</div>
+<div class="meta"><b>Caption:</b> Left: a raw mixed line carries both types and reacts with itself. Right: a Filter sends one type on an insulated line.</div>
+<div class="meta"><b>Alt:</b> A two-type spring feeding a farm with a two-colored raw line inside a Fertile Growth zone, and a filter next to it sending an insulated water line with a grey sheath.</div>
+<div class="meta">op scenario_4 &middot; seed 4 &middot; zoom 1.2</div>
+</div>
+<div class="card">
+<h2><span class="id">M7</span> fm-mixed-tip-raw <span class="size">449x352</span></h2>
+<div class="shot"><img src="fm-mixed-tip-raw.png" width="449" height="352" alt="Tooltip on a raw earth and water conduit: 7.5 of each type, raw mixed energy reacts with itself." loading="lazy">
+<div class="co" style="left:22.272%;top:38.068%;width:40.089%;height:13.352%"><span>per-type share</span></div>
+<div class="co" style="left:22.272%;top:59.375%;width:74.165%;height:6.250%"><span>reacts with itself</span></div>
+</div>
+<div class="meta ok">Expected text: all present</div>
+<div class="meta"><b>Caption:</b> A raw mixed conduit carries both types, half its capacity each, and reacts with itself.</div>
+<div class="meta"><b>Alt:</b> Tooltip on a raw earth and water conduit: 7.5 of each type, raw mixed energy reacts with itself.</div>
+<div class="meta">op scenario_4</div>
+<details><summary>Text drawn in the frame</summary><pre>F
+S
+The Nightlight
+Nexus
+The Ashen Rift
+The Hollow Places
+Seep
+Puddleglum Bogs
+Magick Academie
+Bargain Bin Bats
+Hardhome Depot
+Fungal Fields
+Rogue Shoe Farms
+Mimic Estates
+Spike Nose Sales
+Burninator's Den
+Ye Dollar
+Generale
+Homeopathic
+Magick College
+GOAL: supply every customer in full, keep them content for 10 days
+Conduit (Earth + Water)
+  Delivering: 13.4 / 15
+    Earth: 6.7 / 7.5
+    Water: 6.7 / 7.5
+  Dissipation: -1.6
+  Raw mixed energy reacts with itself
+  Right-click for options
+[Magma Vents]
+[Fertile Growth]
+[Steam Clouds]
+&gt; 1x
+Info
+AG&amp;W SCRYING TERMINAL v4.2.0
+Day 2 [1x]
++55.4/day
+1106 GC
+ / -500
+Nobody and the NeckRomancers - If It Don't Bite
+Nobody and the NeckRomancers - If It Don't Bite
+Desktop
+Field Ops
+Grimoire</pre></details>
+</div>
+<div class="card">
+<h2><span class="id">M7</span> fm-mixed-tip-filter <span class="size">413x277</span></h2>
+<div class="shot"><img src="fm-mixed-tip-filter.png" width="413" height="277" alt="Filter tooltip: allows water, insulated output at half capacity." loading="lazy">
+<div class="co" style="left:24.213%;top:48.375%;width:32.688%;height:7.942%"><span>allowed type</span></div>
+<div class="co" style="left:24.213%;top:57.401%;width:71.913%;height:7.942%"><span>half capacity</span></div>
+</div>
+<div class="meta ok">Expected text: all present</div>
+<div class="meta"><b>Caption:</b> A Filter lets one type through on an insulated line at half capacity.</div>
+<div class="meta"><b>Alt:</b> Filter tooltip: allows water, insulated output at half capacity.</div>
+<div class="meta">op scenario_4</div>
+<details><summary>Text drawn in the frame</summary><pre>F
+S
+The Nightlight
+Nexus
+The Ashen Rift
+The Hollow Places
+Seep
+Puddleglum Bogs
+Magick Academie
+Bargain Bin Bats
+Hardhome Depot
+Fungal Fields
+Rogue Shoe Farms
+Mimic Estates
+Spike Nose Sales
+Burninator's Den
+Ye Dollar
+Generale
+Homeopathic
+Magick College
+GOAL: supply every customer in full, keep them content for 10 days
+Filter
+  Upkeep: 3 GC/day
+  Allows: Water
+  Insulated output: half capacity
+  In: 7.3  -&gt;  Out: 7.3
+  Shift+Click cycles allowed type
+  Right-click for options
+&gt; 1x
+Info
+AG&amp;W SCRYING TERMINAL v4.2.0
+Day 2 [1x]
++55.4/day
+1109 GC
+ / -500
+Nobody and the NeckRomancers - If It Don't Bite
+Nobody and the NeckRomancers - If It Don't Bite
+Desktop
+Field Ops
+Grimoire</pre></details>
+</div>
+<div class="card">
+<h2><span class="id">M7</span> fm-mixed-tip-source <span class="size">710x302</span></h2>
+<div class="shot"><img src="fm-mixed-tip-source.png" width="710" height="302" alt="Mud spring tooltip: produces 15 earth and 15 water, with a hint to place a filter next to it." loading="lazy">
+<div class="co" style="left:14.085%;top:36.093%;width:27.887%;height:15.563%"><span>two types</span></div>
+<div class="co" style="left:14.085%;top:52.649%;width:83.662%;height:7.285%"><span>filter hint</span></div>
+</div>
+<div class="meta ok">Expected text: all present</div>
+<div class="meta"><b>Caption:</b> A mixed source produces two types at once.</div>
+<div class="meta"><b>Alt:</b> Mud spring tooltip: produces 15 earth and 15 water, with a hint to place a filter next to it.</div>
+<div class="meta">op scenario_4</div>
+<details><summary>Text drawn in the frame</summary><pre>F
+S
+The Nightlight
+Nexus
+The Ashen Rift
+The Hollow Places
+Seep
+Puddleglum Bogs
+Magick Academie
+Bargain Bin Bats
+Hardhome Depot
+Fungal Fields
+Rogue Shoe Farms
+Mimic Estates
+Spike Nose Sales
+Burninator's Den
+Ye Dollar
+Generale
+Homeopathic
+Magick College
+GOAL: supply every customer in full, keep them content for 10 days
+Puddleglum Bogs
+  Produces: Earth (15)
+  Produces: Water (15)
+  Mixed source: place a filter next to it to separate energy types
+  Departing: 22.5 over 2 conduits (11.3 each)
+[Magma Vents]
+[Fertile Growth]
+[Steam Clouds]
+&gt; 1x
+Info
+AG&amp;W SCRYING TERMINAL v4.2.0
+Day 2 [1x]
++55.4/day
+1112 GC
+ / -500
+Nobody and the NeckRomancers - If It Don't Bite
+Nobody and the NeckRomancers - If It Don't Bite
+Desktop
+Field Ops
+Grimoire</pre></details>
+</div>
+<div class="card">
+<h2><span class="id">M8</span> fm-inspector <span class="size">476x336</span></h2>
+<div class="shot"><img src="fm-inspector.png" width="476" height="336" alt="Interaction inspector over a Wizard Academy: Enchanted Flames, arcana plus fire, beneficial, 100 percent because the conduits share a hex." loading="lazy">
+<div class="co" style="left:11.765%;top:33.929%;width:22.689%;height:32.143%"><span>reacting hex</span></div>
+<div class="co" style="left:27.731%;top:4.167%;width:69.328%;height:91.667%"><span>inspector panel</span></div>
+<div class="co" style="left:29.412%;top:36.310%;width:62.395%;height:6.548%"><span>strength</span></div>
+</div>
+<div class="meta ok">Expected text: all present</div>
+<div class="meta"><b>Caption:</b> Click a reacting hex to see which interaction it is and whether it's at full strength (stacked) or half (adjacent).</div>
+<div class="meta"><b>Alt:</b> Interaction inspector over a Wizard Academy: Enchanted Flames, arcana plus fire, beneficial, 100 percent because the conduits share a hex.</div>
+<div class="meta">op scenario_1c &middot; seed 5 &middot; zoom 1.5</div>
+<details><summary>Text drawn in the frame</summary><pre>The Weave's Knot
+Avernus Vent
+The Nelwyn Well
+Sorcerer's
+College
+Tyrion Farms
+The Secret Garden
+Center
+GOAL: supply every customer in full, keep them content for 3 days  [1.0 / 3]
+&gt; 1x
+Info
+INTERACTION
+Enchanted Flames
+Combines: 
+Arcana
+ + 
+Fire
+Type: Beneficial
+Strength: 100% (stacked conduits)
+  Enchanted Flames stoke every fire
+  source on the grid, but the
+  strength of the interaction
+  varies: +20% output when an arcana
+  and a fire conduit share a hex,
+  +10% when the conduits run side by
+  side.
+AG&amp;W SCRYING TERMINAL v4.2.0
+Day 1 [1x]
++38.0/day
+189 GC
+ / -100
+Nobody and the NeckRomancers - If It Don't Bite
+Nobody and the NeckRomancers - If It Don't Bite
+Desktop
+Field Ops
+Grimoire</pre></details>
+</div>
+<div class="card">
+<h2><span class="id">M9</span> fm-eruption <span class="size">518x572</span></h2>
+<div class="shot"><img src="fm-eruption.png" width="518" height="572" alt="Fire and gas conduits flashing red where they meet at a goblin bazaar, with a hazard notice." loading="lazy">
+<div class="co" style="left:21.622%;top:60.140%;width:22.201%;height:20.105%"><span>hazard zone</span></div>
+<div class="co" style="left:0.000%;top:0.000%;width:38.417%;height:75.350%"><span>flashing conduits</span></div>
+<div class="co" style="left:54.826%;top:2.797%;width:42.085%;height:15.734%"><span>HAZARD notice</span></div>
+</div>
+<div class="meta ok">Expected text: all present</div>
+<div class="meta"><b>Caption:</b> An eruption. Every conduit in the zone loses part of its flow until the next day's check.</div>
+<div class="meta"><b>Alt:</b> Fire and gas conduits flashing red where they meet at a goblin bazaar, with a hazard notice.</div>
+<div class="meta">op scenario_2 &middot; seed 2 &middot; zoom 1.2 &middot; forced true</div>
+<details><summary>Text drawn in the frame</summary><pre>R
+S
+S
+S
+S
+The Back Dor
+Confluence
+The Maha's Flame
+The Ikhlas Spring
+The Underdark
+Seam
+The Bog of
+Eternal Stench
+Thulsa Doom
+Academy
+Lilliput Stables
+Witcher Farms
+Crossroads Post
+Orkoz Market
+GOAL: supply every customer in full, keep them content for 5 days
+Witcher Farms
+Status: content
+  Earth: 6.2 / 3 OK
+  Water: 6.8 / 5 OK
+  Revenue: 16.0 GC/day (x1.00)
+  Interaction: +25% revenue
+&gt; 1x
+[HAZARD] Eruption! 2
+conduits lost up to 30%
+of their energy today.
+Info
+AG&amp;W SCRYING TERMINAL v4.2.0
+Day 3 [1x]
++120.6/day
+836 GC
+ / -200
+Nobody and the NeckRomancers - If It Don't Bite
+Nobody and the NeckRomancers - If It Don't Bite
+Desktop
+Field Ops
+Grimoire</pre></details>
+</div>
+<div class="card">
+<h2><span class="id">M9</span> fm-eruption-tip <span class="size">421x252</span></h2>
+<div class="shot"><img src="fm-eruption-tip.png" width="421" height="252" alt="Fire conduit tooltip showing minus 30 percent from the eruption." loading="lazy">
+<div class="co" style="left:23.515%;top:63.095%;width:72.684%;height:8.730%"><span>eruption loss</span></div>
+<div class="co" style="left:23.515%;top:53.175%;width:40.618%;height:8.730%"><span>distance loss</span></div>
+<div class="co" style="left:23.515%;top:82.937%;width:34.204%;height:8.730%"><span>zone tag</span></div>
+</div>
+<div class="meta ok">Expected text: all present</div>
+<div class="meta"><b>Caption:</b> An eruption shows on the conduit's tooltip, separate from its distance loss.</div>
+<div class="meta"><b>Alt:</b> Fire conduit tooltip showing minus 30 percent from the eruption.</div>
+<div class="meta">op scenario_2 &middot; forced true</div>
+<details><summary>Text drawn in the frame</summary><pre>R
+S
+S
+S
+S
+The Back Dor
+Confluence
+The Maha's Flame
+The Ikhlas Spring
+The Underdark
+Seam
+The Bog of
+Eternal Stench
+Thulsa Doom
+Academy
+Lilliput Stables
+Witcher Farms
+Crossroads Post
+Orkoz Market
+GOAL: supply every customer in full, keep them content for 5 days
+Conduit (Fire)
+  Delivering: 3.8 / 15
+  Dissipation: -1.6
+  Eruption: -30% this cycle (-1.7)
+  Right-click for options
+[Explosion Risk]
+&gt; 1x
+Info
+AG&amp;W SCRYING TERMINAL v4.2.0
+Day 3 [1x]
++120.6/day
+843 GC
+ / -200
+Nobody and the NeckRomancers - If It Don't Bite
+Nobody and the NeckRomancers - If It Don't Bite
+Desktop
+Field Ops
+Grimoire</pre></details>
+</div>
+</div></body></html>

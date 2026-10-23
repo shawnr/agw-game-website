@@ -1,0 +1,81 @@
+{
+  "callouts": [
+    {
+      "h": 47,
+      "label": "two types",
+      "w": 198,
+      "x": 100,
+      "y": 109
+    },
+    {
+      "h": 22,
+      "label": "filter hint",
+      "w": 594,
+      "x": 100,
+      "y": 159
+    }
+  ],
+  "crop": {
+    "h": 302,
+    "w": 710,
+    "x": 562,
+    "y": 138
+  },
+  "drawn": [
+    "F",
+    "S",
+    "The Nightlight",
+    "Nexus",
+    "The Ashen Rift",
+    "The Hollow Places",
+    "Seep",
+    "Puddleglum Bogs",
+    "Magick Academie",
+    "Bargain Bin Bats",
+    "Hardhome Depot",
+    "Fungal Fields",
+    "Rogue Shoe Farms",
+    "Mimic Estates",
+    "Spike Nose Sales",
+    "Burninator's Den",
+    "Ye Dollar",
+    "Generale",
+    "Homeopathic",
+    "Magick College",
+    "GOAL: supply every customer in full, keep them content for 10 days",
+    "Puddleglum Bogs",
+    "  Produces: Earth (15)",
+    "  Produces: Water (15)",
+    "  Mixed source: place a filter next to it to separate energy types",
+    "  Departing: 22.5 over 2 conduits (11.3 each)",
+    "[Magma Vents]",
+    "[Fertile Growth]",
+    "[Steam Clouds]",
+    "> 1x",
+    "Info",
+    "AG&W SCRYING TERMINAL v4.2.0",
+    "Day 2 [1x]",
+    "+55.4/day",
+    "1112 GC",
+    " / -500",
+    "Nobody and the NeckRomancers - If It Don't Bite",
+    "Nobody and the NeckRomancers - If It Don't Bite",
+    "Desktop",
+    "Field Ops",
+    "Grimoire"
+  ],
+  "file": "fm-mixed-tip-source.png",
+  "meta": {
+    "alt": "Mud spring tooltip: produces 15 earth and 15 water, with a hint to place a filter next to it.",
+    "caption": "A mixed source produces two types at once.",
+    "op": "scenario_4"
+  },
+  "missing": [],
+  "name": "fm-mixed-tip-source",
+  "seq": 4,
+  "shot": "M7",
+  "window": {
+    "h": 720,
+    "w": 1280
+  }
+}

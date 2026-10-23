@@ -1,0 +1,90 @@
+{
+  "callouts": [
+    {
+      "h": 22,
+      "label": "eruption loss",
+      "w": 306,
+      "x": 99,
+      "y": 159
+    },
+    {
+      "h": 22,
+      "label": "distance loss",
+      "w": 171,
+      "x": 99,
+      "y": 134
+    },
+    {
+      "h": 22,
+      "label": "zone tag",
+      "w": 144,
+      "x": 99,
+      "y": 209
+    }
+  ],
+  "crop": {
+    "h": 252,
+    "w": 421,
+    "x": 781,
+    "y": 270
+  },
+  "drawn": [
+    "R",
+    "S",
+    "S",
+    "S",
+    "S",
+    "The Back Dor",
+    "Confluence",
+    "The Maha's Flame",
+    "The Ikhlas Spring",
+    "The Underdark",
+    "Seam",
+    "The Bog of",
+    "Eternal Stench",
+    "Thulsa Doom",
+    "Academy",
+    "Lilliput Stables",
+    "Witcher Farms",
+    "Crossroads Post",
+    "Orkoz Market",
+    "GOAL: supply every customer in full, keep them content for 5 days",
+    "Conduit (Fire)",
+    "  Delivering: 3.8 / 15",
+    "  Dissipation: -1.6",
+    "  Eruption: -30% this cycle (-1.7)",
+    "  Right-click for options",
+    "[Explosion Risk]",
+    "> 1x",
+    "Info",
+    "AG&W SCRYING TERMINAL v4.2.0",
+    "Day 3 [1x]",
+    "+120.6/day",
+    "843 GC",
+    " / -200",
+    "Nobody and the NeckRomancers - If It Don't Bite",
+    "Nobody and the NeckRomancers - If It Don't Bite",
+    "Desktop",
+    "Field Ops",
+    "Grimoire"
+  ],
+  "file": "fm-eruption-tip.png",
+  "meta": {
+    "alt": "Fire conduit tooltip showing minus 30 percent from the eruption.",
+    "caption": "An eruption shows on the conduit's tooltip, separate from its distance loss.",
+    "forced": true,
+    "hex": [
+      11,
+      9
+    ],
+    "op": "scenario_2"
+  },
+  "missing": [],
+  "name": "fm-eruption-tip",
+  "seq": 2,
+  "shot": "M9",
+  "window": {
+    "h": 720,
+    "w": 1280
+  }
+}

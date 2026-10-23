@@ -1,0 +1,89 @@
+{
+  "callouts": [
+    {
+      "h": 108,
+      "label": "reacting hex",
+      "w": 108,
+      "x": 56,
+      "y": 114
+    },
+    {
+      "h": 308,
+      "label": "inspector panel",
+      "w": 330,
+      "x": 132,
+      "y": 14
+    },
+    {
+      "h": 22,
+      "label": "strength",
+      "w": 297,
+      "x": 140,
+      "y": 122
+    }
+  ],
+  "crop": {
+    "h": 336,
+    "w": 476,
+    "x": 530,
+    "y": 192
+  },
+  "drawn": [
+    "The Weave's Knot",
+    "Avernus Vent",
+    "The Nelwyn Well",
+    "Sorcerer's",
+    "College",
+    "Tyrion Farms",
+    "The Secret Garden",
+    "Center",
+    "GOAL: supply every customer in full, keep them content for 3 days  [1.0 / 3]",
+    "> 1x",
+    "Info",
+    "INTERACTION",
+    "Enchanted Flames",
+    "Combines: ",
+    "Arcana",
+    " + ",
+    "Fire",
+    "Type: Beneficial",
+    "Strength: 100% (stacked conduits)",
+    "  Enchanted Flames stoke every fire",
+    "  source on the grid, but the",
+    "  strength of the interaction",
+    "  varies: +20% output when an arcana",
+    "  and a fire conduit share a hex,",
+    "  +10% when the conduits run side by",
+    "  side.",
+    "AG&W SCRYING TERMINAL v4.2.0",
+    "Day 1 [1x]",
+    "+38.0/day",
+    "189 GC",
+    " / -100",
+    "Nobody and the NeckRomancers - If It Don't Bite",
+    "Nobody and the NeckRomancers - If It Don't Bite",
+    "Desktop",
+    "Field Ops",
+    "Grimoire"
+  ],
+  "file": "fm-inspector.png",
+  "meta": {
+    "alt": "Interaction inspector over a Wizard Academy: Enchanted Flames, arcana plus fire, beneficial, 100 percent because the conduits share a hex.",
+    "caption": "Click a reacting hex to see which interaction it is and whether it's at full strength (stacked) or half (adjacent).",
+    "hex": [
+      6,
+      4
+    ],
+    "op": "scenario_1c",
+    "seed": 5,
+    "zoom": 1.5
+  },
+  "missing": [],
+  "name": "fm-inspector",
+  "seq": 1,
+  "shot": "M8",
+  "window": {
+    "h": 720,
+    "w": 1280
+  }
+}

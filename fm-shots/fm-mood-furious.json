@@ -1,0 +1,28 @@
+{
+  "callouts": [],
+  "crop": {
+    "h": 180,
+    "w": 220,
+    "x": 530,
+    "y": 275
+  },
+  "drawn": [],
+  "file": "fm-mood-furious.png",
+  "meta": {
+    "alt": "Customer icon with its Furious ring.",
+    "caption": "Customer moods, from Content to Furious. Angry and Furious customers pay nothing.",
+    "frustration": 95,
+    "mood": "furious",
+    "op": "scenario_2",
+    "seed": 2,
+    "zoom": 1.5
+  },
+  "missing": [],
+  "name": "fm-mood-furious",
+  "seq": 5,
+  "shot": "M3",
+  "window": {
+    "h": 720,
+    "w": 1280
+  }
+}

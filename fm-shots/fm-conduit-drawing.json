@@ -1,0 +1,102 @@
+{
+  "callouts": [
+    {
+      "h": 48,
+      "label": "source",
+      "w": 48,
+      "x": 200,
+      "y": 162
+    },
+    {
+      "h": 40,
+      "label": "pinned waypoint",
+      "w": 40,
+      "x": 378,
+      "y": 106
+    },
+    {
+      "h": 108,
+      "label": "route preview",
+      "w": 464,
+      "x": 200,
+      "y": 102
+    },
+    {
+      "h": 46,
+      "label": "cost line",
+      "w": 486,
+      "x": 10,
+      "y": 8
+    },
+    {
+      "h": 139,
+      "label": "prediction panel",
+      "w": 300,
+      "x": 656,
+      "y": 186
+    }
+  ],
+  "crop": {
+    "h": 341,
+    "w": 972,
+    "x": 0,
+    "y": 54
+  },
+  "drawn": [
+    "13.6/14",
+    "The Back Dor",
+    "Confluence",
+    "The Maha's Flame",
+    "The Ikhlas Spring",
+    "The Underdark",
+    "Seam",
+    "The Bog of",
+    "Eternal Stench",
+    "Thulsa Doom",
+    "Academy",
+    "Lilliput Stables",
+    "Witcher Farms",
+    "Crossroads Post",
+    "Orkoz Market",
+    "GOAL: supply every customer in full, keep them content for 5 days",
+    "Cost: 70 GC",
+    "Click open ground: pin route  •  Right-click: undo pin",
+    "PREDICTED",
+    "  Arcana arriving: 13.6",
+    "  Needs: 14  SHORT",
+    "  Relay resets dissipation",
+    "  Dissipation: -1.4 over 7 hexes",
+    "> 1x",
+    "Info",
+    "AG&W SCRYING TERMINAL v4.2.0",
+    "Day 0 [1x]",
+    "+0.0/day",
+    "500 GC",
+    " / -200",
+    "Nobody and the NeckRomancers - If It Don't Bite",
+    "Nobody and the NeckRomancers - If It Don't Bite",
+    "Desktop",
+    "Field Ops",
+    "Grimoire"
+  ],
+  "file": "fm-conduit-drawing.png",
+  "meta": {
+    "alt": "A conduit being drawn from a ley line nexus through a pinned waypoint to an academy, with a prediction panel showing arcana arriving just under the need of 14, marked short.",
+    "caption": "Drawing a conduit. Click open ground to pin the route; the prediction shows what will arrive before you commit.",
+    "op": "scenario_2",
+    "seed": 2,
+    "waypoint": [
+      3,
+      1
+    ],
+    "zoom": 1
+  },
+  "missing": [],
+  "name": "fm-conduit-drawing",
+  "seq": 1,
+  "shot": "M4",
+  "window": {
+    "h": 720,
+    "w": 1280
+  }
+}

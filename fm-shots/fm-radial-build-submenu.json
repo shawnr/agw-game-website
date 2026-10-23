@@ -1,0 +1,68 @@
+{
+  "callouts": [],
+  "crop": {
+    "h": 420,
+    "w": 420,
+    "x": 430,
+    "y": 150
+  },
+  "drawn": [
+    "The Nightlight",
+    "Nexus",
+    "The Ashen Rift",
+    "The Hollow Places",
+    "Seep",
+    "Puddleglum Bogs",
+    "Magick Academie",
+    "Bargain Bin Bats",
+    "Hardhome Depot",
+    "Fungal Fields",
+    "Rogue Shoe Farms",
+    "Mimic Estates",
+    "Spike Nose Sales",
+    "Burninator's Den",
+    "Ye Dollar",
+    "Generale",
+    "Homeopathic",
+    "Magick College",
+    "GOAL: supply every customer in full, keep them content for 10 days",
+    "|| PAUSED",
+    "[ PAUSED — press SPACE or click >> ]",
+    "50GC",
+    "30GC",
+    "100GC",
+    "75GC",
+    "60GC",
+    "Splitter",
+    "Info",
+    "AG&W SCRYING TERMINAL v4.2.0",
+    "Day 0 [1x] [P]",
+    "+0.0/day",
+    "1000 GC",
+    " / -500",
+    "Nobody and the NeckRomancers - If It Don't Bite",
+    "Nobody and the NeckRomancers - If It Don't Bite",
+    "Desktop",
+    "Field Ops",
+    "Grimoire"
+  ],
+  "file": "fm-radial-build-submenu.png",
+  "meta": {
+    "alt": "The Build submenu showing Relay Station, Splitter, Transformer, Battery and Filter with prices, Splitter hovered.",
+    "caption": "Right-click to open the radial menu. Build lists every component you've unlocked, with its price.",
+    "hex": [
+      6,
+      3
+    ],
+    "op": "scenario_4",
+    "seed": 4
+  },
+  "missing": [],
+  "name": "fm-radial-build-submenu",
+  "seq": 2,
+  "shot": "M6",
+  "window": {
+    "h": 720,
+    "w": 1280
+  }
+}

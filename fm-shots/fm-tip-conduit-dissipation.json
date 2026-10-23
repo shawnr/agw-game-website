@@ -1,0 +1,77 @@
+{
+  "callouts": [
+    {
+      "h": 22,
+      "label": "delivered / capacity",
+      "w": 207,
+      "x": 196,
+      "y": 173
+    },
+    {
+      "h": 22,
+      "label": "distance loss",
+      "w": 171,
+      "x": 196,
+      "y": 198
+    }
+  ],
+  "crop": {
+    "h": 284,
+    "w": 437,
+    "x": 466,
+    "y": 218
+  },
+  "drawn": [
+    "The Back Dor",
+    "Confluence",
+    "The Maha's Flame",
+    "The Ikhlas Spring",
+    "The Underdark",
+    "Seam",
+    "The Bog of",
+    "Eternal Stench",
+    "Thulsa Doom",
+    "Academy",
+    "Lilliput Stables",
+    "Witcher Farms",
+    "Crossroads Post",
+    "Orkoz Market",
+    "GOAL: supply every customer in full, keep them content for 5 days",
+    "Conduit (Arcana)",
+    "  Delivering: 13.8 / 15",
+    "  Dissipation: -1.2",
+    "  Right-click for options",
+    "> 1x",
+    "Info",
+    "AG&W SCRYING TERMINAL v4.2.0",
+    "Day 1 [1x]",
+    "+37.6/day",
+    "240 GC",
+    " / -200",
+    "Nobody and the NeckRomancers - If It Don't Bite",
+    "Nobody and the NeckRomancers - If It Don't Bite",
+    "Desktop",
+    "Field Ops",
+    "Grimoire"
+  ],
+  "file": "fm-tip-conduit-dissipation.png",
+  "meta": {
+    "alt": "Tooltip on an arcana conduit: delivering 13.8 of 15, dissipation minus 1.2.",
+    "caption": "A conduit's tooltip shows how much it delivers and how much it loses to distance.",
+    "hex": [
+      4,
+      2
+    ],
+    "op": "scenario_2",
+    "seed": 2,
+    "zoom": 1.5
+  },
+  "missing": [],
+  "name": "fm-tip-conduit-dissipation",
+  "seq": 1,
+  "shot": "M5",
+  "window": {
+    "h": 720,
+    "w": 1280
+  }
+}

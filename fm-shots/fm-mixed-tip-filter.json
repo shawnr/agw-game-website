@@ -1,0 +1,80 @@
+{
+  "callouts": [
+    {
+      "h": 22,
+      "label": "allowed type",
+      "w": 135,
+      "x": 100,
+      "y": 134
+    },
+    {
+      "h": 22,
+      "label": "half capacity",
+      "w": 297,
+      "x": 100,
+      "y": 159
+    }
+  ],
+  "crop": {
+    "h": 277,
+    "w": 413,
+    "x": 645,
+    "y": 138
+  },
+  "drawn": [
+    "F",
+    "S",
+    "The Nightlight",
+    "Nexus",
+    "The Ashen Rift",
+    "The Hollow Places",
+    "Seep",
+    "Puddleglum Bogs",
+    "Magick Academie",
+    "Bargain Bin Bats",
+    "Hardhome Depot",
+    "Fungal Fields",
+    "Rogue Shoe Farms",
+    "Mimic Estates",
+    "Spike Nose Sales",
+    "Burninator's Den",
+    "Ye Dollar",
+    "Generale",
+    "Homeopathic",
+    "Magick College",
+    "GOAL: supply every customer in full, keep them content for 10 days",
+    "Filter",
+    "  Upkeep: 3 GC/day",
+    "  Allows: Water",
+    "  Insulated output: half capacity",
+    "  In: 7.3  ->  Out: 7.3",
+    "  Shift+Click cycles allowed type",
+    "  Right-click for options",
+    "> 1x",
+    "Info",
+    "AG&W SCRYING TERMINAL v4.2.0",
+    "Day 2 [1x]",
+    "+55.4/day",
+    "1109 GC",
+    " / -500",
+    "Nobody and the NeckRomancers - If It Don't Bite",
+    "Nobody and the NeckRomancers - If It Don't Bite",
+    "Desktop",
+    "Field Ops",
+    "Grimoire"
+  ],
+  "file": "fm-mixed-tip-filter.png",
+  "meta": {
+    "alt": "Filter tooltip: allows water, insulated output at half capacity.",
+    "caption": "A Filter lets one type through on an insulated line at half capacity.",
+    "op": "scenario_4"
+  },
+  "missing": [],
+  "name": "fm-mixed-tip-filter",
+  "seq": 3,
+  "shot": "M7",
+  "window": {
+    "h": 720,
+    "w": 1280
+  }
+}
