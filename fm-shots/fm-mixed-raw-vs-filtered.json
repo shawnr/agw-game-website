@@ -1,49 +1,50 @@
 {
   "callouts": [
     {
-      "h": 58,
-      "label": "mixed source",
-      "w": 58,
-      "x": 560,
-      "y": 91
-    },
-    {
-      "h": 418,
-      "label": "raw two-tone line",
-      "w": 515,
-      "x": 103,
-      "y": 91
-    },
-    {
-      "h": 86,
-      "label": "Fertile Growth zone",
-      "w": 170,
-      "x": 421,
-      "y": 149
-    },
-    {
       "h": 48,
-      "label": "filter",
+      "label": "mixed source",
       "w": 48,
-      "x": 648,
-      "y": 96
+      "x": 426,
+      "y": 30
     },
     {
-      "h": 130,
+      "h": 348,
+      "label": "raw two-tone line",
+      "w": 429,
+      "x": 45,
+      "y": 30
+    },
+    {
+      "h": 72,
+      "label": "Fertile Growth zone",
+      "w": 141,
+      "x": 310,
+      "y": 78
+    },
+    {
+      "h": 40,
+      "label": "filter",
+      "w": 40,
+      "x": 499,
+      "y": 34
+    },
+    {
+      "h": 108,
       "label": "insulated line",
-      "w": 515,
-      "x": 643,
-      "y": 91
+      "w": 429,
+      "x": 495,
+      "y": 30
     }
   ],
   "crop": {
-    "h": 600,
-    "w": 1219,
-    "x": 51,
-    "y": 96
+    "h": 398,
+    "w": 973,
+    "x": 190,
+    "y": 186
   },
   "drawn": [],
   "file": "fm-mixed-raw-vs-filtered.png",
+  "forbidden": [],
   "meta": {
     "alt": "A two-type spring feeding a farm with a two-colored raw line inside a Fertile Growth zone, and a filter next to it sending an insulated water line with a grey sheath.",
     "caption": "Left: a raw mixed line carries both types and reacts with itself. Right: a Filter sends one type on an insulated line.",
@@ -53,7 +54,7 @@
     ],
     "op": "scenario_4",
     "seed": 4,
-    "zoom": 1.2
+    "zoom": 1
   },
   "missing": [],
   "name": "fm-mixed-raw-vs-filtered",

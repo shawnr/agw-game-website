@@ -4,22 +4,22 @@
       "h": 47,
       "label": "per-type share",
       "w": 180,
-      "x": 100,
-      "y": 134
+      "x": 88,
+      "y": 122
     },
     {
       "h": 22,
       "label": "reacts with itself",
       "w": 333,
-      "x": 100,
-      "y": 209
+      "x": 88,
+      "y": 197
     }
   ],
   "crop": {
-    "h": 352,
-    "w": 449,
-    "x": 271,
-    "y": 210
+    "h": 290,
+    "w": 437,
+    "x": 331,
+    "y": 234
   },
   "drawn": [
     "F",
@@ -50,15 +50,13 @@
     "  Dissipation: -1.6",
     "  Raw mixed energy reacts with itself",
     "  Right-click for options",
-    "[Magma Vents]",
     "[Fertile Growth]",
-    "[Steam Clouds]",
     "> 1x",
     "Info",
     "AG&W SCRYING TERMINAL v4.2.0",
     "Day 2 [1x]",
-    "+55.4/day",
-    "1106 GC",
+    "+50.0/day",
+    "1092 GC",
     " / -500",
     "Nobody and the NeckRomancers - If It Don't Bite",
     "Nobody and the NeckRomancers - If It Don't Bite",
@@ -67,6 +65,7 @@
     "Grimoire"
   ],
   "file": "fm-mixed-tip-raw.png",
+  "forbidden": [],
   "meta": {
     "alt": "Tooltip on a raw earth and water conduit: 7.5 of each type, raw mixed energy reacts with itself.",
     "caption": "A raw mixed conduit carries both types, half its capacity each, and reacts with itself.",

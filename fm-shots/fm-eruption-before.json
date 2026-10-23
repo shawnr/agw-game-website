@@ -1,0 +1,42 @@
+{
+  "callouts": [
+    {
+      "h": 115,
+      "label": "hazard zone",
+      "w": 115,
+      "x": 240,
+      "y": 306
+    },
+    {
+      "h": 283,
+      "label": "flashing conduits",
+      "w": 317,
+      "x": 15,
+      "y": 114
+    }
+  ],
+  "crop": {
+    "h": 426,
+    "w": 538,
+    "x": 742,
+    "y": 26
+  },
+  "drawn": [],
+  "file": "fm-eruption-before.png",
+  "forbidden": [],
+  "meta": {
+    "alt": "Fire and gas conduits meeting at a goblin bazaar, in their normal colors.",
+    "caption": "The bazaar's fire and gas lines on an ordinary day.",
+    "op": "scenario_2",
+    "seed": 2,
+    "zoom": 1.2
+  },
+  "missing": [],
+  "name": "fm-eruption-before",
+  "seq": 1,
+  "shot": "M9",
+  "window": {
+    "h": 720,
+    "w": 1280
+  }
+}

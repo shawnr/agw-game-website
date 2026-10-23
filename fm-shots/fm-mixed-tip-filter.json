@@ -4,22 +4,22 @@
       "h": 22,
       "label": "allowed type",
       "w": 135,
-      "x": 100,
-      "y": 134
+      "x": 88,
+      "y": 122
     },
     {
       "h": 22,
       "label": "half capacity",
       "w": 297,
-      "x": 100,
-      "y": 159
+      "x": 88,
+      "y": 147
     }
   ],
   "crop": {
-    "h": 277,
-    "w": 413,
-    "x": 645,
-    "y": 138
+    "h": 265,
+    "w": 401,
+    "x": 643,
+    "y": 174
   },
   "drawn": [
     "F",
@@ -54,8 +54,8 @@
     "Info",
     "AG&W SCRYING TERMINAL v4.2.0",
     "Day 2 [1x]",
-    "+55.4/day",
-    "1109 GC",
+    "+50.0/day",
+    "1095 GC",
     " / -500",
     "Nobody and the NeckRomancers - If It Don't Bite",
     "Nobody and the NeckRomancers - If It Don't Bite",
@@ -64,6 +64,7 @@
     "Grimoire"
   ],
   "file": "fm-mixed-tip-filter.png",
+  "forbidden": [],
   "meta": {
     "alt": "Filter tooltip: allows water, insulated output at half capacity.",
     "caption": "A Filter lets one type through on an insulated line at half capacity.",

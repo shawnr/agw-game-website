@@ -1,6 +1,6 @@
 # Field Manual screenshots (masters)
 
-Lossless captures for the Field Manual, taken from game 1.1.0 on 2026-10-23. This folder sits outside `src/`, so nothing here is deployed. Convert to WebP into `src/assets/images/` when placing an image on a page.
+Lossless captures for the Field Manual, taken from game 1.1.0 on 2026-10-23 (M7 and M9 recaptured the same day per the doc's recapture notes). This folder sits outside `src/`, so nothing here is deployed. Convert to WebP into `src/assets/images/` when placing an image on a page.
 
 - `<name>.png`: the cropped capture. No labels or callouts are drawn in.
 - `<name>.json`: the sidecar. `meta.caption` and `meta.alt` are draft caption and alt text. `callouts` are label rectangles in the PNG's own pixels, for the web side to draw.
@@ -18,6 +18,6 @@ Shot list and placement, from the "AG&W Field Manual Screenshot Requests" doc:
 | M6 | `fm-radial-build-root`, `fm-radial-build-submenu` | Components › Placing and removing; Controls › Radial menu |
 | M7 | `fm-mixed-raw-vs-filtered`, `fm-mixed-tip-source`, `-raw`, `-filter` | Sources & Customers › Mixed sources; Components › Filter, Raw mixed and merged, Insulated |
 | M8 | `fm-inspector` | Interactions › How interactions work |
-| M9 | `fm-eruption`, `fm-eruption-tip` | Interactions › Eruptions, Explosion Risk |
+| M9 | `fm-eruption-before`, `fm-eruption`, `fm-eruption-tip` | Interactions › Eruptions, Explosion Risk (before and after side by side) |
 
 To regenerate, from the `agw-game` repo: `love . --test fm_shots` (or `--op M7` for one shot). See its `test/README.md`.

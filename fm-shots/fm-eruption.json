@@ -4,29 +4,29 @@
       "h": 115,
       "label": "hazard zone",
       "w": 115,
-      "x": 112,
-      "y": 344
+      "x": 240,
+      "y": 306
     },
     {
-      "h": 431,
+      "h": 283,
       "label": "flashing conduits",
-      "w": 199,
-      "x": 0,
-      "y": 0
+      "w": 317,
+      "x": 15,
+      "y": 114
     },
     {
       "h": 90,
       "label": "HAZARD notice",
       "w": 218,
-      "x": 284,
-      "y": 16
+      "x": 272,
+      "y": 8
     }
   ],
   "crop": {
-    "h": 572,
-    "w": 518,
-    "x": 730,
-    "y": 18
+    "h": 426,
+    "w": 538,
+    "x": 742,
+    "y": 26
   },
   "drawn": [
     "R",
@@ -49,21 +49,15 @@
     "Crossroads Post",
     "Orkoz Market",
     "GOAL: supply every customer in full, keep them content for 5 days",
-    "Witcher Farms",
-    "Status: content",
-    "  Earth: 6.2 / 3 OK",
-    "  Water: 6.8 / 5 OK",
-    "  Revenue: 16.0 GC/day (x1.00)",
-    "  Interaction: +25% revenue",
     "> 1x",
     "[HAZARD] Eruption! 2",
     "conduits lost up to 30%",
     "of their energy today.",
     "Info",
-    "AG&W SCRYING TERMINAL v4.2.0",
+    "AG&W SCRYING TERMINAL v6.6.6",
     "Day 3 [1x]",
     "+120.6/day",
-    "836 GC",
+    "833 GC",
     " / -200",
     "Nobody and the NeckRomancers - If It Don't Bite",
     "Nobody and the NeckRomancers - If It Don't Bite",
@@ -72,6 +66,7 @@
     "Grimoire"
   ],
   "file": "fm-eruption.png",
+  "forbidden": [],
   "meta": {
     "alt": "Fire and gas conduits flashing red where they meet at a goblin bazaar, with a hazard notice.",
     "caption": "An eruption. Every conduit in the zone loses part of its flow until the next day's check.",
@@ -82,7 +77,7 @@
   },
   "missing": [],
   "name": "fm-eruption",
-  "seq": 1,
+  "seq": 2,
   "shot": "M9",
   "window": {
     "h": 720,
