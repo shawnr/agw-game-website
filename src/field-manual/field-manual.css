@@ -24,8 +24,9 @@
   --kind-hazard:     #E64D33;
 
   --fm-panel: rgba(14, 11, 6, 0.92);
-  --fm-line: rgba(212, 160, 23, 0.18);
+  --fm-line: rgba(212, 160, 23, 0.35);        /* content boxes, about 2:1 */
   --fm-line-strong: rgba(212, 160, 23, 0.45);
+  --fm-line-ui: rgba(212, 160, 23, 0.6);       /* clickable boundaries, 3.5:1+ (WCAG 1.4.11) */
   --fm-sidebar-w: 250px;
 }
 
@@ -105,7 +106,7 @@ body.fm {
   display: none;
   margin-left: auto;
   background: none;
-  border: 1px solid var(--fm-line-strong);
+  border: 1px solid var(--fm-line-ui);
   border-radius: 4px;
   color: #FFE6B3;
   font-family: var(--font-display);
@@ -175,7 +176,7 @@ body.fm {
 .fm-results {
   list-style: none;
   margin-top: 0.4rem;
-  border: 1px solid var(--fm-line);
+  border: 1px solid var(--fm-line-ui);
   border-radius: 4px;
   background: #0A0806;
   max-height: 60vh;
@@ -673,25 +674,38 @@ kbd {
   display: block;
   padding: 1rem 1.15rem 1.1rem;
   background: var(--fm-panel);
-  border: 1px solid var(--fm-line);
+  border: 1px solid var(--fm-line-ui);
   border-radius: 6px;
   text-decoration: none !important;
   transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.fm-card:hover {
-  border-color: var(--fm-line-strong);
+.fm-card:hover,
+.fm-card:focus-visible {
+  border-color: var(--gold);
   transform: translateY(-2px);
   box-shadow: 0 6px 22px rgba(212, 160, 23, 0.12);
 }
 
 .fm-card-title {
-  display: block;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.5rem;
   font-family: var(--font-display);
   font-size: 1.5rem;
   color: var(--gold);
   margin-bottom: 0.2rem;
 }
+
+/* An arrow on every card says "this goes somewhere" */
+.fm-card-title::after {
+  content: '\203A';
+  color: var(--gold);
+  transition: transform 0.2s ease;
+}
+.fm-card:hover .fm-card-title::after,
+.fm-card:focus-visible .fm-card-title::after { transform: translateX(3px); }
 
 .fm-card-desc {
   display: block;
@@ -989,3 +1003,52 @@ kbd {
     transform: scale(1.5);
   }
 }
+
+/* ============================================================
+   Tables on small screens: fit where possible; where a table
+   still scrolls, keep the row labels pinned and show that there
+   is more to the right (field-manual.js adds .is-scrollable)
+   ============================================================ */
+@media (max-width: 600px) {
+  .fm-table { font-size: 0.95rem; }
+  .fm-table th,
+  .fm-table td { padding: 0.45rem 0.55rem; }
+  .fm-table thead th { white-space: normal; font-size: 1.05rem; letter-spacing: 0.03em; }
+  .fm-table td.n,
+  .fm-table th.n { font-size: 1.1rem; }
+  .fm-matrix td a { font-size: 0.95rem; }
+}
+
+.fm-table-wrap.is-scrollable .fm-table thead th:first-child,
+.fm-table-wrap.is-scrollable .fm-table tbody th:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  background: #0D0B06;              /* opaque panel color, so cells slide under it */
+  box-shadow: inset -1px 0 0 var(--fm-line);
+}
+
+/* Gold edge shadow while there are columns off to the right. A scrolling
+   table is focusable, so its frame gets the clickable-boundary contrast. */
+.fm-table-wrap.is-scrollable {
+  border-color: var(--fm-line-ui);
+  background:
+    linear-gradient(to left, #0D0B06 30%, rgba(13, 11, 6, 0)) right center / 32px 100% no-repeat local,
+    radial-gradient(farthest-side at 100% 50%, rgba(212, 160, 23, 0.45), rgba(212, 160, 23, 0)) right center / 14px 100% no-repeat scroll,
+    #0D0B06;
+}
+
+.fm-table-hint {
+  margin: -0.9rem 0 1.4rem;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  color: var(--text-dim);
+}
+
+/* Grid items default to min-width:auto, which let a wide table inside an
+   entry card stretch the card past the screen. Let them shrink so the
+   table's own wrapper scrolls instead. */
+.fm-entry,
+.fm-entries > * { min-width: 0; }
+.fm-table-wrap { max-width: 100%; }

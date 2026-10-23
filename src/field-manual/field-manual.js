@@ -50,6 +50,52 @@
     current.parentNode.appendChild(sub);
   }
 
+  /* --- Wide tables: pinned row labels, a scroll cue, keyboard access --- */
+  var wraps = document.querySelectorAll('.fm-table-wrap');
+
+  function tableLabel(wrap) {
+    var cap = wrap.querySelector('caption');
+    if (cap) return cap.textContent.trim();
+    var h = wrap.previousElementSibling;
+    while (h && !/^H[2-4]$/.test(h.tagName)) h = h.previousElementSibling;
+    return h ? h.textContent.trim() : 'Table';
+  }
+
+  function markScrollable() {
+    wraps.forEach(function (wrap) {
+      var scrolls = wrap.scrollWidth > wrap.clientWidth + 1;
+      var hint = wrap.nextElementSibling;
+      var hasHint = hint && hint.classList.contains('fm-table-hint');
+      wrap.classList.toggle('is-scrollable', scrolls);
+      if (scrolls) {
+        wrap.setAttribute('tabindex', '0');
+        wrap.setAttribute('role', 'region');
+        wrap.setAttribute('aria-label', tableLabel(wrap) + ' (scrolls sideways)');
+        if (!hasHint) {
+          var p = document.createElement('p');
+          p.className = 'fm-table-hint';
+          p.setAttribute('aria-hidden', 'true');
+          p.textContent = 'Scroll sideways for more columns \u203A';
+          wrap.parentNode.insertBefore(p, wrap.nextSibling);
+        }
+      } else {
+        wrap.removeAttribute('tabindex');
+        wrap.removeAttribute('role');
+        wrap.removeAttribute('aria-label');
+        if (hasHint) hint.remove();
+      }
+    });
+  }
+
+  if (wraps.length) {
+    markScrollable();
+    var resizeTimer = null;
+    window.addEventListener('resize', function () {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(markScrollable, 150);
+    });
+  }
+
   if (!input || !results) return;
 
   /* --- Search index --- */

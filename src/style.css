@@ -613,7 +613,7 @@ main { position: relative; z-index: 2; }
   gap: 1.6rem;
   padding: 1.6rem 2rem;
   background: var(--bg-card);
-  border: 1px solid var(--border-glow);
+  border: 1px solid rgba(212, 160, 23, 0.6);  /* clickable: 3.5:1+ */
   border-radius: 10px;
   text-decoration: none;
   transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
@@ -1093,7 +1093,7 @@ html.motion-paused .wa-marquee-text {
   width: 36px;
   height: 28px;
   background: linear-gradient(180deg, #1E1A10 0%, #141008 100%);
-  border: 1px solid #3A3020;
+  border: 1px solid #7A6228;  /* 3:1+ button boundary */
   border-radius: 3px;
   color: var(--wa-accent, #D4A017);
   font-size: 14px;
@@ -1140,7 +1140,7 @@ html.motion-paused .wa-marquee-text {
   flex: 1;
   height: 8px;
   background: #141008;
-  border: 1px solid #2A2010;
+  border: 1px solid #7A6228;  /* 3:1+ slider track */
   border-radius: 4px;
   position: relative;
   cursor: pointer;
@@ -1188,7 +1188,7 @@ html.motion-paused .wa-marquee-text {
   flex: 1;
   height: 6px;
   background: #141008;
-  border: 1px solid #2A2010;
+  border: 1px solid #7A6228;  /* 3:1+ slider track */
   border-radius: 3px;
   position: relative;
   cursor: pointer;
@@ -1427,7 +1427,7 @@ textarea:focus-visible,
   padding: 0.3rem 0.7rem;
   background: rgba(10, 8, 6, 0.92);
   color: var(--gold);
-  border: 1px solid rgba(212, 160, 23, 0.55);
+  border: 1px solid rgba(212, 160, 23, 0.6);
   border-radius: 4px;
   font-family: var(--font-display);
   font-size: 1rem;
