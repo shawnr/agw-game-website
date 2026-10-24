@@ -41,7 +41,7 @@
         <ol>
           <li><a href="index.html">Overview</a></li>
           <li><a href="how-to-play.html">How to Play</a></li>
-          <li><a href="mana.html">Mana Types</a></li>
+          <li><a href="mana.html">Energy Types</a></li>
           <li><a href="buildings.html">Sources &amp; Customers</a></li>
           <li><a href="components.html" aria-current="page">Components &amp; Conduits</a></li>
           <li><a href="interactions.html">Interactions</a></li>
@@ -133,7 +133,7 @@
             <li><strong>One output only.</strong> A merging Splitter can't also split, and a merged conduit can't be split or merged again.</li>
             <li><strong>Straight to a customer.</strong> The merged conduit must run directly to a customer that uses <strong>both</strong> types. It can't feed any component, and nothing can be built on it.</li>
             <li><strong>It reacts with itself.</strong> Its two types interact along its whole length, exactly like a <a href="#raw-mixed-conduits">raw mixed line</a>.</li>
-            <li>Hover the Splitter to see <code>Merging … + … into one upgraded conduit</code>. Remove one input and it goes back to carrying a single type.</li>
+            <li>Hover over the Splitter to see <code>Merging … + … into one upgraded conduit</code>. Remove one input and it goes back to carrying a single type.</li>
           </ul>
           <div class="fm-note tip"><span class="fm-note-label">Pick your pair</span><p>Arcana + Gas and Arcana + Earth don't react at all, so they make clean trunks. Earth + Water earns <a href="interactions.html#fertile-growth">Fertile Growth</a> all the way. Fire + Gas is an <a href="interactions.html#explosion-risk">Explosion Risk</a> on every hex; don't.</p></div>
         </article>
@@ -187,7 +187,7 @@
           <ul>
             <li>A Battery sends out whatever type its output conduit carries, and respects that conduit's capacity, upgraded or not.</li>
           </ul>
-          <div class="fm-note"><span class="fm-note-label">Not a booster</span><p>On a steady input a Battery adds nothing, so it's never a free relay. It's insurance for supply that wobbles. Hover it to see its charge, its <code>Usual input</code>, and whether it's <code>Banking charge from pass-through</code> or <code>Covering a dip</code>.</p></div>
+          <div class="fm-note"><span class="fm-note-label">Not a booster</span><p>On a steady input a Battery adds nothing, so it's never a free relay. It's insurance for supply that wobbles. Hover over it to see its charge, its <code>Usual input</code>, and whether it's <code>Banking charge from pass-through</code> or <code>Covering a dip</code>.</p></div>
           <h4 id="pre-placed-batteries">Pre-placed Batteries</h4>
           <p>Some operations come with Batteries already on the map. They start empty unless the briefing says otherwise, so connect them early to bank some charge.</p>
         </article>
@@ -199,7 +199,7 @@
           <ul>
             <li><strong>Placement:</strong> on a hex next to a source. Hybrids count, so a Filter works on a Dragon Lair, Dwarven Forge or Mushroom Colony too. Its input must come straight from that source. If you place it on an existing conduit, it has to be that conduit's first hex out of the source.</li>
             <li><strong>Output:</strong> one type only, at half the conduit's capacity: 7.5 mana on a basic conduit, 15 on an upgraded one.</li>
-            <li><strong>Insulated:</strong> the output line takes no part in <a href="interactions.html">interactions</a> and is immune to <a href="interactions.html#eruptions">eruptions</a>. See <a href="#insulated-conduits">Insulated conduits</a>.</li>
+            <li><strong>Insulated:</strong> the output line is always insulated, upgraded or not. It takes no part in <a href="interactions.html">interactions</a> and is immune to <a href="interactions.html#eruptions">eruptions</a>. See <a href="#insulated-conduits">Insulated conduits</a>.</li>
             <li><strong>Route it anywhere:</strong> a filtered line can feed components or any customer that uses its type, hybrids included.</li>
             <li><strong>Choosing the type:</strong> on a mixed source, <kbd>Shift</kbd>+Click the Filter (or right-click and choose <strong>Cycle</strong>) to switch between the source's two types. On a single-type source there's only one choice. As with a Transformer, cycling skips a type that would meet a different type at a Splitter downstream.</li>
             <li>A <a href="interactions.html#purification">Purification</a> zone anywhere on the map cuts every Filter's upkeep.</li>
@@ -223,11 +223,11 @@
           <div class="fm-entry-head"><h3><a class="fm-anchor" href="#upgraded-conduits">Upgraded conduit</a></h3><span class="badge neutral">Unlocks 11th op</span></div>
           <dl class="fm-stats"><div><dt>Cost</dt><dd>25gc/hex</dd></div><div><dt>Capacity</dt><dd>30 mana/day</dd></div><div><dt>Loss</dt><dd>0.2 mana/hex</dd></div><div><dt>Eruptions</dt><dd>half loss</dd></div></dl>
           <ul>
-            <li>Right-click a conduit and choose <strong>Upgrade</strong>. Upgrading costs the difference, 15gc per hex. The option is greyed out if it would put you over your debt limit.</li>
+            <li>Right-click a conduit and choose <strong>Upgrade</strong>. Upgrading costs the difference, 15gc per hex. The option is greyed out if it would put you over your credit limit.</li>
             <li>Doubles capacity to 30 mana per day, so one upgraded conduit can carry a source's whole output.</li>
             <li><strong>Hardened:</strong> takes only half the loss when an <a href="interactions.html#eruptions">eruption</a> hits it.</li>
             <li>Distance loss is unchanged. Upgrades are for throughput and protection; <a href="#relay-station">relays</a> are still the answer for distance.</li>
-            <li>Hover an upgraded conduit and its tooltip reads <code>Hardened: eruption losses halved</code>.</li>
+            <li>Hover over an upgraded conduit and its tooltip reads <code>Hardened: eruption losses halved</code>.</li>
             <li>Every <a href="#merged-conduits">merged conduit</a> is an upgraded conduit.</li>
           </ul>
         </article>
@@ -240,7 +240,7 @@
             <li>Distance loss is shared between the two types, 0.1 mana per hex each.</li>
             <li>It must run <strong>directly to a customer that needs both types</strong>. It can't feed any component, nothing can be built on it, and it can't be split or merged again.</li>
             <li>The two types <strong>react with each other on every hex</strong> of the line. A Fire + Earth line is <a href="interactions.html#magma-vents">Magma Vents</a> from end to end; a Fire + Gas line is an <a href="interactions.html#explosion-risk">Explosion Risk</a> along its whole length. The tooltip warns <code>Raw mixed energy reacts with itself</code>.</li>
-            <li>Hover it to see how much of each type is being delivered.</li>
+            <li>Hover over it to see how much of each type is being delivered.</li>
           </ul>
       <!-- fig:mixed-raw-tip -->
       <figure class="fm-figure" id="fig-mixed-raw-tip"><div class="fm-shot" style="max-width:437px"><img src="../assets/images/field-manual/fm-mixed-tip-raw.webp" width="437" height="290" alt="Tooltip on a raw earth and water conduit: 7.5 of each type, raw mixed energy reacts with itself." loading="lazy" decoding="async"><svg class="fm-shot-callouts" viewBox="0 0 437 290" preserveAspectRatio="xMinYMin meet" aria-hidden="true" focusable="false"><rect class="fm-co-halo" x="85" y="119" width="186" height="53" rx="4"/><rect class="fm-co-box" x="85" y="119" width="186" height="53" rx="4"/><rect class="fm-co-halo" x="85" y="194" width="339" height="28" rx="4"/><rect class="fm-co-box" x="85" y="194" width="339" height="28" rx="4"/><g class="fm-co-badge"><circle cx="284" cy="146" r="11"/><text x="284" y="146" font-size="16">1</text></g><g class="fm-co-badge"><circle cx="72" cy="208" r="11"/><text x="72" y="208" font-size="16">2</text></g></svg></div><figcaption><p>A raw mixed conduit carries both types, half its capacity each, and reacts with itself.</p><ol class="fm-callouts" role="list"><li><span>Each type gets half the capacity</span></li><li><span>Its two types react with each other</span></li></ol></figcaption></figure>

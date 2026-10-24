@@ -57,14 +57,14 @@ SPEC = [
             ("transformer", '<a href="components.html#transformer">Transformer</a>', {"side": "left"}),
             ("splitter", '<a href="components.html#splitter">Splitter</a>', {"side": "right"}),
             ("hybrid", '<a href="buildings.html#hybrids">Hybrid</a> (a Dwarven Forge)', {"side": "right"}),
-            ("goal and streak bar", 'Goal and <a href="#winning">Content streak</a> bar', {"side": "right"}),
+            ("goal and streak bar", 'Goal and <a href="#winning">Contentment streak</a> bar', {"side": "right"}),
             ("budget and credit limit", 'Budget and <a href="#debt">credit limit</a>', {"side": "below", "grow_w": 52}),
             ("daily income", "Daily income", {"side": "below"}),
             ("day", "Day and speed", {"side": "below"}),
             ("[Info] tab", "[Info] tab: press <kbd>N</kbd>", {"side": "right"}),
             ("minimap", "Minimap: press <kbd>M</kbd>", {"side": "right"}),
             ("speed control", 'Speed control (<a href="#time">time</a>)', {"side": "left"}),
-            ("taskbar", "Taskbar: back to your desktop", {"at": [300, 706], "box": False}),
+            ("taskbar", "Taskbar: back to the terminal", {"at": [300, 706], "box": False}),
         ],
     },
     {
@@ -101,6 +101,7 @@ SPEC = [
     },
     {
         "fig": "customer-short", "page": "how-to-play.html",
+        "caption": "Hovering over a customer shows what each mana type receives against what it needs. The !! marks a type that's short.",
         "shots": [{"name": "fm-tip-customer-short"}],
         "callouts": [
             ("declining trend", "Mood trend", {"side": "right"}),
