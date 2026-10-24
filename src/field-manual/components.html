@@ -194,11 +194,11 @@
 
         <article class="fm-entry" id="filter" data-keywords="separate mixed source insulation insulated isolate one type">
           <div class="fm-entry-head"><h3><a class="fm-anchor" href="#filter">Filter</a></h3><span class="badge neutral">Unlocks 11th op</span></div>
-          <dl class="fm-stats"><div><dt>Cost</dt><dd>60gc</dd></div><div><dt>Upkeep</dt><dd>3gc/day</dd></div><div><dt>Conduits</dt><dd>1 in / 1 out</dd></div><div><dt>Output</dt><dd>half capacity</dd></div></dl>
+          <dl class="fm-stats"><div><dt>Cost</dt><dd>60gc</dd></div><div><dt>Upkeep</dt><dd>3gc/day</dd></div><div><dt>Conduits</dt><dd>1 in / 1 out</dd></div><div><dt>Output</dt><dd>7.5 or 15 mana/day</dd></div></dl>
           <p class="fm-entry-sub">"Place on a hex adjacent to any source hex. Sends out one energy type at half the conduit's capacity, and the filtered conduit doesn't take part in interactions. On a mixed source, Shift+Click or right-click to choose which type passes."</p>
           <ul>
             <li><strong>Placement:</strong> on a hex next to a source. Hybrids count, so a Filter works on a Dragon Lair, Dwarven Forge or Mushroom Colony too. Its input must come straight from that source. If you place it on an existing conduit, it has to be that conduit's first hex out of the source.</li>
-            <li><strong>Output:</strong> one type only, at half the conduit's capacity: 7.5 mana on a basic conduit, 15 on an upgraded one.</li>
+            <li><strong>Output:</strong> one type only, on an insulated line. The insulation takes up room inside the conduit, so a basic line out of a Filter carries 7.5 mana per day instead of 15. <strong>Upgrade it and it carries 15</strong>: a normal conduit's flow, with the insulation on top. (An upgraded conduit without insulation carries 30.)</li>
             <li><strong>Insulated:</strong> the output line is always insulated, upgraded or not. It takes no part in <a href="interactions.html">interactions</a> and is immune to <a href="interactions.html#eruptions">eruptions</a>. See <a href="#insulated-conduits">Insulated conduits</a>.</li>
             <li><strong>Route it anywhere:</strong> a filtered line can feed components or any customer that uses its type, hybrids included.</li>
             <li><strong>Choosing the type:</strong> on a mixed source, <kbd>Shift</kbd>+Click the Filter (or right-click and choose <strong>Cycle</strong>) to switch between the source's two types. On a single-type source there's only one choice. As with a Transformer, cycling skips a type that would meet a different type at a Splitter downstream.</li>
@@ -207,7 +207,7 @@
       <!-- fig:filter-tip -->
       <figure class="fm-figure" id="fig-filter-tip"><div class="fm-shot" style="max-width:401px"><img src="../assets/images/field-manual/fm-mixed-tip-filter.webp" width="401" height="265" alt="Filter tooltip: allows water, insulated output at half capacity." loading="lazy" decoding="async"><svg class="fm-shot-callouts" viewBox="0 0 401 265" preserveAspectRatio="xMinYMin meet" aria-hidden="true" focusable="false"><rect class="fm-co-halo" x="85" y="119" width="141" height="28" rx="4"/><rect class="fm-co-box" x="85" y="119" width="141" height="28" rx="4"/><rect class="fm-co-halo" x="85" y="144" width="303" height="28" rx="4"/><rect class="fm-co-box" x="85" y="144" width="303" height="28" rx="4"/><g class="fm-co-badge"><circle cx="239" cy="133" r="11"/><text x="239" y="133" font-size="16">1</text></g><g class="fm-co-badge"><circle cx="72" cy="158" r="11"/><text x="72" y="158" font-size="16">2</text></g></svg></div><figcaption><p>A Filter lets one type through on an insulated line at half capacity.</p><ol class="fm-callouts" role="list"><li><span>The type it passes</span></li><li><span>Insulated, at half capacity</span></li></ol></figcaption></figure>
       <!-- /fig:filter-tip -->
-          <div class="fm-note tip"><span class="fm-note-label">Tip</span><p>Filters aren't only for mixed sources. A Filter on an ordinary Fire Geyser gives you an insulated fire line that can run right past gas without any risk of explosion, at the cost of half the capacity.</p></div>
+          <div class="fm-note tip"><span class="fm-note-label">Tip</span><p>Filters aren't only for mixed sources. A Filter on an ordinary Fire Geyser gives you an insulated fire line that can run right past gas without any risk of explosion, at the cost of half the capacity. Upgrade the filtered line to carry a full 15.</p></div>
         </article>
       </div>
 
@@ -253,7 +253,7 @@
           <p>A conduit leaving a <a href="#filter">Filter</a>, drawn with a slate-grey sheath underneath.</p>
           <ul>
             <li>Takes no part in any <a href="interactions.html">interaction</a>, good or bad, and is immune to eruptions.</li>
-            <li>Carries half the usual capacity (7.5 mana basic, 15 upgraded).</li>
+            <li>Carries half the usual capacity, because the insulation takes up room inside the conduit: 7.5 mana per day basic, 15 upgraded. Upgrading a filtered line gives you a normal conduit's 15 with the insulation intact.</li>
             <li>Insulation carries on through Relays, Splitters and Batteries, but only if <em>every</em> line going into that component is insulated. A Transformer always ends it.</li>
             <li>Its tooltip reads <code>Insulation along the conduit prevents interactions with other lines</code>.</li>
           </ul>
