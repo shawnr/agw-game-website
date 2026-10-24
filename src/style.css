@@ -985,14 +985,14 @@ main { position: relative; z-index: 2; }
   width: 380px;
   max-width: 95vw;
   background: #0D0B08;
-  border: 2px solid #3A3020;
+  border: 2px solid var(--wa-line-strong, #3A3020);
   border-radius: 4px;
   box-shadow:
-    inset 0 1px 0 rgba(212, 160, 23, 0.1),
-    0 0 20px rgba(212, 160, 23, 0.08),
+    inset 0 1px 0 color-mix(in srgb, var(--wa-accent, #D4A017) 10%, transparent),
+    0 0 20px color-mix(in srgb, var(--wa-accent, #D4A017) 8%, transparent),
     0 4px 30px rgba(0, 0, 0, 0.6);
   font-family: var(--font-display);
-  color: #D4A017;
+  color: var(--wa-accent-text, #D4A017);
   overflow: hidden;
   user-select: none;
 }
@@ -1004,13 +1004,13 @@ main { position: relative; z-index: 2; }
   align-items: center;
   padding: 6px 10px;
   background: linear-gradient(180deg, #1A1408 0%, #0D0B08 100%);
-  border-bottom: 1px solid #2A2010;
+  border-bottom: 1px solid var(--wa-line, #2A2010);
   font-size: 13px;
   letter-spacing: 0.05em;
 }
 
 .wa-title-text {
-  color: #C9A23A;
+  color: var(--wa-text, #C9A23A);
 }
 
 .wa-title-badge {
@@ -1019,7 +1019,7 @@ main { position: relative; z-index: 2; }
   cursor: pointer;
   font-size: 11px;
   color: #0D0B08;
-  background: var(--wa-accent, #D4A017);
+  background: var(--wa-badge, var(--wa-accent, #D4A017));
   transition: background 0.3s;
   padding: 3px 8px;
   border-radius: 2px;
@@ -1032,8 +1032,8 @@ main { position: relative; z-index: 2; }
   overflow: hidden;
   white-space: nowrap;
   background: #080604;
-  border-top: 1px solid #1A1408;
-  border-bottom: 1px solid #1A1408;
+  border-top: 1px solid var(--wa-line, #1A1408);
+  border-bottom: 1px solid var(--wa-line, #1A1408);
   height: 26px;
 }
 
@@ -1045,7 +1045,7 @@ main { position: relative; z-index: 2; }
 .wa-marquee-text {
   display: inline-block;
   font-size: 15px;
-  color: var(--wa-accent, #D4A017);
+  color: var(--wa-accent-text, var(--wa-accent, #D4A017));
   animation: wa-scroll 12s linear infinite;
   padding-left: 100%;
 }
@@ -1070,7 +1070,7 @@ html.motion-paused .wa-marquee-text {
   position: relative;
   margin: 6px 10px;
   background: #080604;
-  border: 1px solid #1A1408;
+  border: 1px solid var(--wa-line, #1A1408);
   border-radius: 2px;
   overflow: hidden;
 }
@@ -1093,7 +1093,7 @@ html.motion-paused .wa-marquee-text {
   width: 36px;
   height: 28px;
   background: linear-gradient(180deg, #1E1A10 0%, #141008 100%);
-  border: 1px solid #7A6228;  /* 3:1+ button boundary */
+  border: 1px solid var(--wa-edge, #7A6228);  /* 3:1+ button boundary */
   border-radius: 3px;
   color: var(--wa-accent, #D4A017);
   font-size: 14px;
@@ -1131,7 +1131,7 @@ html.motion-paused .wa-marquee-text {
 }
 
 .wa-time, .wa-duration {
-  color: #C9A23A;
+  color: var(--wa-text, #C9A23A);
   min-width: 38px;
   text-align: center;
 }
@@ -1140,7 +1140,7 @@ html.motion-paused .wa-marquee-text {
   flex: 1;
   height: 8px;
   background: #141008;
-  border: 1px solid #7A6228;  /* 3:1+ slider track */
+  border: 1px solid var(--wa-edge, #7A6228);  /* 3:1+ slider track */
   border-radius: 4px;
   position: relative;
   cursor: pointer;
@@ -1179,7 +1179,7 @@ html.motion-paused .wa-marquee-text {
 }
 
 .wa-vol-label {
-  color: #C9A23A;
+  color: var(--wa-text, #C9A23A);
   font-size: 11px;
   letter-spacing: 0.1em;
 }
@@ -1188,7 +1188,7 @@ html.motion-paused .wa-marquee-text {
   flex: 1;
   height: 6px;
   background: #141008;
-  border: 1px solid #7A6228;  /* 3:1+ slider track */
+  border: 1px solid var(--wa-edge, #7A6228);  /* 3:1+ slider track */
   border-radius: 3px;
   position: relative;
   cursor: pointer;
@@ -1204,7 +1204,7 @@ html.motion-paused .wa-marquee-text {
 }
 
 .wa-status-mode {
-  color: #C9A23A;
+  color: var(--wa-text, #C9A23A);
   font-size: 11px;
   letter-spacing: 0.1em;
   margin-left: auto;
@@ -1215,12 +1215,12 @@ html.motion-paused .wa-marquee-text {
   list-style: none;
   margin: 0;
   padding: 0;
-  border-top: 1px solid #1A1408;
+  border-top: 1px solid var(--wa-line, #1A1408);
   background: #080604;
   max-height: 140px;
   overflow-y: auto;
   scrollbar-width: thin;
-  scrollbar-color: #3A3020 #080604;
+  scrollbar-color: var(--wa-line-strong, #3A3020) #080604;
 }
 
 .wa-playlist::-webkit-scrollbar {
@@ -1230,7 +1230,7 @@ html.motion-paused .wa-marquee-text {
   background: #080604;
 }
 .wa-playlist::-webkit-scrollbar-thumb {
-  background: #3A3020;
+  background: var(--wa-line-strong, #3A3020);
   border-radius: 3px;
 }
 
@@ -1244,7 +1244,7 @@ html.motion-paused .wa-marquee-text {
   padding: 4px 10px;
   font-size: 13px;
   cursor: pointer;
-  color: #B8973A;
+  color: var(--wa-muted, #B8973A);
   transition: all 0.15s;
   white-space: nowrap;
   overflow: hidden;
@@ -1266,7 +1266,7 @@ html.motion-paused .wa-marquee-text {
 }
 
 .wa-track-num {
-  color: #A08540;
+  color: var(--wa-dim, #A08540);
   margin-right: 2px;
 }
 

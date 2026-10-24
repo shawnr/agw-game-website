@@ -40,6 +40,16 @@
       accent: '#D4A017',
       accentBright: '#FFD700',
       line: '#D4A017',
+      // UI colors, contrast-matched to Amber (text 7.9:1, playlist 6.8:1,
+      // numbers 5.4:1, borders 3.3:1 on the player's panels)
+      uiText: '#C9A23A',
+      uiMuted: '#B8973A',
+      uiDim: '#A08540',
+      uiEdge: '#7A6228',
+      uiLine: '#2A2010',
+      uiLineStrong: '#3A3020',
+      accentText: '#D4A017',
+      badge: '#D4A017',
     },
     {
       name: 'Arcana',
@@ -51,6 +61,14 @@
       accent: '#9933FF',
       accentBright: '#CC77FF',
       line: '#B44EFF',
+      uiText: '#C78FFF',
+      uiMuted: '#BF7EFF',
+      uiDim: '#B062FF',
+      uiEdge: '#8B2FE4',
+      uiLine: '#32183F',
+      uiLineStrong: '#471D67',
+      accentText: '#CC77FF',
+      badge: '#CC77FF',
     },
     {
       name: 'Nature',
@@ -62,6 +80,14 @@
       accent: '#33CC55',
       accentBright: '#66FF88',
       line: '#33CC55',
+      uiText: '#31BF50',
+      uiMuted: '#2FB24A',
+      uiDim: '#2B9C41',
+      uiEdge: '#257431',
+      uiLine: '#182711',
+      uiLineStrong: '#1B3919',
+      accentText: '#33CC55',
+      badge: '#33CC55',
     },
     {
       name: 'Hydro',
@@ -73,6 +99,14 @@
       accent: '#4499FF',
       accentBright: '#88CCFF',
       line: '#4499FF',
+      uiText: '#64AAFF',
+      uiMuted: '#4B9DFF',
+      uiDim: '#3F8AE4',
+      uiEdge: '#3367A5',
+      uiLine: '#1B242C',
+      uiLineStrong: '#213449',
+      accentText: '#4499FF',
+      badge: '#4499FF',
     },
   ];
 
@@ -156,6 +190,15 @@
     root.style.setProperty('--wa-accent', s.accent);
     root.style.setProperty('--wa-accent-bright', s.accentBright);
     root.style.setProperty('--wa-glow', s.glow);
+    // Every interface color follows the skin, not just the accent
+    root.style.setProperty('--wa-text', s.uiText);
+    root.style.setProperty('--wa-muted', s.uiMuted);
+    root.style.setProperty('--wa-dim', s.uiDim);
+    root.style.setProperty('--wa-edge', s.uiEdge);
+    root.style.setProperty('--wa-line', s.uiLine);
+    root.style.setProperty('--wa-line-strong', s.uiLineStrong);
+    root.style.setProperty('--wa-accent-text', s.accentText);
+    root.style.setProperty('--wa-badge', s.badge);
     if (skinBadge) {
       skinBadge.textContent = 'ChantCast';
       skinBadge.title = s.name + ' skin. Click to change.';
