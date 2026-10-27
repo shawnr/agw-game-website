@@ -709,6 +709,81 @@ main { position: relative; z-index: 2; }
   letter-spacing: 0.05em;
 }
 
+/* --- The Trevor Project --- */
+.trevor-section {
+  padding: 3rem 0 4rem;
+  border-top: 1px solid rgba(212, 160, 23, 0.1);
+}
+
+.trevor {
+  max-width: 680px;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+.trevor p { margin-bottom: 1rem; }
+
+.trevor a {
+  color: var(--text-primary);
+  text-decoration: underline;
+  text-decoration-color: rgba(212, 160, 23, 0.4);
+  text-underline-offset: 0.2em;
+}
+
+.trevor a:hover { color: var(--gold); }
+
+.trevor-heading {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: normal;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  text-align: center;
+  margin-bottom: 1.25rem;
+}
+
+.trevor-quote {
+  margin: 1.5rem 0 1.5rem 1.5rem;
+  padding: 0.25rem 0 0.25rem 1.25rem;
+  border-left: 3px solid rgba(212, 160, 23, 0.4);
+}
+
+.trevor-quote blockquote p {
+  margin-bottom: 0.4rem;
+  font-size: 1.05rem;
+  font-style: italic;
+  color: var(--text-primary);
+}
+
+.trevor-quote figcaption {
+  color: var(--text-dim);
+  font-size: 0.9rem;
+}
+
+.trevor-quote cite { font-style: normal; }
+
+.trevor .trevor-quote figcaption a { color: var(--text-secondary); }
+
+@media (max-width: 480px) {
+  .trevor-quote { margin-left: 0; }
+}
+
+.trevor-contacts {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.5rem;
+}
+
+.trevor .trevor-love {
+  margin-bottom: 0;
+  color: var(--text-dim);
+}
+
 /* --- Footer --- */
 .site-footer {
   text-align: center;
