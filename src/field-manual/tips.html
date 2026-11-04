@@ -54,7 +54,7 @@
     <main class="fm-content" id="main" tabindex="-1">
       <p class="fm-crumb">Field Manual</p>
       <h1>Tips &amp; Troubleshooting</h1>
-      <p class="fm-lede">Something's not working and the customers are getting loud. Find your symptom below. The game also watches for these problems: if one lasts a few days you'll get an <code>[ADVISORY]</code> hint, and if it drags on, a fuller explanation.</p>
+      <p class="fm-lede">Something's not working and the customers are getting loud. Find your symptom below. In the campaign, the game also watches for these problems: if one lasts a few days you'll get an <code>[ADVISORY]</code> hint, and if it drags on, a fuller explanation. You can turn hints off in Settings with Field Hints; see <a href="how-to-play.html#hints">Field hints</a>.</p>
 
       <h2 id="supply-problems">Supply problems</h2>
 
@@ -125,8 +125,8 @@
       <h3 id="debt" data-keywords="debt limit audit fail credit">How far into debt can I go?</h3>
       <p>Down to the credit limit shown in the briefing. You can keep building on credit until then, but if your balance reaches the limit the operation ends on the spot. Don't spend right up to it: upkeep and penalties can push you over without you building anything.</p>
 
-      <h3 id="flames-no-boost" data-keywords="enchanted flames boost not working capped">Enchanted Flames isn't giving me any extra fire</h3>
-      <p>The boost is real, but basic conduits are capped at 15 mana. A boosted Fire Geyser making 36 still sends 15 down each of its two basic conduits. Upgrade them to carry the extra.</p>
+      <h3 id="fog-penalty" data-keywords="steam clouds fog revenue less pay penalty fire water">A customer is Content but pays less than it should</h3>
+      <p>Hover over it and look for <code>Interaction: -20% revenue (Steam Clouds)</code>. A fire line and a water line share or neighbor a hex somewhere upstream, and every customer fed through that fog pays 10 to 20% less. Separate the two lines, or <a href="components.html#filter">filter</a> one of them. See <a href="interactions.html#steam-clouds">Steam Clouds</a>.</p>
 
       <h2 id="winning-problems">Winning problems</h2>
 
@@ -146,7 +146,7 @@
         <li>Keep fire and gas at least two hexes apart, and earth and fire too if the eruptions bother you more than the Forge bonus helps.</li>
         <li>Never run a raw Flare Pit line or a merged fire + gas line any distance; every hex is a separate roll.</li>
         <li><a href="components.html#filter">Filter</a> one side so it's insulated, or <a href="components.html#upgraded-conduits">upgrade</a> the exposed lines to halve the loss.</li>
-        <li>Check your Dwarven Forges. A fed Forge has Magma Vents and an Explosion Risk on its own hex.</li>
+        <li>Check where lines arrive at a building. Two conduits that run side by side into the same building react on the way in; bring them in from different directions.</li>
         <li>Put a <a href="components.html#battery">Battery</a> on lines that must never dip. It covers an eruption from its charge.</li>
       </ul>
 
@@ -176,7 +176,7 @@
           </tbody>
         </table>
       </div>
-      <p>The game autosaves every 5 days by default, when you press <kbd>F1</kbd>, and when you quit. A failed operation is saved as failed, so quitting won't undo it.</p>
+      <p>The game autosaves every 5 days by default, and whenever you leave an operation: <kbd>F1</kbd>, Minimize, logging out, switching to the desktop from the taskbar, or quitting. A failed operation is saved as failed, so quitting won't undo it.</p>
 
       <h3 id="steam-cloud" data-keywords="steam cloud sync two computers deck">Can I play on more than one computer?</h3>
       <p>Yes. Steam Cloud syncs your careers. If you've played on two machines, Steam may ask once which copy to keep. Operations in progress stay on the machine you were playing on, so finish or save out of an operation before you switch.</p>

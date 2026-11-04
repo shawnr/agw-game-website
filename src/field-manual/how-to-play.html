@@ -59,6 +59,7 @@
       <h2 id="operations">Operations</h2>
       <p>The campaign is made of <strong>19 operations</strong> across six career tiers, from Probationary Line Technician to Chief of Reclamation. Each one is a hand-built region with its own map, starting budget, credit limit and goal. You start each operation from your desk in the AG&amp;W terminal, and each one opens with a briefing memo from Dispatch that tells you what's expected.</p>
       <p>Early operations teach one idea at a time. New components unlock as you go: Relay Stations and Splitters, then Transformers and Batteries, then Filters and conduit upgrades. The <a href="components.html#unlocks">unlock table</a> lists when each one arrives. An operation that introduces a component is built so that you need it to win.</p>
+      <p id="hints">The campaign also shows <strong>field hints</strong>: short popups that explain a mechanic the first time it matters, and nudges when you seem stuck. From The Resistance Begins on, the stuck nudges arrive as notifications only, and Freelance, Contract of the Day and Form 27-B jobs show none. Turn them off in Settings with <strong>Field Hints</strong>.</p>
       <p>You can replay any completed operation from the Archives to improve your best day. Replays don't change your career progress.</p>
 
       <h2 id="the-map">The map</h2>
@@ -96,7 +97,7 @@
       <p>You can build while the game is paused, and <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Z</kbd> undoes your last action.</p>
 
       <h3 id="refunds">Tearing down and refunds</h3>
-      <p>Right-click a conduit and choose <strong>Tear Down</strong>, or a component and choose <strong>Remove</strong>. Anything you built yourself refunds <strong>in full</strong>, including the upgrade cost of an upgraded conduit. Infrastructure that was already on the map when you arrived refunds nothing.</p>
+      <p>Right-click a conduit and choose <strong>Tear Down</strong>, or a component and choose <strong>Remove</strong>. Anything you built yourself refunds <strong>in full</strong>, including the upgrade cost of an upgraded conduit. Infrastructure that was already on the map when you arrived refunds nothing. In demolish mode (<strong>Demolish</strong> on the radial menu), the HUD shows what the conduit or component under the cursor refunds before you click.</p>
       <blockquote class="fm-memo">
         <p>If you make a mistake, tear it up. Full refund. We're not monsters.</p>
         <cite>Orientation memo, your first day</cite>
@@ -120,10 +121,11 @@
       <!-- fig:dissipation -->
       <figure class="fm-figure" id="fig-dissipation"><div class="fm-shot" style="max-width:437px"><img src="../assets/images/field-manual/fm-tip-conduit-dissipation.webp" width="437" height="284" alt="Tooltip on an arcana conduit: delivering 13.8 of 15, dissipation minus 1.2." loading="lazy" decoding="async"><svg class="fm-shot-callouts" viewBox="0 0 437 284" preserveAspectRatio="xMinYMin meet" aria-hidden="true" focusable="false"><rect class="fm-co-halo" x="193" y="170" width="213" height="28" rx="4"/><rect class="fm-co-box" x="193" y="170" width="213" height="28" rx="4"/><rect class="fm-co-halo" x="193" y="195" width="177" height="28" rx="4"/><rect class="fm-co-box" x="193" y="195" width="177" height="28" rx="4"/><g class="fm-co-badge"><circle cx="419" cy="184" r="11"/><text x="419" y="184" font-size="16">1</text></g><g class="fm-co-badge"><circle cx="383" cy="209" r="11"/><text x="383" y="209" font-size="16">2</text></g></svg></div><figcaption><p>A conduit&#x27;s tooltip shows how much it delivers and how much it loses to distance.</p><ol class="fm-callouts" role="list"><li><span>Delivered against capacity</span></li><li><span>Lost to distance</span></li></ol></figcaption></figure>
       <!-- /fig:dissipation -->
-      <p>So a full 15 mana sent down a 10-hex conduit arrives as 13 mana. If the customer at the end needs 15, it's short, and a short customer gets frustrated. Two ways out:</p>
+      <p>So a full 15 mana sent down a 10-hex conduit arrives as 13 mana. If the customer at the end needs 15, it's short, and a short customer gets frustrated. Three ways out:</p>
       <ul>
         <li><strong>Send surplus.</strong> Feed more than the exact demand so there's room for the loss.</li>
         <li><strong>Use a Relay Station.</strong> A conduit that ends at a <a href="components.html#relay-station">Relay Station</a> loses nothing, however long it is. Only the leg after the last relay pays dissipation.</li>
+        <li><strong>For fire, set up Enchanted Flames.</strong> An arcana conduit sharing or neighboring a hex with a fire conduit cuts the loss on every fire conduit on the map, to as little as 0.1 mana per hex. See <a href="interactions.html#enchanted-flames">Enchanted Flames</a>.</li>
       </ul>
 
       <h2 id="money">Money</h2>
@@ -172,7 +174,7 @@
       <p>The first time a customer reaches Frustrated, Angry or Furious, it files a <strong>complaint ticket</strong>. Complaints are a warning; the money effects come from the mood itself.</p>
 
       <h2 id="time">Time</h2>
-      <p>The game runs in <strong>days</strong>. Operations start at the slowest speed, and you can change it with the speed button at the bottom of the screen or the keyboard:</p>
+      <p>The game runs in <strong>days</strong>, starting at Day 1. Operations start at the slowest speed, and you can change it with the speed button at the bottom of the screen or the keyboard:</p>
       <div class="fm-table-wrap">
         <table class="fm-table">
           <thead><tr><th>Speed</th><th>Real time per game day</th></tr></thead>
@@ -199,14 +201,19 @@
       <h2 id="after-the-campaign">After the campaign</h2>
       <p>Finish the campaign and two more ways to play open up on your terminal:</p>
       <ul>
-        <li><strong>Freelance Operations</strong> generates a fresh contract every time: a random map with 2 to 5 sources, 4 to 10 customers and 2 to 5 mana types. Every component and upgrade is available, and you work within the credit limit your career has earned. Keep every customer Content for the required streak, which is longer on maps with more customers. A finished job closes with <strong>Contract Complete</strong>; Freelance work doesn't change your title. It also brings customers you won't meet in the campaign. See <a href="buildings.html#freelance-customers">Freelance customers</a>.</li>
-        <li><strong>Custom Requisitions</strong> (Form 27-B) lets you design your own job. You pick the map size, 1 to 8 sources, 2 to 12 customers, the starting budget, which mana types appear, the goal and how long it must hold, your credit limit, and an optional deadline. A finished job closes with <strong>Requisition Complete</strong>.</li>
+        <li><strong>Freelance Operations</strong> generates a fresh contract every time: a random map with 3 to 5 sources of at least three types, 4 to 10 customers and 3 to 5 mana types. Customers are dealt so the same kind rarely shows up twice. Every component and upgrade is available, and you work within the credit limit your career has earned. Keep every customer Content for the required streak, which is longer on maps with more customers. A finished job closes with <strong>Contract Complete</strong>; Freelance work doesn't change your title. It also brings customers you won't meet in the campaign. See <a href="buildings.html#freelance-customers">Freelance customers</a>.</li>
+        <li><strong>Custom Requisitions</strong> (Form 27-B) lets you design your own job. You pick the map size, 1 to 8 sources, 2 to 12 customers, the starting budget, which mana types appear, the goal and how long it must hold, your credit limit, and an optional deadline. The form checks your plan as you fill it in: a field turns red when the job can't be built, and Generate waits until it's fixed. A finished job closes with <strong>Requisition Complete</strong>.</li>
+      </ul>
+      <p>Two more things work with both:</p>
+      <ul>
+        <li><strong>Contract of the Day</strong> arrives earlier, once every component is unlocked (after The Filtering Problem). The Grimoire offers one contract a day, seeded by the date, so everyone plays the same map that day, with its own leaderboard.</li>
+        <li><strong>Contract codes.</strong> Every Freelance contract, Custom Requisition and daily contract has a 16-character code, shown in its briefing, the pause menu and the completion screen. Type or paste one into Form 27-B's Contract Code row to play the same map, or share it with a friend.</li>
       </ul>
       <p>Form 27-B offers three goals:</p>
       <ul>
         <li><strong>Satisfaction Threshold:</strong> keep every customer fully supplied and Content for the set number of days.</li>
         <li><strong>Connect All Consumers:</strong> supply every customer with everything it needs.</li>
-        <li><strong>Overload a Citadel:</strong> the map always includes a <a href="buildings.html#dark-citadel">Dark Citadel</a>. Deliver at least 150% of its total need for the set number of days.</li>
+        <li><strong>Overload a Citadel:</strong> the map always includes a <a href="buildings.html#dark-citadel">Dark Citadel</a>. Deliver at least 150% of its total need for the set number of days. It needs at least four sources and all four of the Citadel's mana types approved.</li>
       </ul>
       <nav class="fm-pager" aria-label="Previous and next page">
         <a class="prev" href="index.html"><span>&larr; Previous</span>Overview</a>

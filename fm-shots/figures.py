@@ -160,6 +160,9 @@ SPEC = [
     },
     {
         "fig": "inspector", "page": "interactions.html",
+        # Held 2026-11-04: shows a reaction on a building's own hex, which the
+        # final 1.1.0 rules removed. Recapture requested; drop "hold" then.
+        "hold": True,
         "shots": [{"name": "fm-inspector"}],
         "callouts": [
             ("reacting hex", "Reacting hex (the academy, where both lines end)", {"side": "below"}),
@@ -169,6 +172,9 @@ SPEC = [
     },
     {
         "fig": "eruption", "page": "interactions.html",
+        # Held 2026-11-04: the hazard zone sits on the bazaar's own hex, which
+        # no longer reacts. Recapture requested; drop "hold" then.
+        "hold": True,
         "caption": "Before and during an eruption. Every conduit in the zone loses part of its flow until the next day's check, and flashes red.",
         "shots": [
             {"name": "fm-eruption-before", "label": "An ordinary day",
@@ -304,8 +310,12 @@ def main():
         pat = re.compile(r"(<!-- fig:%s -->).*?(<!-- /fig:%s -->)" % (re.escape(tag), re.escape(tag)), re.S)
         if not pat.search(text):
             sys.exit(f"missing marker <!-- fig:{tag} --> in {entry['page']}")
-        markup = figure_html(entry)
-        text = pat.sub(lambda m: m.group(1) + "\n      " + markup + "\n      " + m.group(2), text)
+        if entry.get("hold"):
+            # Out-of-date shot: keep the marker, show nothing until recaptured
+            text = pat.sub(lambda m: m.group(1) + "\n      " + m.group(2), text)
+        else:
+            markup = figure_html(entry)
+            text = pat.sub(lambda m: m.group(1) + "\n      " + markup + "\n      " + m.group(2), text)
         changed[page] = text
     for page, text in changed.items():
         with open(page, "w", encoding="utf-8") as f:

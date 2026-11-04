@@ -105,7 +105,7 @@
       <figure class="fm-figure" id="fig-mixed"><div class="fm-shot" style="max-width:973px"><img src="../assets/images/field-manual/fm-mixed-raw-vs-filtered.webp" width="973" height="398" alt="A two-type spring feeding a farm with a two-colored raw line inside a Fertile Growth zone, and a filter next to it sending an insulated water line with a grey sheath." loading="lazy" decoding="async"><svg class="fm-shot-callouts" viewBox="0 0 973 398" preserveAspectRatio="xMinYMin meet" aria-hidden="true" focusable="false"><rect class="fm-co-halo" x="423" y="27" width="54" height="54" rx="4"/><rect class="fm-co-box" x="423" y="27" width="54" height="54" rx="4"/><rect class="fm-co-halo" x="307" y="75" width="147" height="78" rx="4"/><rect class="fm-co-box" x="307" y="75" width="147" height="78" rx="4" stroke-dasharray="6 4"/><rect class="fm-co-halo" x="496" y="31" width="46" height="46" rx="4"/><rect class="fm-co-box" x="496" y="31" width="46" height="46" rx="4"/><g class="fm-co-badge"><circle cx="407" cy="54" r="14"/><text x="407" y="54" font-size="21">1</text></g><g class="fm-co-badge"><circle cx="262" cy="100" r="14"/><text x="262" y="100" font-size="21">2</text></g><g class="fm-co-badge"><circle cx="380" cy="169" r="14"/><text x="380" y="169" font-size="21">3</text></g><g class="fm-co-badge"><circle cx="558" cy="54" r="14"/><text x="558" y="54" font-size="21">4</text></g><g class="fm-co-badge"><circle cx="610" cy="38" r="14"/><text x="610" y="38" font-size="21">5</text></g></svg></div><figcaption><p>Left: a raw mixed line carries both types and reacts with itself. Right: a Filter sends one type on an insulated line. <a class="fm-shot-full" href="../assets/images/field-manual/fm-mixed-raw-vs-filtered.webp">View full size</a></p><ol class="fm-callouts" role="list"><li><span>Mixed source (a Mud Spring)</span></li><li><span>Raw mixed line: earth and water together</span></li><li><span><a href="interactions.html#fertile-growth">Fertile Growth</a> along the raw line</span></li><li><span><a href="components.html#filter">Filter</a> on the next hex</span></li><li><span>Insulated water line: passes fire with no reaction</span></li></ol></figcaption></figure>
       <!-- /fig:mixed -->
       <blockquote class="fm-memo">
-        <p>Mixed sources put out two energy types on one conduit. A raw line can only feed a consumer that needs both. Place a Filter on the hex next to the source to send out just one type.</p>
+        <p>A raw two-type line can only feed a customer that needs both types. Filter it at the source to send just one.</p>
         <cite>Field prompt</cite>
       </blockquote>
       <!-- fig:mixed-source-tip -->
@@ -161,7 +161,7 @@
         <article class="fm-entry" id="wizard-academy">
           <div class="fm-entry-head"><h3><a class="fm-anchor" href="#wizard-academy">Wizard Academy</a></h3></div>
           <dl class="fm-stats"><div><dt>Needs <span class="fm-unit">(mana/day)</span></dt><dd><span class="mana arcana">10</span> <span class="mana fire">3</span> <span class="mana water">2</span></dd></div><div><dt>Pays</dt><dd>30gc/day</dd></div><div><dt>Sensitivity</dt><dd>1.5 feels</dd></div></dl>
-          <p>The best-paying regular customer and the touchiest. Its big arcana demand often needs a conduit of its own.</p>
+          <p>The best-paying regular customer and the touchiest. Its big arcana demand often needs a conduit of its own. It also needs fire and water, so keep those two lines apart or the <a href="interactions.html#steam-clouds">Steam Clouds</a> fog cuts its pay.</p>
         </article>
       </div>
 
@@ -176,7 +176,7 @@
         <article class="fm-entry" id="dwarven-forge" data-keywords="hybrid gas producer">
           <div class="fm-entry-head"><h3><a class="fm-anchor" href="#dwarven-forge">Dwarven Forge</a></h3><span class="badge neutral">Hybrid</span></div>
           <dl class="fm-stats"><div><dt>Needs <span class="fm-unit">(mana/day)</span></dt><dd><span class="mana fire">8</span> <span class="mana earth">5</span></dd></div><div><dt>Produces <span class="fm-unit">(mana/day)</span></dt><dd><span class="mana gas">12 Gas</span></dd></div><div><dt>Pays</dt><dd>26gc/day</dd></div><div><dt>Sensitivity</dt><dd>1.0 feels</dd></div></dl>
-          <p>Turns fire and earth into gas. Its two inputs are the <a href="interactions.html#magma-vents">Magma Vents</a> pair, which earns the Forge 30% more but risks eruptions on everything at the Forge's hex, including its own gas output. That gas output also meets the fire input on the Forge's hex, adding an <a href="interactions.html#explosion-risk">Explosion Risk</a> (and some <a href="interactions.html#mineral-deposits">Mineral Deposits</a> income). Upgrade or <a href="components.html#filter">filter</a> the gas line to soften the hits.</p>
+          <p>Turns fire and earth into gas. Its two inputs are the <a href="interactions.html#magma-vents">Magma Vents</a> pair: run them together on the way in and the Forge earns 30% more, but those lines can erupt. Bring them in from different directions to skip both. Keep its gas output away from its fire input too, or they form an <a href="interactions.html#explosion-risk">Explosion Risk</a> along the way.</p>
         </article>
         <article class="fm-entry" id="mushroom-colony" data-keywords="hybrid gas producer">
           <div class="fm-entry-head"><h3><a class="fm-anchor" href="#mushroom-colony">Mushroom Colony</a></h3><span class="badge neutral">Hybrid</span></div>
@@ -204,7 +204,7 @@
             <tr><th scope="row" id="oracle-pool">Oracle Pool</th><td><span class="mana arcana">5</span> <span class="mana water">3</span></td><td class="n">16</td><td class="n">1.3</td></tr>
             <tr><th scope="row" id="crystal-mine">Crystal Mine</th><td><span class="mana arcana">5</span> <span class="mana earth">3</span></td><td class="n">16</td><td class="n">0.8</td></tr>
             <tr><th scope="row" id="kiln-works">Kiln Works</th><td><span class="mana fire">4</span> <span class="mana earth">4</span></td><td class="n">16</td><td class="n">0.6</td></tr>
-            <tr><th scope="row" id="tunnel-market">Tunnel Market</th><td><span class="mana gas">4</span> <span class="mana earth">3</span></td><td class="n">14</td><td class="n">0.3</td></tr>
+            <tr><th scope="row" id="underground-market">Underground Market</th><td><span class="mana gas">4</span> <span class="mana earth">3</span></td><td class="n">14</td><td class="n">0.3</td></tr>
             <tr><th scope="row" id="brewhouse">Brewhouse</th><td><span class="mana gas">4</span> <span class="mana water">3</span></td><td class="n">14</td><td class="n">0.9</td></tr>
             <tr><th scope="row" id="rune-forge">Rune Forge</th><td><span class="mana arcana">5</span> <span class="mana fire">3</span></td><td class="n">16</td><td class="n">1.1</td></tr>
             <tr><th scope="row" id="war-forge">War Forge</th><td><span class="mana arcana">8</span> <span class="mana fire">5</span> <span class="mana earth">3</span></td><td class="n">32</td><td class="n">1.8</td></tr>
