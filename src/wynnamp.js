@@ -15,10 +15,10 @@
       src: 'assets/music/if-it-dont-bite_final.mp3',
     },
     {
-      id: 'flow_state',
-      title: 'Flow State',
+      id: 'happy_gnome_blues',
+      title: 'Happy Gnome Blues',
       artist: 'The Riddle of Synth',
-      src: 'assets/music/song1.mp3',
+      src: 'assets/music/happy-gnome-blues.mp3',
     },
     {
       id: 'dead_mans_hand',
